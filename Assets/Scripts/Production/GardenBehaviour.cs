@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 
 public class GardenBehaviour : MonoBehaviour
 {
@@ -14,6 +16,11 @@ public class GardenBehaviour : MonoBehaviour
     [Header("Clock")]
     [Range(0.0F, 15.0F)]
     public float duration;
+    [SerializeField]
+    private Image durationBar;
+    [SerializeField]
+    private Image durationBarBackground;
+    public TextMeshProUGUI storedCount;
 
     [Header("Storage")]
     public float storedVegetable;
@@ -27,7 +34,7 @@ public class GardenBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(timer.time);
+        UpdateUi();
 
         if (timer.finished)
         {
@@ -38,6 +45,27 @@ public class GardenBehaviour : MonoBehaviour
         if(storedVegetable == 6)
         {
             timer.Pause();
+        }
+        else
+        {
+            print(timer.time);
+        }
+
+
+    }
+
+    void UpdateUi()
+    {
+        
+
+
+        storedCount.text = storedVegetable.ToString();
+        durationBar.fillAmount = (float)timer.time / (float)duration;
+
+        if (storedVegetable == 6)
+        {
+            //changer couleur de la bar
+
         }
     }
 }

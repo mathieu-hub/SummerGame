@@ -61,8 +61,9 @@ namespace Production
             }
 
             if (Input.GetKeyDown(KeyCode.Space)){
-
+                
                 GameManager.Instance.vegetablesCount += storedVegetable;
+                storedVegetable = 0;
             }
         }
 

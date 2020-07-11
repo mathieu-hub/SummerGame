@@ -289,6 +289,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &679153237 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3646213785757570781, guid: e6bdac863873edd4184416f100c82ef1,
+    type: 3}
+  m_PrefabInstance: {fileID: 4083570329217274383}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &699739558
 GameObject:
   m_ObjectHideFlags: 0
@@ -617,6 +629,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1217226929}
   m_CullTransparentMesh: 0
+--- !u!114 &1267020071 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2090816302799645934, guid: e6bdac863873edd4184416f100c82ef1,
+    type: 3}
+  m_PrefabInstance: {fileID: 4083570329217274383}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1623736897
 GameObject:
   m_ObjectHideFlags: 0
@@ -700,6 +724,30 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1753192312 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8112579726846449945, guid: e6bdac863873edd4184416f100c82ef1,
+    type: 3}
+  m_PrefabInstance: {fileID: 4083570329217274383}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1929064134 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8980062238049489429, guid: e6bdac863873edd4184416f100c82ef1,
+    type: 3}
+  m_PrefabInstance: {fileID: 4083570329217274383}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2026845365
 GameObject:
   m_ObjectHideFlags: 0
@@ -925,10 +973,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1becab500b1f7e469ca0d3ef86f90f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  purinsCount: {fileID: 0}
-  vegetablesCount: {fileID: 0}
-  scrapsCount: {fileID: 0}
-  plansCount: {fileID: 0}
+  purinsCount: {fileID: 1267020071}
+  vegetablesCount: {fileID: 1929064134}
+  scrapsCount: {fileID: 679153237}
+  plansCount: {fileID: 1753192312}
 --- !u!1001 &7643897404485836388
 PrefabInstance:
   m_ObjectHideFlags: 0

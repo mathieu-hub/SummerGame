@@ -25,6 +25,7 @@ namespace Production
         [SerializeField] private Image durationBar;
         [SerializeField] private Image durationBarBackground;
         public TextMeshProUGUI storedCount;
+        private Color green;
 
         [Header("Storage")]
         public int storedVegetable;
@@ -32,6 +33,7 @@ namespace Production
 
         void Start()
         {
+            green = durationBar.color;
             //Start a clock when the Game Start.
             timer = new Clock(duration);
         }
@@ -70,8 +72,7 @@ namespace Production
 
             if (storedVegetable == 6)
             {
-                //changer couleur de la bar
-
+                durationBar.color = Color.red;
             }
         }
 
@@ -81,7 +82,7 @@ namespace Production
             {
                 timer = new Clock(duration);
             }
-
+            durationBar.color = green;
             GameManager.Instance.vegetablesCount += storedVegetable;
             storedVegetable = 0;
         }

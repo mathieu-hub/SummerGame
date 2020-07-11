@@ -408,7 +408,7 @@ MonoBehaviour:
   durationBar: {fileID: 699739560}
   durationBarBackground: {fileID: 699739560}
   storedCount: {fileID: 1217226931}
-  storedVegetable: 0
+  storedVegetable: 5
 --- !u!212 &817317361
 SpriteRenderer:
   m_ObjectHideFlags: 0

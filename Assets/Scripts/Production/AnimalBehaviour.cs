@@ -15,13 +15,13 @@ namespace Production
     {
         #region Variables
 
-        
-
         [Header("Values")]
         [Range(1, 10)]
         [SerializeField] private int inputValue;
+        [SerializeField] private TextMeshProUGUI inputText;
         [Range(1, 10)]
         [SerializeField] private int OutputValue;
+        [SerializeField] private TextMeshProUGUI outputText;
 
         [Header("Clock")]
         [Range(1F, 60F)]
@@ -39,8 +39,10 @@ namespace Production
 
         void Start()
         {
+            //Lancer une clock et la mettre en pause pour éviter d'avoir des Null Reference
             timer = new Clock(duration);
             timer.Pause();
+
             inProduction = false;
             green = durationBarBackground.color;
         }
@@ -51,7 +53,6 @@ namespace Production
 
             if (timer.finished)
             {
-                durationBarBackground.color = Color.red;
                 GetProduction();
             }
 
@@ -62,9 +63,11 @@ namespace Production
                 GameManager.Instance.vegetablesCount -= inputValue;
             }
          }
-
+        #region Methods
         void GetProduction()
         {
+            durationBarBackground.color = Color.red;
+
             if (Input.GetKeyDown(KeyCode.W))
             {
                 inProduction = false;
@@ -80,6 +83,10 @@ namespace Production
         {
             timerCountdown.text = timer.time.ToString("0");
             durationBar.fillAmount = (float)timer.time / (float)duration;
+
+            inputText.text = "Input Value : " + inputValue.ToString("0");
+            outputText.text = "Output Value : " + OutputValue.ToString("0");
         }
+        #endregion
     }
 }

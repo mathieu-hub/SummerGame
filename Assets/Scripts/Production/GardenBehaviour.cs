@@ -15,7 +15,9 @@ namespace Production
 
         #region Variables
 
-        public static Clock timer;
+        public Clock timer;
+
+        
 
         [Header("Clock")]
         [Range(0.0F, 15.0F)]
@@ -25,6 +27,7 @@ namespace Production
         [SerializeField] private Image durationBar;
         [SerializeField] private Image durationBarBackground;
         public TextMeshProUGUI storedCount;
+        public TextMeshProUGUI timerCountdown;
         private Color green;
 
         [Header("Storage")]
@@ -45,7 +48,7 @@ namespace Production
             UpdateUi();
 
             //Increase Count
-            if (timer.finished)
+            if (timer.onFinish)
             {
                 Production();
             }
@@ -67,6 +70,7 @@ namespace Production
         #region Methods
         void UpdateUi()
         {
+            timerCountdown.text = timer.time.ToString("0");
             storedCount.text = storedVegetable.ToString();
             durationBar.fillAmount = (float)timer.time / (float)duration;
 

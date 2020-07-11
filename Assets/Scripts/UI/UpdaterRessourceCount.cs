@@ -5,7 +5,9 @@ using Management;
 using TMPro;
 
 namespace UI
-{
+{/// <summary>
+/// XP - This script update the UI Counts
+/// </summary>
     public class UpdaterRessourceCount : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI purinsCount;

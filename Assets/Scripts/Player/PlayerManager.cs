@@ -1,0 +1,17 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using Management;
+
+namespace Player
+{
+    public class PlayerManager : Singleton<PlayerManager>
+    {
+        #region Variables
+
+        //all scripts references.
+        public PlayerController controller = null;
+
+        #endregion
+    }
+}

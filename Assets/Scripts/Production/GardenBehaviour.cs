@@ -17,8 +17,6 @@ namespace Production
 
         public Clock timer;
 
-        
-
         [Header("Clock")]
         [Range(0.0F, 15.0F)]
         public float duration;

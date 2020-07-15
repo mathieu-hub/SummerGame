@@ -8,11 +8,13 @@ namespace Management
     {
 
         #region Variables
+
         [Header("Ressources")]
         public int purinCount;
         public int vegetablesCount;
         public int scrapsCount;
         public int plansCount;
+
         #endregion
         void Awake()
         {

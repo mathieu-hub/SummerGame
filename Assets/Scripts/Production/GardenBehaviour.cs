@@ -15,11 +15,12 @@ namespace Production
 
         #region Variables
 
-        public Clock timer;
+        [HideInInspector] public bool playerHere = false;
 
         [Header("Clock")]
         [Range(0.0F, 15.0F)]
         public float duration;
+        public Clock timer;
 
         [Header("VisualClock")]
         [SerializeField] private Image durationBar;
@@ -60,10 +61,28 @@ namespace Production
                 print(timer.time);
             }*/
 
-            if (Input.GetKeyDown(KeyCode.Space)){
+            if (Input.GetButtonDown("A_Button") && playerHere){
                 GetProduction();
             }
         }
+        #region OnTrigger
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.gameObject.CompareTag("Player"))
+            {
+                playerHere = true;
+            }
+        }
+
+        private void OnTriggerExit2D(Collider2D collision)
+        {
+            if (collision.gameObject.CompareTag("Player"))
+            {
+                playerHere = false;
+            }
+        }
+        #endregion
+
 
         #region Methods
         void UpdateUi()

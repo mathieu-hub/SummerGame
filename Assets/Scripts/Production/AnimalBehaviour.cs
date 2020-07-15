@@ -15,6 +15,8 @@ namespace Production
     {
         #region Variables
 
+        private bool playerHere;
+
         [Header("Values")]
         [Range(1, 10)]
         [SerializeField] private int inputValue;
@@ -56,7 +58,7 @@ namespace Production
                 GetProduction();
             }
 
-            if (Input.GetKeyDown(KeyCode.X)  && inProduction == false && GameManager.Instance.vegetablesCount >= inputValue)
+            if (Input.GetButtonDown("A_Button") && playerHere && inProduction == false && GameManager.Instance.vegetablesCount >= inputValue)
             {
                 inProduction = true;
                 timer.Play();
@@ -68,7 +70,7 @@ namespace Production
         {
             durationBarBackground.color = Color.red;
 
-            if (Input.GetKeyDown(KeyCode.W))
+            if (Input.GetButtonDown("A_Button") && playerHere)
             {
                 inProduction = false;
                 GameManager.Instance.purinCount += OutputValue;
@@ -87,6 +89,24 @@ namespace Production
             inputText.text = "Input Value : " + inputValue.ToString("0");
             outputText.text = "Output Value : " + OutputValue.ToString("0");
         }
+        #endregion
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.gameObject.CompareTag("Player"))
+            {
+                playerHere = true;
+            }
+        }
+
+        private void OnTriggerExit2D(Collider2D collision)
+        {
+            if (collision.gameObject.CompareTag("Player"))
+            {
+                playerHere = false;
+            }
+        }
+        #region OnTrigger
+
         #endregion
     }
 }

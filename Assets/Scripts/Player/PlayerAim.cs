@@ -7,7 +7,9 @@ namespace Player
 
     public class PlayerAim : MonoBehaviour
     {
-        #region
+        #region Variables
+
+        //GameObject References
         SpriteRenderer aimRenderer;
         public GameObject aim;
 
@@ -15,9 +17,8 @@ namespace Player
         [HideInInspector] public Vector3 rotationVector = Vector3.zero;
         [HideInInspector] public Quaternion orientationQuaternion;
 
-        public float horizontal;
-        public float vertical;
-
+        [HideInInspector] public float horizontal;
+        [HideInInspector] public float vertical;
 
         #endregion
         private void Start()
@@ -33,7 +34,7 @@ namespace Player
             horizontal = Input.GetAxis("Right_Joystick_X");
             vertical = -Input.GetAxis("Right_Joystick_Y");
 
-            
+            //Checker si un input est enclenché.
             if (horizontal < -0.01 || horizontal > 0.01 || vertical < -0.01 || vertical > 0.01)
             {
                 aimRenderer.enabled = true;

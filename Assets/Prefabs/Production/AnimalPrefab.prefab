@@ -273,7 +273,7 @@ GameObject:
   - component: {fileID: 240725376}
   - component: {fileID: 240725377}
   m_Layer: 0
-  m_Name: Animal1
+  m_Name: AnimalPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

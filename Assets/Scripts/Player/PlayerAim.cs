@@ -4,7 +4,6 @@ using UnityEngine;
 
 namespace Player
 {
-
     public class PlayerAim : MonoBehaviour
     {
         #region Variables

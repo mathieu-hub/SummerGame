@@ -14,6 +14,16 @@ namespace Management
         public int vegetablesCount;
         public int scrapsCount;
         public int plansCount;
+
+        [Header("Animals")]
+        public int chickensCount;
+        public int cowsCount;
+        public int pigsCount;
+        public int horsesCount;
+
+        [Header("Garden")]
+        public int numberOfGardens;
+
         #endregion
 
         void Awake()

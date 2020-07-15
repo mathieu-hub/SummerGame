@@ -35,7 +35,7 @@ namespace Player
             vertical = -Input.GetAxis("Right_Joystick_Y");
 
             //Checker si un input est enclenché.
-            if (horizontal < -0.01 || horizontal > 0.01 || vertical < -0.01 || vertical > 0.01)
+            if (horizontal < -0.1 || horizontal > 0.1 || vertical < -0.1 || vertical > 0.1)
             {
                 aimRenderer.enabled = true;
                 //Permet de prendre la position sur un cercle.
@@ -45,7 +45,6 @@ namespace Player
                 //Oriente le sprite selon la position définie.
                 gameObject.transform.rotation = orientationQuaternion;
 
-               
             }
             else
             {

@@ -44,6 +44,8 @@ namespace Player
                 orientationQuaternion = Quaternion.Euler(rotationVector);
                 //Oriente le sprite selon la position définie.
                 gameObject.transform.rotation = orientationQuaternion;
+
+               
             }
             else
             {

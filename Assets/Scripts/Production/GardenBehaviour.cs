@@ -65,6 +65,7 @@ namespace Production
                 GetProduction();
             }
         }
+
         #region OnTrigger
         private void OnTriggerEnter2D(Collider2D collision)
         {
@@ -82,7 +83,6 @@ namespace Production
             }
         }
         #endregion
-
 
         #region Methods
         void UpdateUi()

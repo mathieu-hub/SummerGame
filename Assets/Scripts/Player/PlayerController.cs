@@ -64,7 +64,7 @@ namespace Player
         void Move()
         {
 
-         playerRb.velocity = movementVector * moveSpeed;
+         playerRb.velocity = movementVector * moveSpeed * Time.smoothDeltaTime;
         
         }
     }

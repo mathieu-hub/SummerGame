@@ -15,12 +15,16 @@ namespace Turret
 		public float speed = 70f;
 
 		[SerializeField] private float lifetime = 10f;
+
+		[SerializeField] private GameObject spawnPrefab;
+		GameObject spawnPoint;
 		#endregion
 
 		// Start is called before the first frame update
 		void Start()
 		{
 			myRB = gameObject.GetComponent<Rigidbody2D>();
+			spawnPoint = Instantiate(spawnPrefab, transform.position, transform.rotation);
 		}
 
 		public void Seek(Transform _target , Transform firePoint)
@@ -42,11 +46,14 @@ namespace Turret
 
 			if(lifetime <= 0f)
             {
+				Destroy(spawnPoint);
 				Destroy(gameObject);
             }
 
 			lifetime -= Time.deltaTime;
 		}
-	}
+
+        
+    }
 }
 

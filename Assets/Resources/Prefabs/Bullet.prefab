@@ -68,6 +68,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 8.95
   lifetime: 4
+  spawnPrefab: {fileID: 1548718785097394368, guid: 007a84e932a1af5439981a32ac18a672,
+    type: 3}
 --- !u!1 &3802705628358052932
 GameObject:
   m_ObjectHideFlags: 0

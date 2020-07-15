@@ -56,9 +56,15 @@ namespace Turret
 
 		void LockOnTarget()
 		{
-			Vector3 dir = new Vector3(0, 0, Mathf.Atan2(target.position.x, target.position.y) * 180 / Mathf.PI);
-			Quaternion orientationQuaternion = Quaternion.Euler(- dir);
-			partToRotate.transform.rotation = orientationQuaternion;
+			Vector3 posTarget = target.position;
+			Vector3 posTurret = transform.position;
+			Vector3 relativPos = new Vector3(posTarget.x - posTurret.x, posTarget.y - posTurret.y, 0);
+
+			float angle = Mathf.Atan2(relativPos.y, relativPos.x) /** (180 / Mathf.PI)*/ * Mathf.Rad2Deg;
+
+			if (angle < 0) angle += 360;
+
+			partToRotate.rotation = Quaternion.Euler(0, 0, angle);
 		}
 
 		void Shoot()
@@ -74,8 +80,14 @@ namespace Turret
 		{
 			Gizmos.color = Color.red;
 			Gizmos.DrawWireSphere(transform.position, range);
-			Gizmos.DrawWireSphere(firePoint.position, 0.3f);
+			Gizmos.DrawWireSphere(firePoint.position, 0.2f);
 		}
-	}
+
+        private void OnDrawGizmos()
+        {
+			Gizmos.color = Color.red;
+			Gizmos.DrawWireSphere(firePoint.position, 0.2f);
+		}
+    }
 }
 

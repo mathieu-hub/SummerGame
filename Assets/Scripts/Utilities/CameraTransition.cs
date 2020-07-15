@@ -9,20 +9,15 @@ public class CameraTransition : MonoBehaviour
 
 
     // Transition de caméra 
-    private void Update()
+    void Update()
     {
         if(shortCamIsActivate == true && Input.GetButtonDown("Y_Button"))
         {
+            shortCamIsActivate = false;            
             shortCam.gameObject.SetActive(false);
             largeCam.gameObject.SetActive(true);
-            shortCamIsActivate = false;
         }
 
-        if (shortCamIsActivate == false && Input.GetButtonDown("Y_Button"))
-        {
-            largeCam.gameObject.SetActive(false);
-            shortCam.gameObject.SetActive(true);
-            shortCamIsActivate = true;
-        }
+        //if (largeCam. && Input.GetButtonDown("Y_Button"))
     }  
 }

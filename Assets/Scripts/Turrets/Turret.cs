@@ -4,10 +4,15 @@ using UnityEngine;
 
 namespace Turret
 {
+	/// <summary>
+	/// CHB -- Basic turret class
+	/// </summary>
 	public class Turret : MonoBehaviour
 	{
 		#region Variables
-		[SerializeField]private Transform target;
+		/*[SerializeField]*/private Transform target = null;
+
+		private List<GameObject> enemiesInRange = new List<GameObject>();
 
 		[Header("General")]
 		
@@ -38,23 +43,104 @@ namespace Turret
 		void Start()
 		{
 			gameObject.GetComponent<CircleCollider2D>().radius = range;
+			InvokeRepeating("UpdateTarget", 0f, 0.133f);
 		}
 
 		// Update is called once per frame
 		void Update()
 		{
+			//To do : On enemy's death, need to remove him from this turret enemiesInRange list if it was added ?
+			Debug.Log("Nb of enemies in range: " + enemiesInRange.Count);
+			Debug.Log("Targeting: "+ target);
+			if (target == null)
+            {
+				fireCountdown = 0f;
+				return;
+			}
+
 			LockOnTarget();
 
 			if(fireCountdown <= 0)
             {
 				Shoot();
-				fireCountdown = 1 / fireRate;
+				fireCountdown = 1f / fireRate;
             }
 
 			fireCountdown -= Time.deltaTime;
 		}
 
-		void LockOnTarget()
+		/// <summary>
+		/// CHB -- Updates target to closest enemy in range
+		/// </summary>
+		void UpdateTarget()
+        {
+			if (enemiesInRange.Count == 0)
+            {
+				target = null;
+				return;
+			}
+
+			float shortestDistance = Mathf.Infinity;
+			GameObject nearestEnemy = null;
+
+			foreach (GameObject enemy in enemiesInRange)
+			{
+				float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
+				if (distanceToEnemy < shortestDistance)
+				{
+					shortestDistance = distanceToEnemy;
+					nearestEnemy = enemy;
+				}
+			}
+
+			target = nearestEnemy.transform;
+		}
+
+        #region Collider call-backs
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+			//Add enemy to in-range list
+			if (collision.gameObject.tag == enemyTag)
+            {
+				enemiesInRange.Add(collision.gameObject);
+				//Enemy spottedEnemy = collision.gameObject.GetComponent<Enemy>();
+				//spottedEnemy.targettingTurrets.Add(gameObject);
+			}
+		}
+
+		private void OnTriggerExit2D(Collider2D collision)
+        {
+			//Remove enemy from in-range list
+			if (collision.gameObject.tag == enemyTag)
+            {
+				//Checking if exiting enemy was previously added to enemiesInRange
+				//Comment if really unneeded
+				bool enemyFound = false;
+
+				foreach(GameObject enemy in enemiesInRange)
+                {
+					if (enemy == collision.gameObject)
+                    {
+						enemyFound = true;
+						break;
+					}
+                }
+
+				if (!enemyFound)
+					return;
+				//End of commentable range
+
+				enemiesInRange.Remove(collision.gameObject);
+				//Enemy enemyLost = collision.gameObject.GetComponent<Enemy>();
+				//enemyLost.targettingTurrets.Remove(gameObject);
+			}
+		}
+        #endregion
+
+		/// <summary>
+		/// CHB -- Points firepoint towards target
+		/// </summary>
+        void LockOnTarget()
 		{
 			Vector3 posTarget = target.position;
 			Vector3 posTurret = transform.position;
@@ -67,6 +153,9 @@ namespace Turret
 			partToRotate.rotation = Quaternion.Euler(0, 0, angle);
 		}
 
+		/// <summary>
+		/// Spawn a bullet travelling to target
+		/// </summary>
 		void Shoot()
         {
 			GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);

@@ -50,6 +50,23 @@ namespace Player
                 }
             }
         }
+        public int Heal
+        {
+            set
+            {
+                if (currentHealthPoint == maxHealthPoint)
+                {
+                    return;
+                }
+
+                currentHealthPoint += value;
+
+                if(currentHealthPoint >= maxHealthPoint)
+                {
+                    currentHealthPoint = maxHealthPoint;
+                }
+            }
+        }
 
         void Death()
         {

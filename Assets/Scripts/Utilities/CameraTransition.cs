@@ -8,16 +8,22 @@ public class CameraTransition : MonoBehaviour
     bool shortCamIsActivate = true;
 
 
-    // Transition de caméra 
-    void Update()
+    // Transition de caméra          
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(shortCamIsActivate == true && Input.GetButtonDown("Y_Button"))
+        if (collision.gameObject.CompareTag("Player"))
         {
-            shortCamIsActivate = false;            
             shortCam.gameObject.SetActive(false);
             largeCam.gameObject.SetActive(true);
-        }
+        }        
+    }
 
-        //if (largeCam. && Input.GetButtonDown("Y_Button"))
-    }  
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            shortCam.gameObject.SetActive(true);
+            largeCam.gameObject.SetActive(false);
+        }
+    }
 }

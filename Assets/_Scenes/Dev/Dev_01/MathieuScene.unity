@@ -2899,7 +2899,7 @@ MonoBehaviour:
   ennemyPrefab: {fileID: 225565058131935773, guid: e89465a6b0235134ab5b3574dea5facc,
     type: 3}
   spawnPoint: {fileID: 1191384454}
-  timeBreak: 20
+  timeBreak: 21
   waveCountdownTimer: {fileID: 1504632598}
 --- !u!1 &1884366578
 GameObject:

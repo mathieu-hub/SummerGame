@@ -32,7 +32,7 @@ namespace Ennemies
             }
 
             countdown -= Time.deltaTime;
-            waveCountdownTimer.text = Mathf.Floor(countdown).ToString();
+            waveCountdownTimer.text = Mathf.Round(countdown).ToString();
 		}
 
         IEnumerator SpawnWave()

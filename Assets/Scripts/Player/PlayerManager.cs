@@ -11,6 +11,7 @@ namespace Player
         //all scripts references.
         public PlayerController controller = null;
         public PlayerAim Aim = null;
+        public PlayerLife Life = null;
         #endregion
 
         

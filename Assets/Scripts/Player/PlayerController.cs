@@ -17,9 +17,10 @@ namespace Player
         [SerializeField] private float moveSpeed = 1;
 
         [Header("Bools")]
-        [SerializeField] bool isMoving = false;
-        [SerializeField] bool isAttacking = false;
-        [SerializeField] bool needToStop = false;
+        [HideInInspector] bool isMoving = false;
+        [HideInInspector] bool isAttacking = false;
+        [HideInInspector] bool needToStop = false;
+        
 
         [Header("References")]
         Rigidbody2D playerRb;

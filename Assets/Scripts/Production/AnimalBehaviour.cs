@@ -48,6 +48,7 @@ namespace Production
 
             inProduction = false;
             green = durationBarBackground.color;
+            
         }
 
          void Update()

@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine.UI;
 using Management;
 
+
 namespace Production
 {
     public class GardenBehaviour : MonoBehaviour
@@ -38,6 +39,7 @@ namespace Production
             green = durationBar.color;
             //Start a clock when the Game Start.
             timer = new Clock(duration);
+
         }
 
         // Update is called once per frame

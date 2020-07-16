@@ -6,7 +6,7 @@ namespace Ennemies
 {
 	public class Waypoints : MonoBehaviour
 	{
-        public Transform[] points;
+        public static Transform[] points;
 
         private void Awake()
         {

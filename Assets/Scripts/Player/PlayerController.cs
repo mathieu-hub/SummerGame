@@ -19,7 +19,7 @@ namespace Player
         [Header("Bools")]
         [HideInInspector] bool isMoving = false;
         [HideInInspector] bool isAttacking = false;
-        [HideInInspector] bool needToStop = false;
+        [HideInInspector] public bool needToStop = false;
         
 
         [Header("References")]
@@ -49,23 +49,27 @@ namespace Player
         {
             horizontal = Input.GetAxis("Left_Joystick_X");
             vertical = -Input.GetAxis("Left_Joystick_Y");
+            if (!needToStop)
+            {
+                if ((horizontal < -0.15 || horizontal > 0.15 || vertical < -0.15 || vertical > 0.15) && !isAttacking /*&& !isDashing*/ )
+                {
 
-            if ((horizontal < -0.15 || horizontal > 0.15 || vertical < -0.15 || vertical > 0.15) && !isAttacking /*&& !isDashing*/ )
-            {
-                isMoving = true;
-                movementVector = new Vector2(horizontal, vertical);
+                    isMoving = true;
+                    movementVector = new Vector2(horizontal, vertical);
+                }
+                else
+                {
+                    isMoving = false;
+                    movementVector = Vector2.zero;
+                }
             }
-            else
-            {
-                isMoving = false;
-                movementVector = Vector2.zero;
-            }
+          
         }
 
         void Move()
         {
 
-         playerRb.velocity = movementVector * moveSpeed * Time.smoothDeltaTime;
+            playerRb.velocity = movementVector * moveSpeed * Time.smoothDeltaTime;
         
         }
     }

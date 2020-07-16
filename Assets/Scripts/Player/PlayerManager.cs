@@ -12,8 +12,13 @@ namespace Player
         public PlayerController controller = null;
         public PlayerAim Aim = null;
         public PlayerLife Life = null;
+
+        private void Awake()
+        {
+            MakeSingleton(true);
+        }
         #endregion
 
-        
+
     }
 }

@@ -24,6 +24,8 @@ namespace Management
         [Header("Garden")]
         public int numberOfGardens;
 
+        [Header("GameObject References")]
+        public GameObject respawnPoint;
         #endregion
 
         void Awake()

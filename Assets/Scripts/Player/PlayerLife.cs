@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Management;
 
 namespace Player
 {
@@ -19,16 +20,36 @@ namespace Player
 
         [Header("UI References")]
         [SerializeField] private Image healthBar;
+
+        public Clock cooldown;
+        [Range(1,10)]
+        [SerializeField] private int waitingTime;
         #endregion
 
         private void Start()
         {
+            cooldown = new Clock(waitingTime);
+            cooldown.Pause();
+
             currentHealthPoint = maxHealthPoint;
         }
 
         private void Update()
         {
             UpdateUi();
+
+            if (currentHealthPoint <= 0)
+            {
+                Death();
+            }
+
+            if (cooldown.onFinish)
+            {
+                PlayerManager.Instance.controller.needToStop = false;
+                currentHealthPoint = maxHealthPoint;
+                cooldown = new Clock(waitingTime);
+                cooldown.Pause();
+            }
         }
 
         #region Methods
@@ -44,10 +65,6 @@ namespace Player
                 //Value doit être défini lorsque l'on appelle cette fonction. On appelle cette méthods comme ceci: PlayerManager.Instance.Life.TakeDamages = damages;
                 currentHealthPoint -= value;
 
-                if (currentHealthPoint <= 0)
-                {
-                    Death();
-                }
             }
         }
         public int Heal
@@ -70,8 +87,11 @@ namespace Player
 
         void Death()
         {
-            
-            AppHelper.Quit();
+           PlayerManager.Instance.controller.needToStop = true;
+           PlayerManager.Instance.transform.position = GameManager.Instance.respawnPoint.transform.position;
+           cooldown.Play();
+           //Black screen Fade
+
         }
 
         void UpdateUi()

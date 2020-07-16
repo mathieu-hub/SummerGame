@@ -5,7 +5,7 @@ public class CameraTransition : MonoBehaviour
 {
     public CinemachineVirtualCamera shortCam;
     public CinemachineVirtualCamera largeCam;
-    bool shortCamIsActivate = true;
+    
 
 
     // Transition de caméra          
@@ -26,4 +26,5 @@ public class CameraTransition : MonoBehaviour
             largeCam.gameObject.SetActive(false);
         }
     }
+
 }

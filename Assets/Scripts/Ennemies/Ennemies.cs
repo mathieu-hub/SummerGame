@@ -31,7 +31,8 @@ namespace Ennemies
         {
             if (wayPointIndex >= Waypoints.points.Length - 1)
             {
-                Destroy(gameObject);
+                speed = 0f;
+                //Destroy(gameObject);
                 return;
             }
             wayPointIndex++;

@@ -1,8 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using Management;
+using System.Collections;
+using System.Collections.Generic;
+using GameCanvas;
 
 namespace Player
 {
@@ -50,6 +51,12 @@ namespace Player
                 cooldown = new Clock(waitingTime);
                 cooldown.Pause();
             }
+
+            if (GameCanvasManager.Instance.blackScreen.fadeFinish)
+            {
+                GameCanvasManager.Instance.blackScreen.fadeFinish = false;
+                GameCanvasManager.Instance.blackScreen.startFadingOUT();
+            }
         }
 
         #region Methods
@@ -90,8 +97,8 @@ namespace Player
            PlayerManager.Instance.controller.needToStop = true;
            PlayerManager.Instance.transform.position = GameManager.Instance.respawnPoint.transform.position;
            cooldown.Play();
-           //Black screen Fade
-
+           GameCanvasManager.Instance.blackScreen.startFadingIN();
+           
         }
 
         void UpdateUi()

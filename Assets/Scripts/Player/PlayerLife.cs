@@ -16,9 +16,11 @@ namespace Player
         [Header("variables")]
         [Range(1,100)]
         public int maxHealthPoint;
+        [Range(0.001f, 0.1f)]
+        public float amountOfHeal;
         public float currentHealthPoint;
         private bool invicible = false;
-        private bool needToheal = false;
+        public bool needToHeal = false;
 
         [Header("UI References")]
         [SerializeField] private Image healthBar;
@@ -40,10 +42,10 @@ namespace Player
         {
             UpdateUi();
 
-            /*if (needToheal)
+            if (needToHeal)
             {
-                Heal = 0.01f;
-            }*/
+                Heal = amountOfHeal;
+            }
 
             if (currentHealthPoint <= 0 && PlayerManager.Instance.controller.playerDead == false)
             {
@@ -52,7 +54,7 @@ namespace Player
 
             if (currentHealthPoint == maxHealthPoint && PlayerManager.Instance.controller.playerDead == true)
             {
-                needToheal = false;
+                needToHeal = false;
                 PlayerManager.Instance.controller.playerDead = false;
                 //cooldown = new Clock(waitingTime);
                 //cooldown.Pause();
@@ -113,11 +115,11 @@ namespace Player
 
         IEnumerator DeathEnum()
         {
-            needToheal = true;
+            needToHeal = true;
             //cooldown.Play();
             PlayerManager.Instance.controller.playerDead = true;
             GameCanvasManager.Instance.blackScreen.startFadingIN();
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(2f);
             PlayerManager.Instance.transform.position = GameManager.Instance.respawnPoint.transform.position;
         }
     }

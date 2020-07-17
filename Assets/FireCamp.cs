@@ -30,33 +30,15 @@ namespace House
 
         private void Start()
         {
-            clock = new Clock(duration);
-            clock.Pause();
-            Debug.Log(clock.time);
             circleCol = gameObject.GetComponent<CircleCollider2D>();
         }
-        private void Update()
-        {
-            if(playerHere && !clockWorking && PlayerManager.Instance.Life.currentHealthPoint < PlayerManager.Instance.Life.maxHealthPoint)
-            {
-                clockWorking = true;
-                Heal();
-            }
-
-            if (clock.onFinish && playerHere)
-            {
-                PlayerManager.Instance.Life.Heal = healAmount;
-                clock.SetTime(duration);
-                clock.Pause();
-                clockWorking = false;
-            }
-        }
-
+       
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.gameObject.CompareTag("PlayerController"))
             {
                 playerHere = true;
+                PlayerManager.Instance.Life.needToHeal = true;
             }
         }
         private void OnTriggerExit2D(Collider2D collision)
@@ -64,9 +46,7 @@ namespace House
             if (collision.gameObject.CompareTag("PlayerController"))
             {
                 playerHere = false;
-                clockWorking = false;
-                clock.SetTime(duration);
-                clock.Pause();
+                PlayerManager.Instance.Life.needToHeal = false;
 
             }
         }
@@ -78,11 +58,7 @@ namespace House
             Gizmos.DrawWireSphere(transform.position, circleCol.radius);
         }
 
-        void Heal()
-        {
-            clock.Play();
-
-        }
+       
     }
 }
 

@@ -13,7 +13,7 @@ public class SiloLifeCount : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        siloLivesText.text = SiloLife.lives + " LIVES";
+        siloLivesText.text = SiloLife.lives.ToString();
     }
 }
 

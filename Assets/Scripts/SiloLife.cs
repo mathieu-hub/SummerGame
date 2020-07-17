@@ -8,6 +8,8 @@ public class SiloLife : MonoBehaviour
     public static int lives;
     public int startLives = 100;
 
+    private bool gameEnded = false;
+
     void Start()
     {
         lives = startLives;
@@ -15,15 +17,20 @@ public class SiloLife : MonoBehaviour
 
     void Update()
     {
+        if (gameEnded)
+        {
+            return;
+        }
+
         if(lives <= 0)
         {
             EndGame();
-        }
-
-        void EndGame()
-        {
-            Debug.Log("Game Over");
-        }
+        }        
+    }
+    void EndGame()
+    {
+        gameEnded = true;
+        Debug.Log("Game Over");
     }
 }
 

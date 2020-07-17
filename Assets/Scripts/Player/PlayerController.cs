@@ -20,7 +20,8 @@ namespace Player
         [HideInInspector] bool isMoving = false;
         [HideInInspector] bool isAttacking = false;
         [HideInInspector] public bool needToStop = false;
-        
+        [HideInInspector] public bool playerDead = false;
+
 
         [Header("References")]
         Rigidbody2D playerRb;
@@ -49,7 +50,7 @@ namespace Player
         {
             horizontal = Input.GetAxis("Left_Joystick_X");
             vertical = -Input.GetAxis("Left_Joystick_Y");
-            if (!needToStop)
+            if (!needToStop && !playerDead)
             {
                 if ((horizontal < -0.15 || horizontal > 0.15 || vertical < -0.15 || vertical > 0.15) && !isAttacking /*&& !isDashing*/ )
                 {

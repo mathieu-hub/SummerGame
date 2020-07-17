@@ -8,6 +8,7 @@ namespace GameCanvas{
     {
         public ScreenFade blackScreen = null;
         public UpdateStructure updateStructure = null;
+        
  
         private void Awake()
         {

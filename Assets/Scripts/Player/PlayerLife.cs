@@ -16,8 +16,9 @@ namespace Player
         [Header("variables")]
         [Range(1,100)]
         public int maxHealthPoint;
-        public int currentHealthPoint;
+        public float currentHealthPoint;
         private bool invicible = false;
+        private bool needToheal = false;
 
         [Header("UI References")]
         [SerializeField] private Image healthBar;
@@ -39,21 +40,27 @@ namespace Player
         {
             UpdateUi();
 
-            if (currentHealthPoint <= 0)
+            /*if (needToheal)
+            {
+                Heal = 0.01f;
+            }*/
+
+            if (currentHealthPoint <= 0 && PlayerManager.Instance.controller.playerDead == false)
             {
                 Death();
             }
 
-            if (cooldown.onFinish)
+            if (currentHealthPoint == maxHealthPoint && PlayerManager.Instance.controller.playerDead == true)
             {
-                PlayerManager.Instance.controller.needToStop = false;
-                currentHealthPoint = maxHealthPoint;
-                cooldown = new Clock(waitingTime);
-                cooldown.Pause();
+                needToheal = false;
+                PlayerManager.Instance.controller.playerDead = false;
+                //cooldown = new Clock(waitingTime);
+                //cooldown.Pause();
             }
 
             if (GameCanvasManager.Instance.blackScreen.fadeFinish)
             {
+                
                 GameCanvasManager.Instance.blackScreen.fadeFinish = false;
                 GameCanvasManager.Instance.blackScreen.startFadingOUT();
             }
@@ -74,7 +81,7 @@ namespace Player
 
             }
         }
-        public int Heal
+        public float Heal
         {
             set
             {
@@ -94,11 +101,8 @@ namespace Player
 
         void Death()
         {
-           PlayerManager.Instance.controller.needToStop = true;
-           PlayerManager.Instance.transform.position = GameManager.Instance.respawnPoint.transform.position;
-           cooldown.Play();
-           GameCanvasManager.Instance.blackScreen.startFadingIN();
-           
+            StartCoroutine("DeathEnum");
+            
         }
 
         void UpdateUi()
@@ -106,6 +110,18 @@ namespace Player
             healthBar.fillAmount = (float)currentHealthPoint / (float)maxHealthPoint;
         }
         #endregion 
+
+        IEnumerator DeathEnum()
+        {
+            needToheal = true;
+            //cooldown.Play();
+            PlayerManager.Instance.controller.playerDead = true;
+            GameCanvasManager.Instance.blackScreen.startFadingIN();
+            yield return new WaitForSeconds(1.5f);
+            PlayerManager.Instance.transform.position = GameManager.Instance.respawnPoint.transform.position;
+        }
     }
+
+    
 }
 

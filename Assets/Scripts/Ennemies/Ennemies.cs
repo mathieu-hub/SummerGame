@@ -32,11 +32,19 @@ namespace Ennemies
             if (wayPointIndex >= Waypoints.points.Length - 1)
             {
                 speed = 0f;
-                //Destroy(gameObject);
+                StartCoroutine (EndPath());
                 return;
             }
             wayPointIndex++;
             target = Waypoints.points[wayPointIndex];
+        }
+
+        // Fait des dégâts au Silo et se détruit 
+        IEnumerator EndPath()
+        {
+            yield return new WaitForSeconds(2f);
+            SiloLife.lives -= 1;
+            Destroy(gameObject);
         }
     }
 }

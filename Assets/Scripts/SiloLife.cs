@@ -15,7 +15,15 @@ public class SiloLife : MonoBehaviour
 
     void Update()
     {
+        if(lives <= 0)
+        {
+            EndGame();
+        }
 
+        void EndGame()
+        {
+            Debug.Log("Game Over");
+        }
     }
 }
 

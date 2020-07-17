@@ -6,7 +6,7 @@ namespace Ennemies
 {
 	public class TurretTest : MonoBehaviour
 	{
-        public Transform target;
+        private Transform target;
         public float range = 15f;
 
 		// Start is called before the first frame update
@@ -41,11 +41,6 @@ namespace Ennemies
             }
         }
 
-		// Update is called once per frame
-		void Update()
-		{
-			
-		}
 
         private void OnDrawGizmosSelected()
         {

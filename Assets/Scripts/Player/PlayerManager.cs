@@ -12,6 +12,7 @@ namespace Player
         public PlayerController controller = null;
         public PlayerAim Aim = null;
         public PlayerLife Life = null;
+        public PlayerAttack attack = null;
         #endregion
 
 

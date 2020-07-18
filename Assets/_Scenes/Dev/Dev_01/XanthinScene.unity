@@ -992,6 +992,30 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 6149384271120404600}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1695450990 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6149384270585069674, guid: a868d786b00ca2844a3fceeca9c93074,
+    type: 3}
+  m_PrefabInstance: {fileID: 6149384271120404600}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1695450992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1695450990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8238125a3564ded498cf8a86598b8808, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isLoadingAttack: 0
+  isAttacking: 0
+  needToCharge: 0
+  loadingTime: 0
+  maxLoadingTime: 100
+  numberOfVegetablesEat: 0
 --- !u!1 &1790240453 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 397770928619161795, guid: c99ce3f31863ecd4c805ba018f952bab,
@@ -1772,6 +1796,11 @@ PrefabInstance:
         type: 3}
       propertyPath: purinCount
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8812934964018579982, guid: 3290be2670d8f4748adb71c8b32581b1,
+        type: 3}
+      propertyPath: vegetablesCount
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3290be2670d8f4748adb71c8b32581b1, type: 3}

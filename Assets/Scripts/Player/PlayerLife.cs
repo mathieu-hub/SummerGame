@@ -88,8 +88,8 @@ namespace Player
             set
             {
                 if (currentHealthPoint == maxHealthPoint)
-                {
-                    return;
+                { return;
+                   
                 }
 
                 currentHealthPoint += value;

@@ -21,18 +21,20 @@ namespace Player
         [Header("Floats")]
         [SerializeField] private float loadingTime;
         private int maxLoadingTime = 100;
-        private int numberOfVegetablesEat = 0;
+        [HideInInspector] public int numberOfVegetablesEat = 0;
         [SerializeField] private int firstLevel;
         [SerializeField] private int secondLevel;
 
         [Header("AttackPosition")]
         [SerializeField] private GameObject instantiatePosition;
-        [SerializeField] private GameObject bullet;
+        [SerializeField] private Object bullet;
         #endregion
 
         private void Start()
         {
             Initialisation();
+
+            bullet = Resources.Load("Prefabs/Bullet");
         }
 
         void Update()

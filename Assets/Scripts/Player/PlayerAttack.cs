@@ -24,6 +24,10 @@ namespace Player
         private int numberOfVegetablesEat = 0;
         [SerializeField] private int firstLevel;
         [SerializeField] private int secondLevel;
+
+        [Header("AttackPosition")]
+        [SerializeField] private GameObject instantiatePosition;
+        [SerializeField] private GameObject bullet;
         #endregion
 
         private void Start()
@@ -121,6 +125,7 @@ namespace Player
                 //Instantiate
                 Debug.Log("Gros bullet");
             }
+            Instantiate(bullet, instantiatePosition.transform.position, Quaternion.identity);
             Initialisation();
         }
 

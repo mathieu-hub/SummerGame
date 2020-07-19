@@ -13,15 +13,19 @@ namespace Player
     public class PlayerAttack : MonoBehaviour
     {
         #region
-        [Header("Variables")]
-        [SerializeField] private bool isLoadingAttack = false;
-        [SerializeField] private bool isAttacking = false;
-        [SerializeField] private bool needToCharge = false;
-        [SerializeField] private float loadingTime;
-        [SerializeField] private int maxLoadingTime = 100;
-        [SerializeField] private int numberOfVegetablesEat = 0;
+        [Header("Bools")]
+        private bool isLoadingAttack = false;
+        private bool isAttacking = false;
+        private bool needToCharge = false;
 
+        [Header("Floats")]
+        [SerializeField] private float loadingTime;
+        private int maxLoadingTime = 100;
+        private int numberOfVegetablesEat = 0;
+        [SerializeField] private int firstLevel;
+        [SerializeField] private int secondLevel;
         #endregion
+
         private void Start()
         {
             Initialisation();
@@ -42,12 +46,13 @@ namespace Player
             if (Input.GetButtonUp("B_Button"))
             {
                 isLoadingAttack = false;
-                
+                PlayerManager.Instance.controller.moveSpeed = PlayerManager.Instance.controller.initialMoveSpeed;
             }
 
             if (isLoadingAttack && isAttacking && needToCharge)
             {
                 Loading();
+                Eating();
             }
 
             if (!isLoadingAttack && isAttacking)
@@ -59,29 +64,44 @@ namespace Player
 
         void Loading()
         {
-            if (loadingTime == 33 && numberOfVegetablesEat == 1)
+            PlayerManager.Instance.controller.moveSpeed = PlayerManager.Instance.controller.loadingMoveSpeed;
+
+            if (loadingTime >= 33 && numberOfVegetablesEat == 1 && GameManager.Instance.vegetablesCount < 1)
             {
-                if (GameManager.Instance.vegetablesCount < 1)
-                {
+
                     needToCharge = false;
-                    Damages();
-                    
-                }
+
             }
-            else if (loadingTime == 66 && numberOfVegetablesEat == 2)
+            else if (loadingTime == 66 && numberOfVegetablesEat == 2 && GameManager.Instance.vegetablesCount < 1)
             {
-                if (GameManager.Instance.vegetablesCount < 1)
-                {
-                    
-                    Damages();
-                    
-                }
+
+                needToCharge = false;
+
             }
             else if (needToCharge)
             {
-                loadingTime += 1;
+                loadingTime += 0.1f;
             }
 
+            if(loadingTime >= maxLoadingTime)
+            {
+                loadingTime = maxLoadingTime;
+            }
+        }
+
+        void Eating()
+        {
+            if(loadingTime >= 50 && numberOfVegetablesEat == 1 && GameManager.Instance.vegetablesCount >= 1)
+            {
+                GameManager.Instance.vegetablesCount -= 1;
+                numberOfVegetablesEat = 2;
+            }
+
+            if (loadingTime >= 100 && numberOfVegetablesEat == 2 && GameManager.Instance.vegetablesCount >= 1)
+            {
+                GameManager.Instance.vegetablesCount -= 1;
+                numberOfVegetablesEat = 3;
+            }
 
         }
 
@@ -89,13 +109,16 @@ namespace Player
         {
             if(numberOfVegetablesEat == 1)
             {
+                //Instantiate
                 Debug.Log("Petit bullet");
             }else if (numberOfVegetablesEat == 2)
             {
+                //Instantiate
                 Debug.Log("Moyen bullet");
             }
             else if (numberOfVegetablesEat == 3)
             {
+                //Instantiate
                 Debug.Log("Gros bullet");
             }
             Initialisation();
@@ -110,6 +133,7 @@ namespace Player
             loadingTime = 0;
             maxLoadingTime = 100;
             numberOfVegetablesEat = 0;
+            
         }
         
     }

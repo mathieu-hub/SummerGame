@@ -13,8 +13,12 @@ namespace Player
     public class PlayerController : MonoBehaviour
     {
         #region Variables
-        [Range(0.1f, 1000f)]
-        [SerializeField] private float moveSpeed = 1;
+        [Range(100, 1000f)]
+        [SerializeField] public float moveSpeed;
+        [Range(100f, 1000f)]
+        [SerializeField] public float initialMoveSpeed;
+        [Range(100f, 1000f)]
+        [SerializeField] public float loadingMoveSpeed;
 
         [Header("Bools")]
         [HideInInspector] bool isMoving = false;
@@ -36,6 +40,7 @@ namespace Player
         void Start()
         {
             playerRb = PlayerManager.Instance.GetComponent<Rigidbody2D>();
+            moveSpeed = initialMoveSpeed;
             //anim = gameObject.GetComponent<Animator>();
         }
 

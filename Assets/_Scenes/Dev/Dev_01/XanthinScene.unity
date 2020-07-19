@@ -1010,12 +1010,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8238125a3564ded498cf8a86598b8808, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLoadingAttack: 0
-  isAttacking: 0
-  needToCharge: 0
   loadingTime: 0
-  maxLoadingTime: 100
-  numberOfVegetablesEat: 0
+  firstLevel: 50
+  secondLevel: 100
 --- !u!1 &1790240453 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 397770928619161795, guid: c99ce3f31863ecd4c805ba018f952bab,
@@ -1617,6 +1614,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6149384270338028359, guid: a868d786b00ca2844a3fceeca9c93074,
+        type: 3}
+      propertyPath: attack
+      value: 
+      objectReference: {fileID: 1695450992}
+    - target: {fileID: 6149384270585069675, guid: a868d786b00ca2844a3fceeca9c93074,
+        type: 3}
+      propertyPath: moveSpeed
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 6149384270585069675, guid: a868d786b00ca2844a3fceeca9c93074,
+        type: 3}
+      propertyPath: initialMoveSpeed
+      value: 201
+      objectReference: {fileID: 0}
+    - target: {fileID: 6149384270585069675, guid: a868d786b00ca2844a3fceeca9c93074,
+        type: 3}
+      propertyPath: loadingMoveSpeed
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8741728877256596884, guid: a868d786b00ca2844a3fceeca9c93074,
         type: 3}

@@ -24,6 +24,7 @@ namespace Player
         [HideInInspector] public int numberOfVegetablesEat = 0;
         [SerializeField] private int firstLevel;
         [SerializeField] private int secondLevel;
+        [HideInInspector] public int lastNumberOfVegetablesEat = 0;
 
         [Header("AttackPosition")]
         [SerializeField] public GameObject instantiatePosition;
@@ -43,6 +44,7 @@ namespace Player
             {
                 Debug.Log("Called");
                 isLoadingAttack = true;
+                lastNumberOfVegetablesEat = 0;
                 isAttacking = true;
                 needToCharge = true;
                 GameManager.Instance.vegetablesCount -= 1;
@@ -72,13 +74,13 @@ namespace Player
         {
             PlayerManager.Instance.controller.moveSpeed = PlayerManager.Instance.controller.loadingMoveSpeed;
 
-            if (loadingTime >= firstLevel && numberOfVegetablesEat == 1 && GameManager.Instance.vegetablesCount < 1)
+            if (loadingTime >= 33 && numberOfVegetablesEat == 1 && GameManager.Instance.vegetablesCount < 1)
             {
 
                     needToCharge = false;
 
             }
-            else if (loadingTime == secondLevel && numberOfVegetablesEat == 2 && GameManager.Instance.vegetablesCount < 1)
+            else if (loadingTime >= firstLevel + 1 && numberOfVegetablesEat == 2 && GameManager.Instance.vegetablesCount < 1)
             {
 
                 needToCharge = false;
@@ -128,6 +130,7 @@ namespace Player
                 Debug.Log("Gros bullet");
             }
             Instantiate(bullet, instantiatePosition.transform.position, Quaternion.identity);
+            lastNumberOfVegetablesEat = numberOfVegetablesEat;
             Initialisation();
         }
 

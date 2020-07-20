@@ -21,10 +21,11 @@ namespace Bullet{
         [Range(100, 1000)]
         private int speed;
 
-        [Header("CircleColliderRadius")]
+       [Header("CircleColliderRadius")]
        [SerializeField] private float storedRadiuslevel1;
        [SerializeField] private float storedRadiuslevel2;
        [SerializeField] private float storedRadiuslevel3;
+       [SerializeField] public int numberOfVegetablesUsed;
 
         private CircleCollider2D circleCol;
         private BoxCollider2D boxCol;
@@ -63,7 +64,7 @@ namespace Bullet{
                 direction = Vector2.zero;
                 boxCol.enabled = false;
                 circleCol.enabled = true;
-                //DamageRange();
+                DamageRange();
                 Damages();
             }
 
@@ -102,20 +103,20 @@ namespace Bullet{
 
         void DamageRange()
         {
-            if(PlayerManager.Instance.attack.numberOfVegetablesEat == 1)
+            if(PlayerManager.Instance.attack.lastNumberOfVegetablesEat == 1)
             {
                 circleCol.radius = storedRadiuslevel1;
-                circleCol.enabled = false;
+                
             }
-            if (PlayerManager.Instance.attack.numberOfVegetablesEat == 2)
+            if (PlayerManager.Instance.attack.lastNumberOfVegetablesEat == 2)
             {
                 circleCol.radius = storedRadiuslevel2;
-                circleCol.enabled = false;
+                
             }
-            if (PlayerManager.Instance.attack.numberOfVegetablesEat == 3)
+            if (PlayerManager.Instance.attack.lastNumberOfVegetablesEat == 3)
             {
                 circleCol.radius = storedRadiuslevel3;
-                circleCol.enabled = false;
+                
             }
 
             

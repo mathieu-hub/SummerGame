@@ -181,12 +181,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHere: 0
-  duration: 15
+  baseDuration: 15
+  duration: 0
+  boostedDuration: 7.5
   durationBar: {fileID: 4041788214828605178}
   durationBarBackground: {fileID: 4041788215651338213}
   storedCount: {fileID: 4041788216452340705}
   timerCountdown: {fileID: 3668384745001007253}
   storedVegetable: 0
+  boosted: 0
+  vegetablesBoostedCount: 0
+  storedTime: 0
 --- !u!58 &1966478167
 CircleCollider2D:
   m_ObjectHideFlags: 0

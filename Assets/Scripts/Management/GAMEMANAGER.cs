@@ -28,6 +28,14 @@ namespace Management
         public GameObject respawnPoint;
         #endregion
 
+        [Header("Towers")]
+        public bool strootUnlock = true;
+        public bool bourloUnlock = false;
+        public bool snipicUnlock = false;
+        public bool tronçoronceUnlock = false;
+        public bool invasiveUnlock = false;
+
+
         void Awake()
         {
             MakeSingleton(true);

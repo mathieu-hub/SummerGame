@@ -8,7 +8,7 @@ public class FadeInButton : MonoBehaviour
     public GameObject AButton;
     private SpriteRenderer boutonRenderer;
 
-    private bool playerHe = false;
+   [HideInInspector] public bool playerHe = false;
 
     void Start()
     {

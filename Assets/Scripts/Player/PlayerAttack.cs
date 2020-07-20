@@ -15,8 +15,8 @@ namespace Player
         #region
         [Header("Bools")]
         public bool isLoadingAttack = false;
-        private bool isAttacking = false;
-        private bool needToCharge = false;
+        public bool isAttacking = false;
+        public bool needToCharge = false;
 
         [Header("Floats")]
         [SerializeField] public float loadingTime;
@@ -94,6 +94,7 @@ namespace Player
             if(loadingTime >= maxLoadingTime)
             {
                 loadingTime = maxLoadingTime;
+                needToCharge = false;
             }
         }
 

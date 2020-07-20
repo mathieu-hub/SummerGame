@@ -25,15 +25,10 @@ namespace Player
         [Header("UI References")]
         [SerializeField] private Image healthBar;
 
-        public Clock cooldown;
-        [Range(1,10)]
-        [SerializeField] private int waitingTime;
         #endregion
 
         private void Start()
         {
-            cooldown = new Clock(waitingTime);
-            cooldown.Pause();
 
             currentHealthPoint = maxHealthPoint;
         }
@@ -56,8 +51,7 @@ namespace Player
             {
                 needToHeal = false;
                 PlayerManager.Instance.controller.playerDead = false;
-                //cooldown = new Clock(waitingTime);
-                //cooldown.Pause();
+            
             }
 
             if (GameCanvasManager.Instance.blackScreen.fadeFinish)

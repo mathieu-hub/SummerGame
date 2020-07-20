@@ -34,7 +34,7 @@ namespace Bullet{
 
         public List<GameObject> ennemiesTouched = new List<GameObject>();
         private GameObject thisEnemy;
-        private int ennemiesCount = 0;
+     
 
         private bool doDamages = false;
         private bool damageDone = false;

@@ -14,11 +14,14 @@ namespace Player
         [SerializeField] private Image vegetable1;
         [SerializeField] private Image vegetable2;
         [SerializeField] private Image vegetable3;
+        [SerializeField] private Color stockColor;
 
 
         // Start is called before the first frame update
         void Start()
         {
+            stockColor = attackbar.color;
+
             vegetable1.enabled = false;
             vegetable2.enabled = false;
             vegetable3.enabled = false;
@@ -52,7 +55,16 @@ namespace Player
                 vegetable3.enabled = false;
             }
 
-            
+
+            if (PlayerManager.Instance.attack.isAttacking && PlayerManager.Instance.attack.needToCharge == false)
+            {
+                attackbar.color = Color.red;
+            }
+            else
+            {
+                attackbar.color = stockColor;
+            }
+
         }
     }
 }

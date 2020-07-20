@@ -9,7 +9,7 @@ namespace Player
     /// This Script makes the player move
     /// </summary>
    
-[HideInInspector] public enum lastMoveDirection { Top, Down, left, Right};
+
     public class PlayerController : MonoBehaviour
     {
         #region Variables

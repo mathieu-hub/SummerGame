@@ -114,7 +114,7 @@ RectTransform:
   - {fileID: 587708781692281131}
   - {fileID: 3767712000786598358}
   m_Father: {fileID: 6149384270338028344}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -193,6 +193,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ccef9e66d2155d45be2cb3cab9e59bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackbar: {fileID: 0}
+  vegetable1: {fileID: 0}
+  vegetable2: {fileID: 0}
+  vegetable3: {fileID: 0}
 --- !u!1 &1253043740
 GameObject:
   m_ObjectHideFlags: 0
@@ -408,7 +412,7 @@ Transform:
   m_Children:
   - {fileID: 1586902046}
   m_Father: {fileID: 6149384270338028344}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &1623736899
 Camera:
@@ -926,7 +930,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.8, y: 0.8, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 6149384271251370407}
   m_Father: {fileID: 6149384270338028344}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1011,7 +1016,6 @@ Transform:
   m_Children:
   - {fileID: 6149384269796761476}
   - {fileID: 6149384270585069677}
-  - {fileID: 6149384271251370407}
   - {fileID: 1623736900}
   - {fileID: 454549058}
   m_Father: {fileID: 0}
@@ -1161,7 +1165,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8238125a3564ded498cf8a86598b8808, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoadingAttack: 0
   loadingTime: 0
+  maxLoadingTime: 100
   numberOfVegetablesEat: 0
   firstLevel: 66
   secondLevel: 100
@@ -1273,13 +1279,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6149384271251370404}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.07900047, y: -0.35299993, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.09875059, y: -0.4412499, z: 0}
+  m_LocalScale: {x: 1.25, y: 1.25, z: 1}
   m_Children:
   - {fileID: 6149384271115367021}
   - {fileID: 1253043741}
-  m_Father: {fileID: 6149384270338028344}
-  m_RootOrder: 2
+  m_Father: {fileID: 6149384269796761476}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6149384271251370405
 MonoBehaviour:

@@ -96,7 +96,7 @@ namespace Bullet{
             horizontal = Input.GetAxis("Right_Joystick_X");
             vertical = -Input.GetAxis("Right_Joystick_Y");
 
-            direction = new Vector2(horizontal, vertical);
+            direction = new Vector2(PlayerManager.Instance.attack.instantiatePosition.transform.position.x - PlayerManager.Instance.transform.position.x, PlayerManager.Instance.attack.instantiatePosition.transform.position.y - PlayerManager.Instance.transform.position.y);
 
         }
 

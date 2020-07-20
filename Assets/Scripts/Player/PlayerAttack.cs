@@ -26,7 +26,7 @@ namespace Player
         [SerializeField] private int secondLevel;
 
         [Header("AttackPosition")]
-        [SerializeField] private GameObject instantiatePosition;
+        [SerializeField] public GameObject instantiatePosition;
         [SerializeField] private Object bullet;
         #endregion
 

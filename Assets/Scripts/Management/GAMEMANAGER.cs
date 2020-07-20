@@ -35,6 +35,8 @@ namespace Management
         public bool tronçoronceUnlock = false;
         public bool invasiveUnlock = false;
 
+        public SocleManager SocleManager = null;
+
 
         void Awake()
         {

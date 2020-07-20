@@ -14,13 +14,13 @@ namespace Player
     {
         #region
         [Header("Bools")]
-        private bool isLoadingAttack = false;
+        public bool isLoadingAttack = false;
         private bool isAttacking = false;
         private bool needToCharge = false;
 
         [Header("Floats")]
-        [SerializeField] private float loadingTime;
-        private int maxLoadingTime = 100;
+        [SerializeField] public float loadingTime;
+        public int maxLoadingTime = 100;
         [HideInInspector] public int numberOfVegetablesEat = 0;
         [SerializeField] private int firstLevel;
         [SerializeField] private int secondLevel;
@@ -72,13 +72,13 @@ namespace Player
         {
             PlayerManager.Instance.controller.moveSpeed = PlayerManager.Instance.controller.loadingMoveSpeed;
 
-            if (loadingTime >= 33 && numberOfVegetablesEat == 1 && GameManager.Instance.vegetablesCount < 1)
+            if (loadingTime >= firstLevel && numberOfVegetablesEat == 1 && GameManager.Instance.vegetablesCount < 1)
             {
 
                     needToCharge = false;
 
             }
-            else if (loadingTime == 66 && numberOfVegetablesEat == 2 && GameManager.Instance.vegetablesCount < 1)
+            else if (loadingTime == secondLevel && numberOfVegetablesEat == 2 && GameManager.Instance.vegetablesCount < 1)
             {
 
                 needToCharge = false;
@@ -97,13 +97,13 @@ namespace Player
 
         void Eating()
         {
-            if(loadingTime >= 50 && numberOfVegetablesEat == 1 && GameManager.Instance.vegetablesCount >= 1)
+            if(loadingTime >= firstLevel && numberOfVegetablesEat == 1 && GameManager.Instance.vegetablesCount >= 1)
             {
                 GameManager.Instance.vegetablesCount -= 1;
                 numberOfVegetablesEat = 2;
             }
 
-            if (loadingTime >= 100 && numberOfVegetablesEat == 2 && GameManager.Instance.vegetablesCount >= 1)
+            if (loadingTime >= secondLevel && numberOfVegetablesEat == 2 && GameManager.Instance.vegetablesCount >= 1)
             {
                 GameManager.Instance.vegetablesCount -= 1;
                 numberOfVegetablesEat = 3;

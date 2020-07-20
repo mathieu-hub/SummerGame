@@ -53,6 +53,7 @@ namespace Bullet{
             //Checker le nombre de légumes consommés pour attaquer pour adapter la zone de dégats;
             
             Movement();
+            //DamageRange();
         }
 
         private void Update()
@@ -104,27 +105,35 @@ namespace Bullet{
             if(PlayerManager.Instance.attack.numberOfVegetablesEat == 1)
             {
                 circleCol.radius = storedRadiuslevel1;
+                circleCol.enabled = false;
             }
             if (PlayerManager.Instance.attack.numberOfVegetablesEat == 2)
             {
                 circleCol.radius = storedRadiuslevel2;
+                circleCol.enabled = false;
             }
             if (PlayerManager.Instance.attack.numberOfVegetablesEat == 3)
             {
                 circleCol.radius = storedRadiuslevel3;
+                circleCol.enabled = false;
             }
 
-            circleCol.enabled = false;
+            
         }
 
         void OnBecameInvisible()
         {
             Destroy(gameObject);
         }
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(transform.position, circleCol.radius);
+        }
 
         void Damages()
         {
-            //DamageRange();
+            
 
             doDamages = true;
 
@@ -145,7 +154,7 @@ namespace Bullet{
                 }
             }
 
-            Dead();
+            
         }
        
         IEnumerator Dead()

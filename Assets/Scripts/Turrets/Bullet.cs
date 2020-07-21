@@ -7,18 +7,18 @@ namespace Turret
 	public class Bullet : MonoBehaviour
 	{
 		#region Variables
-		private Rigidbody2D myRB;
+		protected Rigidbody2D myRB;
 		
 		private Transform target;
 
-		private Vector2 enemyDir;
-		//private EnemyHealth enemyHit;
+		protected Vector2 enemyDir;
+		//protected EnemyHealth enemyHit;
 
 		[SerializeField] private string enemyTag = "Enemy";
 		[Range(1f, 100f)]
-		[SerializeField] private float speed = 70f;
+		[SerializeField] protected float speed = 70f;
 		[Range(0.1f, 10f)]
-		[SerializeField] private float lifetime = 5f;
+		[SerializeField] protected float lifetime = 5f;
 		[Range(1, 50)]
 		[SerializeField] private int damage = 2;
 

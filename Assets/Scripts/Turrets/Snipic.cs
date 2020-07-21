@@ -4,11 +4,14 @@ using UnityEngine;
 
 namespace Turret
 {
+	/// <summary>
+	/// CHB -- A hit scan turret
+	/// </summary>
 	public class Snipic : Turret
 	{
 		#region Variables
 		//private EnemyHealth targetEnemy
-		//[SerializeField] private int damage;
+		[SerializeField] private int damage;
         #endregion
 
         protected override void UpdateTarget()

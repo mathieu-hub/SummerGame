@@ -309,7 +309,7 @@ Transform:
   m_Children:
   - {fileID: 2024742759}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &230053238
 GameObject:
@@ -1320,7 +1320,7 @@ Transform:
   - {fileID: 1398019175}
   - {fileID: 1384471342}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &957605752
 GameObject:
@@ -3042,6 +3042,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 4.41
+  turretDamage: 20
 --- !u!212 &1753260106
 SpriteRenderer:
   m_ObjectHideFlags: 0

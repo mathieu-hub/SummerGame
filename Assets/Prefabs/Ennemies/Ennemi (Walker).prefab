@@ -10,7 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 225565058131935773}
   - component: {fileID: 225565058131935762}
-  - component: {fileID: 225565058131935772}
+  - component: {fileID: 7860718445320644545}
+  - component: {fileID: 37492199353990256}
+  - component: {fileID: 1198710409577037990}
   m_Layer: 0
   m_Name: Ennemi (Walker)
   m_TagString: Ennemy
@@ -82,7 +84,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &225565058131935772
+--- !u!58 &7860718445320644545
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 225565058131935763}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.1
+--- !u!114 &37492199353990256
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -91,7 +109,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 225565058131935763}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9451282c013c2314ba6d3e849cfcc831, type: 3}
+  m_Script: {fileID: 11500000, guid: ddcfe732d4e31414f9dba0f78db95db7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
+  speed: 10
+--- !u!114 &1198710409577037990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 225565058131935763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc87953ddef82f544863c6f50b074758, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0

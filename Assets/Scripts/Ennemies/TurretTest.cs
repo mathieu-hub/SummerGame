@@ -9,6 +9,7 @@ namespace Ennemies
 	{
         private Transform target;
         public float range = 15f;
+        public int turretDamage;
 
 		// Start is called before the first frame update
 		void Start()
@@ -53,8 +54,8 @@ namespace Ennemies
         {
             if (collision.gameObject.CompareTag("Ennemy"))
             {
-                
-                
+                EnnemiesHealth ennemieHealth = collision.transform.GetComponent<EnnemiesHealth>();
+                ennemieHealth.TakeDammage(turretDamage);
             }
         }
     }

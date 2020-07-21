@@ -4,12 +4,8 @@ using UnityEngine;
 
 namespace Ennemies
 {
-	public class Ennemies : MonoBehaviour
-	{
-        //Health
-        public int maxHealth = 100;
-        public int currenthealth;
-        
+    public class EnnemiesMovement : MonoBehaviour
+    {
         //Movement
         public float speed = 10f;
         private Transform target;
@@ -18,23 +14,7 @@ namespace Ennemies
         void Start()
         {
             target = Waypoints.points[0];
-            
-        }
 
-
-        //Prise de Dégâts et Mort de l'ennemi
-        public void TakeDammage(int damage)
-        {
-
-            if (currenthealth <= 0)
-            {
-                Die();
-            }
-        }
-
-        private void Die()
-        {
-            Destroy(gameObject);
         }
 
         private void Update()
@@ -54,7 +34,7 @@ namespace Ennemies
             if (wayPointIndex >= Waypoints.points.Length - 1)
             {
                 speed = 0f;
-                StartCoroutine (EndPath());
+                StartCoroutine(EndPath());
                 return;
             }
             wayPointIndex++;

@@ -113,8 +113,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  canMakeDamage: 1
+  target: {fileID: 0}
+  wayPointIndex: 0
+  canMakeDamage: 0
+  doingDamage: 0
   ennemyDamage: 20
+  speedAttack: 5
 --- !u!114 &1198710409577037990
 MonoBehaviour:
   m_ObjectHideFlags: 0

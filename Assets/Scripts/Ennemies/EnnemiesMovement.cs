@@ -7,13 +7,17 @@ namespace Ennemies
     public class EnnemiesMovement : MonoBehaviour
     {
         //Movement
+        [Header("Movement")]
         public float speed = 10f;
-        private Transform target;
-        private int wayPointIndex = 0;
+        [SerializeField] private Transform target;
+        [SerializeField] private int wayPointIndex = 0;
 
         //Make Damage
-        public bool canMakeDamage = true;
+        [Header("Damage")]
+        public bool canMakeDamage = false;
+        public bool doingDamage = false;
         public int ennemyDamage;
+        public int speedAttack;
 
         void Start()
         {
@@ -31,35 +35,51 @@ namespace Ennemies
             {
                 GetNextWaypoint();
             }
+
+            if (wayPointIndex > 5)
+            {
+                wayPointIndex = 5;
+            }
         }
 
         private void GetNextWaypoint()
-        {
+        {                      
+            
             if (wayPointIndex >= Waypoints.points.Length - 1)
             {
-                speed = 0f;
-                StartCoroutine(EndPath());
-                return;
+                if (!canMakeDamage)
+                {
+                    doingDamage = false;
+                    canMakeDamage = true;
+                    speed = 0f;
+                    StartCoroutine(EndPath());
+                    Debug.Log("called");
+                    return;
+                }
+
             }
-            wayPointIndex++;
-            target = Waypoints.points[wayPointIndex];
+            else
+            {
+                wayPointIndex++;
+                target = Waypoints.points[wayPointIndex];
+            }           
+            
         }
 
-        // Fait des dégâts au Silo et se détruit une fois arrivé au dernier Waypoint.
+        // Fait des dégâts au Silo et se détruit une fois arrivé au dernier Waypoint.       
+        
         IEnumerator EndPath()
         {
-            yield return new WaitForSeconds(2f);
-            if (canMakeDamage)
+            yield return new WaitForSeconds(speedAttack);
+            if (canMakeDamage && !doingDamage)
             {
+                doingDamage = true;
                 SiloLife.lives -= ennemyDamage;
+                yield return new WaitForSeconds(0.3f);
                 canMakeDamage = false;
-            } 
-            
-            /*if (!canMakeDamage)
-            {
-                yield return new WaitForSeconds()
-            }*/
+            }
         }
+
     }
 }
 

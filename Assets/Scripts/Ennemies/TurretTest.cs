@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 namespace Ennemies
 {
 	public class TurretTest : MonoBehaviour
@@ -41,11 +42,20 @@ namespace Ennemies
             }
         }
 
-
         private void OnDrawGizmosSelected()
         {
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(transform.position, range);
+        }
+
+        //Infliger des Dégâts aux Ennemis
+        void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.gameObject.CompareTag("Ennemy"))
+            {
+                
+                
+            }
         }
     }
 }

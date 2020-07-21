@@ -7,7 +7,7 @@ namespace Ennemies
 {
 	public class TurretTest : MonoBehaviour
 	{
-        private Transform target;
+        public Transform target;
         public float range = 15f;
         public int turretDamage;
 
@@ -17,6 +17,11 @@ namespace Ennemies
             InvokeRepeating("UpdateTarget", 0f, 0.5f);
 		}
 
+        private void Update()
+        {
+            UpdateTarget();
+            
+        }
         void UpdateTarget()
         {
             GameObject[] ennemies = GameObject.FindGameObjectsWithTag("Ennemy");

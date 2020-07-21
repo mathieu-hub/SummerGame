@@ -11,6 +11,10 @@ namespace Ennemies
         private Transform target;
         private int wayPointIndex = 0;
 
+        //Make Damage
+        public bool canMakeDamage = true;
+        public int ennemyDamage;
+
         void Start()
         {
             target = Waypoints.points[0];
@@ -45,8 +49,16 @@ namespace Ennemies
         IEnumerator EndPath()
         {
             yield return new WaitForSeconds(2f);
-            SiloLife.lives -= 1;
-            //Destroy(gameObject);
+            if (canMakeDamage)
+            {
+                SiloLife.lives -= ennemyDamage;
+                canMakeDamage = false;
+            } 
+            
+            /*if (!canMakeDamage)
+            {
+                yield return new WaitForSeconds()
+            }*/
         }
     }
 }

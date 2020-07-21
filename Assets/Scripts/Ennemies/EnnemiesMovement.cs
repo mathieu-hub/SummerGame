@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Management;
 
 namespace Ennemies
 {
@@ -21,8 +22,8 @@ namespace Ennemies
 
         void Start()
         {
-            target = Waypoints.points[0];
-
+            //StartingWay();
+            target = GameMaster.Instance.WayMaster.way01[0];
         }
 
         private void Update()
@@ -43,9 +44,9 @@ namespace Ennemies
         }
 
         private void GetNextWaypoint()
-        {                      
-            
-            if (wayPointIndex >= Waypoints.points.Length - 1)
+        {
+            //Répéter pour chaque way
+            if (wayPointIndex >= GameMaster.Instance.WayMaster.way01.Length - 1)
             {
                 if (!canMakeDamage)
                 {
@@ -61,7 +62,7 @@ namespace Ennemies
             else
             {
                 wayPointIndex++;
-                target = Waypoints.points[wayPointIndex];
+                target = GameMaster.Instance.WayMaster.way01[wayPointIndex];
             }           
             
         }
@@ -79,7 +80,7 @@ namespace Ennemies
                 canMakeDamage = false;
             }
         }
-
+        
     }
 }
 

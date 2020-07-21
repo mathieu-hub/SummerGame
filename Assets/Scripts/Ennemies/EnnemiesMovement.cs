@@ -46,7 +46,7 @@ namespace Ennemies
         {
             yield return new WaitForSeconds(2f);
             SiloLife.lives -= 1;
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
     }
 }

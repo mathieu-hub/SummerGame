@@ -54,6 +54,7 @@ namespace Ennemies
         {
             if (collision.gameObject.CompareTag("Ennemy"))
             {
+                Debug.Log("isInRange");
                 EnnemiesHealth ennemieHealth = collision.transform.GetComponent<EnnemiesHealth>();
                 ennemieHealth.TakeDammage(turretDamage);
             }

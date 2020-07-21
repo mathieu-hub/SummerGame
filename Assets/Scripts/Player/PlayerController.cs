@@ -8,7 +8,7 @@ namespace Player
     /// <summary>
     /// This Script makes the player move
     /// </summary>
-   
+
 
     public class PlayerController : MonoBehaviour
     {
@@ -69,14 +69,14 @@ namespace Player
                     movementVector = Vector2.zero;
                 }
             }
-          
+
         }
 
         void Move()
         {
 
             playerRb.velocity = movementVector * moveSpeed * Time.smoothDeltaTime;
-        
+
         }
     }
 }

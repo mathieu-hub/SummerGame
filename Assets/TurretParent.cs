@@ -12,14 +12,21 @@ namespace Tower
         #region
         public string turretName;
         public int vegetablesCost;
+        public int planCost;
         public int scrapCost;
         public int range;
         public int damage;
         public int fireRate;
+
+        [Header("Investissement")]
+        public int scrapUsedIn;
+        public int purinUsedIn;
         #endregion
 
         private void Start()
         {
+            purinUsedIn = vegetablesCost;
+            scrapUsedIn = scrapCost;
             turretName = gameObject.name;
         }
     }

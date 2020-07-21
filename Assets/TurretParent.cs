@@ -11,7 +11,8 @@ namespace Tower
     {
         #region
         public string turretName;
-        public int cost;
+        public int vegetablesCost;
+        public int scrapCost;
         public int range;
         public int damage;
         public int fireRate;

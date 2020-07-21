@@ -63,7 +63,7 @@ namespace Tower
             }
 
             turretName.text = GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().turretName;
-            cost.text = GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().cost.ToString() + " Cout";
+            cost.text = GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().vegetablesCost.ToString() + " Cout";
             fireRate.text = GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().fireRate.ToString() + " Cadence";
             damage.text = GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().damage.ToString() + " Dégats";
             range.text = GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().range.ToString() + " Range";
@@ -71,12 +71,73 @@ namespace Tower
 
         void Buying()
         {
-            if(Input.GetButtonDown("A_Button") && gameObject.GetComponent<FadeInButton>().playerHe && GameManager.Instance.purinCount >= GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().cost)
+            if(Input.GetButtonDown("A_Button") && gameObject.GetComponent<FadeInButton>().playerHe && GameManager.Instance.purinCount >= GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().vegetablesCost && GameManager.Instance.scrapsCount >= GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().scrapCost)
             {
-                Instantiate(GameManager.Instance.SocleManager.Turret[currentIndex], transform.position, Quaternion.identity);
-                GameManager.Instance.purinCount -= GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().cost;
-                gameObject.GetComponent<FadeInButton>().enabled = false;
-                gameObject.SetActive(false);
+                if(currentIndex == 0 && GameManager.Instance.strootUnlock)
+                {
+                    InstantiateTurret();
+                }
+                else if(currentIndex == 0 && GameManager.Instance.strootUnlock == false)
+                {
+                    Debug.Log("Can't buy");
+                }
+
+
+                if (currentIndex == 1 && GameManager.Instance.bourloUnlock)
+                {
+                    InstantiateTurret();
+                }
+                else if (currentIndex == 1 && GameManager.Instance.bourloUnlock == false)
+                {
+                    Debug.Log("Can't buy");
+                }
+
+
+                if (currentIndex == 2 && GameManager.Instance.snipicUnlock)
+                {
+                    InstantiateTurret();
+                }
+                else if (currentIndex == 2 && GameManager.Instance.snipicUnlock == false)
+                {
+                    Debug.Log("Can't buy");
+                }
+
+
+                if (currentIndex == 3 && GameManager.Instance.tronçoronceUnlock)
+                {
+                    InstantiateTurret();
+                }
+                else if (currentIndex == 3 && GameManager.Instance.tronçoronceUnlock == false)
+                {
+                    Debug.Log("Can't buy");
+                }
+
+
+                if (currentIndex == 4 && GameManager.Instance.invasiveUnlock)
+                {
+                    InstantiateTurret();
+                }
+                else if (currentIndex == 4 && GameManager.Instance.invasiveUnlock == false)
+                {
+                    Debug.Log("Can't buy");
+                }
+
+            }
+        }
+        void InstantiateTurret()
+        {
+            Instantiate(GameManager.Instance.SocleManager.Turret[currentIndex], transform.position, Quaternion.identity);
+            GameManager.Instance.purinCount -= GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().vegetablesCost;
+            GameManager.Instance.scrapsCount -= GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().scrapCost;
+            gameObject.GetComponent<CircleCollider2D>().enabled = false;
+            gameObject.SetActive(false);
+        }
+        private void OnDrawGizmos()
+        {
+            if (gameObject.GetComponent<FadeInButton>().playerHe)
+            {
+                Gizmos.color = Color.red;
+                Gizmos.DrawWireSphere(transform.position, GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().range);
             }
         }
 
@@ -117,8 +178,8 @@ namespace Tower
                 }
             }
 
-            
         }
+        
     }
 }
 

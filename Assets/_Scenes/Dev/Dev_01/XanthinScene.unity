@@ -982,7 +982,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turretName: 
-  cost: 2
+  vegetablesCost: 2
+  scrapCost: 0
   range: 1
   damage: 3
   fireRate: 4
@@ -1832,7 +1833,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turretName: 
-  cost: 2
+  vegetablesCost: 2
+  scrapCost: 1
   range: 3
   damage: 4
   fireRate: 1
@@ -2071,7 +2073,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turretName: 
-  cost: 2
+  vegetablesCost: 2
+  scrapCost: 0
   range: 4
   damage: 3
   fireRate: 1
@@ -2337,7 +2340,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turretName: 
-  cost: 3
+  vegetablesCost: 2
+  scrapCost: 0
   range: 1
   damage: 2
   fireRate: 4
@@ -2436,7 +2440,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turretName: 
-  cost: 4
+  vegetablesCost: 2
+  scrapCost: 0
   range: 2
   damage: 3
   fireRate: 1

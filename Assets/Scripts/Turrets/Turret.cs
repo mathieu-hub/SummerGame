@@ -10,9 +10,9 @@ namespace Turret
 	public class Turret : MonoBehaviour
 	{
 		#region Variables
-		/*[SerializeField]*/private Transform target = null;
+		/*[SerializeField]*/protected Transform target = null;
 
-		private List<GameObject> enemiesInRange = new List<GameObject>();
+		protected List<GameObject> enemiesInRange = new List<GameObject>();
 
 		[Header("General")]
 		
@@ -72,7 +72,7 @@ namespace Turret
 		/// <summary>
 		/// CHB -- Updates target to closest enemy in range
 		/// </summary>
-		void UpdateTarget()
+		protected virtual void UpdateTarget()
         {
 			if (enemiesInRange.Count == 0)
             {
@@ -156,7 +156,7 @@ namespace Turret
 		/// <summary>
 		/// Spawn a bullet travelling to target
 		/// </summary>
-		void Shoot()
+		protected virtual void Shoot()
         {
 			GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
 			Bullet bullet = bulletGO.GetComponent<Bullet>();

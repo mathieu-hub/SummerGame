@@ -12,12 +12,20 @@ namespace Turret
 		private Transform target;
 
 		private Vector2 enemyDir;
-		public float speed = 70f;
+		//private EnemyHealth enemyHit;
 
-		[SerializeField] private float lifetime = 10f;
+		[SerializeField] private string enemyTag = "Enemy";
+		[Range(1f, 100f)]
+		[SerializeField] private float speed = 70f;
+		[Range(0.1f, 10f)]
+		[SerializeField] private float lifetime = 5f;
+		[Range(1, 50)]
+		[SerializeField] private int damage = 2;
 
 		[SerializeField] private GameObject spawnPrefab;
 		GameObject spawnPoint;
+
+		private bool hasHit = false;
 		#endregion
 
 		// Start is called before the first frame update
@@ -53,7 +61,23 @@ namespace Turret
 			lifetime -= Time.deltaTime;
 		}
 
-        
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.gameObject.tag == enemyTag)
+            {
+				DealDamage(collision.gameObject);
+            }
+        }
+
+		protected virtual void DealDamage(GameObject enemy)
+        {
+            if (!hasHit)
+            {
+				hasHit = true;
+				//enemyHit = enemy.GetComponent<EnemyHealth>();
+				//enemyHit.TakeDamage(damage);
+			}
+		}
     }
 }
 

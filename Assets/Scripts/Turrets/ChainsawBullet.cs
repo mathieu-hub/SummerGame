@@ -8,14 +8,15 @@ namespace Turret
 	public class ChainsawBullet : Bullet
 	{
         #region Variables
-        Rigidbody2D enemyRB;
+        List<Rigidbody2D> enemiesPushed = new List<Rigidbody2D>();
         [SerializeField] private float pushTime;
         #endregion
 
         protected override void DealDamage(GameObject enemy)
         {
-            enemyHit = enemy.GetComponent<EnnemiesHealth>();
-            enemyRB = enemy.GetComponent<Rigidbody2D>();
+            EnnemiesHealth enemyHit = enemy.GetComponent<EnnemiesHealth>();
+            Rigidbody2D enemyRB = enemy.GetComponent<Rigidbody2D>();
+            enemiesPushed.Add(enemyRB);
 
             enemyHit.TakeDammage(damage);
             
@@ -27,11 +28,19 @@ namespace Turret
             _enemyRB.velocity = myRB.velocity;
             yield return new WaitForSeconds(pushTime);
             _enemyRB.velocity = Vector2.zero;
+            enemiesPushed.Remove(_enemyRB);
         }
 
         private void OnDestroy()
         {
-            enemyRB.velocity = Vector2.zero;
+            if (enemiesPushed.Count > 0)
+            {
+                foreach(Rigidbody2D enemy in enemiesPushed)
+                {
+                    enemy.velocity = Vector2.zero;
+                    enemiesPushed.Remove(enemy);
+                }
+            }
         }
     }
 }

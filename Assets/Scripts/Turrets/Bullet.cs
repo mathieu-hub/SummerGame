@@ -14,7 +14,6 @@ namespace Turret
 		private Transform target;
 
 		protected Vector2 enemyDir;
-        protected EnnemiesHealth enemyHit;
 
         [SerializeField] private string enemyTag = "Enemy";
 		[Range(1f, 100f)]
@@ -84,7 +83,8 @@ namespace Turret
             if (!hasHit)
             {
 				hasHit = true;
-                enemyHit = enemy.GetComponent<EnnemiesHealth>();
+
+				EnnemiesHealth enemyHit = enemy.GetComponent<EnnemiesHealth>();
                 enemyHit.TakeDammage(damage);
 
 				Destroy(spawnPoint);

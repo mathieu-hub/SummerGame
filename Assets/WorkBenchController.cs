@@ -76,10 +76,9 @@ namespace Tower
             }
             if (Input.GetButtonDown("A_Button") && playerHere)
             {
-                canValidate = true;
-                validationTime += 0.2f;
                 BlockerValidation();
                 
+
             }
 
             if (canValidate)
@@ -166,33 +165,55 @@ namespace Tower
 
         void BlockerValidation()
         {
-            if(currentIndex == 0 && GameManager.Instance.strootUnlock || GameManager.Instance.plansCount < GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().planCost)
+            if(currentIndex == 0 && GameManager.Instance.strootUnlock  || GameManager.Instance.plansCount < GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().planCost)
             {
                 canValidate = false;
-                
-              
 
             }
+            else
+            {
+                canValidate = true;
+            }
+
             if (currentIndex == 1 && GameManager.Instance.bourloUnlock || GameManager.Instance.plansCount < GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().planCost)
             {
                 canValidate = false;
                 StartCoroutine("Error");
                 return;
             }
-            if (currentIndex == 2 && GameManager.Instance.snipicUnlock || GameManager.Instance.plansCount < GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().planCost)
+            else
+            {
+                canValidate = true;
+            }
+
+            if (currentIndex == 2 && GameManager.Instance.snipicUnlock|| GameManager.Instance.plansCount < GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().planCost)
             {
                 canValidate = false;
                 StartCoroutine("Error");
             }
-            if (currentIndex == 3 && GameManager.Instance.tronçoronceUnlock || GameManager.Instance.plansCount < GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().planCost)
+            else
+            {
+                canValidate = true;
+            }
+
+            if (currentIndex == 3 && GameManager.Instance.tronçoronceUnlock|| GameManager.Instance.plansCount < GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().planCost)
             {
                 canValidate = false;
                 StartCoroutine("Error");
             }
+            else
+            {
+                canValidate = true;
+            }
+
             if (currentIndex == 4 && GameManager.Instance.invasiveUnlock || GameManager.Instance.plansCount < GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().planCost)
             {
                 canValidate = false;
                 StartCoroutine("Error");
+            }
+            else
+            {
+                canValidate = true;
             }
         }
 

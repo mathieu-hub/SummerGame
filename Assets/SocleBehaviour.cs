@@ -36,6 +36,8 @@ namespace Tower
         [SerializeField] private bool canValidate = false;
         [SerializeField] private bool APressed = false;
 
+        public bool needToIncrease = false;
+
         [SerializeField] private float horizontal;
 
 
@@ -68,6 +70,8 @@ namespace Tower
                 InstantiateTurret();
             }
 
+            
+
         }
 
         #region Methods
@@ -75,26 +79,18 @@ namespace Tower
         {
             validationCircle.fillAmount = validationTime / 100;
 
-            if (Input.GetButtonDown("A_Button") && playerHere && APressed)
-            {
-
-                BlockerValidation();
-
-            }
-
-            if (canValidate)
-            {
-                
-                validationTime += 0.2f;
-            }
-
-            if (Input.GetButtonUp("A_Button") && playerHere && APressed)
+            if (Input.GetButtonUp("A_Button") && playerHere)
             {
                 canValidate = false;
                 validationTime = 0;
 
             }
-           
+            if (Input.GetButtonDown("A_Button") && playerHere)
+            {
+
+                BlockerValidation();
+
+            }
 
             if (canValidate)
             {
@@ -106,27 +102,29 @@ namespace Tower
                 }
             }
 
+
+
         }
 
         void BlockerValidation()
         {
-            if (currentIndex == 0 && GameManager.Instance.strootUnlock == false )
+            if (currentIndex == 0 && GameManager.Instance.strootUnlock == false)
             {
+                Debug.Log("1");
                 if(GameManager.Instance.vegetablesCount < GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().vegetablesCost || GameManager.Instance.scrapsCount < GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().scrapCost)
                 {
+                    Debug.Log("2");
                     canValidate = false;
                     StartCoroutine("Error");
                 }
                 else
                 {
+                    Debug.Log("3");
                     canValidate = true;
                 }
 
             }
-            else
-            {
-                canValidate = true;
-            }
+            
 
 
             if (currentIndex == 1 && GameManager.Instance.strootUnlock == false)
@@ -142,10 +140,7 @@ namespace Tower
                 }
 
             }
-            else
-            {
-                canValidate = true;
-            }
+            
 
 
             if (currentIndex == 2 && GameManager.Instance.strootUnlock == false)
@@ -161,10 +156,7 @@ namespace Tower
                 }
 
             }
-            else
-            {
-                canValidate = true;
-            }
+            
 
 
             if (currentIndex == 3 && GameManager.Instance.strootUnlock == false)
@@ -180,10 +172,7 @@ namespace Tower
                 }
 
             }
-            else
-            {
-                canValidate = true;
-            }
+            
 
             if (currentIndex == 3 && GameManager.Instance.strootUnlock == false)
             {
@@ -198,10 +187,7 @@ namespace Tower
                 }
 
             }
-            else
-            {
-                canValidate = true;
-            }
+            
         }
         void InstantiateTurret()
         {

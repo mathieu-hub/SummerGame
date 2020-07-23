@@ -1967,7 +1967,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turretName: 
   vegetablesCost: 2
-  planCost: 0
+  planCost: 1
   scrapCost: 0
   range: 1
   damage: 3
@@ -3096,7 +3096,6 @@ GameObject:
   - component: {fileID: 1105572161}
   - component: {fileID: 1105572160}
   - component: {fileID: 1105572159}
-  - component: {fileID: 1105572158}
   - component: {fileID: 1105572162}
   m_Layer: 0
   m_Name: Socle
@@ -3105,21 +3104,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1105572158
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1105572157}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12befc77fe9fe1348a79b954d17ca2dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AButton: {fileID: 1121265370}
-  playerHe: 0
-  APressed: 0
 --- !u!58 &1105572159
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3223,14 +3207,21 @@ MonoBehaviour:
   fireRate: {fileID: 459177216}
   Ui: {fileID: 1558617585}
   crossX: {fileID: 2037585149}
+  AButton: {fileID: 1121265370}
   currentIndex: 0
   modifierIndex: 0
-  positions: []
+  positions:
+  - {fileID: 641107728}
+  - {fileID: 2110692003}
+  - {fileID: 112022501}
+  - {fileID: 573759158}
+  - {fileID: 1637346617}
   validationCircle: {fileID: 353323273}
   needToChange: 0
   validationTime: 0
   canValidate: 0
   APressed: 0
+  needToIncrease: 0
   horizontal: 0
 --- !u!1 &1114628425
 GameObject:
@@ -3318,7 +3309,7 @@ GameObject:
   - component: {fileID: 1121265372}
   - component: {fileID: 1121265371}
   m_Layer: 0
-  m_Name: 360_A
+  m_Name: 360_A_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3744,7 +3735,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turretName: 
   vegetablesCost: 2
-  planCost: 0
+  planCost: 1
   scrapCost: 1
   range: 3
   damage: 4
@@ -4898,7 +4889,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turretName: 
   vegetablesCost: 2
-  planCost: 0
+  planCost: 1
   scrapCost: 0
   range: 2
   damage: 3
@@ -6142,7 +6133,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7377318042224793925, guid: ee9486f89e12695498eb588e98c860df, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ee9486f89e12695498eb588e98c860df, type: 3}
 --- !u!1001 &7643897404485836388
 PrefabInstance:
@@ -6320,6 +6312,26 @@ PrefabInstance:
         type: 3}
       propertyPath: strootUnlock
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8812934964018579982, guid: 3290be2670d8f4748adb71c8b32581b1,
+        type: 3}
+      propertyPath: bourloUnlock
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8812934964018579982, guid: 3290be2670d8f4748adb71c8b32581b1,
+        type: 3}
+      propertyPath: snipicUnlock
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8812934964018579982, guid: 3290be2670d8f4748adb71c8b32581b1,
+        type: 3}
+      propertyPath: "tron\xE7oronceUnlock"
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8812934964018579982, guid: 3290be2670d8f4748adb71c8b32581b1,
+        type: 3}
+      propertyPath: invasiveUnlock
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3290be2670d8f4748adb71c8b32581b1, type: 3}

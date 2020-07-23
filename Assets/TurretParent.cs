@@ -21,10 +21,16 @@ namespace Tower
         [Header("Investissement")]
         public int scrapUsedIn;
         public int purinUsedIn;
+
+        [Header("HealthPoint")]
+        public int currentHp;
+        [Range(1,100)]
+        public int maxHp;
         #endregion
 
         private void Start()
         {
+            currentHp = maxHp;
             purinUsedIn = vegetablesCost;
             scrapUsedIn = scrapCost;
             turretName = gameObject.name;

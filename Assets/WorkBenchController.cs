@@ -22,6 +22,7 @@ namespace Tower
         [SerializeField] private TextMeshProUGUI damage;
         [SerializeField] private TextMeshProUGUI fireRate;
         [SerializeField] private GameObject Ui;
+        [SerializeField] private TextMeshProUGUI crossX;
 
 
 
@@ -43,7 +44,7 @@ namespace Tower
         // Start is called before the first frame update
         void Start()
         {
-
+            crossX.enabled = false;
         }
 
         // Update is called once per frame
@@ -53,8 +54,12 @@ namespace Tower
             UpdateIndex();
             UnlockUI();
             Validation();
-            BlockerValidation();
-            Buying();
+
+
+            if (validationTime == 100)
+            {
+                Buying();
+            }
 
         }
 
@@ -67,11 +72,14 @@ namespace Tower
             {
                 canValidate = false;
                 validationTime = 0;
+               
             }
             if (Input.GetButtonDown("A_Button"))
             {
                 canValidate = true;
                 validationTime += 0.2f;
+                BlockerValidation();
+                
             }
 
             if (canValidate)
@@ -95,10 +103,12 @@ namespace Tower
                     GameManager.Instance.bourloUnlock = true;
                     canValidate = false;
                     validationTime = 0f;
+                    return;
 
             }
             else
             {
+               
                 Debug.Log("Can't Buy Buddy"); 
             }
 
@@ -110,10 +120,12 @@ namespace Tower
                 GameManager.Instance.snipicUnlock = true;
                 canValidate = false;
                 validationTime = 0f;
+                return;
 
             }
             else
             {
+               
                 Debug.Log("Can't Buy Buddy");
             }
 
@@ -125,11 +137,13 @@ namespace Tower
                 GameManager.Instance.tronçoronceUnlock = true;
                 canValidate = false;
                 validationTime = 0f;
+                return;
 
             }
             else
             {
                 Debug.Log("Can't Buy Buddy");
+                
             }
 
 
@@ -140,11 +154,13 @@ namespace Tower
                 GameManager.Instance.invasiveUnlock = true;
                 canValidate = false;
                 validationTime = 0f;
+                return;
 
             }
             else
             {
                 Debug.Log("Can't Buy Buddy");
+               
             }
         }
 
@@ -153,22 +169,30 @@ namespace Tower
             if(currentIndex == 0 && GameManager.Instance.strootUnlock || GameManager.Instance.plansCount < GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().planCost)
             {
                 canValidate = false;
+                
+              
+
             }
             if (currentIndex == 1 && GameManager.Instance.bourloUnlock || GameManager.Instance.plansCount < GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().planCost)
             {
                 canValidate = false;
+                StartCoroutine("Error");
+                return;
             }
             if (currentIndex == 2 && GameManager.Instance.snipicUnlock || GameManager.Instance.plansCount < GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().planCost)
             {
                 canValidate = false;
+                StartCoroutine("Error");
             }
             if (currentIndex == 3 && GameManager.Instance.tronçoronceUnlock || GameManager.Instance.plansCount < GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().planCost)
             {
                 canValidate = false;
+                StartCoroutine("Error");
             }
             if (currentIndex == 4 && GameManager.Instance.invasiveUnlock || GameManager.Instance.plansCount < GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().planCost)
             {
                 canValidate = false;
+                StartCoroutine("Error");
             }
         }
 
@@ -305,6 +329,14 @@ namespace Tower
         }
 
         #endregion
+
+        IEnumerator Error()
+        {
+            Debug.Log("Called");
+            crossX.enabled = true;
+            yield return new WaitForSeconds(0.5f);
+            crossX.enabled = false;
+        }
     }
 }
 

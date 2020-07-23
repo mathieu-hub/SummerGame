@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Ennemies;
+
 
 namespace Turret
 {
@@ -103,7 +105,7 @@ namespace Turret
 			if (collision.gameObject.tag == enemyTag)
             {
 				enemiesInRange.Add(collision.gameObject);
-				//Enemy spottedEnemy = collision.gameObject.GetComponent<Enemy>();
+				//EnnemiesHealth spottedEnemy = collision.gameObject.GetComponent<EnnemiesHealth>();
 				//spottedEnemy.targettingTurrets.Add(gameObject);
 			}
 		}

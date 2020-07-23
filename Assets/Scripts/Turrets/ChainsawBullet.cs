@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Ennemies;
 
 namespace Turret
 {
@@ -12,8 +13,8 @@ namespace Turret
 
         protected override void DealDamage(GameObject enemy)
         {
-            //enemyHit = enemy.GetComponent<EnemyHealth>();
-            //enemyHit.TakeDamage(damage);
+            enemyHit = enemy.GetComponent<EnnemiesHealth>();
+            enemyHit.TakeDammage(damage);
             enemyRB = enemy.GetComponent<Rigidbody2D>();
             StartCoroutine(PushEnemy(enemyRB));
         }

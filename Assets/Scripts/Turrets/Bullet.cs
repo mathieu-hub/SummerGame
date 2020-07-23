@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Ennemies;
+
 
 namespace Turret
 {
@@ -12,15 +14,15 @@ namespace Turret
 		private Transform target;
 
 		protected Vector2 enemyDir;
-		//protected EnemyHealth enemyHit;
+        protected EnnemiesHealth enemyHit;
 
-		[SerializeField] private string enemyTag = "Enemy";
+        [SerializeField] private string enemyTag = "Enemy";
 		[Range(1f, 100f)]
 		[SerializeField] protected float speed = 70f;
 		[Range(0.1f, 10f)]
 		[SerializeField] protected float lifetime = 5f;
 		[Range(1, 50)]
-		[SerializeField] private int damage = 2;
+		[SerializeField] protected int damage = 2;
 
 		[SerializeField] private GameObject spawnPrefab;
 		GameObject spawnPoint;
@@ -74,9 +76,9 @@ namespace Turret
             if (!hasHit)
             {
 				hasHit = true;
-				//enemyHit = enemy.GetComponent<EnemyHealth>();
-				//enemyHit.TakeDamage(damage);
-			}
+                enemyHit = enemy.GetComponent<EnnemiesHealth>();
+                enemyHit.TakeDammage(damage);
+            }
 		}
     }
 }

@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Ennemies;
+
 
 namespace Turret
 {
@@ -10,7 +12,7 @@ namespace Turret
 	public class Snipic : Turret
 	{
 		#region Variables
-		//private EnemyHealth targetEnemy
+		private EnnemiesHealth targetEnemy;
 		[SerializeField] private int damage;
         #endregion
 
@@ -36,11 +38,11 @@ namespace Turret
 			}
 
 			target = nearestEnemy.transform;
-			//targetEnemy = nearestEnemy.GetComponent<EnemyHealth>();
+			targetEnemy = nearestEnemy.GetComponent<EnnemiesHealth>();
 		}
-        protected override void Shoot()
+		protected override void Shoot()
         {
-            //targetEnemy.TakeDamage(damage);
+            targetEnemy.TakeDammage(damage);
         }
     }
 }

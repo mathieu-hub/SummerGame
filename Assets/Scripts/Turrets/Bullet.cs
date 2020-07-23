@@ -21,8 +21,8 @@ namespace Turret
 		[SerializeField] protected float speed = 70f;
 		[Range(0.1f, 10f)]
 		[SerializeField] protected float lifetime = 5f;
-		[Range(1, 50)]
-		[SerializeField] protected int damage = 2;
+		//[Range(1, 50)]
+		/*[SerializeField]*/ protected int damage = 2;
 
 		[SerializeField] private GameObject spawnPrefab;
 		GameObject spawnPoint;
@@ -37,9 +37,16 @@ namespace Turret
 			spawnPoint = Instantiate(spawnPrefab, transform.position, transform.rotation);
 		}
 
-		public void Seek(Transform _target , Transform firePoint)
+		/// <summary>
+		/// CHB -- Set target and damage, called by Turret
+		/// </summary>
+		/// <param name="_target"></param>
+		/// <param name="firePoint"></param>
+		/// <param name="_damage"></param>
+		public void Seek(Transform _target , Transform firePoint, int _damage)
         {
 			target = _target;
+			damage = _damage;
 			enemyDir = target.position - firePoint.position;
         }
 
@@ -48,6 +55,7 @@ namespace Turret
 		{
 			if (target == null)
 			{
+				Destroy(spawnPoint);
 				Destroy(gameObject);
 				return;
 			}
@@ -78,7 +86,10 @@ namespace Turret
 				hasHit = true;
                 enemyHit = enemy.GetComponent<EnnemiesHealth>();
                 enemyHit.TakeDammage(damage);
-            }
+
+				Destroy(spawnPoint);
+				Destroy(gameObject);
+			}
 		}
     }
 }

@@ -20,8 +20,10 @@ namespace Turret
 		
 		[Range(1f, 40f)]
 		public float range = 15f;
+		[Range(1, 50)]
+		[SerializeField] protected int damage = 2;
 
-		[Header("Use Bullets (default)")]
+		[Header("Use Bullets")]
 		
 		public GameObject bulletPrefab;
 		
@@ -164,7 +166,7 @@ namespace Turret
 			Bullet bullet = bulletGO.GetComponent<Bullet>();
 
             if (bullet != null)
-                bullet.Seek(target, firePoint);
+                bullet.Seek(target, firePoint, damage);
         }
 
 		void OnDrawGizmosSelected()

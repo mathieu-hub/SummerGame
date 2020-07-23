@@ -108,85 +108,59 @@ namespace Tower
 
         void BlockerValidation()
         {
-            if (currentIndex == 0 && GameManager.Instance.strootUnlock == false)
+            if (currentIndex == 0 && (GameManager.Instance.strootUnlock == false || GameManager.Instance.vegetablesCount < GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().vegetablesCost || GameManager.Instance.scrapsCount < GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().scrapCost))
             {
-                Debug.Log("1");
-                if(GameManager.Instance.vegetablesCount < GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().vegetablesCost || GameManager.Instance.scrapsCount < GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().scrapCost)
-                {
-                    Debug.Log("2");
-                    canValidate = false;
-                    StartCoroutine("Error");
-                }
-                else
-                {
-                    Debug.Log("3");
-                    canValidate = true;
-                }
 
+                Debug.Log("2");
+                canValidate = false;
+                validationTime = 0f;
+                StartCoroutine("Error");
+                return;
+            }
+      
+            if (currentIndex == 1 && (GameManager.Instance.bourloUnlock == false || GameManager.Instance.vegetablesCount < GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().vegetablesCost || GameManager.Instance.scrapsCount < GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().scrapCost))
+            {
+                
+                canValidate = false;
+                validationTime = 0f;
+                StartCoroutine("Error");
+                return;
+            }
+          
+
+
+
+            if (currentIndex == 2 && (GameManager.Instance.snipicUnlock == false || GameManager.Instance.vegetablesCount < GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().vegetablesCost || GameManager.Instance.scrapsCount < GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().scrapCost))
+            {
+                canValidate = false;
+                validationTime = 0f;
+                StartCoroutine("Error");
+                return;
             }
             
 
 
-            if (currentIndex == 1 && GameManager.Instance.strootUnlock == false)
+            if (currentIndex == 3 && (GameManager.Instance.tronçoronceUnlock == false || GameManager.Instance.vegetablesCount < GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().vegetablesCost || GameManager.Instance.scrapsCount < GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().scrapCost))
             {
-                if (GameManager.Instance.vegetablesCount < GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().vegetablesCost || GameManager.Instance.scrapsCount < GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().scrapCost)
-                {
-                    canValidate = false;
-                    StartCoroutine("Error");
-                }
-                else
-                {
-                    canValidate = true;
-                }
-
+                canValidate = false;
+                validationTime = 0f;
+                StartCoroutine("Error");
+                return;
             }
-            
 
-
-            if (currentIndex == 2 && GameManager.Instance.strootUnlock == false)
+            if (currentIndex == 4 && (GameManager.Instance.invasiveUnlock == false || GameManager.Instance.vegetablesCount < GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().vegetablesCost || GameManager.Instance.scrapsCount < GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().scrapCost))
             {
-                if (GameManager.Instance.vegetablesCount < GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().vegetablesCost || GameManager.Instance.scrapsCount < GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().scrapCost)
-                {
-                    canValidate = false;
-                    StartCoroutine("Error");
-                }
-                else
-                {
-                    canValidate = true;
-                }
-
+                canValidate = false;
+                validationTime = 0f;
+                StartCoroutine("Error");
+                return;
             }
-            
 
 
-            if (currentIndex == 3 && GameManager.Instance.strootUnlock == false)
-            {
-                if (GameManager.Instance.vegetablesCount < GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().vegetablesCost || GameManager.Instance.scrapsCount < GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().scrapCost)
-                {
-                    canValidate = false;
-                    StartCoroutine("Error");
-                }
-                else
-                {
-                    canValidate = true;
-                }
 
-            }
-            
 
-            if (currentIndex == 3 && GameManager.Instance.strootUnlock == false)
-            {
-                if (GameManager.Instance.vegetablesCount < GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().vegetablesCost || GameManager.Instance.scrapsCount < GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().scrapCost)
-                {
-                    canValidate = false;
-                    StartCoroutine("Error");
-                }
-                else
-                {
-                    canValidate = true;
-                }
 
-            }
+            canValidate = true;
             
         }
         void InstantiateTurret()

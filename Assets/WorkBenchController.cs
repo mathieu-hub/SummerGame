@@ -68,13 +68,13 @@ namespace Tower
         {
             validationCircle.fillAmount = validationTime / 100;
 
-            if (Input.GetButtonUp("A_Button"))
+            if (Input.GetButtonUp("A_Button") && playerHere)
             {
                 canValidate = false;
                 validationTime = 0;
                
             }
-            if (Input.GetButtonDown("A_Button"))
+            if (Input.GetButtonDown("A_Button") && playerHere)
             {
                 canValidate = true;
                 validationTime += 0.2f;

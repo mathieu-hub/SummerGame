@@ -8,7 +8,9 @@ public class FadeInButton : MonoBehaviour
     public GameObject AButton;
     private SpriteRenderer boutonRenderer;
 
-   public bool playerHe = false;
+    public bool playerHe = false;
+    public bool APressed = false;
+    private bool needToVanish = false;
 
     void Start()
     {
@@ -16,9 +18,18 @@ public class FadeInButton : MonoBehaviour
 
         boutonRenderer = AButton.GetComponent<SpriteRenderer>();
 
-        Color c = boutonRenderer.material.color;
-        c.a = 0f;
-        boutonRenderer.material.color = c;
+        AButton.SetActive(false);
+    }
+
+    private void Update()
+    {
+        if (Input.GetButtonDown("A_Button") && !needToVanish)
+        {
+            needToVanish = true;
+            AButton.SetActive(true);
+        }
+
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -26,7 +37,7 @@ public class FadeInButton : MonoBehaviour
         if (collision.gameObject.CompareTag("PlayerController"))
         {
             playerHe = true;
-            startFadingIN();
+            AButton.SetActive(true);
             
         }
 
@@ -37,42 +48,10 @@ public class FadeInButton : MonoBehaviour
         if (collision.gameObject.CompareTag("PlayerController"))
         {
             playerHe = false;
-            startFadingOUT();
-           
+            APressed = false;
+
         }
     }
 
-    public void startFadingIN()
-    {
-        StartCoroutine("FadeIn");
-    }
-
-    public void startFadingOUT()
-    {
-        StartCoroutine("FadeOut");
-    }
-
-    IEnumerator FadeIn()
-    {
-        for (float f = 0.25f; f <= 1.1; f += 0.25f)
-        {
-            Color c = boutonRenderer.material.color;
-            c.a = f;
-            boutonRenderer.material.color = c;
-            yield return new WaitForSeconds(0.02f);
-        }
-
-    }
-    IEnumerator FadeOut()
-    {
-        for (float f = 1f; f >= -0.05f; f -= 0.1f)
-        {
-            Color c = boutonRenderer.material.color;
-            c.a = f;
-            boutonRenderer.material.color = c;
-            yield return new WaitForSeconds(0.01f);
-        }
-
-
-    }
+   
 }

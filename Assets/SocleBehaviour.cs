@@ -1,196 +1,206 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
+using UnityEngine.UI;
 using Management;
 
 namespace Tower
 {
-    /// <summary>
-    /// This Script makes appeat the Ui for puting Turret on the battlefield
-    /// </summary>
     public class SocleBehaviour : MonoBehaviour
     {
-        #region
+        #region Variables
 
+        [Header("PlayerHere")]
+        [SerializeField] private bool playerHere = false;
 
         [Header("UI")]
         [SerializeField] private TextMeshProUGUI turretName;
-        [SerializeField] private TextMeshProUGUI cost;
+        [SerializeField] private TextMeshProUGUI vegetablesCost;
+        [SerializeField] private TextMeshProUGUI scrapsCost;
         [SerializeField] private TextMeshProUGUI range;
         [SerializeField] private TextMeshProUGUI damage;
         [SerializeField] private TextMeshProUGUI fireRate;
-        [SerializeField] private Image greenCircle;
-        [SerializeField] private GameObject UI;
+        [SerializeField] private GameObject Ui;
+        [SerializeField] private TextMeshProUGUI crossX;
 
-        [Header("Validation")]
+        [SerializeField] private GameObject AButton;
+
+        [Header("Position/TurretImage")]
+        [SerializeField] private int currentIndex = 0;
+        [SerializeField] private int modifierIndex = 0;
+        [SerializeField] private Image[] positions;
+        [SerializeField] private Image validationCircle;
+        [SerializeField] private bool needToChange = false;
         [SerializeField] private float validationTime;
         [SerializeField] private bool canValidate = false;
-        private bool needToChange = false;
+        [SerializeField] private bool APressed = false;
 
-        [Header("Variables Index")]
-        private float horizontal;
-        public int modifierIndex;
-        private int currentIndex = 0;
+        [SerializeField] private float horizontal;
+
+
         #endregion
-
 
         // Start is called before the first frame update
         void Start()
         {
-            UI.SetActive(false);
+            AButton.SetActive(false);
+            crossX.enabled = false;
         }
 
         // Update is called once per frame
         void Update()
         {
-            horizontal = Input.GetAxis("Right_Joystick_X");
-
-            UpdateUI();
+            UpdateUi();
             UpdateIndex();
+            UnlockUI();
             Validation();
-            Buying();
+
+            if (playerHere && Input.GetButtonDown("A_Button"))
+            {
+                APressed = true;
+                AButton.SetActive(false);
+            }
+
+
+            if (validationTime == 100)
+            {
+                InstantiateTurret();
+            }
 
         }
 
-        void UpdateUI()
+        #region Methods
+        void Validation()
         {
-            greenCircle.fillAmount = validationTime / 100;
+            validationCircle.fillAmount = validationTime / 100;
 
-            if (gameObject.GetComponent<FadeInButton>().playerHe)
+            if (Input.GetButtonDown("A_Button") && playerHere && APressed)
             {
-                UI.SetActive(true);
 
-                if (Input.GetButtonDown("A_Button"))
+                BlockerValidation();
+
+            }
+
+            if (canValidate)
+            {
+                
+                validationTime += 0.2f;
+            }
+
+            if (Input.GetButtonUp("A_Button") && playerHere && APressed)
+            {
+                canValidate = false;
+                validationTime = 0;
+
+            }
+           
+
+            if (canValidate)
+            {
+                validationTime += 0.2f;
+
+                if (validationTime >= 100)
                 {
-                    if (currentIndex == 0 && GameManager.Instance.strootUnlock)
-                    {
-                        canValidate = true;
-                    }
-                    else if (currentIndex == 0 && GameManager.Instance.strootUnlock == false)
-                    {
-                        canValidate = false;
-                        Debug.Log("Can't buy");
-                    }
-
-
-                    if (currentIndex == 1 && GameManager.Instance.bourloUnlock)
-                    {
-                        canValidate = true;
-                    }
-                    else if (currentIndex == 1 && GameManager.Instance.bourloUnlock == false)
-                    {
-                        canValidate = false;
-                        Debug.Log("Can't buy");
-                    }
-
-
-                    if (currentIndex == 2 && GameManager.Instance.snipicUnlock)
-                    {
-                        canValidate = true;
-                    }
-                    else if (currentIndex == 2 && GameManager.Instance.snipicUnlock == false)
-                    {
-                        Debug.Log("Can't buy");
-                    }
-
-
-                    if (currentIndex == 3 && GameManager.Instance.tronçoronceUnlock)
-                    {
-                        canValidate = true;
-                    }
-                    else if (currentIndex == 3 && GameManager.Instance.tronçoronceUnlock == false)
-                    {
-                        Debug.Log("Can't buy");
-                    }
-
-
-                    if (currentIndex == 4 && GameManager.Instance.invasiveUnlock)
-                    {
-                        canValidate = true;
-                    }
-                    else if (currentIndex == 4 && GameManager.Instance.invasiveUnlock == false)
-                    {
-                        Debug.Log("Can't buy");
-                    }
+                    validationTime = 100;
                 }
+            }
 
-                if (Input.GetButtonUp("A_Button"))
+        }
+
+        void BlockerValidation()
+        {
+            if (currentIndex == 0 && GameManager.Instance.strootUnlock == false )
+            {
+                if(GameManager.Instance.vegetablesCount < GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().vegetablesCost || GameManager.Instance.scrapsCount < GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().scrapCost)
                 {
                     canValidate = false;
-                    validationTime = 0;
+                    StartCoroutine("Error");
+                }
+                else
+                {
+                    canValidate = true;
                 }
 
             }
             else
             {
-                UI.SetActive(false);
-                canValidate = false;
+                canValidate = true;
             }
 
-            turretName.text = GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().turretName;
-            cost.text = GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().vegetablesCost.ToString() + " Cout";
-            fireRate.text = GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().fireRate.ToString() + " Cadence";
-            damage.text = GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().damage.ToString() + " Dégats";
-            range.text = GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().range.ToString() + " Range";
-        }
 
-        void Buying()
-        {
-            if(validationTime == 100 && gameObject.GetComponent<FadeInButton>().playerHe && GameManager.Instance.purinCount >= GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().vegetablesCost && GameManager.Instance.scrapsCount >= GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().scrapCost)
+            if (currentIndex == 1 && GameManager.Instance.strootUnlock == false)
             {
-                if(currentIndex == 0 && GameManager.Instance.strootUnlock)
-                {
-                    InstantiateTurret();
-                }
-                else if(currentIndex == 0 && GameManager.Instance.strootUnlock == false)
+                if (GameManager.Instance.vegetablesCount < GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().vegetablesCost || GameManager.Instance.scrapsCount < GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().scrapCost)
                 {
                     canValidate = false;
-                    Debug.Log("Can't buy");
+                    StartCoroutine("Error");
                 }
-
-
-                if (currentIndex == 1 && GameManager.Instance.bourloUnlock)
+                else
                 {
-                    InstantiateTurret();
+                    canValidate = true;
                 }
-                else if (currentIndex == 1 && GameManager.Instance.bourloUnlock == false)
+
+            }
+            else
+            {
+                canValidate = true;
+            }
+
+
+            if (currentIndex == 2 && GameManager.Instance.strootUnlock == false)
+            {
+                if (GameManager.Instance.vegetablesCount < GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().vegetablesCost || GameManager.Instance.scrapsCount < GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().scrapCost)
                 {
                     canValidate = false;
-                    Debug.Log("Can't buy");
+                    StartCoroutine("Error");
                 }
-
-
-                if (currentIndex == 2 && GameManager.Instance.snipicUnlock)
+                else
                 {
-                    InstantiateTurret();
-                }
-                else if (currentIndex == 2 && GameManager.Instance.snipicUnlock == false)
-                {
-                    Debug.Log("Can't buy");
+                    canValidate = true;
                 }
 
-
-                if (currentIndex == 3 && GameManager.Instance.tronçoronceUnlock)
-                {
-                    InstantiateTurret();
-                }
-                else if (currentIndex == 3 && GameManager.Instance.tronçoronceUnlock == false)
-                {
-                    Debug.Log("Can't buy");
-                }
+            }
+            else
+            {
+                canValidate = true;
+            }
 
 
-                if (currentIndex == 4 && GameManager.Instance.invasiveUnlock)
+            if (currentIndex == 3 && GameManager.Instance.strootUnlock == false)
+            {
+                if (GameManager.Instance.vegetablesCount < GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().vegetablesCost || GameManager.Instance.scrapsCount < GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().scrapCost)
                 {
-                    InstantiateTurret();
+                    canValidate = false;
+                    StartCoroutine("Error");
                 }
-                else if (currentIndex == 4 && GameManager.Instance.invasiveUnlock == false)
+                else
                 {
-                    Debug.Log("Can't buy");
+                    canValidate = true;
                 }
 
+            }
+            else
+            {
+                canValidate = true;
+            }
+
+            if (currentIndex == 3 && GameManager.Instance.strootUnlock == false)
+            {
+                if (GameManager.Instance.vegetablesCount < GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().vegetablesCost || GameManager.Instance.scrapsCount < GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().scrapCost)
+                {
+                    canValidate = false;
+                    StartCoroutine("Error");
+                }
+                else
+                {
+                    canValidate = true;
+                }
+
+            }
+            else
+            {
+                canValidate = true;
             }
         }
         void InstantiateTurret()
@@ -198,28 +208,40 @@ namespace Tower
             Instantiate(GameManager.Instance.SocleManager.Turret[currentIndex], transform.position, Quaternion.identity);
             GameManager.Instance.purinCount -= GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().vegetablesCost;
             GameManager.Instance.scrapsCount -= GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().scrapCost;
+            canValidate = false;
+            validationTime = 0f;
             gameObject.GetComponent<CircleCollider2D>().enabled = false;
             gameObject.SetActive(false);
         }
-        
-
-        void Validation()
+        void UpdateUi()
         {
-            if (canValidate)
-            {
-                validationTime += 0.2f;
-
-                if(validationTime >= 100)
-                {
-                    validationTime = 100;
-                }
-            }
+            turretName.text = GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().turretName;
+            scrapsCost.text = GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().scrapCost.ToString() + " SCout";
+            vegetablesCost.text = GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().planCost.ToString() + " VCost";
+            fireRate.text = GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().fireRate.ToString() + " Cadence";
+            damage.text = GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().damage.ToString() + " Dégats";
+            range.text = GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().range.ToString() + " Range";
             
+
+            if (playerHere && APressed)
+            {
+                Ui.SetActive(true);
+            }
+            else
+            {
+                Ui.SetActive(false);
+                currentIndex = 0;
+            }
+
+            validationCircle.transform.position = positions[currentIndex].transform.position;
+
         }
 
         void UpdateIndex()
         {
-            if (gameObject.GetComponent<FadeInButton>().playerHe && !canValidate)
+            horizontal = Input.GetAxis("Right_Joystick_X");
+
+            if (playerHere && !canValidate)
             {
                 if (horizontal > 0.15)
                 {
@@ -231,22 +253,22 @@ namespace Tower
                     needToChange = false;
                     modifierIndex = -1;
                 }
-                 
-                if(horizontal < 0.15 && horizontal > -0.15)
+
+                if (horizontal < 0.15 && horizontal > -0.15)
                 {
                     needToChange = true;
                 }
-                
-                if (needToChange) 
+
+                if (needToChange)
                 {
                     needToChange = false;
                     currentIndex += modifierIndex;
 
-                    if( currentIndex < 0)
+                    if (currentIndex < 0)
                     {
                         currentIndex = 0;
                     }
-                    if(currentIndex > 4)
+                    if (currentIndex > 4)
                     {
                         currentIndex = 4;
                     }
@@ -255,15 +277,84 @@ namespace Tower
             }
 
         }
-        private void OnDrawGizmos()
+
+        void UnlockUI()
         {
-            if (gameObject.GetComponent<FadeInButton>().playerHe)
+            if (GameManager.Instance.strootUnlock)
             {
-                Gizmos.color = Color.red;
-                Gizmos.DrawWireSphere(transform.position, GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().range);
+                positions[0].color = Color.white;
+            }
+            else
+            {
+                positions[0].color = Color.black;
+            }
+
+            if (GameManager.Instance.bourloUnlock)
+            {
+                positions[1].color = Color.white;
+            }
+            else
+            {
+                positions[1].color = Color.black;
+            }
+
+            if (GameManager.Instance.snipicUnlock)
+            {
+                positions[2].color = Color.white;
+            }
+            else
+            {
+                positions[2].color = Color.black;
+            }
+
+            if (GameManager.Instance.tronçoronceUnlock)
+            {
+                positions[3].color = Color.white;
+            }
+            else
+            {
+                positions[3].color = Color.black;
+            }
+
+            if (GameManager.Instance.invasiveUnlock)
+            {
+                positions[4].color = Color.white;
+            }
+            else
+            {
+                positions[4].color = Color.black;
+            }
+        }
+        #endregion
+
+
+        #region trigger
+
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.gameObject.CompareTag("PlayerController"))
+            {
+                playerHere = true;
+                AButton.SetActive(true);
             }
         }
 
+        private void OnTriggerExit2D(Collider2D collision)
+        {
+            if (collision.gameObject.CompareTag("PlayerController"))
+            {
+                playerHere = false;
+            }
+        }
+
+        #endregion
+
+        IEnumerator Error()
+        {
+            Debug.Log("Called");
+            crossX.enabled = true;
+            yield return new WaitForSeconds(0.5f);
+            crossX.enabled = false;
+        }
     }
 }
-

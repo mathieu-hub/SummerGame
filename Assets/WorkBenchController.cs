@@ -74,10 +74,10 @@ namespace Tower
                 validationTime = 0;
                
             }
+
             if (Input.GetButtonDown("A_Button") && playerHere)
             {
                 BlockerValidation();
-                
 
             }
 

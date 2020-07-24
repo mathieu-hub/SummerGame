@@ -23,6 +23,7 @@ namespace Tower
         [SerializeField] private TextMeshProUGUI fireRate;
         [SerializeField] private GameObject Ui;
         [SerializeField] private TextMeshProUGUI crossX;
+        
 
         [SerializeField] private GameObject AButton;
 
@@ -176,11 +177,11 @@ namespace Tower
         void UpdateUi()
         {
             turretName.text = GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().turretName;
-            scrapsCost.text = GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().scrapCost.ToString() + " SCout";
-            purinsCost.text = GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().purinsCost.ToString() + " PCost";
-            fireRate.text = GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().fireRate.ToString() + " Cadence";
-            damage.text = GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().damage.ToString() + " Dégats";
-            range.text = GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().range.ToString() + " Range";
+            scrapsCost.text = GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().scrapCost.ToString();
+            purinsCost.text = GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().purinsCost.ToString();
+            fireRate.text = GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().fireRate.ToString();
+            damage.text = GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().damage.ToString();
+            range.text = GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().range.ToString();
             
 
             if (playerHere && APressed)
@@ -242,47 +243,47 @@ namespace Tower
         {
             if (GameManager.Instance.strootUnlock)
             {
-                positions[0].color = Color.white;
+                positions[0].sprite = Resources.Load<Sprite>("Assets/M_poseTourelle_selectionned");
             }
             else
             {
-                positions[0].color = Color.black;
+                positions[0].sprite = Resources.Load<Sprite>("Assets/M_poseTourelle_noUnlock");
             }
 
             if (GameManager.Instance.bourloUnlock)
             {
-                positions[1].color = Color.white;
+                positions[1].sprite = Resources.Load<Sprite>("Assets/M_poseTourelle_selectionned");
             }
             else
             {
-                positions[1].color = Color.black;
+                positions[1].sprite = Resources.Load<Sprite>("Assets/M_poseTourelle_noUnlock");
             }
 
             if (GameManager.Instance.snipicUnlock)
             {
-                positions[2].color = Color.white;
+                positions[2].sprite = Resources.Load<Sprite>("Assets/M_poseTourelle_selectionned");
             }
             else
             {
-                positions[2].color = Color.black;
+                positions[2].sprite = Resources.Load<Sprite>("Assets/M_poseTourelle_noUnlock");
             }
 
             if (GameManager.Instance.tronçoronceUnlock)
             {
-                positions[3].color = Color.white;
+                positions[3].sprite = Resources.Load<Sprite>("Assets/M_poseTourelle_selectionned");
             }
             else
             {
-                positions[3].color = Color.black;
+                positions[3].sprite = Resources.Load<Sprite>("Assets/M_poseTourelle_noUnlock");
             }
 
             if (GameManager.Instance.invasiveUnlock)
             {
-                positions[4].color = Color.white;
+                positions[4].sprite = Resources.Load<Sprite>("Assets/M_poseTourelle_selectionned");
             }
             else
             {
-                positions[4].color = Color.black;
+                positions[4].sprite = Resources.Load<Sprite>("Assets/M_poseTourelle_noUnlock");
             }
         }
         #endregion

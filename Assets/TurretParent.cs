@@ -99,6 +99,7 @@ namespace Tower
             UpdateUI();
             Distance();
             DetectInputValidation();
+            DetectInputDelete();
 
 
             distance = Vector3.Distance(PlayerManager.Instance.transform.localPosition, transform.position);
@@ -106,6 +107,9 @@ namespace Tower
 
         void UpdateUI()
         {
+            validationCircle.fillAmount = validationTime / 100;
+            deleteCircle.fillAmount = deleteTime / 100;
+
             UIturretName.text = name;
            
             UIRange.text = range.ToString();
@@ -194,10 +198,10 @@ namespace Tower
 
         void DetectInputValidation()
         {
-            if (Input.GetButtonDown("A_Button") && playerHere)
+            if (Input.GetButtonDown("A_Button") && APressed && !canDelete)
             {
-                BlockerValidation();
-
+                //BlockerValidation();
+                canValidate = true;
             }
 
             if (Input.GetButtonUp("A_Button") && playerHere)
@@ -218,9 +222,35 @@ namespace Tower
             }
         }
 
+        void DetectInputDelete()
+        {
+            if (Input.GetButtonDown("B_Button") && APressed && !canValidate)
+            {
+                canDelete = true;
+
+            }
+
+            if (Input.GetButtonUp("B_Button") && playerHere)
+            {
+                canDelete = false;
+                deleteTime = 0;
+
+            }
+
+            if (canDelete)
+            {
+                deleteTime += 0.2f;
+
+                if (deleteTime >= 100)
+                {
+                    deleteTime = 100;
+                }
+            }
+        }
+
         void BlockerValidation()
         {
-
+            canValidate = true;
         }
 
 

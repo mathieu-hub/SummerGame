@@ -220,7 +220,7 @@ namespace Tower
         void UpdateUi()
         {
             turretName.text = GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().turretName;
-            cost.text = GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().vegetablesCost.ToString() + " Cout";
+            cost.text = GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().planCost.ToString() + " Cout";
             fireRate.text = GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().fireRate.ToString() + " Cadence";
             damage.text = GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().damage.ToString() + " Dégats";
             range.text = GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().range.ToString() + " Range";

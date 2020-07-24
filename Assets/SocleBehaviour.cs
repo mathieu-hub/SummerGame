@@ -16,7 +16,7 @@ namespace Tower
 
         [Header("UI")]
         [SerializeField] private TextMeshProUGUI turretName;
-        [SerializeField] private TextMeshProUGUI vegetablesCost;
+        [SerializeField] private TextMeshProUGUI purinsCost;
         [SerializeField] private TextMeshProUGUI scrapsCost;
         [SerializeField] private TextMeshProUGUI range;
         [SerializeField] private TextMeshProUGUI damage;
@@ -108,7 +108,7 @@ namespace Tower
 
         void BlockerValidation()
         {
-            if (currentIndex == 0 && (GameManager.Instance.strootUnlock == false || GameManager.Instance.vegetablesCount < GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().vegetablesCost || GameManager.Instance.scrapsCount < GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().scrapCost))
+            if (currentIndex == 0 && (GameManager.Instance.strootUnlock == false || GameManager.Instance.purinCount < GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().purinsCost || GameManager.Instance.scrapsCount < GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().scrapCost))
             {
 
                 Debug.Log("2");
@@ -118,7 +118,7 @@ namespace Tower
                 return;
             }
       
-            if (currentIndex == 1 && (GameManager.Instance.bourloUnlock == false || GameManager.Instance.vegetablesCount < GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().vegetablesCost || GameManager.Instance.scrapsCount < GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().scrapCost))
+            if (currentIndex == 1 && (GameManager.Instance.bourloUnlock == false || GameManager.Instance.purinCount < GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().purinsCost || GameManager.Instance.scrapsCount < GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().scrapCost))
             {
                 
                 canValidate = false;
@@ -130,7 +130,7 @@ namespace Tower
 
 
 
-            if (currentIndex == 2 && (GameManager.Instance.snipicUnlock == false || GameManager.Instance.vegetablesCount < GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().vegetablesCost || GameManager.Instance.scrapsCount < GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().scrapCost))
+            if (currentIndex == 2 && (GameManager.Instance.snipicUnlock == false || GameManager.Instance.purinCount < GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().purinsCost || GameManager.Instance.scrapsCount < GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().scrapCost))
             {
                 canValidate = false;
                 validationTime = 0f;
@@ -140,7 +140,7 @@ namespace Tower
             
 
 
-            if (currentIndex == 3 && (GameManager.Instance.tronçoronceUnlock == false || GameManager.Instance.vegetablesCount < GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().vegetablesCost || GameManager.Instance.scrapsCount < GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().scrapCost))
+            if (currentIndex == 3 && (GameManager.Instance.tronçoronceUnlock == false || GameManager.Instance.purinCount < GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().purinsCost || GameManager.Instance.scrapsCount < GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().scrapCost))
             {
                 canValidate = false;
                 validationTime = 0f;
@@ -148,7 +148,7 @@ namespace Tower
                 return;
             }
 
-            if (currentIndex == 4 && (GameManager.Instance.invasiveUnlock == false || GameManager.Instance.vegetablesCount < GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().vegetablesCost || GameManager.Instance.scrapsCount < GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().scrapCost))
+            if (currentIndex == 4 && (GameManager.Instance.invasiveUnlock == false || GameManager.Instance.purinCount < GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().purinsCost || GameManager.Instance.scrapsCount < GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().scrapCost))
             {
                 canValidate = false;
                 validationTime = 0f;
@@ -166,7 +166,7 @@ namespace Tower
         void InstantiateTurret()
         {
             Instantiate(GameManager.Instance.SocleManager.Turret[currentIndex], transform.position, Quaternion.identity);
-            GameManager.Instance.purinCount -= GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().vegetablesCost;
+            GameManager.Instance.purinCount -= GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().purinsCost;
             GameManager.Instance.scrapsCount -= GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().scrapCost;
             canValidate = false;
             validationTime = 0f;
@@ -177,7 +177,7 @@ namespace Tower
         {
             turretName.text = GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().turretName;
             scrapsCost.text = GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().scrapCost.ToString() + " SCout";
-            vegetablesCost.text = GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().planCost.ToString() + " VCost";
+            purinsCost.text = GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().purinsCost.ToString() + " PCost";
             fireRate.text = GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().fireRate.ToString() + " Cadence";
             damage.text = GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().damage.ToString() + " Dégats";
             range.text = GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().range.ToString() + " Range";

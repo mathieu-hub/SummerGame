@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using Player;
+using Management;
 
 namespace Tower
 {
@@ -24,15 +25,27 @@ namespace Tower
         public int damage;
         public int fireRate;
 
+
         [Header("Investissement")]
-        private int scrapUsedIn;
-        private int purinUsedIn;
+        private float scrapUsedIn;
+        private float purinUsedIn;
+        private float scrapTotalAtSell;
+        private float purinTotalAtSell;
 
         [Header("UpgradesValues")]
         public int pCostUp1;
         public int sCostUp1;
         public int pCostUp2;
         public int sCostUp2;
+       
+        //Upgrade Values need to be add to Base Values. They are use to show the values increasing in the UI in previsualisation
+        public int upgradeRange1;
+        public int upgradeDamage1;
+        public int upgradeFireRate1;
+        public int upgradeRange2;
+        public int upgradeDamage2;
+        public int upgradeFireRate2;
+
 
         [Header("HealthPoint")]
         public int currentHp;
@@ -40,13 +53,18 @@ namespace Tower
         public int maxHp;
 
 
-        [Header("UI")]
+        [Header("UI/Values")]
         [SerializeField] private GameObject canvas;
         [SerializeField] private TextMeshProUGUI UIturretName;
         [SerializeField] private TextMeshProUGUI UIRange;
         [SerializeField] private TextMeshProUGUI UIDamage;
         [SerializeField] private TextMeshProUGUI UIFireRate;
         [SerializeField] private GameObject AButton;
+        [Header("UI/Upgrade/Sell")]
+        [SerializeField] private TextMeshProUGUI UPC;
+        [SerializeField] private TextMeshProUGUI USC;
+        [SerializeField] private TextMeshProUGUI SPC;
+        [SerializeField] private TextMeshProUGUI SSC;
 
         //Life
         [SerializeField] private Image lifePoint1;
@@ -85,6 +103,8 @@ namespace Tower
             turretName = gameObject.name;
             AButton.SetActive(false);
             canvas.SetActive(false);
+
+            
         }
 
         private void Update()
@@ -96,13 +116,20 @@ namespace Tower
                 
             }
 
+            if(deleteTime == 100)
+            {
+                Sell();
+            }
+
             UpdateUI();
             Distance();
             DetectInputValidation();
             DetectInputDelete();
 
-
+          
             distance = Vector3.Distance(PlayerManager.Instance.transform.localPosition, transform.position);
+
+            gameObject.GetComponent<CircleCollider2D>().radius = range;
         }
 
         void UpdateUI()
@@ -116,15 +143,22 @@ namespace Tower
             UIDamage.text = damage.ToString();
             UIFireRate.text = fireRate.ToString();
 
+            //Update Sell recipe
+            scrapTotalAtSell = Mathf.Floor(scrapUsedIn / 100 * 40);
+            purinTotalAtSell = Mathf.Floor(purinUsedIn / 100 * 40);
+
+            SPC.text = purinTotalAtSell.ToString();
+            SSC.text = scrapTotalAtSell.ToString();
+
             if (APressed)
             {
                 canvas.SetActive(true);
                 AButton.SetActive(false);
             }
-
-            if (playerHere && !needToVanish && distance <=2)
+            else
             {
-                AButton.SetActive(true);
+                canvas.SetActive(false);
+                AButton.SetActive(false);
             }
 
             //Life System
@@ -186,6 +220,11 @@ namespace Tower
             if(distance <= 2)
             {
                 playerHere = true;
+
+                if (!needToVanish)
+                {
+                    AButton.SetActive(true);
+                }
                 
             }
             else
@@ -254,10 +293,23 @@ namespace Tower
         }
 
 
+        void Sell()
+        {
+            canDelete = false;
+            deleteTime = 0;
+            GameManager.Instance.purinCount += (int)purinTotalAtSell;
+            GameManager.Instance.scrapsCount += (int)scrapTotalAtSell;
+            Instantiate(Resources.Load("Prefabs/Socle"), transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
+
         private void OnDrawGizmos()
         {
-            Gizmos.color = Color.yellow;
-            Gizmos.DrawSphere(transform.position, gameObject.GetComponent<CircleCollider2D>().radius);
+            if (playerHere) {
+                Gizmos.color = Color.yellow;
+                Gizmos.DrawWireSphere(transform.position, gameObject.GetComponent<CircleCollider2D>().radius * 100);
+            }
+            
         }
         
     }

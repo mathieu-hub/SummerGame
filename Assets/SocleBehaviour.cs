@@ -49,6 +49,7 @@ namespace Tower
         {
             AButton.SetActive(false);
             crossX.enabled = false;
+            Ui.SetActive(false);
         }
 
         // Update is called once per frame
@@ -305,6 +306,7 @@ namespace Tower
             if (collision.gameObject.CompareTag("PlayerController"))
             {
                 playerHere = false;
+                APressed = false;
             }
         }
 

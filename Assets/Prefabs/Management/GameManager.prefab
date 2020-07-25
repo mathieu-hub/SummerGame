@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3483673909002007411}
   - component: {fileID: 8812934964018579982}
   - component: {fileID: 1240973464}
+  - component: {fileID: 684382534}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -44,8 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 048728ee6236ec148a6232bbfa4ca27d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  purinCount: 0
-  vegetablesCount: 0
+  purinCount: 10
+  vegetablesCount: 5
   scrapsCount: 0
   plansCount: 0
   chickensCount: 0
@@ -54,6 +55,15 @@ MonoBehaviour:
   horsesCount: 0
   numberOfGardens: 0
   respawnPoint: {fileID: 0}
+  strootUnlock: 1
+  bourloUnlock: 0
+  snipicUnlock: 0
+  "tron\xE7oronceUnlock": 0
+  invasiveUnlock: 0
+  SocleManager: {fileID: 684382534}
+  waves: 0
+  wavesBeforeSeller: 0
+  needToRefeshShop: 0
 --- !u!114 &1240973464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87,6 +97,24 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   horses:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+--- !u!114 &684382534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 44806123558622044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e310b5ef136de7a40969ae55fa58a911, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Turret:
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

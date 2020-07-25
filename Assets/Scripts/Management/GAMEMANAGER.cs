@@ -37,10 +37,29 @@ namespace Management
 
         public SocleManager SocleManager = null;
 
+        [Header("DéroulementDuJeu")]
+        public int waves;
+        public int wavesBeforeSeller;
+        public bool needToRefeshShop = false;
 
         void Awake()
         {
             MakeSingleton(true);
+        }
+
+        private void Update()
+        {
+            if (Input.GetButtonDown("X_Button"))
+            {
+                waves += 1;
+                wavesBeforeSeller -= 1;
+            }
+
+            if(wavesBeforeSeller < 0)
+            {
+                wavesBeforeSeller = 5;
+                needToRefeshShop = true;
+            }
         }
 
     }

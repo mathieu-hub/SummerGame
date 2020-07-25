@@ -101,6 +101,7 @@ MonoBehaviour:
   storedRadiuslevel1: 0.02
   storedRadiuslevel2: 0.028
   storedRadiuslevel3: 0.036
+  numberOfVegetablesUsed: 0
   ennemiesTouched: []
   damages: 5
 --- !u!61 &6566975405879680499
@@ -136,7 +137,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6566975405879680503}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1

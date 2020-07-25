@@ -46,15 +46,17 @@ namespace Bullet{
         // Start is called before the first frame update
         void Start()
         {
+            
+
             rbBullet = GetComponent<Rigidbody2D>();
             circleCol = GetComponent<CircleCollider2D>();
             boxCol = GetComponent<BoxCollider2D>();
-            //DamageRange();
+            
             
             //Checker le nombre de légumes consommés pour attaquer pour adapter la zone de dégats;
             
             Movement();
-            //DamageRange();
+            DamageRange();
         }
 
         private void Update()
@@ -64,13 +66,16 @@ namespace Bullet{
                 direction = Vector2.zero;
                 boxCol.enabled = false;
                 circleCol.enabled = true;
-                DamageRange();
-                Damages();
+                if (doDamages)
+                {
+                    Damages();
+                }
+               
             }
 
             rbBullet.velocity = direction.normalized * speed * Time.smoothDeltaTime;
 
-            if(doDamages && damageDone)
+            if(!doDamages && damageDone)
             {
                 Dead();
             }
@@ -82,7 +87,8 @@ namespace Bullet{
             if (collision.gameObject.CompareTag("Enemy"))
             {
                 needToStop = true;
-                
+                doDamages = true;
+
             }
 
             if (doDamages)
@@ -106,20 +112,23 @@ namespace Bullet{
             if(PlayerManager.Instance.attack.lastNumberOfVegetablesEat == 1)
             {
                 circleCol.radius = storedRadiuslevel1;
+                Debug.Log(circleCol.radius);
                 
             }
             if (PlayerManager.Instance.attack.lastNumberOfVegetablesEat == 2)
             {
                 circleCol.radius = storedRadiuslevel2;
-                
+                Debug.Log(circleCol.radius);
+
             }
             if (PlayerManager.Instance.attack.lastNumberOfVegetablesEat == 3)
             {
                 circleCol.radius = storedRadiuslevel3;
-                
+                Debug.Log(circleCol.radius);
+
             }
 
-            
+            circleCol.enabled = false;
         }
 
         void OnBecameInvisible()
@@ -134,12 +143,12 @@ namespace Bullet{
 
         void Damages()
         {
-            
-
-            doDamages = true;
+            doDamages = false;
 
             for (int i = 0; i < ennemiesTouched.Count; i++)
             {
+              
+                Debug.Log("Called Once");
                 damageDone = true;
               
                 ennemiesTouched[i].GetComponent<EnemyController>().TakeDamages = 5;

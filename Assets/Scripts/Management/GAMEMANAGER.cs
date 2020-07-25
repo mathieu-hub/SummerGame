@@ -46,6 +46,11 @@ namespace Management
         {
             MakeSingleton(true);
         }
+        private void Start()
+        {
+            wavesBeforeSeller = 5;
+            waves = 0;
+        }
 
         private void Update()
         {
@@ -57,7 +62,7 @@ namespace Management
 
             if(wavesBeforeSeller < 0)
             {
-                wavesBeforeSeller = 5;
+                wavesBeforeSeller = 4;
                 needToRefeshShop = true;
             }
         }

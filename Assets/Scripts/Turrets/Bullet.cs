@@ -63,11 +63,16 @@ namespace Turret
 
 			if(lifetime <= 0f)
             {
-				Destroy(spawnPoint);
-				Destroy(gameObject);
+				EndLifetime();
             }
 
 			lifetime -= Time.deltaTime;
+		}
+
+		protected virtual void EndLifetime()
+        {
+			Destroy(spawnPoint);
+			Destroy(gameObject);
 		}
 
         private void OnTriggerEnter2D(Collider2D collision)

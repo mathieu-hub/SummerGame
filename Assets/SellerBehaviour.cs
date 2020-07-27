@@ -14,6 +14,7 @@ namespace Seller
         public List<GameObject> items = new List<GameObject>();
         [SerializeField] private GameObject[] positions;
         public List<int> intUsed = new List<int>();
+        public Transform stockPosition;
 
         private int numberOfItemCalled = 0;
         #endregion
@@ -25,13 +26,13 @@ namespace Seller
 
         private void Start()
         {
-            Initialisation();
+            stockPosition = gameObject.transform;
         }
 
         // Update is called once per frame
         void Update()
         {
-            if(GameManager.Instance.wavesBeforeSeller == 0 && numberOfItemCalled < positions.Length && )
+            if(GameManager.Instance.wavesBeforeSeller == 0 && numberOfItemCalled < positions.Length)
             {
                 Seller();
             }
@@ -45,50 +46,33 @@ namespace Seller
         void Seller()
         {
             Debug.Log("Seller");
-            if(numberOfItemCalled < positions.Length)
+
+            if (numberOfItemCalled < positions.Length)
             {
 
                 int indexInArray = Random.Range(0, items.Count);
                 intUsed.Add(indexInArray);
                 Debug.Log(indexInArray);
 
-                if (numberOfItemCalled > 1)
-                {
-                    //Pour les objets déja sortis dans le shop actuel.
-                    for (int i = 0; i < intUsed.Count; i++)
-                    {
-                        if (indexInArray == intUsed[i])
-                        {
-                            return;
-                        }
-                    }
+                var myNewItem = items[indexInArray];
+                myNewItem.transform.position = positions[numberOfItemCalled].transform.position;
 
-                    var myNewItem = Instantiate(items[indexInArray], positions[numberOfItemCalled].transform.position, Quaternion.identity);
+                myNewItem.GetComponent<ShopItem>().pulled = true;
 
-                    myNewItem.GetComponent<ShopItem>().index = indexInArray;
+                myNewItem = items[indexInArray];
 
-                    numberOfItemCalled += 1;
-                    Debug.Log(numberOfItemCalled + "number Of Item Called");
-                }
-                else
-                {
-                    var myNewItem = Instantiate(items[indexInArray], positions[numberOfItemCalled].transform.position, Quaternion.identity);
+                items.Remove(myNewItem);
 
-                    myNewItem.GetComponent<ShopItem>().index = indexInArray;
+                numberOfItemCalled += 1;
+                Debug.Log(numberOfItemCalled + "number Of Item Called");
 
-                    numberOfItemCalled += 1;
-                    Debug.Log(numberOfItemCalled + "number Of Item Called");
-                }
-                
-
-              
             }
         }
 
        void Initialisation()
        {
             numberOfItemCalled = 0;
-            GameManager.Instance.needToRefeshShop = false;
+            
        }
 
     }

@@ -20,6 +20,8 @@ namespace Management
         public int cowsCount;
         public int pigsCount;
         public int horsesCount;
+        public int storedUnits;
+        public int maxStoredUnits;
 
         [Header("Garden")]
         public int numberOfGardens;
@@ -65,6 +67,11 @@ namespace Management
                 wavesBeforeSeller = 4;
                 needToRefeshShop = true;
             }
+            else
+            {
+                needToRefeshShop = false;
+            }
+
         }
 
     }

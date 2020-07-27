@@ -21,6 +21,8 @@ namespace Ennemies
         {
             UpdateTarget();            
         }
+
+        //permet de prendre l'ennemy le plus proche dans la range en target et de lui infliger des dégâts 
         void UpdateTarget()
         {
             GameObject[] ennemies = GameObject.FindGameObjectsWithTag("Ennemy");
@@ -40,7 +42,9 @@ namespace Ennemies
             if(nearestEnnemy != null && shortestDistance <= range)
             {
                 target = nearestEnnemy.transform;
-                nearestEnnemy.gameObject.GetComponent<EnnemiesHealth>().currentHealth -= turretDamage;
+                //Inflige des dégâts aux ennemis 
+                nearestEnnemy.gameObject.GetComponent<EnnemiesHealth>().TakeDammage(turretDamage);
+
             }
             else
             {

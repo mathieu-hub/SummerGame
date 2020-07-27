@@ -2,25 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Game
+public class PlayerRessourcesTEST : MonoBehaviour
 {
-	public class PlayerRessourcesTEST : MonoBehaviour
-	{
-		#region Variables
-		
-		#endregion
+    public static PlayerRessourcesTEST playerRessourcesTEST;
 
-		// Start is called before the first frame update
-		void Start()
-		{
-			
-		}
-
-		// Update is called once per frame
-		void Update()
-		{
-			
-		}
-	}
+    public int scraps;
+    public int planDeRecherches;
 }
 

@@ -3370,10 +3370,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1950934837}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8efcd166959eede42827c38010b32a0d, type: 3}
+  m_Script: {fileID: 11500000, guid: fe43df1c29308c04e9b95ce8eb5e7743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrapQuantity: 0
+  currentObject: 0
+  ressourceQuantity: 0
 --- !u!61 &1950934839
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4095,6 +4096,7 @@ GameObject:
   - component: {fileID: 6149384270726179612}
   - component: {fileID: 6149384270726179613}
   - component: {fileID: 2067735971}
+  - component: {fileID: 6149384270726179615}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -4102,6 +4104,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &6149384270726179615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6149384270726179614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64d171e6c3d823b4eb702acf4fa62766, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scraps: 0
+  planDeRecherches: 0
 --- !u!4 &6149384270726179683
 Transform:
   m_ObjectHideFlags: 0

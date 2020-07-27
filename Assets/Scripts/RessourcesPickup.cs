@@ -22,6 +22,8 @@ public class RessourcesPickup : MonoBehaviour
                 PlayerRessourcesTEST.playerRessourcesTEST.planDeRecherches += ressourceQuantity;
                 Debug.Log(PlayerRessourcesTEST.playerRessourcesTEST.planDeRecherches);
             }
+
+            Destroy(gameObject);
         }
     }
 }

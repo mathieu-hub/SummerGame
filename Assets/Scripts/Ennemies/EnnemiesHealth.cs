@@ -12,6 +12,8 @@ namespace Ennemies
 
         public bool isInvincible = false;
 
+        public GameObject lootDrop;
+
         void Start()
         {
             currentHealth = maxHealth;
@@ -37,6 +39,7 @@ namespace Ennemies
         private void Die()
         {
             Destroy(gameObject);
+            Instantiate(lootDrop, transform.position, Quaternion.identity);
         }
 
         IEnumerator TakingDammage()

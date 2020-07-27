@@ -31,17 +31,15 @@ namespace Tower
         private float purinUsedIn;
         private float scrapTotalAtSell;
         private float purinTotalAtSell;
+        [SerializeField] private Image purinSell;
+        [SerializeField] private Image scrapSell;
+        [SerializeField] private Image purinUpgrade;
+        [SerializeField] private Image scrapUpgrade;
 
         [Header("UpgradesValues/HealCost")]
         //UseCurrentLevel -1 comme index
         public int[] pCost;
         public int[] sCost;
-        
-
-        public int pCostUp1;
-        public int sCostUp1;
-        public int pCostUp2;
-        public int sCostUp2;
         public int currentLevel = 1;
         public int healCost = 1;
         public bool needToHeal = false;
@@ -84,6 +82,7 @@ namespace Tower
         [SerializeField] private float validationTime;
         [SerializeField] private Image deleteCircle;
         [SerializeField] private float deleteTime;
+        [SerializeField] private float validationUpgrade = 0.2f;
 
         private Color startColor;
 
@@ -113,7 +112,10 @@ namespace Tower
             AButton.SetActive(false);
             canvas.SetActive(false);
 
-            
+            for (int i = 0; i == maxHp ; i++)
+            {
+                healPoints[i].SetActive(false);
+            }
         }
 
         private void Update()
@@ -130,19 +132,56 @@ namespace Tower
                 Sell();
             }
 
+            if (needToHeal)
+            {
+                validationUpgrade = 0.4f;
+            }
+            else
+            {
+                validationUpgrade = 0.2f;
+
+            }
+
+            distance = Vector3.Distance(PlayerManager.Instance.transform.localPosition, transform.position);
+
+            gameObject.GetComponent<CircleCollider2D>().radius = range;
+
             UpdateUI();
             Distance();
             DetectInputValidation();
             DetectInputDelete();
             Heal();
           
-            distance = Vector3.Distance(PlayerManager.Instance.transform.localPosition, transform.position);
-
-            gameObject.GetComponent<CircleCollider2D>().radius = range;
+            
         }
 
         void UpdateUI()
         {
+            //Afficher Heal Quand necessaire
+            if (needToHeal)
+            {
+                scrapUpgrade.enabled = false;
+                USC.enabled = false;
+                UPC.text = currentLevel.ToString();
+            }//Afficher Upgrade Quand necessaire
+            else if (!needToHeal && currentLevel < 3)
+            {
+                USC.enabled = true;
+                USC.text = sCost[currentLevel - 1].ToString();
+                UPC.enabled = true;
+                UPC.text = pCost[currentLevel - 1].ToString();
+            }
+            else if(!needToHeal && currentLevel == 3)
+            {
+                USC.enabled = false;
+                scrapUpgrade.enabled = false;
+                UPC.enabled = false;
+                purinUpgrade.enabled = false;
+            }
+
+            SPC.text = purinTotalAtSell.ToString();
+            SSC.text = scrapTotalAtSell.ToString();
+
             validationCircle.fillAmount = validationTime / 100;
             deleteCircle.fillAmount = deleteTime / 100;
 
@@ -172,53 +211,48 @@ namespace Tower
 
             //Life System
             #region LifeSystem
-            if (currentHp == 1)
-            {
-                lifePoint1.color = green;
-                lifePoint2.color = Color.red;
-                lifePoint3.color = Color.red;
-            }
-            if(currentHp == 2)
-            {
-                lifePoint1.color = green;
-                lifePoint2.color = green;
-                lifePoint3.color = Color.red;
-            }
-            if(currentHp == 3)
-            {
-                lifePoint1.color = green;
-                lifePoint2.color = green;
-                lifePoint3.color = green;
-            }
 
-            for (int i = 0; i <= maxHp; i++)
+            if (currentHp < maxHp)
             {
-                healPoints[i].SetActive(true);
-            }
-
-
-            if (currentHp > 0)
-            {
-                for (int i = maxHp; i > healPoints.Length; i--)
-                {
-                    healPoints[i].GetComponent<SpriteRenderer>().color = Color.red;
-                }
-            }
-
-            if(currentHp < 0)
-            {
-                currentHp = 0;
-            }
-
-            if(currentHp < maxHp)
-            {
+                needToHeal = true;
                 ValidationAction.text = "Heal";
             }
             else
             {
+                needToHeal = false;
                 ValidationAction.text = "Upgrade";
             }
+
+            for (int i = 0; i < maxHp; i++)
+            {
+                healPoints[i].SetActive(true);
+            }
+
+            //Mettre en rouge les Hp manquants
+            if(currentHp < maxHp)
+            {
+                for (int i = currentHp; i < maxHp; i++)
+                {
+                    healPoints[i].GetComponent<SpriteRenderer>().color = Color.red;
+                }
+
+
+            }
+
+            for (int i = 0; i < currentHp; i++)
+            {
+                healPoints[i].GetComponent<SpriteRenderer>().color = startColor;
+            }
+
+
+            if (currentHp < 0)
+            {
+                currentHp = 0;
+            }
+
             #endregion
+
+            
         }
 
         void Distance()
@@ -258,7 +292,7 @@ namespace Tower
 
             if (canValidate)
             {
-                validationTime += 0.2f;
+                validationTime += validationUpgrade;
 
                 if (validationTime >= 100)
                 {
@@ -340,7 +374,9 @@ namespace Tower
                 GameManager.Instance.purinCount -= healCost;
                 validationTime = 0;
                 currentHp += 1;
-            }else if(!needToHeal && validationTime == 100)
+                
+            }
+            else if(!needToHeal && validationTime == 100)
             {
 
             }

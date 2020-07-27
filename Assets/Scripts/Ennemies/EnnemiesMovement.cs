@@ -54,7 +54,6 @@ namespace Ennemies
                     canMakeDamage = true;
                     speed = 0f;
                     StartCoroutine(EndPath());
-                    Debug.Log("called");
                     return;
                 }
 

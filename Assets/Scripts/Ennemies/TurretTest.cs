@@ -19,8 +19,7 @@ namespace Ennemies
 
         private void Update()
         {
-            UpdateTarget();
-            
+            UpdateTarget();            
         }
         void UpdateTarget()
         {
@@ -41,6 +40,7 @@ namespace Ennemies
             if(nearestEnnemy != null && shortestDistance <= range)
             {
                 target = nearestEnnemy.transform;
+                nearestEnnemy.gameObject.GetComponent<EnnemiesHealth>().currentHealth -= turretDamage;
             }
             else
             {
@@ -53,17 +53,7 @@ namespace Ennemies
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(transform.position, range);
         }
-
-        //Infliger des Dégâts aux Ennemis
-        void OnTriggerEnter2D(Collider2D collision)
-        {
-            if (collision.gameObject.CompareTag("Ennemy"))
-            {
-                Debug.Log("isInRange");
-                EnnemiesHealth ennemieHealth = collision.transform.GetComponent<EnnemiesHealth>();
-                ennemieHealth.TakeDammage(turretDamage);
-            }
-        }
+        
     }
 }
 

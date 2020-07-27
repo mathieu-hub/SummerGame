@@ -17,7 +17,15 @@ namespace Ennemies
             currentHealth = maxHealth;
         }
 
-        //Prise de Dégâts et Mort de l'ennemi
+        void Update()
+        {
+            if (currentHealth <= 0)
+            {
+                Die();
+            }
+        }
+
+        //Prise de Dégâts et Mort de l'ennemi (à utiliser dans les scripts tourelles par la suite, pas utilisé pour le moment)
         public void TakeDammage(int damage)
         {
             if (!isInvincible)

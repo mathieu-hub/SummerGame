@@ -3116,7 +3116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   range: 4.41
-  turretDamage: 20
+  turretDamage: 1
 --- !u!212 &1753260106
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3323,7 +3323,7 @@ MonoBehaviour:
   ennemyPrefab: {fileID: 225565058131935773, guid: e89465a6b0235134ab5b3574dea5facc,
     type: 3}
   spawnPoint: {fileID: 1191384454}
-  timeBreak: 80
+  timeBreak: 21
   waveCountdownTimer: {fileID: 1504632598}
 --- !u!1 &1884366578
 GameObject:

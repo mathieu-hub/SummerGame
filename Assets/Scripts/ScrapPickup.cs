@@ -4,18 +4,14 @@ using UnityEngine;
 
 public class ScrapPickup : MonoBehaviour
 {
+    public int scrapQuantity;
 
-
-    // Start is called before the first frame update
-    void Start()
+    private void OnTriggerEnter2D(Collider2D other)
     {
+        if (other.name == "Player")
+        {
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        }
     }
 }
 

@@ -234,6 +234,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: 1 - Cow+1
       objectReference: {fileID: 0}
+    - target: {fileID: 8808098810074197382, guid: 47ef59c0b670397468674e4ab37e3dc9,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8808098810074197382, guid: 47ef59c0b670397468674e4ab37e3dc9,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47ef59c0b670397468674e4ab37e3dc9, type: 3}
 --- !u!4 &4526638 stripped
@@ -886,6 +896,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: 2- Horse+1
       objectReference: {fileID: 0}
+    - target: {fileID: 8808098810074197382, guid: 47ef59c0b670397468674e4ab37e3dc9,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8808098810074197382, guid: 47ef59c0b670397468674e4ab37e3dc9,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47ef59c0b670397468674e4ab37e3dc9, type: 3}
 --- !u!4 &706112903 stripped
@@ -1076,6 +1096,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: 2 - Garden+1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8808098810074197382, guid: 47ef59c0b670397468674e4ab37e3dc9,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8808098810074197382, guid: 47ef59c0b670397468674e4ab37e3dc9,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47ef59c0b670397468674e4ab37e3dc9, type: 3}
@@ -1387,6 +1417,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: '3 - Garden+1 '
       objectReference: {fileID: 0}
+    - target: {fileID: 8808098810074197382, guid: 47ef59c0b670397468674e4ab37e3dc9,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8808098810074197382, guid: 47ef59c0b670397468674e4ab37e3dc9,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47ef59c0b670397468674e4ab37e3dc9, type: 3}
 --- !u!1 &864683895 stripped
@@ -1496,6 +1536,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: 3 - Barn +3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8808098810074197382, guid: 47ef59c0b670397468674e4ab37e3dc9,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8808098810074197382, guid: 47ef59c0b670397468674e4ab37e3dc9,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47ef59c0b670397468674e4ab37e3dc9, type: 3}
@@ -1784,6 +1834,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: 2 - Chicken+1
       objectReference: {fileID: 0}
+    - target: {fileID: 8808098810074197382, guid: 47ef59c0b670397468674e4ab37e3dc9,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8808098810074197382, guid: 47ef59c0b670397468674e4ab37e3dc9,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47ef59c0b670397468674e4ab37e3dc9, type: 3}
 --- !u!4 &1091975203 stripped
@@ -2009,6 +2069,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: 1- Horse+1
       objectReference: {fileID: 0}
+    - target: {fileID: 8808098810074197382, guid: 47ef59c0b670397468674e4ab37e3dc9,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8808098810074197382, guid: 47ef59c0b670397468674e4ab37e3dc9,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47ef59c0b670397468674e4ab37e3dc9, type: 3}
 --- !u!4 &1401985620 stripped
@@ -2124,6 +2194,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: 1 - Barn +3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8808098810074197382, guid: 47ef59c0b670397468674e4ab37e3dc9,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8808098810074197382, guid: 47ef59c0b670397468674e4ab37e3dc9,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47ef59c0b670397468674e4ab37e3dc9, type: 3}
@@ -2276,6 +2356,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: 2 - Barn +3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8808098810074197382, guid: 47ef59c0b670397468674e4ab37e3dc9,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8808098810074197382, guid: 47ef59c0b670397468674e4ab37e3dc9,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47ef59c0b670397468674e4ab37e3dc9, type: 3}
@@ -2543,6 +2633,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: 1 - Chicken+1
       objectReference: {fileID: 0}
+    - target: {fileID: 8808098810074197382, guid: 47ef59c0b670397468674e4ab37e3dc9,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8808098810074197382, guid: 47ef59c0b670397468674e4ab37e3dc9,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47ef59c0b670397468674e4ab37e3dc9, type: 3}
 --- !u!4 &2026610844 stripped
@@ -2675,6 +2775,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: 2- Pig+1
       objectReference: {fileID: 0}
+    - target: {fileID: 8808098810074197382, guid: 47ef59c0b670397468674e4ab37e3dc9,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8808098810074197382, guid: 47ef59c0b670397468674e4ab37e3dc9,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47ef59c0b670397468674e4ab37e3dc9, type: 3}
 --- !u!4 &2074815556 stripped
@@ -2802,6 +2912,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: 2 - Cow+1
       objectReference: {fileID: 0}
+    - target: {fileID: 8808098810074197382, guid: 47ef59c0b670397468674e4ab37e3dc9,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8808098810074197382, guid: 47ef59c0b670397468674e4ab37e3dc9,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47ef59c0b670397468674e4ab37e3dc9, type: 3}
 --- !u!4 &2105884823 stripped
@@ -2927,6 +3047,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: 1- Pig+1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8808098810074197382, guid: 47ef59c0b670397468674e4ab37e3dc9,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8808098810074197382, guid: 47ef59c0b670397468674e4ab37e3dc9,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47ef59c0b670397468674e4ab37e3dc9, type: 3}
@@ -3340,6 +3470,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: 1 - Garden+1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8808098810074197382, guid: 47ef59c0b670397468674e4ab37e3dc9,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8808098810074197382, guid: 47ef59c0b670397468674e4ab37e3dc9,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47ef59c0b670397468674e4ab37e3dc9, type: 3}

@@ -32,12 +32,20 @@ namespace Tower
         private float scrapTotalAtSell;
         private float purinTotalAtSell;
 
-        [Header("UpgradesValues")]
+        [Header("UpgradesValues/HealCost")]
+        //UseCurrentLevel -1 comme index
+        public int[] pCost;
+        public int[] sCost;
+        
+
         public int pCostUp1;
         public int sCostUp1;
         public int pCostUp2;
         public int sCostUp2;
-       
+        public int currentLevel = 1;
+        public int healCost = 1;
+        public bool needToHeal = false;
+
         //Upgrade Values need to be add to Base Values. They are use to show the values increasing in the UI in previsualisation
         public int upgradeRange1;
         public int upgradeDamage1;
@@ -49,8 +57,9 @@ namespace Tower
 
         [Header("HealthPoint")]
         public int currentHp;
-        [Range(1,3)]
+        [Range(1,8)]
         public int maxHp;
+        
 
 
         [Header("UI/Values")]
@@ -60,23 +69,23 @@ namespace Tower
         [SerializeField] private TextMeshProUGUI UIDamage;
         [SerializeField] private TextMeshProUGUI UIFireRate;
         [SerializeField] private GameObject AButton;
+
         [Header("UI/Upgrade/Sell")]
         [SerializeField] private TextMeshProUGUI UPC;
         [SerializeField] private TextMeshProUGUI USC;
         [SerializeField] private TextMeshProUGUI SPC;
         [SerializeField] private TextMeshProUGUI SSC;
+        [SerializeField] private TextMeshProUGUI ValidationAction;
 
         //Life
-        [SerializeField] private Image lifePoint1;
-        [SerializeField] private Image lifePoint2;
-        [SerializeField] private Image lifePoint3;
+        public GameObject[] healPoints;
 
         [SerializeField] private Image validationCircle;
         [SerializeField] private float validationTime;
         [SerializeField] private Image deleteCircle;
         [SerializeField] private float deleteTime;
 
-        private Color green;
+        private Color startColor;
 
 
         public float distance = 0f;
@@ -94,7 +103,7 @@ namespace Tower
         private void Start()
         {
             //Gère Ui
-            green = lifePoint1.color;
+            startColor = healPoints[0].GetComponent<SpriteRenderer>().color;
 
             //give Variables
             currentHp = maxHp;
@@ -125,7 +134,7 @@ namespace Tower
             Distance();
             DetectInputValidation();
             DetectInputDelete();
-
+            Heal();
           
             distance = Vector3.Distance(PlayerManager.Instance.transform.localPosition, transform.position);
 
@@ -182,35 +191,32 @@ namespace Tower
                 lifePoint3.color = green;
             }
 
-            if (maxHp == 1)
+            for (int i = 0; i <= maxHp; i++)
             {
-                lifePoint2.enabled = false;
-                lifePoint3.enabled = false;
-            }
-            if(maxHp == 2)
-            {
-                lifePoint1.enabled = true;
-                lifePoint2.enabled = true;
-                lifePoint3.enabled = false;
-            }
-            if (maxHp == 3)
-            {
-                lifePoint1.enabled = true;
-                lifePoint2.enabled = true;
-                lifePoint3.enabled = true;
+                healPoints[i].SetActive(true);
             }
 
-            if (currentHp == 0)
+
+            if (currentHp > 0)
             {
-                lifePoint1.color = Color.red;
-                lifePoint2.color = Color.red;
-                lifePoint3.color = Color.red;
-                broke = true;
+                for (int i = maxHp; i > healPoints.Length; i--)
+                {
+                    healPoints[i].GetComponent<SpriteRenderer>().color = Color.red;
+                }
             }
 
             if(currentHp < 0)
             {
                 currentHp = 0;
+            }
+
+            if(currentHp < maxHp)
+            {
+                ValidationAction.text = "Heal";
+            }
+            else
+            {
+                ValidationAction.text = "Upgrade";
             }
             #endregion
         }
@@ -289,7 +295,24 @@ namespace Tower
 
         void BlockerValidation()
         {
-            canValidate = true;
+            //Check les Ressources pour le Heal
+            if (needToHeal && GameManager.Instance.purinCount >= healCost)
+            {
+                canValidate = true;
+            }
+            //Check les Ressources pour les Améliorations
+            else if (!needToHeal && GameManager.Instance.purinCount >= pCost[currentLevel -1] && GameManager.Instance.scrapsCount >= sCost[currentLevel - 1])
+            {
+                canValidate = true;
+            }
+            else
+            {
+                canValidate = false;
+            }
+            
+           
+
+           
         }
 
 
@@ -301,6 +324,26 @@ namespace Tower
             GameManager.Instance.scrapsCount += (int)scrapTotalAtSell;
             Instantiate(Resources.Load("Prefabs/Socle"), transform.position, Quaternion.identity);
             Destroy(gameObject);
+        }
+
+        void Heal()
+        {
+            healCost = currentLevel;
+
+            if(currentHp < maxHp)
+            {
+                needToHeal = true;
+            }
+
+            if (needToHeal && validationTime ==100)
+            {
+                GameManager.Instance.purinCount -= healCost;
+                validationTime = 0;
+                currentHp += 1;
+            }else if(!needToHeal && validationTime == 100)
+            {
+
+            }
         }
 
         private void OnDrawGizmos()

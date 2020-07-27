@@ -17,20 +17,15 @@ namespace Ennemies
             currentHealth = maxHealth;
         }
 
-        void Update()
-        {
-            if (currentHealth <= 0)
-            {
-                Die();
-            }
-        }
 
-        //Prise de Dégâts et Mort de l'ennemi (à utiliser dans les scripts tourelles par la suite, pas utilisé pour le moment)
+        //Prise de Dégâts et Mort de l'ennemi (à utiliser dans les scripts tourelles par la suite)
         public void TakeDammage(int damage)
         {
             if (!isInvincible)
             {
+                isInvincible = true;
                 currentHealth -= damage;
+                StartCoroutine(TakingDammage());
             }
 
             if (currentHealth <= 0)
@@ -42,6 +37,12 @@ namespace Ennemies
         private void Die()
         {
             Destroy(gameObject);
+        }
+
+        IEnumerator TakingDammage()
+        {
+            yield return new WaitForSeconds(2f);
+            isInvincible = false;
         }
     }
 }

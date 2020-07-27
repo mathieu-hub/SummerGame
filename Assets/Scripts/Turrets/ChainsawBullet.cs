@@ -5,6 +5,9 @@ using Ennemies;
 
 namespace Turret
 {
+    /// <summary>
+    /// CHB -- Pushes any enemy for a short time
+    /// </summary>
 	public class ChainsawBullet : Bullet
 	{
         #region Variables
@@ -16,18 +19,22 @@ namespace Turret
         {
             EnnemiesHealth enemyHit = enemy.GetComponent<EnnemiesHealth>();
             Rigidbody2D enemyRB = enemy.GetComponent<Rigidbody2D>();
+            EnnemiesMovement enemyMov = enemy.GetComponent<EnnemiesMovement>();
             enemiesPushed.Add(enemyRB);
 
             enemyHit.TakeDammage(damage);
             
-            StartCoroutine(PushEnemy(enemyRB));
+            //if(!enemyMov.isPushed) ??
+            StartCoroutine(PushEnemy(enemyRB, enemyMov));
         }
 
-        IEnumerator PushEnemy(Rigidbody2D _enemyRB)
+        IEnumerator PushEnemy(Rigidbody2D _enemyRB, EnnemiesMovement _enemyMov)
         {
+            _enemyMov.isPushed = true;
             _enemyRB.velocity = myRB.velocity;
             yield return new WaitForSeconds(pushTime);
             _enemyRB.velocity = Vector2.zero;
+            _enemyMov.isPushed = false;
             enemiesPushed.Remove(_enemyRB);
         }
 
@@ -38,6 +45,7 @@ namespace Turret
                 foreach(Rigidbody2D enemy in enemiesPushed)
                 {
                     enemy.velocity = Vector2.zero;
+                    enemy.gameObject.GetComponent<EnnemiesMovement>().isPushed = false;
                     enemiesPushed.Remove(enemy);
                 }
             }

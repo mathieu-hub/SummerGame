@@ -13,6 +13,8 @@ namespace Ennemies
         [SerializeField] private Transform target;
         [SerializeField] private int wayPointIndex = 0;
 
+        [HideInInspector] public bool isPushed = false;
+
         //Make Damage
         [Header("Damage")]
         public bool canMakeDamage = false;
@@ -28,7 +30,11 @@ namespace Ennemies
 
         private void Update()
         {
-            //Déplacements des ennemies 
+            //Check if enemy is being pushed by Tronçronce bullet
+            if (isPushed)
+                return;
+
+            //Déplacements des ennemies
             Vector3 direction = target.position - transform.position;
             transform.Translate(direction.normalized * speed * Time.deltaTime);
 

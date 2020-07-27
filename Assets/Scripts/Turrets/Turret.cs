@@ -55,7 +55,7 @@ namespace Turret
 		{
 			//To do : On enemy's death, need to remove him from this turret enemiesInRange list if it was added ?
 			Debug.Log("Nb of enemies in range: " + enemiesInRange.Count);
-			Debug.Log("Targeting: "+ target);
+			Debug.Log(gameObject.name + " targeting: "+ target);
 			if (target == null)
             {
 				fireCountdown = 0f;

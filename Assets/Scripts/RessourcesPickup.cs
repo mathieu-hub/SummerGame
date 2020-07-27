@@ -15,11 +15,12 @@ public class RessourcesPickup : MonoBehaviour
             if (currentObject == PickupObject.scraps)
             {
                 PlayerRessourcesTEST.playerRessourcesTEST.scraps += ressourceQuantity;
+                Debug.Log(PlayerRessourcesTEST.playerRessourcesTEST.scraps);
             }
-
-            if (currentObject == PickupObject.planDeRecherches)
+            else if (currentObject == PickupObject.planDeRecherches)
             {
                 PlayerRessourcesTEST.playerRessourcesTEST.planDeRecherches += ressourceQuantity;
+                Debug.Log(PlayerRessourcesTEST.playerRessourcesTEST.planDeRecherches);
             }
         }
     }

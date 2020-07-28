@@ -64,6 +64,7 @@ namespace Tower
         [SerializeField] private TextMeshProUGUI UIDamage;
         [SerializeField] private TextMeshProUGUI UIFireRate;
         [SerializeField] private GameObject AButton;
+        
 
         [Header("UI/Upgrade/Sell")]
         [SerializeField] private TextMeshProUGUI UPC;
@@ -80,6 +81,8 @@ namespace Tower
         [SerializeField] private Image deleteCircle;
         [SerializeField] private float deleteTime;
         [SerializeField] private float validationUpgrade = 0.2f;
+        [SerializeField] private TextMeshProUGUI crossX;
+
 
         private Color startColor;
 
@@ -100,12 +103,13 @@ namespace Tower
         {
             //Gère Ui
             startColor = healPoints[0].GetComponent<SpriteRenderer>().color;
+            crossX.enabled = false;
 
             //give Variables
             currentHp = maxHp;
             purinUsedIn = purinsCost;
             scrapUsedIn = scrapCost;
-            turretName = gameObject.name;
+            gameObject.name = turretName;
             AButton.SetActive(false);
             canvas.SetActive(false);
 
@@ -312,6 +316,7 @@ namespace Tower
             {
                 canDelete = false;
                 deleteTime = 0;
+                
 
             }
 
@@ -340,6 +345,7 @@ namespace Tower
             }
             else
             {
+                StartCoroutine("Error");
                 canValidate = false;
             }
             
@@ -402,7 +408,15 @@ namespace Tower
             }
             
         }
-        
+
+        IEnumerator Error()
+        {
+            Debug.Log("Called");
+            crossX.enabled = true;
+            yield return new WaitForSeconds(0.5f);
+            crossX.enabled = false;
+        }
+
     }
 }
 

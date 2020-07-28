@@ -45,12 +45,9 @@ namespace Tower
         public bool needToHeal = false;
 
         //Upgrade Values need to be add to Base Values. They are use to show the values increasing in the UI in previsualisation
-        public int upgradeRange1;
-        public int upgradeDamage1;
-        public int upgradeFireRate1;
-        public int upgradeRange2;
-        public int upgradeDamage2;
-        public int upgradeFireRate2;
+        public int[] upgradeRange;
+        public int[] upgradeDamages;
+        public int[] upgradeFireRate;
 
 
         [Header("HealthPoint")]
@@ -146,11 +143,12 @@ namespace Tower
 
             gameObject.GetComponent<CircleCollider2D>().radius = range;
 
+
             UpdateUI();
             Distance();
             DetectInputValidation();
             DetectInputDelete();
-            Heal();
+            Actions();
           
             
         }
@@ -163,7 +161,8 @@ namespace Tower
                 scrapUpgrade.enabled = false;
                 USC.enabled = false;
                 UPC.text = currentLevel.ToString();
-            }//Afficher Upgrade Quand necessaire
+            }
+            //Afficher Upgrade Quand necessaire
             else if (!needToHeal && currentLevel < 3)
             {
                 USC.enabled = true;
@@ -279,8 +278,8 @@ namespace Tower
         {
             if (Input.GetButtonDown("A_Button") && APressed && !canDelete)
             {
-                //BlockerValidation();
-                canValidate = true;
+
+                BlockerValidation();
             }
 
             if (Input.GetButtonUp("A_Button") && playerHere)
@@ -335,7 +334,7 @@ namespace Tower
                 canValidate = true;
             }
             //Check les Ressources pour les Améliorations
-            else if (!needToHeal && GameManager.Instance.purinCount >= pCost[currentLevel -1] && GameManager.Instance.scrapsCount >= sCost[currentLevel - 1])
+            else if (!needToHeal && GameManager.Instance.purinCount >= pCost[currentLevel -1] && GameManager.Instance.scrapsCount >= sCost[currentLevel - 1] && currentLevel < 3)
             {
                 canValidate = true;
             }
@@ -344,9 +343,6 @@ namespace Tower
                 canValidate = false;
             }
             
-           
-
-           
         }
 
 
@@ -360,7 +356,7 @@ namespace Tower
             Destroy(gameObject);
         }
 
-        void Heal()
+        void Actions()
         {
             healCost = currentLevel;
 
@@ -374,12 +370,28 @@ namespace Tower
                 GameManager.Instance.purinCount -= healCost;
                 validationTime = 0;
                 currentHp += 1;
-                
+                canValidate = false;
             }
-            else if(!needToHeal && validationTime == 100)
+            else if(!needToHeal && validationTime == 100 && currentLevel < 3)
             {
-
+                //Améliorations
+                //enlever les ressources
+                GameManager.Instance.purinCount -= pCost[currentLevel-1];
+                purinUsedIn += pCost[currentLevel-1];
+                GameManager.Instance.scrapsCount -= sCost[currentLevel-1];
+                scrapUsedIn += sCost[currentLevel-1];
+                
+                //Augmenter les Stats (range/dégats/fireRate/Level)
+                range = upgradeRange[currentLevel - 1];
+                damage = upgradeDamages[currentLevel - 1];
+                fireRate = upgradeFireRate[currentLevel - 1];
+                currentLevel += 1;
+                //Restart Validation
+                validationTime = 0;
+                canValidate = false;
             }
+
+           
         }
 
         private void OnDrawGizmos()

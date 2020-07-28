@@ -3065,12 +3065,9 @@ MonoBehaviour:
   currentLevel: 1
   healCost: 1
   needToHeal: 0
-  upgradeRange1: 0
-  upgradeDamage1: 0
-  upgradeFireRate1: 0
-  upgradeRange2: 0
-  upgradeDamage2: 0
-  upgradeFireRate2: 0
+  upgradeRange: 050000000a000000
+  upgradeDamages: 050000000a000000
+  upgradeFireRate: 050000000a000000
   currentHp: 1
   maxHp: 8
   canvas: {fileID: 1383811499}

@@ -287,12 +287,12 @@ PrefabInstance:
     - target: {fileID: 6894646036147033449, guid: 8f992c4eff702cc4b9d584e0d63fe702,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.78
+      value: -3.36
       objectReference: {fileID: 0}
     - target: {fileID: 6894646036147033449, guid: 8f992c4eff702cc4b9d584e0d63fe702,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.6
+      value: -0.12
       objectReference: {fileID: 0}
     - target: {fileID: 6894646036147033449, guid: 8f992c4eff702cc4b9d584e0d63fe702,
         type: 3}
@@ -1002,6 +1002,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: "Tron\xE7oronce"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3740806098214938744, guid: 8bca720bc869851499727cd833946162,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8bca720bc869851499727cd833946162, type: 3}

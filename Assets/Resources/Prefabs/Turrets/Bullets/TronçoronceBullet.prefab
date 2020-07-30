@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3602598390082030769}
   - component: {fileID: 8627816477961172363}
-  - component: {fileID: 3998052923694227149}
   - component: {fileID: 8454612600842092785}
+  - component: {fileID: 5146056551871694408}
   m_Layer: 0
   m_Name: "Tron\xE7oronceBullet"
   m_TagString: Untagged
@@ -55,23 +55,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &3998052923694227149
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3199255332642906943}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93136972075fbbf4c875eac7c8cb34da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyTag: Enemy
-  speed: 8.95
-  lifetime: 4
-  spawnPrefab: {fileID: 1548718785097394368, guid: 007a84e932a1af5439981a32ac18a672,
-    type: 3}
 --- !u!114 &8454612600842092785
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -90,6 +73,22 @@ MonoBehaviour:
   spawnPrefab: {fileID: 1548718785097394368, guid: 007a84e932a1af5439981a32ac18a672,
     type: 3}
   pushTime: 0.7
+--- !u!58 &5146056551871694408
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3199255332642906943}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.29
 --- !u!1 &3702659123657941509
 GameObject:
   m_ObjectHideFlags: 0
@@ -115,7 +114,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3702659123657941509}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.46, y: 0.98, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.09, y: 0.09, z: 1}
   m_Children: []
   m_Father: {fileID: 3602598390082030769}

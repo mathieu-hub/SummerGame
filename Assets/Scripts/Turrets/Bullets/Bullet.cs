@@ -42,7 +42,7 @@ namespace Turret
 		/// <param name="_target"></param>
 		/// <param name="firePoint"></param>
 		/// <param name="_damage"></param>
-		public void Seek(Transform _target , Transform firePoint, int _damage)
+		public virtual void Seek(Transform _target , Transform firePoint, int _damage)
         {
 			target = _target;
 			damage = _damage;

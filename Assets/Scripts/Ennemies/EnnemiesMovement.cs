@@ -20,10 +20,40 @@ namespace Ennemies
         public int ennemyDamage;
         public int speedAttack;
 
+        //Spawning
+        float randomSpawn;
+
         void Start()
         {
-            //StartingWay();
-            target = GameMaster.Instance.WayMaster.way01[0];
+            StartingWay();            
+        }
+
+        void StartingWay()
+        {
+            randomSpawn = Random.Range(0, 5);
+            Debug.Log(randomSpawn);
+            
+            if (randomSpawn == 0)
+            {
+                target = GameMaster.Instance.WayMaster.way01[0];
+            }
+            else if (randomSpawn == 1)
+            {
+                target = GameMaster.Instance.WayMaster.way02[0];
+            }
+            else if (randomSpawn == 2)
+            {
+                target = GameMaster.Instance.WayMaster.way03[0];
+            }
+            else if (randomSpawn == 3)
+            {
+                target = GameMaster.Instance.WayMaster.way04[0];
+            }
+            else if (randomSpawn == 4)
+            {
+                target = GameMaster.Instance.WayMaster.way05[0];
+            }
+
         }
 
         private void Update()
@@ -45,25 +75,118 @@ namespace Ennemies
 
         private void GetNextWaypoint()
         {
-            //Répéter pour chaque way
-            if (wayPointIndex >= GameMaster.Instance.WayMaster.way01.Length - 1)
+            //WAYPOINT FOR WAY01
+            if (randomSpawn == 0)
             {
-                if (!canMakeDamage)
+                if (wayPointIndex >= GameMaster.Instance.WayMaster.way01.Length - 1)
                 {
-                    doingDamage = false;
-                    canMakeDamage = true;
-                    speed = 0f;
-                    StartCoroutine(EndPath());
-                    return;
-                }
+                    if (!canMakeDamage)
+                    {
+                        doingDamage = false;
+                        canMakeDamage = true;
+                        speed = 0f;
+                        StartCoroutine(EndPath());
+                        return;
+                    }
 
-            }
-            else
+                }
+                else
+                {
+                    wayPointIndex++;
+                    target = GameMaster.Instance.WayMaster.way01[wayPointIndex];
+                }
+            }            
+
+            //WAYPOINT FOR WAY02
+            if (randomSpawn == 1)
             {
-                wayPointIndex++;
-                target = GameMaster.Instance.WayMaster.way01[wayPointIndex];
-            }           
+                if (wayPointIndex >= GameMaster.Instance.WayMaster.way02.Length - 1)
+                {
+                    if (!canMakeDamage)
+                    {
+                        doingDamage = false;
+                        canMakeDamage = true;
+                        speed = 0f;
+                        StartCoroutine(EndPath());
+                        return;
+                    }
+
+                }
+                else
+                {
+                    wayPointIndex++;
+                    target = GameMaster.Instance.WayMaster.way02[wayPointIndex];
+                }
+            }
             
+
+            //WAYPOINT FOR WAY03
+            if (randomSpawn == 2)
+            {
+                if (wayPointIndex >= GameMaster.Instance.WayMaster.way03.Length - 1)
+                {
+                    if (!canMakeDamage)
+                    {
+                        doingDamage = false;
+                        canMakeDamage = true;
+                        speed = 0f;
+                        StartCoroutine(EndPath());
+                        return;
+                    }
+
+                }
+                else
+                {
+                    wayPointIndex++;
+                    target = GameMaster.Instance.WayMaster.way03[wayPointIndex];
+                }
+            }
+            
+
+            //WAYPOINT FOR WAY04
+            if (randomSpawn == 3)
+            {
+                if (wayPointIndex >= GameMaster.Instance.WayMaster.way04.Length - 1)
+                {
+                    if (!canMakeDamage)
+                    {
+                        doingDamage = false;
+                        canMakeDamage = true;
+                        speed = 0f;
+                        StartCoroutine(EndPath());
+                        return;
+                    }
+
+                }
+                else
+                {
+                    wayPointIndex++;
+                    target = GameMaster.Instance.WayMaster.way04[wayPointIndex];
+                }
+            }
+            
+
+            //WAYPOINT FOR WAY05
+            if (randomSpawn == 4)
+            {
+                if (wayPointIndex >= GameMaster.Instance.WayMaster.way05.Length - 1)
+                {
+                    if (!canMakeDamage)
+                    {
+                        doingDamage = false;
+                        canMakeDamage = true;
+                        speed = 0f;
+                        StartCoroutine(EndPath());
+                        return;
+                    }
+
+                }
+                else
+                {
+                    wayPointIndex++;
+                    target = GameMaster.Instance.WayMaster.way05[wayPointIndex];
+                }
+            }            
         }
 
         // Fait des dégâts au Silo et se détruit une fois arrivé au dernier Waypoint.       

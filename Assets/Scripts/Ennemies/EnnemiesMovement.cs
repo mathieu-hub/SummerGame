@@ -9,7 +9,7 @@ namespace Ennemies
     {
         //Movement
         [Header("Movement")]
-        public float speed = 10f;
+        [SerializeField] private float speed;
         [SerializeField] private Transform target;
         [SerializeField] private int wayPointIndex = 0;
 
@@ -17,11 +17,61 @@ namespace Ennemies
         [Header("Damage")]
         public bool canMakeDamage = false;
         public bool doingDamage = false;
-        public int ennemyDamage;
-        public int speedAttack;
+        [SerializeField] private int ennemyDamage;
+        [SerializeField] private int speedAttack;
 
         //Spawning
         float randomSpawn;
+
+        //TYPE OF ENNEMY
+        public enum TypeOfEnnemy { Walker, Soldonaute, SpaceScoot, Démolisseur, Carboniseur, Rover, Drone }
+        public TypeOfEnnemy typeOfEnnemy;
+
+        void Awake()
+        {
+            if (typeOfEnnemy == TypeOfEnnemy.Walker)
+            {
+                speed = 10f;
+                ennemyDamage = 20;
+                speedAttack = 5;
+            }
+            else if (typeOfEnnemy == TypeOfEnnemy.Soldonaute)
+            {
+                speed = 10f;
+                ennemyDamage = 20;
+                speedAttack = 5;
+            }
+            else if (typeOfEnnemy == TypeOfEnnemy.SpaceScoot)
+            {
+                speed = 10f;
+                ennemyDamage = 20;
+                speedAttack = 5;
+            }
+            else if (typeOfEnnemy == TypeOfEnnemy.Démolisseur)
+            {
+                speed = 10f;
+                ennemyDamage = 20;
+                speedAttack = 5;
+            }
+            else if (typeOfEnnemy == TypeOfEnnemy.Carboniseur)
+            {
+                speed = 10f;
+                ennemyDamage = 20;
+                speedAttack = 5;
+            }
+            else if (typeOfEnnemy == TypeOfEnnemy.Rover)
+            {
+                speed = 10f;
+                ennemyDamage = 20;
+                speedAttack = 5;
+            }
+            else if (typeOfEnnemy == TypeOfEnnemy.Drone)
+            {
+                speed = 10f;
+                ennemyDamage = 20;
+                speedAttack = 5;
+            }
+        }
 
         void Start()
         {

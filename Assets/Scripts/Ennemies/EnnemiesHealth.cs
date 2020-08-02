@@ -11,7 +11,7 @@ namespace Ennemies
         public TypeOfEnnemy typeOfEnnemy;
 
         //Health
-        public int maxHealth;
+        int maxHealth;
         public int currentHealth;
 
         public bool isInvincible = false;
@@ -27,27 +27,27 @@ namespace Ennemies
             }
             else if (typeOfEnnemy == TypeOfEnnemy.Soldonaute)
             {
-                maxHealth = 100;
+                maxHealth = 200;
             }
             else if (typeOfEnnemy == TypeOfEnnemy.SpaceScoot)
             {
-                maxHealth = 100;
+                maxHealth = 150;
             }
             else if (typeOfEnnemy == TypeOfEnnemy.Démolisseur)
             {
-                maxHealth = 100;
+                maxHealth = 300;
             }
             else if (typeOfEnnemy == TypeOfEnnemy.Carboniseur)
             {
-                maxHealth = 100;
+                maxHealth = 300;
             }
             else if (typeOfEnnemy == TypeOfEnnemy.Rover)
             {
-                maxHealth = 100;
+                maxHealth = 500;
             }
             else if (typeOfEnnemy == TypeOfEnnemy.Drone)
             {
-                maxHealth = 100;
+                maxHealth = 50;
             }
         }
 

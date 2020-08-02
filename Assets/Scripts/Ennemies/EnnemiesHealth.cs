@@ -6,13 +6,50 @@ namespace Ennemies
 {
     public class EnnemiesHealth : MonoBehaviour
     {
+        //TYPE OF ENNEMY
+        public enum TypeOfEnnemy {Walker, Soldonaute, SpaceScoot, Démolisseur, Carboniseur, Rover, Drone}
+        public TypeOfEnnemy typeOfEnnemy;
+
         //Health
-        public int maxHealth = 100;
+        public int maxHealth;
         public int currentHealth;
 
         public bool isInvincible = false;
 
+        //LOOT
         public GameObject lootDrop;
+
+        void Awake()
+        {
+            if (typeOfEnnemy == TypeOfEnnemy.Walker)
+            {
+                maxHealth = 100;
+            }
+            else if (typeOfEnnemy == TypeOfEnnemy.Soldonaute)
+            {
+                maxHealth = 100;
+            }
+            else if (typeOfEnnemy == TypeOfEnnemy.SpaceScoot)
+            {
+                maxHealth = 100;
+            }
+            else if (typeOfEnnemy == TypeOfEnnemy.Démolisseur)
+            {
+                maxHealth = 100;
+            }
+            else if (typeOfEnnemy == TypeOfEnnemy.Carboniseur)
+            {
+                maxHealth = 100;
+            }
+            else if (typeOfEnnemy == TypeOfEnnemy.Rover)
+            {
+                maxHealth = 100;
+            }
+            else if (typeOfEnnemy == TypeOfEnnemy.Drone)
+            {
+                maxHealth = 100;
+            }
+        }
 
         void Start()
         {

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Player;
 
 
 namespace Management
@@ -22,6 +23,10 @@ namespace Management
         public int horsesCount;
         public int storedUnits;
         public int maxStoredUnits;
+        public List<GameObject> activeAnimals = new List<GameObject>();
+        public int totalAnimalWeight;
+        public bool tooMuchAnimals = false;
+       
 
         [Header("Garden")]
         public int numberOfGardens;
@@ -76,4 +81,5 @@ namespace Management
 
     }
 
+    
 }

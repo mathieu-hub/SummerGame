@@ -158,10 +158,6 @@ namespace Tower
                 return;
             }
 
-
-
-
-
             canValidate = true;
             
         }

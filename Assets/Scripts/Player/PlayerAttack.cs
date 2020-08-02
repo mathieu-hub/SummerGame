@@ -40,7 +40,7 @@ namespace Player
 
         void Update()
         {
-            if (Input.GetButtonDown("Right_Bumper") && GameManager.Instance.vegetablesCount >=1)
+            if (Input.GetButtonDown("Right_Bumper") && GameManager.Instance.vegetablesCount >=1 && PlayerManager.Instance.controller.needToStop == false)
             {
                 Debug.Log("Called");
                 isLoadingAttack = true;
@@ -51,7 +51,7 @@ namespace Player
                 numberOfVegetablesEat = 1;
             }
 
-            if (Input.GetButtonUp("Right_Bumper"))
+            if (Input.GetButtonUp("Right_Bumper") )
             {
                 isLoadingAttack = false;
                 PlayerManager.Instance.controller.moveSpeed = PlayerManager.Instance.controller.initialMoveSpeed;

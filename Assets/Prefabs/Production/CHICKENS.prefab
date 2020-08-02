@@ -141,6 +141,11 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3122304943457519667, guid: 01d18744c0b81a244aeb756ad368b901,
+        type: 3}
+      propertyPath: animalWeight
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3122304943457519678, guid: 01d18744c0b81a244aeb756ad368b901,
         type: 3}
       propertyPath: m_Name
@@ -291,6 +296,11 @@ PrefabInstance:
     - target: {fileID: 3122304943457519665, guid: 01d18744c0b81a244aeb756ad368b901,
         type: 3}
       propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3122304943457519667, guid: 01d18744c0b81a244aeb756ad368b901,
+        type: 3}
+      propertyPath: animalWeight
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3122304943457519678, guid: 01d18744c0b81a244aeb756ad368b901,
@@ -445,6 +455,11 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3122304943457519667, guid: 01d18744c0b81a244aeb756ad368b901,
+        type: 3}
+      propertyPath: animalWeight
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3122304943457519678, guid: 01d18744c0b81a244aeb756ad368b901,
         type: 3}
       propertyPath: m_Name
@@ -501,6 +516,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: 1 - Chicken
+      objectReference: {fileID: 0}
+    - target: {fileID: 5800755785204893788, guid: c6d060f282c97bb42a4996edd7c71354,
+        type: 3}
+      propertyPath: animalWeight
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5800755785204893790, guid: c6d060f282c97bb42a4996edd7c71354,
         type: 3}

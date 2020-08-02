@@ -33,7 +33,7 @@ namespace Player
 
         //Movement Stuff
         float horizontal = 0f, vertical = 0f;
-        Vector2 movementVector = Vector2.zero;
+        public Vector2 movementVector = Vector2.zero;
 
         #endregion
 
@@ -68,7 +68,14 @@ namespace Player
                     isMoving = false;
                     movementVector = Vector2.zero;
                 }
+
             }
+            else
+            {
+                isMoving = false;
+                movementVector = Vector2.zero;
+            }
+            
 
         }
 

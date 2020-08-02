@@ -112,6 +112,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3122304943457519665, guid: 01d18744c0b81a244aeb756ad368b901,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3122304943457519665, guid: 01d18744c0b81a244aeb756ad368b901,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3122304943457519665, guid: 01d18744c0b81a244aeb756ad368b901,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3122304943457519667, guid: 01d18744c0b81a244aeb756ad368b901,
         type: 3}
       propertyPath: inputValue
@@ -126,6 +141,11 @@ PrefabInstance:
         type: 3}
       propertyPath: duration
       value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 3122304943457519667, guid: 01d18744c0b81a244aeb756ad368b901,
+        type: 3}
+      propertyPath: animalWeight
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3122304943457519678, guid: 01d18744c0b81a244aeb756ad368b901,
         type: 3}
@@ -250,6 +270,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3122304943457519665, guid: 01d18744c0b81a244aeb756ad368b901,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3122304943457519665, guid: 01d18744c0b81a244aeb756ad368b901,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3122304943457519665, guid: 01d18744c0b81a244aeb756ad368b901,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3122304943457519667, guid: 01d18744c0b81a244aeb756ad368b901,
         type: 3}
       propertyPath: inputValue
@@ -264,6 +299,11 @@ PrefabInstance:
         type: 3}
       propertyPath: duration
       value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 3122304943457519667, guid: 01d18744c0b81a244aeb756ad368b901,
+        type: 3}
+      propertyPath: animalWeight
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3122304943457519678, guid: 01d18744c0b81a244aeb756ad368b901,
         type: 3}
@@ -388,6 +428,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3122304943457519665, guid: 01d18744c0b81a244aeb756ad368b901,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3122304943457519665, guid: 01d18744c0b81a244aeb756ad368b901,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3122304943457519665, guid: 01d18744c0b81a244aeb756ad368b901,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3122304943457519667, guid: 01d18744c0b81a244aeb756ad368b901,
         type: 3}
       propertyPath: inputValue
@@ -402,6 +457,11 @@ PrefabInstance:
         type: 3}
       propertyPath: duration
       value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 3122304943457519667, guid: 01d18744c0b81a244aeb756ad368b901,
+        type: 3}
+      propertyPath: animalWeight
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3122304943457519678, guid: 01d18744c0b81a244aeb756ad368b901,
         type: 3}
@@ -526,6 +586,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3122304943457519665, guid: 01d18744c0b81a244aeb756ad368b901,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3122304943457519665, guid: 01d18744c0b81a244aeb756ad368b901,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3122304943457519665, guid: 01d18744c0b81a244aeb756ad368b901,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3122304943457519667, guid: 01d18744c0b81a244aeb756ad368b901,
         type: 3}
       propertyPath: inputValue
@@ -540,6 +615,11 @@ PrefabInstance:
         type: 3}
       propertyPath: duration
       value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 3122304943457519667, guid: 01d18744c0b81a244aeb756ad368b901,
+        type: 3}
+      propertyPath: animalWeight
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3122304943457519678, guid: 01d18744c0b81a244aeb756ad368b901,
         type: 3}

@@ -17,6 +17,7 @@ namespace Production
         #region Variables
 
         private bool playerHere;
+        private bool addedToTheList = false;
 
         [Header("Values")]
         [Range(1, 10)]
@@ -25,6 +26,7 @@ namespace Production
         [Range(1, 10)]
         [SerializeField] private int OutputValue;
         [SerializeField] private TextMeshProUGUI outputText;
+        public int animalWeight;
 
         [Header("Clock")]
         [Range(1F, 60F)]
@@ -51,7 +53,19 @@ namespace Production
             
         }
 
-         void Update()
+        #region AddToGMList
+        private void OnEnable()
+        {
+            GameManager.Instance.activeAnimals.Add(gameObject);
+        }
+        private void OnDisable()
+        {
+            GameManager.Instance.totalAnimalWeight -= animalWeight;
+            GameManager.Instance.activeAnimals.Remove(gameObject);
+        }
+        #endregion
+
+        void Update()
          {
             UpdateUI();
 
@@ -92,6 +106,8 @@ namespace Production
             outputText.text = "Output Value : " + OutputValue.ToString("0");
         }
         #endregion
+
+        #region Triggers
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.gameObject.CompareTag("PlayerController"))
@@ -107,7 +123,7 @@ namespace Production
                 playerHere = false;
             }
         }
-        #region OnTrigger
+        
 
         #endregion
     }

@@ -27,38 +27,188 @@ namespace Management
 
         void UpdateGarden()
         {
-            for (int i = 0; i < gardens.Length; i++)
+            if(GameManager.Instance.numberOfGardens == 0)
             {
-                gardens[GameManager.Instance.numberOfGardens].SetActive(true);
+                gardens[0].SetActive(true);
+                gardens[1].SetActive(false);
+                gardens[2].SetActive(false);
+                gardens[3].SetActive(false);
+            } else if(GameManager.Instance.numberOfGardens == 1)
+            {
+                gardens[0].SetActive(true);
+                gardens[1].SetActive(true);
+                gardens[2].SetActive(false);
+                gardens[3].SetActive(false);
             }
+            else if (GameManager.Instance.numberOfGardens == 2)
+            {
+                gardens[0].SetActive(true);
+                gardens[1].SetActive(true);
+                gardens[2].SetActive(true);
+                gardens[3].SetActive(false);
+            }
+            else if (GameManager.Instance.numberOfGardens == 4)
+            {
+                gardens[0].SetActive(true);
+                gardens[1].SetActive(true);
+                gardens[2].SetActive(true);
+                gardens[3].SetActive(true);
+            }
+
         }
 
         void UpdateChickens()
         {
-            for (int i = 0; i < chickens.Length; i++)
+            if(GameManager.Instance.chickensCount == 0)
             {
-                chickens[GameManager.Instance.chickensCount].SetActive(true);
+                chickens[1].SetActive(false);
+                chickens[2].SetActive(false);
+                chickens[3].SetActive(false);
+                chickens[4].SetActive(false);
             }
+            else if (GameManager.Instance.chickensCount == 1)
+            {
+                chickens[1].SetActive(true);
+                chickens[2].SetActive(false);
+                chickens[3].SetActive(false);
+                chickens[4].SetActive(false);
+            }
+            else if (GameManager.Instance.chickensCount == 2)
+            {
+                chickens[1].SetActive(true);
+                chickens[2].SetActive(true);
+                chickens[3].SetActive(false);
+                chickens[4].SetActive(false);
+            }
+            else if (GameManager.Instance.chickensCount == 3)
+            {
+                chickens[1].SetActive(true);
+                chickens[2].SetActive(true);
+                chickens[3].SetActive(true);
+                chickens[4].SetActive(false);
+            }
+            else if (GameManager.Instance.chickensCount == 4)
+            {
+                chickens[1].SetActive(true);
+                chickens[2].SetActive(true);
+                chickens[3].SetActive(true);
+                chickens[4].SetActive(true);
+            }
+
+
         }
         void UpdateCows()
         {
-            for (int i = 0; i < cows.Length; i++)
+            if (GameManager.Instance.cowsCount == 0)
             {
-                cows[GameManager.Instance.cowsCount].SetActive(true);
+                cows[1].SetActive(false);
+                cows[2].SetActive(false);
+                cows[3].SetActive(false);
+                cows[4].SetActive(false);
+            }
+            else if (GameManager.Instance.cowsCount == 1)
+            {
+                cows[1].SetActive(true);
+                cows[2].SetActive(false);
+                cows[3].SetActive(false);
+                cows[4].SetActive(false);
+            }
+            else if (GameManager.Instance.cowsCount == 2)
+            {
+                cows[1].SetActive(true);
+                cows[2].SetActive(true);
+                cows[3].SetActive(false);
+                cows[4].SetActive(false);
+            }
+            else if (GameManager.Instance.cowsCount == 3)
+            {
+                cows[1].SetActive(true);
+                cows[2].SetActive(true);
+                cows[3].SetActive(true);
+                cows[4].SetActive(false);
+            }
+            else if (GameManager.Instance.cowsCount == 4)
+            {
+                cows[1].SetActive(true);
+                cows[2].SetActive(true);
+                cows[3].SetActive(true);
+                cows[4].SetActive(true);
             }
         }
         void UpdatePigs()
         {
-            for (int i = 0; i < pigs.Length; i++)
+            if (GameManager.Instance.pigsCount == 0)
             {
-                pigs[GameManager.Instance.pigsCount].SetActive(true);
+                pigs[1].SetActive(false);
+                pigs[2].SetActive(false);
+                pigs[3].SetActive(false);
+                pigs[4].SetActive(false);
+            }
+            else if (GameManager.Instance.pigsCount == 1)
+            {
+                pigs[1].SetActive(true);
+                pigs[2].SetActive(false);
+                pigs[3].SetActive(false);
+                pigs[4].SetActive(false);
+            }
+            else if (GameManager.Instance.pigsCount == 2)
+            {
+                pigs[1].SetActive(true);
+                pigs[2].SetActive(true);
+                pigs[3].SetActive(false);
+                pigs[4].SetActive(false);
+            }
+            else if (GameManager.Instance.pigsCount == 3)
+            {
+                pigs[1].SetActive(true);
+                pigs[2].SetActive(true);
+                pigs[3].SetActive(true);
+                pigs[4].SetActive(false);
+            }
+            else if (GameManager.Instance.pigsCount == 4)
+            {
+                pigs[1].SetActive(true);
+                pigs[2].SetActive(true);
+                pigs[3].SetActive(true);
+                pigs[4].SetActive(true);
             }
         }
         void UpdateHorses()
         {
-            for (int i = 0; i < horses.Length; i++)
+            if (GameManager.Instance.horsesCount == 0)
             {
-                horses[GameManager.Instance.horsesCount].SetActive(true);
+                horses[1].SetActive(false);
+                horses[2].SetActive(false);
+                horses[3].SetActive(false);
+                horses[4].SetActive(false);
+            }
+            else if (GameManager.Instance.horsesCount == 1)
+            {
+                horses[1].SetActive(true);
+                horses[2].SetActive(false);
+                horses[3].SetActive(false);
+                horses[4].SetActive(false);
+            }
+            else if (GameManager.Instance.horsesCount == 2)
+            {
+                horses[1].SetActive(true);
+                horses[2].SetActive(true);
+                horses[3].SetActive(false);
+                horses[4].SetActive(false);
+            }
+            else if (GameManager.Instance.horsesCount == 3)
+            {
+                horses[1].SetActive(true);
+                horses[2].SetActive(true);
+                horses[3].SetActive(true);
+                horses[4].SetActive(false);
+            }
+            else if (GameManager.Instance.horsesCount == 4)
+            {
+                horses[1].SetActive(true);
+                horses[2].SetActive(true);
+                horses[3].SetActive(true);
+                horses[4].SetActive(true);
             }
         }
     }

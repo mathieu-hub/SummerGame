@@ -69,17 +69,21 @@ namespace Production
          {
             UpdateUI();
 
-            if (timer.finished)
+            if (Input.GetButtonDown("A_Button") && playerHere)
             {
-                GetProduction();
+                if (timer.finished)
+                {
+                    GetProduction();
+                }
+                else if (inProduction == false && GameManager.Instance.vegetablesCount >= inputValue)
+                {
+                    inProduction = true;
+                    timer.Play();
+                    GameManager.Instance.vegetablesCount -= inputValue;
+                }
             }
 
-            if (Input.GetButtonDown("A_Button") && playerHere && inProduction == false && GameManager.Instance.vegetablesCount >= inputValue)
-            {
-                inProduction = true;
-                timer.Play();
-                GameManager.Instance.vegetablesCount -= inputValue;
-            }
+            
          }
         #region Methods
         void GetProduction()

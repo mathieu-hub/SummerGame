@@ -11,16 +11,27 @@ namespace Turret
 	public class ChainsawBullet : Bullet
 	{
         #region Variables
-        List<Rigidbody2D> enemiesPushed = new List<Rigidbody2D>();
+        List<EnnemiesMovement> enemiesPushed = new List<EnnemiesMovement>();
         [SerializeField] private float pushTime;
         #endregion
 
         protected override void DealDamage(GameObject enemy)
         {
+            EnnemiesMovement enemyMov = enemy.GetComponent<EnnemiesMovement>();
+
+            if(enemyMov.pushedCount >= enemyMov.maxPushes)
+                return;
+
+            if(enemyMov.pushingBullet != null)
+                enemyMov.pushingBullet.GetComponent<ChainsawBullet>().enemiesPushed.Remove(enemyMov);
+            
+            enemyMov.pushingBullet = gameObject;
+            enemyMov.pushedCount++;
+
             EnnemiesHealth enemyHit = enemy.GetComponent<EnnemiesHealth>();
             Rigidbody2D enemyRB = enemy.GetComponent<Rigidbody2D>();
-            EnnemiesMovement enemyMov = enemy.GetComponent<EnnemiesMovement>();
-            enemiesPushed.Add(enemyRB);
+            
+            enemiesPushed.Add(enemyMov);
 
             enemyHit.TakeDammage(damage);
             
@@ -34,19 +45,29 @@ namespace Turret
             _enemyRB.velocity = myRB.velocity;
             yield return new WaitForSeconds(pushTime);
             _enemyRB.velocity = Vector2.zero;
-            _enemyMov.isPushed = false;
-            enemiesPushed.Remove(_enemyRB);
+            if(_enemyMov.pushingBullet == gameObject)
+            {
+                _enemyMov.isPushed = false;
+                if (_enemyMov.pushedCount >= _enemyMov.maxPushes)
+                    _enemyMov.DoResistToPush();
+                enemiesPushed.Remove(_enemyMov);
+            }
         }
 
         private void OnDestroy()
         {
             if (enemiesPushed.Count > 0)
             {
-                foreach(Rigidbody2D enemy in enemiesPushed)
+                foreach (EnnemiesMovement enemyMov in enemiesPushed)
                 {
-                    enemy.velocity = Vector2.zero;
-                    enemy.gameObject.GetComponent<EnnemiesMovement>().isPushed = false;
-                    enemiesPushed.Remove(enemy);
+                    if (enemyMov.pushingBullet == gameObject)
+                    {
+                        enemyMov.isPushed = false;
+                        if (enemyMov.pushedCount >= enemyMov.maxPushes)
+                            enemyMov.DoResistToPush();
+                        enemiesPushed.Remove(enemyMov);
+                    }
+                        
                 }
             }
         }

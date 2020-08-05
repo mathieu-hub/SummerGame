@@ -59,7 +59,7 @@ namespace Turret
 				return;
 			}
 
-			myRB.velocity = enemyDir.normalized * speed;
+			myRB.velocity = enemyDir.normalized * speed * Time.deltaTime;
 
 			if(lifetime <= 0f)
             {

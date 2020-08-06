@@ -21,18 +21,22 @@ namespace Ennemies
         public bool doingDamage = false;
         public int ennemyDamage;
         public int speedAttack;
-
+        
         [Header("Push")]
-        [HideInInspector] public GameObject pushingBullet = null;
-        [HideInInspector] public int pushedCount = 0;
         [Range(2, 10)]
         public int maxPushes = 2;
         [Range(0.5f, 20f)]
         [SerializeField] private float resistanceTime = 3f;
-        private bool inResistance = false;
+        [SerializeField] private bool pushTest = false;
+        //private bool inResistance = false;
+
+        [HideInInspector] public GameObject pushingBullet = null;
+        [HideInInspector] public int pushedCount = 0;
 
         void Start()
         {
+            if (pushTest)
+                return;
             //StartingWay();
             target = GameMaster.Instance.WayMaster.way01[0];
         }
@@ -40,7 +44,7 @@ namespace Ennemies
         private void Update()
         {
             //Check if enemy is being pushed by Tronçronce bullet
-            if (isPushed)
+            if (isPushed || pushTest)
                 return;
 
             //if (pushedCount >= maxPushes && !inResistance)

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3602598390082030769}
   - component: {fileID: 8627816477961172363}
   - component: {fileID: 8454612600842092785}
-  - component: {fileID: 5146056551871694408}
+  - component: {fileID: 2177235083300879070}
   m_Layer: 0
   m_Name: "Tron\xE7oronceBullet"
   m_TagString: Untagged
@@ -69,12 +69,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyTag: Enemy
   speed: 10.3
-  lifetime: 2.95
+  lifetime: 4.32
   spawnPrefab: {fileID: 1548718785097394368, guid: 007a84e932a1af5439981a32ac18a672,
     type: 3}
   pushTime: 0.7
---- !u!58 &5146056551871694408
-CircleCollider2D:
+--- !u!61 &2177235083300879070
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -87,8 +87,18 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 0.29
+  m_Size: {x: 0.3, y: 0.9}
+  m_EdgeRadius: 0
 --- !u!1 &3702659123657941509
 GameObject:
   m_ObjectHideFlags: 0

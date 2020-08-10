@@ -3209,11 +3209,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa53652b8f1992445afe76edebe27bfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ennemyPrefab: {fileID: 225565058131935773, guid: e89465a6b0235134ab5b3574dea5facc,
-    type: 3}
+  walker: {fileID: 225565058131935773, guid: e89465a6b0235134ab5b3574dea5facc, type: 3}
   spawnPoint: {fileID: 1191384454}
   timeBreak: 21
+  countdown: 2
   waveCountdownTimer: {fileID: 1504632598}
+  waveIndex: 0
+  waveInProgress: 0
 --- !u!1 &1884366578
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,6 +11,10 @@ namespace Ennemies
         [Header("Wave Compositor")]
         public WaveCompositor[] waves;
 
+        //Séléction de l'ennemi
+        [Header("Ennemy Slector")]
+        private float ennemySelector;
+
         //Le nombre d'ennemis en vie        
         public static int ennemyAlive = 0;
 
@@ -61,6 +65,7 @@ namespace Ennemies
 
         IEnumerator SpawnWave()
         {
+            waveIndex++;
             waveInProgress = true;
 
             WaveCompositor wave = waves[waveIndex];
@@ -69,16 +74,99 @@ namespace Ennemies
             {
                 SpawnEnnemy(wave.ennemy);
                 yield return new WaitForSeconds(wave.rate);
-            }
+            }            
             
-            waveIndex++;
         }
 
         //Permet de gérer les règles d'apparitions ennemis et de compositions de vagues.
         void SpawnEnnemy(GameObject[] ennemy)
         {
-            Instantiate(ennemy[0], spawnPoint.position, spawnPoint.rotation) ;
-            ennemyAlive++;
+            ennemySelector = Random.Range(0, 7);
+            Debug.Log(ennemySelector);
+
+            if (ennemySelector == 0)
+            {
+                Instantiate(ennemy[0], spawnPoint.position, spawnPoint.rotation);
+                ennemyAlive++;
+            }
+            else if (ennemySelector == 1)
+            {
+                if (ennemy[1] != null)
+                {
+                    Instantiate(ennemy[1], spawnPoint.position, spawnPoint.rotation);
+                    ennemyAlive++;
+                }
+                else if (ennemy[1] == null)
+                {
+                    Instantiate(ennemy[0], spawnPoint.position, spawnPoint.rotation);
+                    ennemyAlive++;
+                }
+            }
+            else if (ennemySelector == 2)
+            {
+                if (ennemy[2] != null)
+                {
+                    Instantiate(ennemy[2], spawnPoint.position, spawnPoint.rotation);
+                    ennemyAlive++;
+                }
+                else
+                {
+                    Instantiate(ennemy[0], spawnPoint.position, spawnPoint.rotation);
+                    ennemyAlive++;
+                }
+            }
+            else if (ennemySelector == 3)
+            {
+                if (ennemy[3] != null)
+                {
+                    Instantiate(ennemy[3], spawnPoint.position, spawnPoint.rotation);
+                    ennemyAlive++;
+                }
+                else
+                {
+                    Instantiate(ennemy[0], spawnPoint.position, spawnPoint.rotation);
+                    ennemyAlive++;
+                }
+            }
+            else if (ennemySelector == 4)
+            {
+                if (ennemy[4] != null)
+                {
+                    Instantiate(ennemy[4], spawnPoint.position, spawnPoint.rotation);
+                    ennemyAlive++;
+                }
+                else
+                {
+                    Instantiate(ennemy[0], spawnPoint.position, spawnPoint.rotation);
+                    ennemyAlive++;
+                }
+            }
+            else if (ennemySelector == 5)
+            {
+                if (ennemy[5] != null)
+                {
+                    Instantiate(ennemy[5], spawnPoint.position, spawnPoint.rotation);
+                    ennemyAlive++;
+                }
+                else
+                {
+                    Instantiate(ennemy[0], spawnPoint.position, spawnPoint.rotation);
+                    ennemyAlive++;
+                }
+            }
+            else if (ennemySelector == 6)
+            {
+                if (ennemy[6] != null)
+                {
+                    Instantiate(ennemy[6], spawnPoint.position, spawnPoint.rotation);
+                    ennemyAlive++;
+                }
+                else
+                {
+                    Instantiate(ennemy[0], spawnPoint.position, spawnPoint.rotation);
+                    ennemyAlive++;
+                }
+            }
         }
 	}
 }

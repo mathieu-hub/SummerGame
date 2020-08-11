@@ -80,8 +80,7 @@ namespace Ennemies
 
         void StartingWay()
         {
-            randomSpawn = Random.Range(0, 5);
-            Debug.Log(randomSpawn);
+            randomSpawn = Random.Range(0, 5);            
             
             if (randomSpawn == 0)
             {

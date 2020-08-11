@@ -8,7 +8,7 @@ namespace Ennemies
 	public class WaveSpawner : MonoBehaviour
 	{
         //Permet de Composer les différentes vagues via divers variables (types d'ennemis, nbr max, taux ...)
-        [Header("Wave Compositor")]
+        [Header("Wave Compositor (mettre 6 dans enney size)")]
         public WaveCompositor[] waves;
 
         //Séléction de l'ennemi
@@ -65,7 +65,6 @@ namespace Ennemies
 
         IEnumerator SpawnWave()
         {
-            waveIndex++;
             waveInProgress = true;
 
             WaveCompositor wave = waves[waveIndex];
@@ -74,14 +73,15 @@ namespace Ennemies
             {
                 SpawnEnnemy(wave.ennemy);
                 yield return new WaitForSeconds(wave.rate);
-            }            
-            
+            }
+
+            waveIndex++;
         }
 
         //Permet de gérer les règles d'apparitions ennemis et de compositions de vagues.
         void SpawnEnnemy(GameObject[] ennemy)
         {
-            ennemySelector = Random.Range(0, 7);
+            ennemySelector = Random.Range(0, 6);
             Debug.Log(ennemySelector);
 
             if (ennemySelector == 0)
@@ -109,7 +109,7 @@ namespace Ennemies
                     Instantiate(ennemy[2], spawnPoint.position, spawnPoint.rotation);
                     ennemyAlive++;
                 }
-                else
+                else if (ennemy[2] == null)
                 {
                     Instantiate(ennemy[0], spawnPoint.position, spawnPoint.rotation);
                     ennemyAlive++;
@@ -122,7 +122,7 @@ namespace Ennemies
                     Instantiate(ennemy[3], spawnPoint.position, spawnPoint.rotation);
                     ennemyAlive++;
                 }
-                else
+                else if (ennemy[3] == null)
                 {
                     Instantiate(ennemy[0], spawnPoint.position, spawnPoint.rotation);
                     ennemyAlive++;
@@ -135,7 +135,7 @@ namespace Ennemies
                     Instantiate(ennemy[4], spawnPoint.position, spawnPoint.rotation);
                     ennemyAlive++;
                 }
-                else
+                else if (ennemy[4] == null)
                 {
                     Instantiate(ennemy[0], spawnPoint.position, spawnPoint.rotation);
                     ennemyAlive++;
@@ -148,25 +148,13 @@ namespace Ennemies
                     Instantiate(ennemy[5], spawnPoint.position, spawnPoint.rotation);
                     ennemyAlive++;
                 }
-                else
+                else if (ennemy[5] == null)
                 {
                     Instantiate(ennemy[0], spawnPoint.position, spawnPoint.rotation);
                     ennemyAlive++;
                 }
             }
-            else if (ennemySelector == 6)
-            {
-                if (ennemy[6] != null)
-                {
-                    Instantiate(ennemy[6], spawnPoint.position, spawnPoint.rotation);
-                    ennemyAlive++;
-                }
-                else
-                {
-                    Instantiate(ennemy[0], spawnPoint.position, spawnPoint.rotation);
-                    ennemyAlive++;
-                }
-            }
+            
         }
 	}
 }

@@ -2110,7 +2110,7 @@ GameObject:
   m_Layer: 0
   m_Name: SpawnPoint
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -2122,7 +2122,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1191384453}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.87, y: -21.47, z: 0}
+  m_LocalPosition: {x: -2.87, y: -39.59, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 680227340}
@@ -3168,10 +3168,19 @@ MonoBehaviour:
   waves:
   - ennemy:
     - {fileID: 225565058131935763, guid: e89465a6b0235134ab5b3574dea5facc, type: 3}
+    - {fileID: 225565058131935763, guid: e89465a6b0235134ab5b3574dea5facc, type: 3}
+    - {fileID: 225565058131935763, guid: e89465a6b0235134ab5b3574dea5facc, type: 3}
+    - {fileID: 225565058131935763, guid: e89465a6b0235134ab5b3574dea5facc, type: 3}
+    - {fileID: 225565058131935763, guid: e89465a6b0235134ab5b3574dea5facc, type: 3}
+    - {fileID: 225565058131935763, guid: e89465a6b0235134ab5b3574dea5facc, type: 3}
     count: 2
     rate: 1
   - ennemy:
-    - {fileID: 3479738152389992204, guid: 8494921125d1bb74d8d72d69f83fb474, type: 3}
+    - {fileID: 7542951312619859889, guid: c81e2143f94854943a65501d6b0a58d4, type: 3}
+    - {fileID: 7542951312619859889, guid: c81e2143f94854943a65501d6b0a58d4, type: 3}
+    - {fileID: 7542951312619859889, guid: c81e2143f94854943a65501d6b0a58d4, type: 3}
+    - {fileID: 7542951312619859889, guid: c81e2143f94854943a65501d6b0a58d4, type: 3}
+    - {fileID: 7542951312619859889, guid: c81e2143f94854943a65501d6b0a58d4, type: 3}
     - {fileID: 7542951312619859889, guid: c81e2143f94854943a65501d6b0a58d4, type: 3}
     count: 3
     rate: 1

@@ -75,6 +75,7 @@ namespace Ennemies
 
         private void Die()
         {
+            WaveSpawner.ennemyAlive--;
             Destroy(gameObject);
             Instantiate(lootDrop, transform.position, Quaternion.identity);
         }

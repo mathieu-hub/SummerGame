@@ -3127,17 +3127,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa53652b8f1992445afe76edebe27bfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walker: {fileID: 225565058131935773, guid: e89465a6b0235134ab5b3574dea5facc, type: 3}
-  soldonaute: {fileID: 4988630161159641424, guid: 9a798289f471a2742a2cf6c17ff181ca,
-    type: 3}
-  spaceScoot: {fileID: 2601808901550941429, guid: aa23e5d76be7a604aa7e9e1e4b1a85b8,
-    type: 3}
-  "d\xE9molisseur": {fileID: 1439800598672498048, guid: 7eeccf2dd403cf24c8cafd7514dc5435,
-    type: 3}
-  carboniseur: {fileID: 5429196261517000529, guid: b1c34407ac2026747b4a532eb662ccea,
-    type: 3}
-  rover: {fileID: 7542951312619859903, guid: c81e2143f94854943a65501d6b0a58d4, type: 3}
-  drone: {fileID: 3479738152389992194, guid: 8494921125d1bb74d8d72d69f83fb474, type: 3}
+  waves:
+  - ennemy:
+    - {fileID: 0}
+    count: 2
+    rate: 1
+  - ennemy:
+    - {fileID: 0}
+    - {fileID: 0}
+    count: 3
+    rate: 1
   spawnPoint: {fileID: 1191384454}
   timeBreak: 21
   countdown: 2

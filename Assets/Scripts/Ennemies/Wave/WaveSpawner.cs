@@ -7,22 +7,9 @@ namespace Ennemies
 {
 	public class WaveSpawner : MonoBehaviour
 	{
-        //Glisser les prefabs ennemis pour ensuite les faire spawn
-        [Header("Ennemy Prefab")]
-        [SerializeField]
-        private Transform walker;
-        [SerializeField]
-        private Transform soldonaute;
-        [SerializeField]
-        private Transform spaceScoot;
-        [SerializeField]
-        private Transform démolisseur;
-        [SerializeField]
-        private Transform carboniseur;
-        [SerializeField]
-        private Transform rover;
-        [SerializeField]
-        private Transform drone;
+        //Permet de Composer les différentes vagues via divers variables (types d'ennemis, nbr max, taux ...)
+        [Header("Wave Compositor")]
+        public WaveCompositor[] waves;
 
         //Le nombre d'ennemis en vie        
         public static int ennemyAlive = 0;
@@ -74,20 +61,23 @@ namespace Ennemies
 
         IEnumerator SpawnWave()
         {
-            waveIndex++;
             waveInProgress = true;
 
-            for (int i = 0; i < waveIndex; i++)
+            WaveCompositor wave = waves[waveIndex];
+
+            for (int i = 0; i < wave.count; i++)
             {
-                SpawnEnnemy();
-                yield return new WaitForSeconds(0.3f);
+                SpawnEnnemy(wave.ennemy);
+                yield return new WaitForSeconds(wave.rate);
             }
+            
+            waveIndex++;
         }
 
         //Permet de gérer les règles d'apparitions ennemis et de compositions de vagues.
-        void SpawnEnnemy()
+        void SpawnEnnemy(GameObject[] ennemy)
         {
-            Instantiate(walker, spawnPoint.position, spawnPoint.rotation) ;
+            Instantiate(ennemy[0], spawnPoint.position, spawnPoint.rotation) ;
             ennemyAlive++;
         }
 	}

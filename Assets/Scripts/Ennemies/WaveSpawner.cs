@@ -24,8 +24,7 @@ namespace Ennemies
         [SerializeField]
         private Transform drone;
 
-        //Le nombre d'ennemis en vie
-        [Header("Ennemy Alive")]
+        //Le nombre d'ennemis en vie        
         public static int ennemyAlive = 0;
 
         [Header("SpawnPoint")]

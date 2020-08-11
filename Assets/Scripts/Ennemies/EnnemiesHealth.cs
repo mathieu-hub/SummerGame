@@ -23,7 +23,7 @@ namespace Ennemies
         {
             if (typeOfEnnemy == TypeOfEnnemy.Walker)
             {
-                maxHealth = 100;
+                maxHealth = 10;
             }
             else if (typeOfEnnemy == TypeOfEnnemy.Soldonaute)
             {

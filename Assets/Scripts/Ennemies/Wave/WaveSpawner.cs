@@ -34,13 +34,17 @@ namespace Ennemies
         [Header("Wave Number")]
         [SerializeField]
         private int waveIndex = 0;
+        public static int rounds; //Pour l'UI de GAME OVER
 
         //Vague en cours ou non
         [Header("Wave In Preogress")]
         [SerializeField]
-        private bool waveInProgress = false;
+        private bool waveInProgress = false;        
 
-
+        private void Start()
+        {
+            rounds = 0;
+        }
 
         void Update()
 		{
@@ -76,6 +80,7 @@ namespace Ennemies
             }
 
             waveIndex++;
+            rounds++;
         }
 
         //Permet de gérer les règles d'apparitions ennemis et de compositions de vagues.

@@ -8,12 +8,13 @@ public class SiloLife : MonoBehaviour
     public static int lives;
     public int startLives = 100;
 
-    public static bool gameIsOver = false;
+    public static bool gameIsOver;
 
     public GameObject gameOverUi;
 
     void Start()
     {
+        gameIsOver = false;
         lives = startLives;
     }
 

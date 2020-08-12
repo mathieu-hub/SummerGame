@@ -1,26 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using Ennemies;
 
-namespace Game
+public class GameOver : MonoBehaviour
 {
-	public class GameOver : MonoBehaviour
-	{
-		#region Variables
-		
-		#endregion
+    public Text roundsText;
 
-		// Start is called before the first frame update
-		void Start()
-		{
-			
-		}
-
-		// Update is called once per frame
-		void Update()
-		{
-			
-		}
-	}
+    private void OnEnable()
+    {
+        roundsText.text = WaveSpawner.rounds.ToString();
+    }
 }
 

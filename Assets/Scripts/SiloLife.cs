@@ -8,7 +8,9 @@ public class SiloLife : MonoBehaviour
     public static int lives;
     public int startLives = 100;
 
-    private bool gameEnded = false;
+    public static bool gameIsOver = false;
+
+    public GameObject gameOverUi;
 
     void Start()
     {
@@ -17,7 +19,13 @@ public class SiloLife : MonoBehaviour
 
     void Update()
     {
-        if (gameEnded)
+        // à enlever, juste pour test le game over
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            EndGame();
+        }
+
+        if (gameIsOver)
         {
             return;
         }
@@ -29,8 +37,9 @@ public class SiloLife : MonoBehaviour
     }
     void EndGame()
     {
-        gameEnded = true;
-        Debug.Log("Game Over");
+        Time.timeScale = 0f; //met le jeu en pause
+        gameIsOver = true;
+        gameOverUi.SetActive(true);
     }
 }
 

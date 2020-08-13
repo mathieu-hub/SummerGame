@@ -26,10 +26,6 @@ public class WayMaster : MonoBehaviour
         way05 = way5.GetComponent<Waypoints>().points;
     }
 
-
-    void Update()
-    {
-                     
-    }
+        
 }
 

@@ -6,6 +6,8 @@ TagManager:
   tags:
   - PlayerController
   - Enemy
+  - Turret
+  - Defense
   layers:
   - Default
   - TransparentFX

@@ -5012,6 +5012,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9066613591705526786, guid: f3e5601e66b2186439a86b676d8e81d6,
+        type: 3}
+      propertyPath: range
+      value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9066613591705526786, guid: f3e5601e66b2186439a86b676d8e81d6,
+        type: 3}
+      propertyPath: turretDamage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9066613591705526786, guid: f3e5601e66b2186439a86b676d8e81d6,
+        type: 3}
+      propertyPath: maxHealth
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9066613591705526787, guid: f3e5601e66b2186439a86b676d8e81d6,
         type: 3}
       propertyPath: m_Name

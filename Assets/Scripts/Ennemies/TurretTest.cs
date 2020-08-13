@@ -14,7 +14,7 @@ namespace Ennemies
 
         [Header("Life")]
         public int maxHealth;
-        public static int currentHealth;
+        public int currentHealth;
 
 		// Start is called before the first frame update
 		void Start()

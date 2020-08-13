@@ -17,6 +17,7 @@ namespace Ennemies
 
         //Make Damage
         [Header("Damage")]
+        public float range;
         public bool canMakeDamage = false;
         public bool doingDamage = false;
         [SerializeField] private int ennemyDamage;
@@ -39,6 +40,8 @@ namespace Ennemies
         //TYPE OF ENNEMY
         public enum TypeOfEnnemy { Walker, Soldonaute, SpaceScoot, Démolisseur, Carboniseur, Rover, Drone }
         public TypeOfEnnemy typeOfEnnemy;
+
+        public GameObject turretTarget;
 
         void Awake()
         {
@@ -274,7 +277,30 @@ namespace Ennemies
         // À chaque Waypoint, vérifie si un rempart ou une tourelle est proche et déclenche le bon comportement à avoir pour chaque type d'ennemis 
         private void Checking()
         {
+            GameObject[] Defenses = GameObject.FindGameObjectsWithTag("Defense");
+            float shortestDistance = Mathf.Infinity;
+            GameObject nearestDefense = null;
 
+            foreach (GameObject Defense in Defenses)
+            {
+                float distanceToDefense = Vector3.Distance(transform.position, Defense.transform.position);
+                if (distanceToDefense < shortestDistance)
+                {
+                    shortestDistance = distanceToDefense;
+                    nearestDefense = Defense;
+                }
+            }
+
+            if (nearestDefense != null && shortestDistance <= range)
+            {
+                target = nearestDefense.transform;              
+                turretTarget = nearestDefense;
+                StartCoroutine(AttackOnTurret()); //Si type of ennemy is ...
+            }
+            else
+            {
+                target = null;
+            }
         }
         
         // Fait des dégâts à la tourelle tant qu'elle possède des points de vies  
@@ -284,11 +310,12 @@ namespace Ennemies
             if (canMakeDamage && !doingDamage)
             {
                 doingDamage = true;
-                TurretTest.currentHealth -= ennemyDamage;
+                turretTarget.GetComponent<TurretTest>().currentHealth -= ennemyDamage;
                 yield return new WaitForSeconds(0.3f);
                 canMakeDamage = false;
             }
         }
+
 
         // Fait des dégâts au rempart tant qu'il possède des points de vies  
         IEnumerator AttackOnRempart()
@@ -327,7 +354,12 @@ namespace Ennemies
             pushedCount = 0;
             //inResistance = false;
         }
-        
+
+        private void OnDrawGizmosSelected()
+        {
+            Gizmos.color = Color.green;
+            Gizmos.DrawWireSphere(transform.position, range);
+        }
     }
 }
 

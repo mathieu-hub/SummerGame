@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine.UI;
 using Management;
 
+
 namespace Production
 {
     public class GardenBehaviour : MonoBehaviour
@@ -19,7 +20,11 @@ namespace Production
 
         [Header("Clock")]
         [Range(0.0F, 15.0F)]
+        public float baseDuration;
+        [Range(0.0F, 15.0F)]
         public float duration;
+        [Range(0.0F, 15.0F)]
+        public float boostedDuration;
         public Clock timer;
 
         [Header("VisualClock")]
@@ -31,30 +36,36 @@ namespace Production
 
         [Header("Storage")]
         public int storedVegetable;
+
+        [Header("Boosted")]
+        [SerializeField] private bool boosted = false;
+        [SerializeField] private int vegetablesBoostedCount = 0;
+        [SerializeField] private float storedTime = 0f;
         #endregion
 
         void Start()
         {
+            duration = baseDuration;
             green = durationBar.color;
             //Start a clock when the Game Start.
             timer = new Clock(duration);
+
         }
 
         // Update is called once per frame
         void Update()
         {
+            //Debug.Log(timer.time);
+            
             //Update Visual at all time
             UpdateUi();
 
-            //Increase Count
-            if (timer.onFinish)
-            {
-                Production();
-            }
             //Stop Production at 6
             if (storedVegetable == 6)
             {
                 timer.Pause();
+
+                duration = baseDuration;
             }
             /*else   
             {
@@ -64,11 +75,23 @@ namespace Production
             if (Input.GetButtonDown("A_Button") && playerHere){
                 GetProduction();
             }
+
+            if(Input.GetButtonDown("X_Button") && playerHere && !boosted)
+            {
+                Boost();
+            }
+
+            if (timer.onFinish)
+            {
+                Production();
+            }
+
         }
+
         #region OnTrigger
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.gameObject.CompareTag("Player"))
+            if (collision.gameObject.CompareTag("PlayerController"))
             {
                 playerHere = true;
             }
@@ -76,19 +99,19 @@ namespace Production
 
         private void OnTriggerExit2D(Collider2D collision)
         {
-            if (collision.gameObject.CompareTag("Player"))
+            if (collision.gameObject.CompareTag("PlayerController"))
             {
                 playerHere = false;
             }
         }
         #endregion
 
-
         #region Methods
         void UpdateUi()
         {
             timerCountdown.text = timer.time.ToString("0");
             storedCount.text = storedVegetable.ToString();
+
             durationBar.fillAmount = (float)timer.time / (float)duration;
 
             if (storedVegetable == 6)
@@ -99,10 +122,12 @@ namespace Production
 
         void GetProduction()
         {
-            if(storedVegetable == 6)
+
+            if (storedVegetable == 6)
             {
                 timer = new Clock(duration);
             }
+
             durationBar.color = green;
             GameManager.Instance.vegetablesCount += storedVegetable;
             storedVegetable = 0;
@@ -111,7 +136,31 @@ namespace Production
         void Production()
         {
             storedVegetable += 1;
+
+            if (boosted)
+            {
+                duration = boostedDuration;
+                vegetablesBoostedCount += 1;
+            }
+
+            if (vegetablesBoostedCount == 3)
+            {
+                boosted = false;
+                vegetablesBoostedCount = 0;
+                duration = baseDuration;
+            }
+
+
             timer = new Clock(duration);
+
+        }
+
+        void Boost()
+        {
+            boosted = true;
+            storedTime = timer.time;
+            timer.Stop();
+            timer.SetTime(storedTime/2);
         }
         #endregion
     }

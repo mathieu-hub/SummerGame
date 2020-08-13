@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: ddd9acb610b402244b633203c250436b
+=======
+guid: 62b380053eff4e0468adaa37c85029cc
+>>>>>>> XP_PRODUCTION
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

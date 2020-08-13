@@ -1,0 +1,456 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4436743250441362877
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4436743250441362874}
+  m_Layer: 0
+  m_Name: VEGETABLES GARDENS
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4436743250441362874
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4436743250441362877}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.5266185, y: 0.89844704, z: -10.962891}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 397770929013513859}
+  - {fileID: 397770928346654104}
+  - {fileID: 397770928619161822}
+  - {fileID: 4436743249737886452}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &397770927624379476
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4436743250441362874}
+    m_Modifications:
+    - target: {fileID: 3668384745001007253, guid: 342ee4fd639602946906475393c1cbd6,
+        type: 3}
+      propertyPath: m_textAlignment
+      value: 258
+      objectReference: {fileID: 0}
+    - target: {fileID: 4041788214711318176, guid: 342ee4fd639602946906475393c1cbd6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -13.346619
+      objectReference: {fileID: 0}
+    - target: {fileID: 4041788214711318176, guid: 342ee4fd639602946906475393c1cbd6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.89844704
+      objectReference: {fileID: 0}
+    - target: {fileID: 4041788214711318176, guid: 342ee4fd639602946906475393c1cbd6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 10.962891
+      objectReference: {fileID: 0}
+    - target: {fileID: 4041788214711318176, guid: 342ee4fd639602946906475393c1cbd6,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4041788214711318176, guid: 342ee4fd639602946906475393c1cbd6,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4041788214711318176, guid: 342ee4fd639602946906475393c1cbd6,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4041788214711318176, guid: 342ee4fd639602946906475393c1cbd6,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4041788214711318176, guid: 342ee4fd639602946906475393c1cbd6,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4041788214711318176, guid: 342ee4fd639602946906475393c1cbd6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4041788214711318176, guid: 342ee4fd639602946906475393c1cbd6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4041788214711318176, guid: 342ee4fd639602946906475393c1cbd6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4041788214711318205, guid: 342ee4fd639602946906475393c1cbd6,
+        type: 3}
+      propertyPath: m_Name
+      value: '0 - Vegetable Garden '
+      objectReference: {fileID: 0}
+    - target: {fileID: 4041788214711318205, guid: 342ee4fd639602946906475393c1cbd6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7862007287185726135, guid: 342ee4fd639602946906475393c1cbd6,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 342ee4fd639602946906475393c1cbd6, type: 3}
+--- !u!4 &4436743249737886452 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4041788214711318176, guid: 342ee4fd639602946906475393c1cbd6,
+    type: 3}
+  m_PrefabInstance: {fileID: 397770927624379476}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4436743250760307512
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4436743250441362874}
+    m_Modifications:
+    - target: {fileID: 3668384745001007253, guid: 342ee4fd639602946906475393c1cbd6,
+        type: 3}
+      propertyPath: m_textAlignment
+      value: 258
+      objectReference: {fileID: 0}
+    - target: {fileID: 4041788214711318176, guid: 342ee4fd639602946906475393c1cbd6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -18.526619
+      objectReference: {fileID: 0}
+    - target: {fileID: 4041788214711318176, guid: 342ee4fd639602946906475393c1cbd6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.101553
+      objectReference: {fileID: 0}
+    - target: {fileID: 4041788214711318176, guid: 342ee4fd639602946906475393c1cbd6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 10.962891
+      objectReference: {fileID: 0}
+    - target: {fileID: 4041788214711318176, guid: 342ee4fd639602946906475393c1cbd6,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4041788214711318176, guid: 342ee4fd639602946906475393c1cbd6,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4041788214711318176, guid: 342ee4fd639602946906475393c1cbd6,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4041788214711318176, guid: 342ee4fd639602946906475393c1cbd6,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4041788214711318176, guid: 342ee4fd639602946906475393c1cbd6,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4041788214711318176, guid: 342ee4fd639602946906475393c1cbd6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4041788214711318176, guid: 342ee4fd639602946906475393c1cbd6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4041788214711318176, guid: 342ee4fd639602946906475393c1cbd6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4041788214711318205, guid: 342ee4fd639602946906475393c1cbd6,
+        type: 3}
+      propertyPath: m_Name
+      value: 2 - Vegetable Garden
+      objectReference: {fileID: 0}
+    - target: {fileID: 4041788214711318205, guid: 342ee4fd639602946906475393c1cbd6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4041788216452340705, guid: 342ee4fd639602946906475393c1cbd6,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4041788216452340705, guid: 342ee4fd639602946906475393c1cbd6,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4041788216452340705, guid: 342ee4fd639602946906475393c1cbd6,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4041788216452340705, guid: 342ee4fd639602946906475393c1cbd6,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7862007287185726135, guid: 342ee4fd639602946906475393c1cbd6,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 342ee4fd639602946906475393c1cbd6, type: 3}
+--- !u!4 &397770928346654104 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4041788214711318176, guid: 342ee4fd639602946906475393c1cbd6,
+    type: 3}
+  m_PrefabInstance: {fileID: 4436743250760307512}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4436743251032604286
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4436743250441362874}
+    m_Modifications:
+    - target: {fileID: 3668384745001007253, guid: 342ee4fd639602946906475393c1cbd6,
+        type: 3}
+      propertyPath: m_textAlignment
+      value: 258
+      objectReference: {fileID: 0}
+    - target: {fileID: 4041788214711318176, guid: 342ee4fd639602946906475393c1cbd6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -18.526619
+      objectReference: {fileID: 0}
+    - target: {fileID: 4041788214711318176, guid: 342ee4fd639602946906475393c1cbd6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.89844704
+      objectReference: {fileID: 0}
+    - target: {fileID: 4041788214711318176, guid: 342ee4fd639602946906475393c1cbd6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 10.962891
+      objectReference: {fileID: 0}
+    - target: {fileID: 4041788214711318176, guid: 342ee4fd639602946906475393c1cbd6,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4041788214711318176, guid: 342ee4fd639602946906475393c1cbd6,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4041788214711318176, guid: 342ee4fd639602946906475393c1cbd6,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4041788214711318176, guid: 342ee4fd639602946906475393c1cbd6,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4041788214711318176, guid: 342ee4fd639602946906475393c1cbd6,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4041788214711318176, guid: 342ee4fd639602946906475393c1cbd6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4041788214711318176, guid: 342ee4fd639602946906475393c1cbd6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4041788214711318176, guid: 342ee4fd639602946906475393c1cbd6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4041788214711318205, guid: 342ee4fd639602946906475393c1cbd6,
+        type: 3}
+      propertyPath: m_Name
+      value: '1 - Vegetable Garden '
+      objectReference: {fileID: 0}
+    - target: {fileID: 4041788214711318205, guid: 342ee4fd639602946906475393c1cbd6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4041788216452340705, guid: 342ee4fd639602946906475393c1cbd6,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4041788216452340705, guid: 342ee4fd639602946906475393c1cbd6,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4041788216452340705, guid: 342ee4fd639602946906475393c1cbd6,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4041788216452340705, guid: 342ee4fd639602946906475393c1cbd6,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7862007287185726135, guid: 342ee4fd639602946906475393c1cbd6,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 342ee4fd639602946906475393c1cbd6, type: 3}
+--- !u!4 &397770928619161822 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4041788214711318176, guid: 342ee4fd639602946906475393c1cbd6,
+    type: 3}
+  m_PrefabInstance: {fileID: 4436743251032604286}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4436743251192031267
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4436743250441362874}
+    m_Modifications:
+    - target: {fileID: 3668384745001007253, guid: 342ee4fd639602946906475393c1cbd6,
+        type: 3}
+      propertyPath: m_textAlignment
+      value: 258
+      objectReference: {fileID: 0}
+    - target: {fileID: 4041788214711318176, guid: 342ee4fd639602946906475393c1cbd6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -13.346619
+      objectReference: {fileID: 0}
+    - target: {fileID: 4041788214711318176, guid: 342ee4fd639602946906475393c1cbd6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.101553
+      objectReference: {fileID: 0}
+    - target: {fileID: 4041788214711318176, guid: 342ee4fd639602946906475393c1cbd6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 10.962891
+      objectReference: {fileID: 0}
+    - target: {fileID: 4041788214711318176, guid: 342ee4fd639602946906475393c1cbd6,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4041788214711318176, guid: 342ee4fd639602946906475393c1cbd6,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4041788214711318176, guid: 342ee4fd639602946906475393c1cbd6,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4041788214711318176, guid: 342ee4fd639602946906475393c1cbd6,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4041788214711318176, guid: 342ee4fd639602946906475393c1cbd6,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4041788214711318176, guid: 342ee4fd639602946906475393c1cbd6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4041788214711318176, guid: 342ee4fd639602946906475393c1cbd6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4041788214711318176, guid: 342ee4fd639602946906475393c1cbd6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4041788214711318205, guid: 342ee4fd639602946906475393c1cbd6,
+        type: 3}
+      propertyPath: m_Name
+      value: '3 - Vegetable Garden '
+      objectReference: {fileID: 0}
+    - target: {fileID: 4041788214711318205, guid: 342ee4fd639602946906475393c1cbd6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4041788216452340705, guid: 342ee4fd639602946906475393c1cbd6,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4041788216452340705, guid: 342ee4fd639602946906475393c1cbd6,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4041788216452340705, guid: 342ee4fd639602946906475393c1cbd6,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4041788216452340705, guid: 342ee4fd639602946906475393c1cbd6,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7862007287185726135, guid: 342ee4fd639602946906475393c1cbd6,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 342ee4fd639602946906475393c1cbd6, type: 3}
+--- !u!4 &397770929013513859 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4041788214711318176, guid: 342ee4fd639602946906475393c1cbd6,
+    type: 3}
+  m_PrefabInstance: {fileID: 4436743251192031267}
+  m_PrefabAsset: {fileID: 0}

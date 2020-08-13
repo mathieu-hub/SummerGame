@@ -135,5 +135,5 @@ MonoBehaviour:
   typeOfEnnemy: 6
   currentHealth: 0
   isInvincible: 0
-  lootDrop: {fileID: 2244743408426605433, guid: 46ae5e2aa4b851445acf27bf88933ff4,
+  lootDrop: {fileID: 8275495655300942345, guid: bcca9e5e7d8af2343b7c3889d6cabee2,
     type: 3}

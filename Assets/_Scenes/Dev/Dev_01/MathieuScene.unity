@@ -3709,6 +3709,11 @@ MonoBehaviour:
     maxEnnemy03: 0
     maxEnnemy04: 0
     maxEnnemy05: 0
+  ennemy01Here: 0
+  ennemy02Here: 0
+  ennemy03Here: 0
+  ennemy04Here: 0
+  ennemy05Here: 0
   spawnPoint: {fileID: 1191384454}
   timeBreak: 21
   countdown: 2

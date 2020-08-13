@@ -266,8 +266,20 @@ namespace Ennemies
             }            
         }
 
-        // Fait des dégâts au Silo et se détruit une fois arrivé au dernier Waypoint.       
-        
+        // Fait des dégâts à la tourelle tant qu'elle possède des points de vies  
+        IEnumerator AttackOnTurret()
+        {
+            yield return new WaitForSeconds(speedAttack);
+            if (canMakeDamage && !doingDamage)
+            {
+                doingDamage = true;
+                TurretTest.currentHealth -= ennemyDamage;
+                yield return new WaitForSeconds(0.3f);
+                canMakeDamage = false;
+            }
+        }
+
+        // Fait des dégâts au Silo et se détruit une fois arrivé au dernier Waypoint.  
         IEnumerator EndPath()
         {
             yield return new WaitForSeconds(speedAttack);

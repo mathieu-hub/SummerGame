@@ -7,13 +7,19 @@ namespace Ennemies
 {
 	public class TurretTest : MonoBehaviour
 	{
+        [Header("Making Damage")]
         public Transform target;
         public float range = 15f;
         public int turretDamage;
 
+        [Header("Life")]
+        public int maxHealth;
+        public static int currentHealth;
+
 		// Start is called before the first frame update
 		void Start()
 		{
+            currentHealth = maxHealth;
             InvokeRepeating("UpdateTarget", 0f, 0.5f);
 		}
 

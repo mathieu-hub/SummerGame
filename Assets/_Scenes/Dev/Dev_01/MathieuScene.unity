@@ -206,6 +206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bfeb48e5c8783942b9aa9f19a54e99d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numberOfWay: 1
   way01:
   - {fileID: 1380450166}
   - {fileID: 1171721809}
@@ -4717,9 +4718,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 100
-  isMoving: 0
-  isAttacking: 0
+  initialMoveSpeed: 0
+  loadingMoveSpeed: 0
   needToStop: 0
+  playerDead: 0
+  movementVector: {x: 0, y: 0}
 --- !u!1 &6149384269908432945
 GameObject:
   m_ObjectHideFlags: 0
@@ -4792,6 +4795,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 6149384269908432944}
   Aim: {fileID: 6149384269779347966}
+  Life: {fileID: 0}
+  attack: {fileID: 0}
 --- !u!50 &6149384270726179613
 Rigidbody2D:
   serializedVersion: 4

@@ -169,6 +169,7 @@ namespace Ennemies
                 }
                 else
                 {
+                    Checking();
                     wayPointIndex++;
                     target = GameMaster.Instance.WayMaster.way01[wayPointIndex];
                 }
@@ -191,6 +192,7 @@ namespace Ennemies
                 }
                 else
                 {
+                    Checking();
                     wayPointIndex++;
                     target = GameMaster.Instance.WayMaster.way02[wayPointIndex];
                 }
@@ -214,6 +216,7 @@ namespace Ennemies
                 }
                 else
                 {
+                    Checking();
                     wayPointIndex++;
                     target = GameMaster.Instance.WayMaster.way03[wayPointIndex];
                 }
@@ -237,6 +240,7 @@ namespace Ennemies
                 }
                 else
                 {
+                    Checking();
                     wayPointIndex++;
                     target = GameMaster.Instance.WayMaster.way04[wayPointIndex];
                 }
@@ -260,12 +264,19 @@ namespace Ennemies
                 }
                 else
                 {
+                    Checking();
                     wayPointIndex++;
                     target = GameMaster.Instance.WayMaster.way05[wayPointIndex];
                 }
             }            
         }
 
+        // À chaque Waypoint, vérifie si un rempart ou une tourelle est proche et déclenche le bon comportement à avoir pour chaque type d'ennemis 
+        private void Checking()
+        {
+
+        }
+        
         // Fait des dégâts à la tourelle tant qu'elle possède des points de vies  
         IEnumerator AttackOnTurret()
         {
@@ -274,6 +285,19 @@ namespace Ennemies
             {
                 doingDamage = true;
                 TurretTest.currentHealth -= ennemyDamage;
+                yield return new WaitForSeconds(0.3f);
+                canMakeDamage = false;
+            }
+        }
+
+        // Fait des dégâts au rempart tant qu'il possède des points de vies  
+        IEnumerator AttackOnRempart()
+        {
+            yield return new WaitForSeconds(speedAttack);
+            if (canMakeDamage && !doingDamage)
+            {
+                doingDamage = true;
+                //Rempart.currentHealth -= ennemyDamage;
                 yield return new WaitForSeconds(0.3f);
                 canMakeDamage = false;
             }

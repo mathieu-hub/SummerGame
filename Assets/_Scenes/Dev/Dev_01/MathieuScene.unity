@@ -206,16 +206,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bfeb48e5c8783942b9aa9f19a54e99d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  way01: []
-  way02: []
-  way03: []
-  way04: []
-  way05: []
-  way1: {fileID: 65659130}
-  way2: {fileID: 473752023}
-  way3: {fileID: 772866546}
-  way4: {fileID: 230053238}
-  way5: {fileID: 1119329471}
+  way01:
+  - {fileID: 1380450166}
+  - {fileID: 1171721809}
+  - {fileID: 2019943991}
+  - {fileID: 957605753}
+  - {fileID: 1708389299}
+  way02:
+  - {fileID: 763635176}
+  - {fileID: 1750281523}
+  - {fileID: 877320405}
+  - {fileID: 1022318181}
+  - {fileID: 834932156}
+  way03:
+  - {fileID: 944960415}
+  - {fileID: 1137961355}
+  - {fileID: 1251625316}
+  - {fileID: 1082823572}
+  - {fileID: 1471853513}
+  way04:
+  - {fileID: 438157206}
+  - {fileID: 577550761}
+  - {fileID: 1884366579}
+  - {fileID: 2082895184}
+  - {fileID: 975036849}
+  way05:
+  - {fileID: 461685736}
+  - {fileID: 1476355838}
+  - {fileID: 152466502}
+  - {fileID: 1700150349}
+  - {fileID: 1590505665}
 --- !u!114 &118365315
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3702,13 +3722,13 @@ MonoBehaviour:
     - {fileID: 225565058131935763, guid: e89465a6b0235134ab5b3574dea5facc, type: 3}
     - {fileID: 225565058131935763, guid: e89465a6b0235134ab5b3574dea5facc, type: 3}
     - {fileID: 225565058131935763, guid: e89465a6b0235134ab5b3574dea5facc, type: 3}
-    count: 2
+    count: 1
     rate: 1
-    maxEnnemy01: 2
-    maxEnnemy02: 0
-    maxEnnemy03: 0
-    maxEnnemy04: 0
-    maxEnnemy05: 0
+    maxEnnemy01: 1
+    maxEnnemy02: 1
+    maxEnnemy03: 1
+    maxEnnemy04: 1
+    maxEnnemy05: 1
   - ennemy:
     - {fileID: 225565058131935763, guid: e89465a6b0235134ab5b3574dea5facc, type: 3}
     - {fileID: 225565058131935763, guid: e89465a6b0235134ab5b3574dea5facc, type: 3}
@@ -3716,9 +3736,9 @@ MonoBehaviour:
     - {fileID: 225565058131935763, guid: e89465a6b0235134ab5b3574dea5facc, type: 3}
     - {fileID: 225565058131935763, guid: e89465a6b0235134ab5b3574dea5facc, type: 3}
     - {fileID: 225565058131935763, guid: e89465a6b0235134ab5b3574dea5facc, type: 3}
-    count: 3
+    count: 1
     rate: 1
-    maxEnnemy01: 2
+    maxEnnemy01: 0
     maxEnnemy02: 0
     maxEnnemy03: 0
     maxEnnemy04: 0
@@ -3730,9 +3750,9 @@ MonoBehaviour:
     - {fileID: 225565058131935763, guid: e89465a6b0235134ab5b3574dea5facc, type: 3}
     - {fileID: 225565058131935763, guid: e89465a6b0235134ab5b3574dea5facc, type: 3}
     - {fileID: 225565058131935763, guid: e89465a6b0235134ab5b3574dea5facc, type: 3}
-    count: 4
+    count: 1
     rate: 1
-    maxEnnemy01: 2
+    maxEnnemy01: 0
     maxEnnemy02: 0
     maxEnnemy03: 0
     maxEnnemy04: 0
@@ -3744,9 +3764,9 @@ MonoBehaviour:
     - {fileID: 225565058131935763, guid: e89465a6b0235134ab5b3574dea5facc, type: 3}
     - {fileID: 225565058131935763, guid: e89465a6b0235134ab5b3574dea5facc, type: 3}
     - {fileID: 225565058131935763, guid: e89465a6b0235134ab5b3574dea5facc, type: 3}
-    count: 5
-    rate: 2
-    maxEnnemy01: 2
+    count: 1
+    rate: 1
+    maxEnnemy01: 0
     maxEnnemy02: 0
     maxEnnemy03: 0
     maxEnnemy04: 0
@@ -3758,9 +3778,9 @@ MonoBehaviour:
     - {fileID: 225565058131935763, guid: e89465a6b0235134ab5b3574dea5facc, type: 3}
     - {fileID: 225565058131935763, guid: e89465a6b0235134ab5b3574dea5facc, type: 3}
     - {fileID: 225565058131935763, guid: e89465a6b0235134ab5b3574dea5facc, type: 3}
-    count: 8
-    rate: 2
-    maxEnnemy01: 2
+    count: 1
+    rate: 1
+    maxEnnemy01: 0
     maxEnnemy02: 0
     maxEnnemy03: 0
     maxEnnemy04: 0
@@ -3774,7 +3794,6 @@ MonoBehaviour:
   timeBreak: 21
   countdown: 2
   waveCountdownTimer: {fileID: 1504632598}
-  waveIndex: 0
   waveInProgress: 0
 --- !u!1 &1873605843
 GameObject:

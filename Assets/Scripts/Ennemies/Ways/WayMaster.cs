@@ -11,11 +11,11 @@ public class WayMaster : MonoBehaviour
     public Transform[] way04;
     public Transform[] way05;
 
-    public GameObject way1;
-    public GameObject way2;
-    public GameObject way3;
-    public GameObject way4;
-    public GameObject way5;
+    public static GameObject way1;
+    public static GameObject way2;
+    public static GameObject way3;
+    public static GameObject way4;
+    public static GameObject way5;
 
     void Start()
     {
@@ -29,7 +29,7 @@ public class WayMaster : MonoBehaviour
 
     void Update()
     {
-
+                     
     }
 }
 

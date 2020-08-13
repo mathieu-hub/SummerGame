@@ -41,7 +41,7 @@ namespace Ennemies
         //Le Numéro de la vague en cours
         [Header("Wave Number")]
         [SerializeField]
-        private int waveIndex = 0;
+        public static int waveIndex;
         public static int rounds; //Pour l'UI de GAME OVER
 
         //Vague en cours ou non
@@ -51,6 +51,7 @@ namespace Ennemies
 
         private void Start()
         {
+            waveIndex = 0;
             rounds = 0;
         }
 

@@ -21,7 +21,7 @@ namespace Ennemies
         [SerializeField] private int speedAttack;
 
         //Spawning
-        float randomSpawn;
+        float randomSpawn;        
 
         //TYPE OF ENNEMY
         public enum TypeOfEnnemy { Walker, Soldonaute, SpaceScoot, Démolisseur, Carboniseur, Rover, Drone }
@@ -80,7 +80,9 @@ namespace Ennemies
 
         void StartingWay()
         {
-            randomSpawn = Random.Range(0, 5);            
+            randomSpawn = Random.Range(0, 5);
+            Debug.Log("randomspawn" + randomSpawn);
+                      
             
             if (randomSpawn == 0)
             {
@@ -101,6 +103,10 @@ namespace Ennemies
             else if (randomSpawn == 4)
             {
                 target = GameMaster.Instance.WayMaster.way05[0];
+            }
+            else
+            {
+                target = GameMaster.Instance.WayMaster.way01[0];
             }
 
         }

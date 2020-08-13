@@ -45,6 +45,7 @@ namespace Tower
         void Start()
         {
             crossX.enabled = false;
+           
         }
 
         // Update is called once per frame

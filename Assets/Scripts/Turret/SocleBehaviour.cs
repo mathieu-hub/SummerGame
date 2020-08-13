@@ -15,7 +15,7 @@ namespace Tower
         [SerializeField] private bool playerHere = false;
 
         [Header("UI")]
-        [SerializeField] private TextMeshProUGUI turretName;
+        [SerializeField] private TextMeshProUGUI turretN;
         [SerializeField] private TextMeshProUGUI purinsCost;
         [SerializeField] private TextMeshProUGUI scrapsCost;
         [SerializeField] private TextMeshProUGUI range;
@@ -47,6 +47,7 @@ namespace Tower
         // Start is called before the first frame update
         void Start()
         {
+
             AButton.SetActive(false);
             crossX.enabled = false;
             Ui.SetActive(false);
@@ -173,7 +174,7 @@ namespace Tower
         }
         void UpdateUi()
         {
-            turretName.text = GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().turretName;
+            turretN.text = GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().turretName.ToString();
             scrapsCost.text = GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().scrapCost.ToString();
             purinsCost.text = GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().purinsCost.ToString();
             fireRate.text = GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().fireRate.ToString();

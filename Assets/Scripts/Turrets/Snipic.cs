@@ -13,7 +13,6 @@ namespace Turret
 	{
 		#region Variables
 		private EnnemiesHealth targetEnemy;
-		[SerializeField] private int damage;
         #endregion
 
         protected override void UpdateTarget()

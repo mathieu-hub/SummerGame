@@ -23,6 +23,7 @@ namespace Ennemies
             if (!isInvincible)
             {
                 currentHealth -= damage;
+                Debug.Log("Enemy " + gameObject.name + " took " + damage + " damage!");
             }
 
             if (currentHealth <= 0)

@@ -13,22 +13,44 @@ namespace Ennemies
         [SerializeField] private Transform target;
         [SerializeField] private int wayPointIndex = 0;
 
+        [HideInInspector] public bool isPushed = false;
+
         //Make Damage
         [Header("Damage")]
         public bool canMakeDamage = false;
         public bool doingDamage = false;
         public int ennemyDamage;
         public int speedAttack;
+        
+        [Header("Push")]
+        [Range(2, 10)]
+        public int maxPushes = 2;
+        [Range(0.5f, 20f)]
+        [SerializeField] private float resistanceTime = 3f;
+        [SerializeField] private bool pushTest = false;
+        //private bool inResistance = false;
+
+        [HideInInspector] public GameObject pushingBullet = null;
+        [HideInInspector] public int pushedCount = 0;
 
         void Start()
         {
+            if (pushTest)
+                return;
             //StartingWay();
             target = GameMaster.Instance.WayMaster.way01[0];
         }
 
         private void Update()
         {
-            //Déplacements des ennemies 
+            //Check if enemy is being pushed by Tronçronce bullet
+            if (isPushed || pushTest)
+                return;
+
+            //if (pushedCount >= maxPushes && !inResistance)
+            //    StartCoroutine(ResistToPush());
+
+            //Déplacements des ennemies
             Vector3 direction = target.position - transform.position;
             transform.Translate(direction.normalized * speed * Time.deltaTime);
 
@@ -79,6 +101,18 @@ namespace Ennemies
                 yield return new WaitForSeconds(0.3f);
                 canMakeDamage = false;
             }
+        }
+
+        public void DoResistToPush()
+        {
+            StartCoroutine(ResistToPush());
+        }
+        IEnumerator ResistToPush()
+        {
+            //inResistance = true;
+            yield return new WaitForSeconds(resistanceTime);
+            pushedCount = 0;
+            //inResistance = false;
         }
         
     }

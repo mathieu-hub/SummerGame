@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 565910482905163095}
   m_Layer: 0
   m_Name: Soldonaute (plan de recherche)
-  m_TagString: Ennemy
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -115,10 +115,16 @@ MonoBehaviour:
   speed: 10
   target: {fileID: 0}
   wayPointIndex: 0
+  isPushed: 0
   canMakeDamage: 0
   doingDamage: 0
   ennemyDamage: 20
   speedAttack: 5
+  maxPushes: 2
+  resistanceTime: 3
+  pushTest: 0
+  pushingBullet: {fileID: 0}
+  pushedCount: 0
   typeOfEnnemy: 1
 --- !u!114 &565910482905163095
 MonoBehaviour:

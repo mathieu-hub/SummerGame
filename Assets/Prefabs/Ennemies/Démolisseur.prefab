@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 33990274603687739}
   m_Layer: 0
   m_Name: "D\xE9molisseur"
-  m_TagString: Ennemy
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -115,10 +115,16 @@ MonoBehaviour:
   speed: 10
   target: {fileID: 0}
   wayPointIndex: 0
+  isPushed: 0
   canMakeDamage: 0
   doingDamage: 0
   ennemyDamage: 20
   speedAttack: 5
+  maxPushes: 2
+  resistanceTime: 3
+  pushTest: 0
+  pushingBullet: {fileID: 0}
+  pushedCount: 0
   typeOfEnnemy: 3
 --- !u!114 &33990274603687739
 MonoBehaviour:

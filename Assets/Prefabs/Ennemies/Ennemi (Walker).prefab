@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1198710409577037990}
   m_Layer: 0
   m_Name: Ennemi (Walker)
-  m_TagString: Ennemy
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -115,10 +115,16 @@ MonoBehaviour:
   speed: 10
   target: {fileID: 0}
   wayPointIndex: 0
+  isPushed: 0
   canMakeDamage: 0
   doingDamage: 0
   ennemyDamage: 4
   speedAttack: 5
+  maxPushes: 2
+  resistanceTime: 3
+  pushTest: 0
+  pushingBullet: {fileID: 0}
+  pushedCount: 0
   typeOfEnnemy: 0
 --- !u!114 &1198710409577037990
 MonoBehaviour:

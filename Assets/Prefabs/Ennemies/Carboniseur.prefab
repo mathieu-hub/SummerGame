@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6402873754712522218}
   m_Layer: 0
   m_Name: Carboniseur
-  m_TagString: Ennemy
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -115,14 +115,16 @@ MonoBehaviour:
   speed: 10
   target: {fileID: 0}
   wayPointIndex: 0
+  isPushed: 0
   canMakeDamage: 0
   doingDamage: 0
   ennemyDamage: 20
   speedAttack: 5
-  way2: {fileID: 0}
-  way3: {fileID: 0}
-  way4: {fileID: 0}
-  way5: {fileID: 0}
+  maxPushes: 2
+  resistanceTime: 3
+  pushTest: 0
+  pushingBullet: {fileID: 0}
+  pushedCount: 0
   typeOfEnnemy: 4
 --- !u!114 &6402873754712522218
 MonoBehaviour:

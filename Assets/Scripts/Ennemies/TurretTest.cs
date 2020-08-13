@@ -25,7 +25,7 @@ namespace Ennemies
         //permet de prendre l'ennemy le plus proche dans la range en target et de lui infliger des dégâts 
         void UpdateTarget()
         {
-            GameObject[] ennemies = GameObject.FindGameObjectsWithTag("Ennemy");
+            GameObject[] ennemies = GameObject.FindGameObjectsWithTag("Enemy");
             float shortestDistance = Mathf.Infinity;
             GameObject nearestEnnemy = null;
 

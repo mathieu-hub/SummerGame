@@ -19,6 +19,8 @@ namespace Ennemies
         [Header("Damage")]
         public bool canMakeDamage = false;
         public bool doingDamage = false;
+        [SerializeField] private int ennemyDamage;
+        [SerializeField] private int speedAttack;
         
         [Header("Push")]
         [Range(2, 10)]
@@ -27,8 +29,6 @@ namespace Ennemies
         [SerializeField] private float resistanceTime = 3f;
         [SerializeField] private bool pushTest = false;
         //private bool inResistance = false;
-        [SerializeField] private int ennemyDamage;
-        [SerializeField] private int speedAttack;
 
         [HideInInspector] public GameObject pushingBullet = null;
         [HideInInspector] public int pushedCount = 0;

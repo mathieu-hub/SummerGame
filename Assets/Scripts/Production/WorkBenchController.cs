@@ -75,7 +75,7 @@ namespace Tower
                
             }
 
-            if (Input.GetButtonDown("A_Button") && playerHere)
+            if (Input.GetButtonDown("A_Button") && playerHere && currentIndex !=0)
             {
                 BlockerValidation();
 
@@ -165,16 +165,6 @@ namespace Tower
 
         void BlockerValidation()
         {
-            if(currentIndex == 0 && GameManager.Instance.strootUnlock  || GameManager.Instance.plansCount < GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().planCost)
-            {
-                canValidate = false;
-
-            }
-            else
-            {
-                canValidate = true;
-            }
-
             if (currentIndex == 1 && GameManager.Instance.bourloUnlock || GameManager.Instance.plansCount < GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().planCost)
             {
                 canValidate = false;

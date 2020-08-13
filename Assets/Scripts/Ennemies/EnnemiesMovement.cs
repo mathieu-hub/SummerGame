@@ -80,7 +80,7 @@ namespace Ennemies
 
         void StartingWay()
         {
-            randomSpawn = Random.Range(0, 5);
+            randomSpawn = Random.Range(0, GameMaster.Instance.WayMaster.numberOfWay);            
             Debug.Log("randomspawn" + randomSpawn);
                       
             
@@ -88,27 +88,27 @@ namespace Ennemies
             {
                 target = GameMaster.Instance.WayMaster.way01[0];
             }
-            else if (randomSpawn == 1)
+            else if (randomSpawn == 1 && GameMaster.Instance.WayMaster.way2.activeInHierarchy)
             {
                 target = GameMaster.Instance.WayMaster.way02[0];
             }
-            else if (randomSpawn == 2)
+            else if (randomSpawn == 2 && GameMaster.Instance.WayMaster.way3.activeInHierarchy)
             {
                 target = GameMaster.Instance.WayMaster.way03[0];
             }
-            else if (randomSpawn == 3)
+            else if (randomSpawn == 3 && GameMaster.Instance.WayMaster.way4.activeInHierarchy)
             {
                 target = GameMaster.Instance.WayMaster.way04[0];
             }
-            else if (randomSpawn == 4)
+            else if (randomSpawn == 4 && GameMaster.Instance.WayMaster.way5.activeInHierarchy)
             {
                 target = GameMaster.Instance.WayMaster.way05[0];
             }
             else
             {
+                randomSpawn = 0;
                 target = GameMaster.Instance.WayMaster.way01[0];
             }
-
         }
 
         private void Update()

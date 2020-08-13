@@ -236,6 +236,11 @@ MonoBehaviour:
   - {fileID: 152466502}
   - {fileID: 1700150349}
   - {fileID: 1590505665}
+  way1: {fileID: 65659130}
+  way2: {fileID: 473752023}
+  way3: {fileID: 772866546}
+  way4: {fileID: 230053238}
+  way5: {fileID: 1119329471}
 --- !u!114 &118365315
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3736,7 +3741,7 @@ MonoBehaviour:
     - {fileID: 225565058131935763, guid: e89465a6b0235134ab5b3574dea5facc, type: 3}
     - {fileID: 225565058131935763, guid: e89465a6b0235134ab5b3574dea5facc, type: 3}
     - {fileID: 225565058131935763, guid: e89465a6b0235134ab5b3574dea5facc, type: 3}
-    count: 1
+    count: 11
     rate: 1
     maxEnnemy01: 0
     maxEnnemy02: 0
@@ -3750,7 +3755,7 @@ MonoBehaviour:
     - {fileID: 225565058131935763, guid: e89465a6b0235134ab5b3574dea5facc, type: 3}
     - {fileID: 225565058131935763, guid: e89465a6b0235134ab5b3574dea5facc, type: 3}
     - {fileID: 225565058131935763, guid: e89465a6b0235134ab5b3574dea5facc, type: 3}
-    count: 1
+    count: 2
     rate: 1
     maxEnnemy01: 0
     maxEnnemy02: 0
@@ -3971,7 +3976,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1920173503
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -57,6 +57,8 @@ namespace Ennemies
 
         void Update()
 		{
+            Debug.Log("Wave" + waveIndex);
+
             if (ennemyAlive <= 0)
             {
                 waveInProgress = false;
@@ -87,14 +89,15 @@ namespace Ennemies
 
             WaveCompositor wave = waves[waveIndex];
 
+            waveIndex++;
+            rounds++;
+
             for (int i = 0; i < wave.count; i++)
             {
                 SpawnEnnemy(wave.ennemy);
                 yield return new WaitForSeconds(wave.rate);
             }
 
-            waveIndex++;
-            rounds++;
         }
 
         //Permet de gérer les règles d'apparitions ennemis et de compositions de vagues.

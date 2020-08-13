@@ -117,8 +117,9 @@ MonoBehaviour:
   wayPointIndex: 0
   canMakeDamage: 0
   doingDamage: 0
-  ennemyDamage: 20
+  ennemyDamage: 4
   speedAttack: 5
+  typeOfEnnemy: 0
 --- !u!114 &1198710409577037990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131,7 +132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc87953ddef82f544863c6f50b074758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  typeOfEnnemy: 0
   currentHealth: 0
   isInvincible: 0
   lootDrop: {fileID: 2244743408426605433, guid: 46ae5e2aa4b851445acf27bf88933ff4,

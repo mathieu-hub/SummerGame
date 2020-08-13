@@ -3697,22 +3697,18 @@ MonoBehaviour:
   waves:
   - ennemy:
     - {fileID: 225565058131935763, guid: e89465a6b0235134ab5b3574dea5facc, type: 3}
-    - {fileID: 225565058131935763, guid: e89465a6b0235134ab5b3574dea5facc, type: 3}
-    - {fileID: 225565058131935763, guid: e89465a6b0235134ab5b3574dea5facc, type: 3}
-    - {fileID: 225565058131935763, guid: e89465a6b0235134ab5b3574dea5facc, type: 3}
-    - {fileID: 225565058131935763, guid: e89465a6b0235134ab5b3574dea5facc, type: 3}
-    - {fileID: 225565058131935763, guid: e89465a6b0235134ab5b3574dea5facc, type: 3}
-    count: 3
+    - {fileID: 7542951312619859889, guid: c81e2143f94854943a65501d6b0a58d4, type: 3}
+    - {fileID: 7542951312619859889, guid: c81e2143f94854943a65501d6b0a58d4, type: 3}
+    - {fileID: 7542951312619859889, guid: c81e2143f94854943a65501d6b0a58d4, type: 3}
+    - {fileID: 7542951312619859889, guid: c81e2143f94854943a65501d6b0a58d4, type: 3}
+    - {fileID: 7542951312619859889, guid: c81e2143f94854943a65501d6b0a58d4, type: 3}
+    count: 20
     rate: 1
-  - ennemy:
-    - {fileID: 7542951312619859889, guid: c81e2143f94854943a65501d6b0a58d4, type: 3}
-    - {fileID: 7542951312619859889, guid: c81e2143f94854943a65501d6b0a58d4, type: 3}
-    - {fileID: 7542951312619859889, guid: c81e2143f94854943a65501d6b0a58d4, type: 3}
-    - {fileID: 7542951312619859889, guid: c81e2143f94854943a65501d6b0a58d4, type: 3}
-    - {fileID: 7542951312619859889, guid: c81e2143f94854943a65501d6b0a58d4, type: 3}
-    - {fileID: 7542951312619859889, guid: c81e2143f94854943a65501d6b0a58d4, type: 3}
-    count: 3
-    rate: 1
+    maxEnnemy01: 0
+    maxEnnemy02: 0
+    maxEnnemy03: 0
+    maxEnnemy04: 0
+    maxEnnemy05: 0
   spawnPoint: {fileID: 1191384454}
   timeBreak: 21
   countdown: 2
@@ -4378,7 +4374,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2107373734
 RectTransform:
   m_ObjectHideFlags: 0

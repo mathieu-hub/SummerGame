@@ -18,6 +18,14 @@ namespace Ennemies
         //Le nombre d'ennemis en vie        
         public static int ennemyAlive = 0;
 
+        //Le nombre d'ennemis présent pour chaque type        
+        [Header("Ennemy Type Here")]
+        public int ennemy01Here = 0;
+        public int ennemy02Here = 0;
+        public int ennemy03Here = 0;
+        public int ennemy04Here = 0;
+        public int ennemy05Here = 0;        
+
         [Header("SpawnPoint")]
         [SerializeField]
         private Transform spawnPoint;
@@ -57,6 +65,11 @@ namespace Ennemies
             {
                 if (countdown <= 0f)
                 {
+                    ennemy01Here = 0;
+                    ennemy02Here = 0;
+                    ennemy03Here = 0;
+                    ennemy04Here = 0;
+                    ennemy05Here = 0;
                     StartCoroutine(SpawnWave());
                     countdown = timeBreak;
                 }
@@ -86,6 +99,8 @@ namespace Ennemies
         //Permet de gérer les règles d'apparitions ennemis et de compositions de vagues.
         void SpawnEnnemy(GameObject[] ennemy)
         {
+            WaveCompositor wave = waves[waveIndex];
+
             ennemySelector = Random.Range(0, 6);
             Debug.Log(ennemySelector);
 
@@ -94,10 +109,11 @@ namespace Ennemies
                 Instantiate(ennemy[0], spawnPoint.position, spawnPoint.rotation);
                 ennemyAlive++;
             }
-            else if (ennemySelector == 1)
+            else if (ennemySelector == 1 && ennemy01Here <= wave.maxEnnemy01)
             {
                 if (ennemy[1] != null)
                 {
+                    ennemy01Here++;
                     Instantiate(ennemy[1], spawnPoint.position, spawnPoint.rotation);
                     ennemyAlive++;
                 }
@@ -107,10 +123,11 @@ namespace Ennemies
                     ennemyAlive++;
                 }
             }
-            else if (ennemySelector == 2)
+            else if (ennemySelector == 2 && ennemy02Here <= wave.maxEnnemy02)
             {
                 if (ennemy[2] != null)
                 {
+                    ennemy02Here++;
                     Instantiate(ennemy[2], spawnPoint.position, spawnPoint.rotation);
                     ennemyAlive++;
                 }
@@ -120,10 +137,11 @@ namespace Ennemies
                     ennemyAlive++;
                 }
             }
-            else if (ennemySelector == 3)
+            else if (ennemySelector == 3 && ennemy03Here <= wave.maxEnnemy03)
             {
                 if (ennemy[3] != null)
                 {
+                    ennemy03Here++;
                     Instantiate(ennemy[3], spawnPoint.position, spawnPoint.rotation);
                     ennemyAlive++;
                 }
@@ -133,10 +151,11 @@ namespace Ennemies
                     ennemyAlive++;
                 }
             }
-            else if (ennemySelector == 4)
+            else if (ennemySelector == 4 && ennemy04Here <= wave.maxEnnemy04)
             {
                 if (ennemy[4] != null)
                 {
+                    ennemy04Here++;
                     Instantiate(ennemy[4], spawnPoint.position, spawnPoint.rotation);
                     ennemyAlive++;
                 }
@@ -146,10 +165,11 @@ namespace Ennemies
                     ennemyAlive++;
                 }
             }
-            else if (ennemySelector == 5)
+            else if (ennemySelector == 5 && ennemy05Here <= wave.maxEnnemy05)
             {
                 if (ennemy[5] != null)
                 {
+                    ennemy05Here++;
                     Instantiate(ennemy[5], spawnPoint.position, spawnPoint.rotation);
                     ennemyAlive++;
                 }
@@ -158,6 +178,11 @@ namespace Ennemies
                     Instantiate(ennemy[0], spawnPoint.position, spawnPoint.rotation);
                     ennemyAlive++;
                 }
+            }
+            else
+            {
+                Instantiate(ennemy[0], spawnPoint.position, spawnPoint.rotation);
+                ennemyAlive++;
             }
             
         }

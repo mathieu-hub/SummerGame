@@ -10,6 +10,12 @@ namespace Ennemies
         public GameObject[] ennemy;
         public int count;
         public float rate;
-	}
+        [Header("Max Ennemy Type")]        
+        public int maxEnnemy01;
+        public int maxEnnemy02;
+        public int maxEnnemy03;
+        public int maxEnnemy04;
+        public int maxEnnemy05;        
+    }
 }
 

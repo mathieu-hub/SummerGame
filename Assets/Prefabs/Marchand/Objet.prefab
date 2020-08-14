@@ -1323,7 +1323,6 @@ GameObject:
   - component: {fileID: 3666706945585720723}
   - component: {fileID: 7599034995052572697}
   - component: {fileID: 3426277769166864813}
-  - component: {fileID: 1524209703855677475}
   m_Layer: 0
   m_Name: AnimalManagerCanvas
   m_TagString: Untagged
@@ -1422,18 +1421,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &1524209703855677475
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5556212890838889167}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74335d8de49a01d4488789629cb6ada1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6383289707850960381
 GameObject:
   m_ObjectHideFlags: 0

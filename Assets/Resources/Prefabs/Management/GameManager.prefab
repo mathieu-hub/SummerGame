@@ -46,13 +46,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   purinCount: 10
-  vegetablesCount: 5
+  vegetablesCount: 3
   scrapsCount: 0
   plansCount: 0
-  chickensCount: 0
-  cowsCount: 0
-  pigsCount: 0
-  horsesCount: 0
+  chickensCount: 1
+  cowsCount: 1
+  pigsCount: 1
+  horsesCount: 1
+  storedUnits: 10
+  maxStoredUnits: 12
+  activeAnimals: []
+  totalAnimalWeight: 10
+  tooMuchAnimals: 0
   numberOfGardens: 0
   respawnPoint: {fileID: 0}
   strootUnlock: 1
@@ -86,7 +91,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
   cows:
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -96,7 +103,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
   horses:
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -114,8 +123,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Turret:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 7664689809378603555, guid: 41f83a2ded34c7849827fc1c07cce045, type: 3}
+  - {fileID: 3011747873862974643, guid: e784eedd67beb2d47a7d6ad4e4d1e6d5, type: 3}
+  - {fileID: 5649107582165147933, guid: 93595d8c66d9c6c4b95a9998501474e2, type: 3}
+  - {fileID: 4259859075719699011, guid: aa0a1606677615a4ea8068e31885337d, type: 3}
+  - {fileID: 9182292832317154815, guid: 65d9cb9e1243b2b48bcc44fc2e567403, type: 3}

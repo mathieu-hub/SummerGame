@@ -157,6 +157,7 @@ namespace Production
 
         void Boost()
         {
+            GameManager.Instance.purinCount -= 1;
             boosted = true;
             storedTime = timer.time;
             timer.Stop();

@@ -36,10 +36,11 @@ namespace Production
 
         [Header("Storage")]
         public int storedVegetable;
+        public bool refresh = false;
 
         [Header("Boosted")]
-        [SerializeField] private bool boosted = false;
-        [SerializeField] private int vegetablesBoostedCount = 0;
+        public bool boosted = false;
+        public int vegetablesBoostedCount = 0;
         [SerializeField] private float storedTime = 0f;
         #endregion
 
@@ -130,6 +131,7 @@ namespace Production
 
             durationBar.color = green;
             GameManager.Instance.vegetablesCount += storedVegetable;
+            refresh = true;
             storedVegetable = 0;
         }
 
@@ -137,18 +139,24 @@ namespace Production
         {
             storedVegetable += 1;
 
-            if (boosted)
-            {
-                duration = boostedDuration;
-                vegetablesBoostedCount += 1;
-            }
-
             if (vegetablesBoostedCount == 3)
             {
                 boosted = false;
                 vegetablesBoostedCount = 0;
                 duration = baseDuration;
             }
+
+            if (boosted)
+            {
+                duration = boostedDuration;
+                vegetablesBoostedCount += 1;
+            }
+
+            
+
+            
+
+            
 
 
             timer = new Clock(duration);

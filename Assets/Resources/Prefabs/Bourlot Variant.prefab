@@ -268,6 +268,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7817008582870077476, guid: 7962c5a4611a90344a220cbadcddbdac,
         type: 3}
+      propertyPath: upgradeHpMax.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7817008582870077476, guid: 7962c5a4611a90344a220cbadcddbdac,
+        type: 3}
       propertyPath: turretName
       value: Bourlot
       objectReference: {fileID: 0}
@@ -306,6 +311,21 @@ PrefabInstance:
       propertyPath: ValidationAction
       value: 
       objectReference: {fileID: 5021644805110647481}
+    - target: {fileID: 7817008582870077476, guid: 7962c5a4611a90344a220cbadcddbdac,
+        type: 3}
+      propertyPath: upgradeHpMax.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7817008582870077476, guid: 7962c5a4611a90344a220cbadcddbdac,
+        type: 3}
+      propertyPath: upgradeHpMax.Array.data[1]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7817008582870077476, guid: 7962c5a4611a90344a220cbadcddbdac,
+        type: 3}
+      propertyPath: upgradeHpMax.Array.data[2]
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7817008582870077477, guid: 7962c5a4611a90344a220cbadcddbdac,
         type: 3}
       propertyPath: m_Color.g

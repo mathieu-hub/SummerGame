@@ -351,18 +351,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c14ffc6c77dc2124081b7d185dfadbb2, type: 3}
---- !u!114 &204470935 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 684382534, guid: 3290be2670d8f4748adb71c8b32581b1,
-    type: 3}
-  m_PrefabInstance: {fileID: 362734570}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e310b5ef136de7a40969ae55fa58a911, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &265129176 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6934070838378832208, guid: c14ffc6c77dc2124081b7d185dfadbb2,
@@ -511,7 +499,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: bdf9309be35055d4ab3d53f0dd720456, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -550,55 +538,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 684382534, guid: 3290be2670d8f4748adb71c8b32581b1, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 684382534, guid: 3290be2670d8f4748adb71c8b32581b1, type: 3}
-      propertyPath: Turret.Array.data[0]
-      value: 
-      objectReference: {fileID: 7664689809378603555, guid: 41f83a2ded34c7849827fc1c07cce045,
-        type: 3}
-    - target: {fileID: 684382534, guid: 3290be2670d8f4748adb71c8b32581b1, type: 3}
-      propertyPath: Turret.Array.data[1]
-      value: 
-      objectReference: {fileID: 3011747873862974643, guid: e784eedd67beb2d47a7d6ad4e4d1e6d5,
-        type: 3}
-    - target: {fileID: 684382534, guid: 3290be2670d8f4748adb71c8b32581b1, type: 3}
-      propertyPath: Turret.Array.data[2]
-      value: 
-      objectReference: {fileID: 5649107582165147933, guid: 93595d8c66d9c6c4b95a9998501474e2,
-        type: 3}
-    - target: {fileID: 684382534, guid: 3290be2670d8f4748adb71c8b32581b1, type: 3}
-      propertyPath: Turret.Array.data[3]
-      value: 
-      objectReference: {fileID: 4259859075719699011, guid: aa0a1606677615a4ea8068e31885337d,
-        type: 3}
-    - target: {fileID: 684382534, guid: 3290be2670d8f4748adb71c8b32581b1, type: 3}
-      propertyPath: Turret.Array.data[4]
-      value: 
-      objectReference: {fileID: 9182292832317154815, guid: 65d9cb9e1243b2b48bcc44fc2e567403,
-        type: 3}
-    - target: {fileID: 1240973464, guid: 3290be2670d8f4748adb71c8b32581b1, type: 3}
-      propertyPath: chickens.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1240973464, guid: 3290be2670d8f4748adb71c8b32581b1, type: 3}
-      propertyPath: cows.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1240973464, guid: 3290be2670d8f4748adb71c8b32581b1, type: 3}
-      propertyPath: pigs.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1240973464, guid: 3290be2670d8f4748adb71c8b32581b1, type: 3}
-      propertyPath: horses.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1240973464, guid: 3290be2670d8f4748adb71c8b32581b1, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1240973464, guid: 3290be2670d8f4748adb71c8b32581b1, type: 3}
       propertyPath: gardens.Array.data[0]
       value: 
@@ -636,13 +575,13 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1458877091}
     - target: {fileID: 1240973464, guid: 3290be2670d8f4748adb71c8b32581b1, type: 3}
-      propertyPath: cows.Array.data[1]
-      value: 
-      objectReference: {fileID: 1299197947}
-    - target: {fileID: 1240973464, guid: 3290be2670d8f4748adb71c8b32581b1, type: 3}
       propertyPath: cows.Array.data[0]
       value: 
       objectReference: {fileID: 444512123}
+    - target: {fileID: 1240973464, guid: 3290be2670d8f4748adb71c8b32581b1, type: 3}
+      propertyPath: cows.Array.data[1]
+      value: 
+      objectReference: {fileID: 1299197947}
     - target: {fileID: 1240973464, guid: 3290be2670d8f4748adb71c8b32581b1, type: 3}
       propertyPath: cows.Array.data[2]
       value: 
@@ -655,6 +594,10 @@ PrefabInstance:
       propertyPath: cows.Array.data[4]
       value: 
       objectReference: {fileID: 595763234}
+    - target: {fileID: 1240973464, guid: 3290be2670d8f4748adb71c8b32581b1, type: 3}
+      propertyPath: pigs.Array.data[0]
+      value: 
+      objectReference: {fileID: 513149543}
     - target: {fileID: 1240973464, guid: 3290be2670d8f4748adb71c8b32581b1, type: 3}
       propertyPath: pigs.Array.data[1]
       value: 
@@ -672,9 +615,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 372486569}
     - target: {fileID: 1240973464, guid: 3290be2670d8f4748adb71c8b32581b1, type: 3}
-      propertyPath: pigs.Array.data[0]
+      propertyPath: horses.Array.data[0]
       value: 
-      objectReference: {fileID: 513149543}
+      objectReference: {fileID: 1166396440}
     - target: {fileID: 1240973464, guid: 3290be2670d8f4748adb71c8b32581b1, type: 3}
       propertyPath: horses.Array.data[1]
       value: 
@@ -691,19 +634,10 @@ PrefabInstance:
       propertyPath: horses.Array.data[4]
       value: 
       objectReference: {fileID: 444167322}
-    - target: {fileID: 1240973464, guid: 3290be2670d8f4748adb71c8b32581b1, type: 3}
-      propertyPath: horses.Array.data[0]
-      value: 
-      objectReference: {fileID: 1166396440}
     - target: {fileID: 44806123558622044, guid: 3290be2670d8f4748adb71c8b32581b1,
         type: 3}
       propertyPath: m_Name
       value: GAMEMANAGER
-      objectReference: {fileID: 0}
-    - target: {fileID: 44806123558622044, guid: 3290be2670d8f4748adb71c8b32581b1,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3483673909002007411, guid: 3290be2670d8f4748adb71c8b32581b1,
         type: 3}
@@ -762,64 +696,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8812934964018579982, guid: 3290be2670d8f4748adb71c8b32581b1,
         type: 3}
-      propertyPath: purinCount
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 8812934964018579982, guid: 3290be2670d8f4748adb71c8b32581b1,
-        type: 3}
-      propertyPath: vegetablesCount
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8812934964018579982, guid: 3290be2670d8f4748adb71c8b32581b1,
-        type: 3}
-      propertyPath: chickensCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8812934964018579982, guid: 3290be2670d8f4748adb71c8b32581b1,
-        type: 3}
-      propertyPath: cowsCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8812934964018579982, guid: 3290be2670d8f4748adb71c8b32581b1,
-        type: 3}
-      propertyPath: pigsCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8812934964018579982, guid: 3290be2670d8f4748adb71c8b32581b1,
-        type: 3}
-      propertyPath: horsesCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8812934964018579982, guid: 3290be2670d8f4748adb71c8b32581b1,
-        type: 3}
-      propertyPath: maxStoredUnits
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 8812934964018579982, guid: 3290be2670d8f4748adb71c8b32581b1,
-        type: 3}
-      propertyPath: storedUnits
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 8812934964018579982, guid: 3290be2670d8f4748adb71c8b32581b1,
-        type: 3}
-      propertyPath: tooMuchAnimals
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8812934964018579982, guid: 3290be2670d8f4748adb71c8b32581b1,
-        type: 3}
-      propertyPath: numberOfGardens
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8812934964018579982, guid: 3290be2670d8f4748adb71c8b32581b1,
-        type: 3}
-      propertyPath: SocleManager
-      value: 
-      objectReference: {fileID: 204470935}
-    - target: {fileID: 8812934964018579982, guid: 3290be2670d8f4748adb71c8b32581b1,
-        type: 3}
       propertyPath: respawnPoint
       value: 
       objectReference: {fileID: 1016432348}
+    - target: {fileID: 8812934964018579982, guid: 3290be2670d8f4748adb71c8b32581b1,
+        type: 3}
+      propertyPath: purinCount
+      value: 25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3290be2670d8f4748adb71c8b32581b1, type: 3}
 --- !u!1 &372486569 stripped
@@ -859,8 +743,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 436195605}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.3868729, y: -0.2, z: 0}
-  m_LocalScale: {x: 6500, y: 5500, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 75, y: 75, z: 1}
   m_Children: []
   m_Father: {fileID: 2002311930}
   m_RootOrder: 1
@@ -904,7 +788,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -2
-  m_Sprite: {fileID: 21300000, guid: 3c2bc683670157d4db4d15d53b1091dd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a29985f57f2a444dcae5c5e3a1ad420b, type: 3}
   m_Color: {r: 0.36078432, g: 0.69803923, b: 0.6431373, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1614,7 +1498,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 24acf2814741c2e45840a1be5aad0292, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1908,7 +1792,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: bdf9309be35055d4ab3d53f0dd720456, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -5500,7 +5384,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 24acf2814741c2e45840a1be5aad0292, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -6062,7 +5946,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 24acf2814741c2e45840a1be5aad0292, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -6183,7 +6067,7 @@ PrefabInstance:
     - target: {fileID: 4436743250441362874, guid: c99ce3f31863ecd4c805ba018f952bab,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 481.7422
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4436743250441362874, guid: c99ce3f31863ecd4c805ba018f952bab,
         type: 3}
@@ -6325,7 +6209,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 24acf2814741c2e45840a1be5aad0292, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

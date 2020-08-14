@@ -43,7 +43,7 @@ namespace Production
         [SerializeField] private float storedTime = 0f;
         #endregion
 
-        void Start()
+        void OnEnable()
         {
             duration = baseDuration;
             green = durationBar.color;

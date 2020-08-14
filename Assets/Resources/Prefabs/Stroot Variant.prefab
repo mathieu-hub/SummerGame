@@ -312,9 +312,34 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7817008582870077476, guid: 7962c5a4611a90344a220cbadcddbdac,
         type: 3}
+      propertyPath: upgradeHpMax.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7817008582870077476, guid: 7962c5a4611a90344a220cbadcddbdac,
+        type: 3}
       propertyPath: ValidationAction
       value: 
       objectReference: {fileID: 443012091549107241}
+    - target: {fileID: 7817008582870077476, guid: 7962c5a4611a90344a220cbadcddbdac,
+        type: 3}
+      propertyPath: maxHp
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7817008582870077476, guid: 7962c5a4611a90344a220cbadcddbdac,
+        type: 3}
+      propertyPath: upgradeHpMax.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7817008582870077476, guid: 7962c5a4611a90344a220cbadcddbdac,
+        type: 3}
+      propertyPath: upgradeHpMax.Array.data[1]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7817008582870077476, guid: 7962c5a4611a90344a220cbadcddbdac,
+        type: 3}
+      propertyPath: upgradeHpMax.Array.data[2]
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7817008582870077479, guid: 7962c5a4611a90344a220cbadcddbdac,
         type: 3}
       propertyPath: m_Name

@@ -264,14 +264,14 @@ public class ShopItem : MonoBehaviour
         //l'achat n'est pas validé car le joueur n'a pas l'espace necessaire
         if (GameManager.Instance.totalAnimalWeight > GameManager.Instance.maxStoredUnits)
         {
-            Debug.Log("Start If");
+            //Debug.Log("Start If");
             GameManager.Instance.tooMuchAnimals = true;
             PlayerManager.Instance.controller.needToStop = true;
             Canvas.SetActive(true);
         }
         else if (GameManager.Instance.tooMuchAnimals == false)
         {
-            Debug.Log("Start ELse");
+            //Debug.Log("Start ELse");
             SecondEffects();
             GameManager.Instance.vegetablesCount -= vegetablesCost;
             Destroy(gameObject);

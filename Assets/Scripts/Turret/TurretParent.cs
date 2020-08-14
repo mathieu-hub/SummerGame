@@ -48,6 +48,7 @@ namespace Tower
         public int[] upgradeRange;
         public int[] upgradeDamages;
         public int[] upgradeFireRate;
+        public int[] upgradeHpMax;
 
 
         [Header("HealthPoint")]
@@ -135,11 +136,11 @@ namespace Tower
 
             if (needToHeal)
             {
-                validationUpgrade = 0.4f;
+                validationUpgrade = 0.6f;
             }
             else
             {
-                validationUpgrade = 0.2f;
+                validationUpgrade = 0.4f;
 
             }
 
@@ -251,6 +252,7 @@ namespace Tower
             if (currentHp < 0)
             {
                 currentHp = 0;
+                broke = true;
             }
 
             #endregion
@@ -380,25 +382,29 @@ namespace Tower
             }
             else if(!needToHeal && validationTime == 100 && currentLevel < 3)
             {
+                validationTime = 0;
+                canValidate = false;
                 //Améliorations
                 //enlever les ressources
                 GameManager.Instance.purinCount -= pCost[currentLevel-1];
                 purinUsedIn += pCost[currentLevel-1];
                 GameManager.Instance.scrapsCount -= sCost[currentLevel-1];
                 scrapUsedIn += sCost[currentLevel-1];
-                
+
                 //Augmenter les Stats (range/dégats/fireRate/Level)
-                range = upgradeRange[currentLevel - 1];
-                damage = upgradeDamages[currentLevel - 1];
-                fireRate = upgradeFireRate[currentLevel - 1];
+                range = upgradeRange[currentLevel-1];
+                damage = upgradeDamages[currentLevel-1];
+                fireRate = upgradeFireRate[currentLevel-1];
+                maxHp = upgradeHpMax[currentLevel];
                 currentLevel += 1;
+                currentHp = maxHp;
                 //Restart Validation
-                validationTime = 0;
-                canValidate = false;
+                
             }
 
            
         }
+
 
         private void OnDrawGizmos()
         {

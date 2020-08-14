@@ -353,6 +353,11 @@ namespace Ennemies
             }
         }
 
+        IEnumerator CrossingWay()
+        {
+
+        }
+
         // Fait des dégâts au Silo et se détruit une fois arrivé au dernier Waypoint.  
         IEnumerator EndPath()
         {

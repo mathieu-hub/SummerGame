@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9066613591705526784}
   - component: {fileID: 9066613591705526785}
+  - component: {fileID: 6100178892421223169}
   - component: {fileID: 9066613591705526786}
   - component: {fileID: 9066613591705526791}
   m_Layer: 0
@@ -84,6 +85,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6100178892421223169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9066613591705526787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 145dcf6b38dad224bb89cd1a3a2d9e52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTurret: 1
+  isRempart: 0
 --- !u!114 &9066613591705526786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97,9 +112,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  range: 4.41
-  turretDamage: 1
-  maxHealth: 10
+  range: 4.5
+  turretDamage: 0
+  maxHealth: 0
   currentHealth: 0
 --- !u!58 &9066613591705526791
 CircleCollider2D:

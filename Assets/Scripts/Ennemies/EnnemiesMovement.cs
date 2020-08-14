@@ -10,13 +10,14 @@ namespace Ennemies
         //Movement
         [Header("Movement")]
         [SerializeField] private float speed;
-        [SerializeField] private Transform target;
+        [SerializeField] private Transform targetMovement;
         [SerializeField] private int wayPointIndex = 0;
 
         [HideInInspector] public bool isPushed = false;
 
         //Make Damage
         [Header("Damage")]
+        public Transform defenseTarget;
         public float range;
         public bool canMakeDamage = false;
         public bool doingDamage = false;
@@ -39,9 +40,7 @@ namespace Ennemies
 
         //TYPE OF ENNEMY
         public enum TypeOfEnnemy { Walker, Soldonaute, SpaceScoot, Démolisseur, Carboniseur, Rover, Drone }
-        public TypeOfEnnemy typeOfEnnemy;
-
-        public GameObject turretTarget;
+        public TypeOfEnnemy typeOfEnnemy;        
 
         void Awake()
         {
@@ -50,6 +49,7 @@ namespace Ennemies
                 speed = 10f;
                 ennemyDamage = 20;
                 speedAttack = 5;
+                range = 3f;
             }
             else if (typeOfEnnemy == TypeOfEnnemy.Soldonaute)
             {
@@ -104,33 +104,33 @@ namespace Ennemies
             
             if (randomSpawn == 0)
             {
-                target = GameMaster.Instance.WayMaster.way01[0];
+                targetMovement = GameMaster.Instance.WayMaster.way01[0];
             }
             else if (randomSpawn == 1 && GameMaster.Instance.WayMaster.way2.activeInHierarchy)
             {
-                target = GameMaster.Instance.WayMaster.way02[0];
+                targetMovement = GameMaster.Instance.WayMaster.way02[0];
             }
             else if (randomSpawn == 2 && GameMaster.Instance.WayMaster.way3.activeInHierarchy)
             {
-                target = GameMaster.Instance.WayMaster.way03[0];
+                targetMovement = GameMaster.Instance.WayMaster.way03[0];
             }
             else if (randomSpawn == 3 && GameMaster.Instance.WayMaster.way4.activeInHierarchy)
             {
-                target = GameMaster.Instance.WayMaster.way04[0];
+                targetMovement = GameMaster.Instance.WayMaster.way04[0];
             }
             else if (randomSpawn == 4 && GameMaster.Instance.WayMaster.way5.activeInHierarchy)
             {
-                target = GameMaster.Instance.WayMaster.way05[0];
+                targetMovement = GameMaster.Instance.WayMaster.way05[0];
             }
             else
             {
                 randomSpawn = 0;
-                target = GameMaster.Instance.WayMaster.way01[0];
+                targetMovement = GameMaster.Instance.WayMaster.way01[0];
             }
         }
 
         private void Update()
-        {
+        {            
             //Check if enemy is being pushed by Tronçronce bullet
             if (isPushed || pushTest)
                 return;
@@ -139,10 +139,10 @@ namespace Ennemies
             //    StartCoroutine(ResistToPush());
 
             //Déplacements des ennemies
-            Vector3 direction = target.position - transform.position;
+            Vector3 direction = targetMovement.position - transform.position;
             transform.Translate(direction.normalized * speed * Time.deltaTime);
 
-            if (Vector3.Distance(transform.position, target.position) <= 0.3f)
+            if (Vector3.Distance(transform.position, targetMovement.position) <= 0.3f)
             {
                 GetNextWaypoint();
             }
@@ -174,7 +174,7 @@ namespace Ennemies
                 {
                     Checking();
                     wayPointIndex++;
-                    target = GameMaster.Instance.WayMaster.way01[wayPointIndex];
+                    targetMovement = GameMaster.Instance.WayMaster.way01[wayPointIndex];
                 }
             }            
 
@@ -197,7 +197,7 @@ namespace Ennemies
                 {
                     Checking();
                     wayPointIndex++;
-                    target = GameMaster.Instance.WayMaster.way02[wayPointIndex];
+                    targetMovement = GameMaster.Instance.WayMaster.way02[wayPointIndex];
                 }
             }
             
@@ -221,7 +221,7 @@ namespace Ennemies
                 {
                     Checking();
                     wayPointIndex++;
-                    target = GameMaster.Instance.WayMaster.way03[wayPointIndex];
+                    targetMovement = GameMaster.Instance.WayMaster.way03[wayPointIndex];
                 }
             }
             
@@ -245,7 +245,7 @@ namespace Ennemies
                 {
                     Checking();
                     wayPointIndex++;
-                    target = GameMaster.Instance.WayMaster.way04[wayPointIndex];
+                    targetMovement = GameMaster.Instance.WayMaster.way04[wayPointIndex];
                 }
             }
             
@@ -269,7 +269,7 @@ namespace Ennemies
                 {
                     Checking();
                     wayPointIndex++;
-                    target = GameMaster.Instance.WayMaster.way05[wayPointIndex];
+                    targetMovement = GameMaster.Instance.WayMaster.way05[wayPointIndex];
                 }
             }            
         }
@@ -292,14 +292,26 @@ namespace Ennemies
             }
 
             if (nearestDefense != null && shortestDistance <= range)
-            {
-                target = nearestDefense.transform;              
-                turretTarget = nearestDefense;
-                StartCoroutine(AttackOnTurret()); //Si type of ennemy is ...
+            {                              
+                defenseTarget = nearestDefense.transform;
+
+                if (defenseTarget.GetComponent<DefenseType>().isTurret == true)
+                {
+                    StartCoroutine(AttackOnTurret()); //Si type of ennemy is ...
+                }  
+                
+                if (defenseTarget.GetComponent<DefenseType>().isRempart == true)
+                {
+                    doingDamage = false;
+                    canMakeDamage = true;
+                    speed = 0f;
+                    StartCoroutine(AttackOnRempart()); //Si type of ennemy is ...
+                    return;
+                }
             }
             else
             {
-                target = null;
+                targetMovement = null;
             }
         }
         
@@ -310,7 +322,7 @@ namespace Ennemies
             if (canMakeDamage && !doingDamage)
             {
                 doingDamage = true;
-                turretTarget.GetComponent<TurretTest>().currentHealth -= ennemyDamage;
+                defenseTarget.GetComponent<TurretTest>().currentHealth -= ennemyDamage;
                 yield return new WaitForSeconds(0.3f);
                 canMakeDamage = false;
             }
@@ -324,7 +336,7 @@ namespace Ennemies
             if (canMakeDamage && !doingDamage)
             {
                 doingDamage = true;
-                //Rempart.currentHealth -= ennemyDamage;
+                defenseTarget.GetComponent<RempartTest>().currentHealth -= ennemyDamage;
                 yield return new WaitForSeconds(0.3f);
                 canMakeDamage = false;
             }

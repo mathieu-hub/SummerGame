@@ -30,6 +30,7 @@ public class ShopItem : MonoBehaviour
     [SerializeField] private Image validationCircle;
     [SerializeField] private Image deleteCircle;
     [SerializeField] private TextMeshProUGUI crossX;
+    [SerializeField] private TextMeshProUGUI price;
 
     [Header("Validation")]
     //Pour les Fill amount
@@ -72,7 +73,7 @@ public class ShopItem : MonoBehaviour
             PlayerManager.Instance.controller.needToStop = false;
         }
 
-        if (Vector3.Distance(PlayerManager.Instance.transform.position, gameObject.transform.position) < 2 && pulled)
+        if (Vector3.Distance(PlayerManager.Instance.transform.position, gameObject.transform.position) < 1 && pulled)
         {
             AButton.SetActive(true);
 
@@ -431,7 +432,9 @@ public class ShopItem : MonoBehaviour
 
         maxLimit.text = GameManager.Instance.maxStoredUnits.ToString() + " Limit.";
 
-        storedUnits.text = GameManager.Instance.totalAnimalWeight.ToString() + "Actual Weight."; 
+        storedUnits.text = GameManager.Instance.totalAnimalWeight.ToString() + "Actual Weight.";
+
+        price.text = vegetablesCost.ToString();
     }
 
 

@@ -326,6 +326,11 @@ PrefabInstance:
       propertyPath: upgradeHpMax.Array.data[2]
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 7817008582870077476, guid: 7962c5a4611a90344a220cbadcddbdac,
+        type: 3}
+      propertyPath: maxHp
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7817008582870077477, guid: 7962c5a4611a90344a220cbadcddbdac,
         type: 3}
       propertyPath: m_Color.g

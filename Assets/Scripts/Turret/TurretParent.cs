@@ -65,7 +65,18 @@ namespace Tower
         [SerializeField] private TextMeshProUGUI UIDamage;
         [SerializeField] private TextMeshProUGUI UIFireRate;
         [SerializeField] private GameObject AButton;
-        
+
+        [Header("UI/Upgrade/Visuels")]
+        [SerializeField] private TextMeshProUGUI upgradeVisuelHp;
+        [SerializeField] private TextMeshProUGUI upgradeVisuelRange;
+        [SerializeField] private TextMeshProUGUI upgradeVisuelDamages;
+        [SerializeField] private TextMeshProUGUI upgradeVisuelFireRate;
+
+        private int upgradeDiffHp = 0;
+        private int upgradeDiffRange = 0;
+        private int upgradeDiffDamages = 0;
+        private int upgradeDiffFireRate = 0;
+
 
         [Header("UI/Upgrade/Sell")]
         [SerializeField] private TextMeshProUGUI UPC;
@@ -154,8 +165,14 @@ namespace Tower
             DetectInputValidation();
             DetectInputDelete();
             Actions();
-          
-            
+
+            if (currentLevel == 3)
+            {
+                upgradeVisuelHp.enabled = false;
+                upgradeVisuelRange.enabled = false;
+                upgradeVisuelDamages.enabled = false;
+                upgradeVisuelFireRate.enabled = false;
+            }
         }
 
         void UpdateUI()
@@ -202,6 +219,26 @@ namespace Tower
             SPC.text = purinTotalAtSell.ToString();
             SSC.text = scrapTotalAtSell.ToString();
 
+            
+
+            //Update Visuel Values
+            if (currentLevel <= 2)
+            {
+
+                upgradeDiffDamages = upgradeDamages[currentLevel - 1] - damage;
+                upgradeDiffFireRate = upgradeFireRate[currentLevel - 1] - fireRate;
+                upgradeDiffRange = upgradeRange[currentLevel - 1] - range;
+                upgradeDiffHp = upgradeHpMax[currentLevel];
+                //Update Visuel Visuels
+                upgradeVisuelHp.text = "=>" + upgradeDiffHp.ToString();
+                upgradeVisuelDamages.text = "+" + upgradeDiffDamages.ToString();
+                upgradeVisuelFireRate.text = "+" + upgradeDiffFireRate.ToString();
+                upgradeVisuelRange.text = "+" + upgradeDiffRange.ToString();
+
+               
+            }
+            
+
             if (APressed)
             {
                 canvas.SetActive(true);
@@ -220,11 +257,32 @@ namespace Tower
             {
                 needToHeal = true;
                 ValidationAction.text = "Heal";
+
+               
             }
-            else
+
+            if (currentHp == maxHp && currentLevel < 3)
             {
                 needToHeal = false;
                 ValidationAction.text = "Upgrade";
+
+                if(currentLevel <= 2)
+                {
+                    //Afficher les améliorations
+                    upgradeVisuelHp.enabled = true;
+                    upgradeVisuelRange.enabled = true;
+                    upgradeVisuelDamages.enabled = true;
+                    upgradeVisuelFireRate.enabled = true;
+                }
+                else
+                {
+                    upgradeVisuelHp.enabled = false;
+                    upgradeVisuelRange.enabled = false;
+                    upgradeVisuelDamages.enabled = false;
+                    upgradeVisuelFireRate.enabled = false;
+                }
+                   
+                
             }
 
             for (int i = 0; i < maxHp; i++)
@@ -382,6 +440,7 @@ namespace Tower
             }
             else if(!needToHeal && validationTime == 100 && currentLevel < 3)
             {
+                //Restart Validation
                 validationTime = 0;
                 canValidate = false;
                 //Améliorations
@@ -398,7 +457,7 @@ namespace Tower
                 maxHp = upgradeHpMax[currentLevel];
                 currentLevel += 1;
                 currentHp = maxHp;
-                //Restart Validation
+               
                 
             }
 

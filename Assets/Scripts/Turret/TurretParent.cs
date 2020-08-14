@@ -166,7 +166,7 @@ namespace Tower
             DetectInputDelete();
             Actions();
 
-            if (currentLevel == 3)
+            if (currentLevel == 3 || needToHeal)
             {
                 upgradeVisuelHp.enabled = false;
                 upgradeVisuelRange.enabled = false;

@@ -5,6 +5,8 @@ using Ennemies;
 
 public class WayMaster : MonoBehaviour
 {
+    //WAYS
+    [Header("WAYS")]
     public int numberOfWay = 1;
     
     public Transform[] way01;
@@ -19,6 +21,22 @@ public class WayMaster : MonoBehaviour
     public GameObject way4;
     public GameObject way5;
 
+    //CROSSWAYS
+    [Header("CROSSWAYS")]
+    public int numberOfCrossWay = 1;
+
+    public Transform[] Crossway01;
+    public Transform[] Crossway02;
+    public Transform[] Crossway03;
+    public Transform[] Crossway04;
+
+    public GameObject Crossway1;
+    public GameObject Crossway2;
+    public GameObject Crossway3;
+    public GameObject Crossway4;
+    
+
+
     void Start()
     {
         way01 = way1.GetComponent<Waypoints>().points;
@@ -26,6 +44,11 @@ public class WayMaster : MonoBehaviour
         way03 = way3.GetComponent<Waypoints>().points;
         way04 = way4.GetComponent<Waypoints>().points;
         way05 = way5.GetComponent<Waypoints>().points;
+
+        Crossway01 = Crossway1.GetComponent<Waypoints>().points;
+        Crossway02 = Crossway2.GetComponent<Waypoints>().points;
+        Crossway03 = Crossway3.GetComponent<Waypoints>().points;
+        Crossway04 = Crossway4.GetComponent<Waypoints>().points;
     }
 
     private void Update()
@@ -36,32 +59,43 @@ public class WayMaster : MonoBehaviour
             way3.SetActive(false);
             way4.SetActive(false);
             way5.SetActive(false);
+
+            Crossway1.SetActive(false);
+            Crossway2.SetActive(false);
+            Crossway3.SetActive(false);
+            Crossway4.SetActive(false);
         }
 
         if (WaveSpawner.waveIndex == 2)
         {
             way2.SetActive(true);
+            Crossway2.SetActive(true);
             numberOfWay = 2;
+            numberOfCrossWay = 1; 
         }
 
         if (WaveSpawner.waveIndex == 3)
         {
             way3.SetActive(true);
+            Crossway1.SetActive(true);
             numberOfWay = 3;
-
+            numberOfCrossWay = 2;
         }
 
         if (WaveSpawner.waveIndex == 4)
         {
             way4.SetActive(true);
+            Crossway3.SetActive(true);
             numberOfWay = 4;
-
+            numberOfCrossWay = 3;
         }
 
         if (WaveSpawner.waveIndex == 5)
         {
             way5.SetActive(true);
+            Crossway4.SetActive(true);
             numberOfWay = 5;
+            numberOfCrossWay = 4;
         }
     }
 

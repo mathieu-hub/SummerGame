@@ -1615,7 +1615,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHere: 0
-  turretName: {fileID: 2724395104733441668}
+  turretN: {fileID: 2724395104733441668}
   purinsCost: {fileID: 2724395104180722311}
   scrapsCost: {fileID: 2724395105090915850}
   range: {fileID: 2724395104056196797}
@@ -1786,7 +1786,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &2724395105461996021
 MonoBehaviour:

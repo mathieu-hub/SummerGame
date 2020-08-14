@@ -188,6 +188,7 @@ GameObject:
   - component: {fileID: 3122304943457519664}
   - component: {fileID: 3122304943457519665}
   - component: {fileID: 3122304943457519667}
+  - component: {fileID: 3638035314968220883}
   m_Layer: 0
   m_Name: Animal1
   m_TagString: Untagged
@@ -272,15 +273,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4575f5990ac5f164bbc9f6e564d01644, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerHere: 0
   inputValue: 2
   inputText: {fileID: 3122304943908720633}
   OutputValue: 8
   outputText: {fileID: 3122304944178441867}
+  animalWeight: 0
   duration: 10
   inProduction: 0
   durationBar: {fileID: 3122304942838106686}
   durationBarBackground: {fileID: 3122304944495929714}
   timerCountdown: {fileID: 3122304944175985693}
+--- !u!58 &3638035314968220883
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3122304943457519678}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0019741058, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.0799165
 --- !u!1 &3122304943545892975
 GameObject:
   m_ObjectHideFlags: 0

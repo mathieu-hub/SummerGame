@@ -16,7 +16,7 @@ namespace Production
     {
         #region Variables
 
-        private bool playerHere;
+        public bool playerHere;
         private bool addedToTheList = false;
 
         [Header("Values")]
@@ -73,10 +73,12 @@ namespace Production
             {
                 if (timer.finished)
                 {
+                    Debug.Log("if");
                     GetProduction();
                 }
                 else if (inProduction == false && GameManager.Instance.vegetablesCount >= inputValue)
                 {
+                    Debug.Log("else");
                     inProduction = true;
                     timer.Play();
                     GameManager.Instance.vegetablesCount -= inputValue;

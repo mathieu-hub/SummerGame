@@ -10,6 +10,8 @@ namespace Ennemies
         //Movement
         [Header("Movement")]
         [SerializeField] private float speed;
+        [SerializeField] private float initialspeed;
+        [SerializeField] private float stopSpeed = 0f;
         [SerializeField] private Transform targetMovement;
         [SerializeField] private int wayPointIndex = 0;
 
@@ -44,46 +46,47 @@ namespace Ennemies
 
         void Awake()
         {
+
             if (typeOfEnnemy == TypeOfEnnemy.Walker)
             {
-                speed = 10f;
+                initialspeed = 10f;
                 ennemyDamage = 20;
                 speedAttack = 5;
                 range = 3f;
             }
             else if (typeOfEnnemy == TypeOfEnnemy.Soldonaute)
             {
-                speed = 10f;
+                initialspeed = 10f;
                 ennemyDamage = 20;
                 speedAttack = 5;
             }
             else if (typeOfEnnemy == TypeOfEnnemy.SpaceScoot)
             {
-                speed = 10f;
+                initialspeed = 10f;
                 ennemyDamage = 20;
                 speedAttack = 5;
             }
             else if (typeOfEnnemy == TypeOfEnnemy.Démolisseur)
             {
-                speed = 10f;
+                initialspeed = 10f;
                 ennemyDamage = 20;
                 speedAttack = 5;
             }
             else if (typeOfEnnemy == TypeOfEnnemy.Carboniseur)
             {
-                speed = 10f;
+                initialspeed = 10f;
                 ennemyDamage = 20;
                 speedAttack = 5;
             }
             else if (typeOfEnnemy == TypeOfEnnemy.Rover)
             {
-                speed = 10f;
+                initialspeed = 10f;
                 ennemyDamage = 20;
                 speedAttack = 5;
             }
             else if (typeOfEnnemy == TypeOfEnnemy.Drone)
             {
-                speed = 10f;
+                initialspeed = 10f;
                 ennemyDamage = 20;
                 speedAttack = 5;
             }
@@ -91,6 +94,7 @@ namespace Ennemies
 
         void Start()
         {
+            speed = initialspeed;
             if (pushTest)
                 return;
             StartingWay();            
@@ -151,6 +155,11 @@ namespace Ennemies
             {
                 wayPointIndex = 5;
             }
+
+            if (defenseTarget == null)
+            {
+                speed = initialspeed;
+            }
         }
 
         private void GetNextWaypoint()
@@ -164,7 +173,7 @@ namespace Ennemies
                     {
                         doingDamage = false;
                         canMakeDamage = true;
-                        speed = 0f;
+                        speed = stopSpeed;
                         StartCoroutine(EndPath());
                         return;
                     }
@@ -187,7 +196,7 @@ namespace Ennemies
                     {
                         doingDamage = false;
                         canMakeDamage = true;
-                        speed = 0f;
+                        speed = stopSpeed;
                         StartCoroutine(EndPath());
                         return;
                     }
@@ -211,7 +220,7 @@ namespace Ennemies
                     {
                         doingDamage = false;
                         canMakeDamage = true;
-                        speed = 0f;
+                        speed = stopSpeed;
                         StartCoroutine(EndPath());
                         return;
                     }
@@ -235,7 +244,7 @@ namespace Ennemies
                     {
                         doingDamage = false;
                         canMakeDamage = true;
-                        speed = 0f;
+                        speed = stopSpeed;
                         StartCoroutine(EndPath());
                         return;
                     }
@@ -259,7 +268,7 @@ namespace Ennemies
                     {
                         doingDamage = false;
                         canMakeDamage = true;
-                        speed = 0f;
+                        speed = stopSpeed;
                         StartCoroutine(EndPath());
                         return;
                     }
@@ -297,21 +306,23 @@ namespace Ennemies
 
                 if (defenseTarget.GetComponent<DefenseType>().isTurret == true)
                 {
-                    StartCoroutine(AttackOnTurret()); //Si type of ennemy is ...
+                    doingDamage = false;
+                    canMakeDamage = true;
+                    speed = stopSpeed;
+                    StartCoroutine(AttackOnTurret()); //Si type of ennemy is ...                    
                 }  
                 
                 if (defenseTarget.GetComponent<DefenseType>().isRempart == true)
                 {
                     doingDamage = false;
                     canMakeDamage = true;
-                    speed = 0f;
-                    StartCoroutine(AttackOnRempart()); //Si type of ennemy is ...
-                    return;
+                    speed = stopSpeed;
+                    StartCoroutine(AttackOnRempart()); //Si type of ennemy is ...                    
                 }
             }
             else
             {
-                targetMovement = null;
+                defenseTarget = null;
             }
         }
         

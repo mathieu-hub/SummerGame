@@ -25,7 +25,12 @@ namespace Ennemies
 
         private void Update()
         {
-            UpdateTarget();            
+            UpdateTarget();   
+            
+            if (currentHealth <= 0)
+            {
+                Destroy(gameObject);
+            }
         }
 
         //permet de prendre l'ennemy le plus proche dans la range en target et de lui infliger des dégâts 

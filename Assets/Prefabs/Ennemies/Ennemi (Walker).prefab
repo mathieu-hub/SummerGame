@@ -113,9 +113,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  target: {fileID: 0}
+  targetMovement: {fileID: 0}
   wayPointIndex: 0
   isPushed: 0
+  defenseTarget: {fileID: 0}
+  range: 0
   canMakeDamage: 0
   doingDamage: 0
   ennemyDamage: 4

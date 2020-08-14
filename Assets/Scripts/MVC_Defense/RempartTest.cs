@@ -13,7 +13,15 @@ namespace Ennemies
         void Start()
 		{
             currentHealth = maxHealth;
-        }	
-	}
+        }
+
+        private void Update()
+        {
+            if (currentHealth <= 0)
+            {
+                Destroy(gameObject);
+            }
+        }
+    }
 }
 

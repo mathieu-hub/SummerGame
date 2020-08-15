@@ -96,7 +96,7 @@ namespace Tower
         [SerializeField] private TextMeshProUGUI crossX;
 
 
-        private Color startColor;
+        public Color startColor;
 
 
         public float distance = 0f;
@@ -258,7 +258,6 @@ namespace Tower
                 needToHeal = true;
                 ValidationAction.text = "Heal";
 
-               
             }
 
             if (currentHp == maxHp && currentLevel < 3)

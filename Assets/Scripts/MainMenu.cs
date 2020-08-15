@@ -14,6 +14,7 @@ public class MainMenu : MonoBehaviour
     public GameObject returnButton;
     public GameObject allOptionsInteractions;
     public Image inputsScreen;
+    public GameObject inputsButton;
 
     [Header("Main Menu")]
     [SerializeField] private GameObject AllInteractionsMain;
@@ -58,7 +59,7 @@ public class MainMenu : MonoBehaviour
         //Jouer Son Validation
         AllInteractionsMain.SetActive(false);
         allOptionsInteractions.SetActive(true);
-        //gameObject.GetComponent<EventSystem>().SetSelectedGameObject(returnButton);
+        gameObject.GetComponent<EventSystem>().SetSelectedGameObject(inputsButton);
     }
 
     public void Credits()

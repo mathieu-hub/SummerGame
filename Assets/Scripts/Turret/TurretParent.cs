@@ -108,11 +108,15 @@ namespace Tower
         public bool needToVanish = false;
         private bool canValidate = false;
         private bool canDelete = false;
-        private bool broke = false;
+        public bool broke = false;
+
+        [SerializeField] private GameObject brokeParticule;
         #endregion
 
         private void Start()
         {
+            brokeParticule.SetActive(false);
+
             //Gère Ui
             startColor = healPoints[0].GetComponent<SpriteRenderer>().color;
             crossX.enabled = false;
@@ -173,6 +177,11 @@ namespace Tower
                 upgradeVisuelDamages.enabled = false;
                 upgradeVisuelFireRate.enabled = false;
             }
+
+            if (currentHp == maxHp)
+            {
+                needToHeal = false;
+            }
         }
 
         void UpdateUI()
@@ -191,12 +200,14 @@ namespace Tower
                 USC.text = sCost[currentLevel - 1].ToString();
                 UPC.enabled = true;
                 UPC.text = pCost[currentLevel - 1].ToString();
+
+               
             }
             else if(!needToHeal && currentLevel == 3)
             {
                 USC.enabled = false;
                 scrapUpgrade.enabled = false;
-                UPC.enabled = false;
+                
                 purinUpgrade.enabled = false;
             }
 
@@ -235,7 +246,7 @@ namespace Tower
                 upgradeVisuelFireRate.text = "+" + upgradeDiffFireRate.ToString();
                 upgradeVisuelRange.text = "+" + upgradeDiffRange.ToString();
 
-               
+                UPC.text = healCost.ToString();
             }
             
 
@@ -272,6 +283,8 @@ namespace Tower
                     upgradeVisuelRange.enabled = true;
                     upgradeVisuelDamages.enabled = true;
                     upgradeVisuelFireRate.enabled = true;
+
+                    
                 }
                 else
                 {
@@ -279,9 +292,25 @@ namespace Tower
                     upgradeVisuelRange.enabled = false;
                     upgradeVisuelDamages.enabled = false;
                     upgradeVisuelFireRate.enabled = false;
+
+                    
                 }
-                   
-                
+
+               
+            }
+
+            if (!needToHeal && currentLevel == 3)
+            {
+                ValidationAction.text = "";
+
+                UPC.enabled = false;
+                purinUpgrade.enabled = false;
+            }if (needToHeal)
+            {
+                ValidationAction.text = "Heal";
+
+                UPC.enabled = true;
+                purinUpgrade.enabled = true;
             }
 
             for (int i = 0; i < maxHp; i++)
@@ -306,10 +335,23 @@ namespace Tower
             }
 
 
-            if (currentHp < 0)
+            if (currentHp <= 0)
             {
                 currentHp = 0;
                 broke = true;
+            }
+            else
+            {
+                broke = false;
+            }
+
+            if (broke)
+            {
+                brokeParticule.SetActive(true);
+            }
+            else
+            {
+                brokeParticule.SetActive(false);
             }
 
             #endregion

@@ -439,12 +439,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 141801677}
   m_PrefabAsset: {fileID: 0}
---- !u!20 &623889536 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 1623736899, guid: a868d786b00ca2844a3fceeca9c93074,
-    type: 3}
-  m_PrefabInstance: {fileID: 6149384271120404600}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &669681616 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8998428435392466184, guid: ee9486f89e12695498eb588e98c860df,
@@ -796,7 +790,7 @@ PrefabInstance:
         type: 3}
       propertyPath: blackScreen
       value: 
-      objectReference: {fileID: 1586902044}
+      objectReference: {fileID: 0}
     - target: {fileID: 2579445236968759007, guid: dfbb0e6da53339340a1ee01e77173b7c,
         type: 3}
       propertyPath: updateStructure
@@ -1055,12 +1049,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 9178716523831258137, guid: ee9486f89e12695498eb588e98c860df,
     type: 3}
   m_PrefabInstance: {fileID: 6319800635509407756}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1586902044 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1586902044, guid: a868d786b00ca2844a3fceeca9c93074,
-    type: 3}
-  m_PrefabInstance: {fileID: 6149384271120404600}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1656325745 stripped
 GameObject:
@@ -1785,7 +1773,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Camera
       value: 
-      objectReference: {fileID: 623889536}
+      objectReference: {fileID: 0}
     - target: {fileID: 1375173820525102814, guid: 65d9cb9e1243b2b48bcc44fc2e567403,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -2161,7 +2149,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Camera
       value: 
-      objectReference: {fileID: 623889536}
+      objectReference: {fileID: 0}
     - target: {fileID: 2458471208847049276, guid: 93595d8c66d9c6c4b95a9998501474e2,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -2651,7 +2639,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Camera
       value: 
-      objectReference: {fileID: 623889536}
+      objectReference: {fileID: 0}
     - target: {fileID: 5021644806054964554, guid: e784eedd67beb2d47a7d6ad4e4d1e6d5,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -3071,7 +3059,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Camera
       value: 
-      objectReference: {fileID: 623889536}
+      objectReference: {fileID: 0}
     - target: {fileID: 6314291797045215714, guid: aa0a1606677615a4ea8068e31885337d,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -3230,7 +3218,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Camera
       value: 
-      objectReference: {fileID: 623889536}
+      objectReference: {fileID: 0}
     - target: {fileID: 6934070838378832208, guid: c14ffc6c77dc2124081b7d185dfadbb2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3628,7 +3616,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Camera
       value: 
-      objectReference: {fileID: 623889536}
+      objectReference: {fileID: 0}
     - target: {fileID: 443012091170164455, guid: 41f83a2ded34c7849827fc1c07cce045,
         type: 3}
       propertyPath: m_textInfo.characterCount

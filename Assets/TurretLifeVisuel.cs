@@ -2,45 +2,63 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 namespace Tower
 {
     public class TurretLifeVisuel : MonoBehaviour
     {
         #region Variables
         public List<GameObject> healPoints = new List<GameObject>();
+
+       
         #endregion
 
-        private void Start()
+        private void Awake()
         {
             foreach (Transform child in transform)
             {
                 healPoints.Add(child.gameObject);
             }
+
+            
         }
 
 
         // Update is called once per frame
         void Update()
         {
-            for (int i = 0; i < gameObject.GetComponent<TurretParent>().maxHp; i++)
+            if(gameObject.GetComponentInParent<TurretParent>().APressed == false)
             {
-                healPoints[i].SetActive(true);
-            }
-
-            if (gameObject.GetComponent<TurretParent>().currentHp < gameObject.GetComponent<TurretParent>().maxHp)
-            {
-                for (int i = gameObject.GetComponent<TurretParent>().currentHp; i < gameObject.GetComponent<TurretParent>().maxHp; i++)
+                for (int i = 0; i < gameObject.GetComponentInParent<TurretParent>().maxHp; i++)
                 {
-                    healPoints[i].GetComponent<SpriteRenderer>().color = Color.red;
+                    Debug.Log(i);
+                    healPoints[i].SetActive(true);
                 }
 
+                if (gameObject.GetComponentInParent<TurretParent>().currentHp < gameObject.GetComponentInParent<TurretParent>().maxHp)
+                {
+                    for (int i = gameObject.GetComponentInParent<TurretParent>().currentHp; i < gameObject.GetComponentInParent<TurretParent>().maxHp; i++)
+                    {
+                        healPoints[i].GetComponentInParent<SpriteRenderer>().color = Color.red;
+                    }
 
+
+                }
+
+                for (int i = 0; i < gameObject.GetComponentInParent<TurretParent>().currentHp; i++)
+                {
+                    healPoints[i].GetComponentInParent<SpriteRenderer>().color = gameObject.GetComponentInParent<TurretParent>().startColor;
+                }
             }
-
-            for (int i = 0; i < gameObject.GetComponent<TurretParent>().currentHp; i++)
+            else
             {
-                healPoints[i].GetComponent<SpriteRenderer>().color = gameObject.GetComponent<TurretParent>().startColor;
+                for (int i = 0; i < healPoints.Count; i++)
+                {
+                    healPoints[i].SetActive(false);
+                }
             }
+
+           
         }
     }
 }

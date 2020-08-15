@@ -1281,7 +1281,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 345813107878721046}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0032799984, y: -0.005499993, z: 0}
+  m_LocalPosition: {x: 0.0005, y: -0.005499993, z: 0}
   m_LocalScale: {x: 0.013, y: 0.013, z: 1}
   m_Children: []
   m_Father: {fileID: 7851865665381891042}
@@ -1743,7 +1743,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2093936518299766045}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.00451, y: -0.0055, z: 0}
+  m_LocalPosition: {x: 0.0029, y: -0.0055, z: 0}
   m_LocalScale: {x: 0.013, y: 0.013, z: 1}
   m_Children: []
   m_Father: {fileID: 7851865665381891042}
@@ -1980,7 +1980,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2239060355103538103}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0038400015, y: -0.005499993, z: 0}
+  m_LocalPosition: {x: 0.00402, y: -0.005499993, z: 0}
   m_LocalScale: {x: 0.013, y: 0.013, z: 1}
   m_Children: []
   m_Father: {fileID: 7851865665381891042}
@@ -2047,7 +2047,7 @@ GameObject:
   - component: {fileID: 7851865665381891042}
   - component: {fileID: 5084359392877937471}
   m_Layer: 0
-  m_Name: HPs (1)
+  m_Name: HPs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2061,7 +2061,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2544994979170297857}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.00025, y: 0, z: 0}
+  m_LocalPosition: {x: 0.00008, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7607099950421265570}
@@ -2970,7 +2970,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4199202132960378529}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0002500016, y: -0.005499993, z: 0}
+  m_LocalPosition: {x: -0.00311, y: -0.005499993, z: 0}
   m_LocalScale: {x: 0.013, y: 0.013, z: 1}
   m_Children: []
   m_Father: {fileID: 7851865665381891042}
@@ -3679,7 +3679,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5743236016347097174}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0020899985, y: -0.005499993, z: 0}
+  m_LocalPosition: {x: -0.00195, y: -0.005499993, z: 0}
   m_LocalScale: {x: 0.013, y: 0.013, z: 1}
   m_Children: []
   m_Father: {fileID: 7851865665381891042}
@@ -3989,7 +3989,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6599086125776018256}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0026300016, y: -0.005499993, z: 0}
+  m_LocalPosition: {x: 0.00169, y: -0.005499993, z: 0}
   m_LocalScale: {x: 0.013, y: 0.013, z: 1}
   m_Children: []
   m_Father: {fileID: 7851865665381891042}
@@ -4226,7 +4226,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6986333265765470170}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0014200015, y: -0.005499993, z: 0}
+  m_LocalPosition: {x: -0.00073, y: -0.005499993, z: 0}
   m_LocalScale: {x: 0.013, y: 0.013, z: 1}
   m_Children: []
   m_Father: {fileID: 7851865665381891042}
@@ -4473,9 +4473,9 @@ MonoBehaviour:
   upgradeRange: 050000000a000000
   upgradeDamages: 050000000a000000
   upgradeFireRate: 050000000a000000
-  upgradeHpMax: 
+  upgradeHpMax: 0200000003000000
   currentHp: 1
-  maxHp: 8
+  maxHp: 1
   canvas: {fileID: 1383811499}
   UIturretName: {fileID: 1427600134}
   UIRange: {fileID: 8359598484368033390}
@@ -4552,7 +4552,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8054708342142068311}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0009199984, y: -0.005499993, z: 0}
+  m_LocalPosition: {x: -0.00433, y: -0.005499993, z: 0}
   m_LocalScale: {x: 0.013, y: 0.013, z: 1}
   m_Children: []
   m_Father: {fileID: 7851865665381891042}

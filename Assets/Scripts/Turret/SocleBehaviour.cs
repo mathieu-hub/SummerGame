@@ -97,7 +97,7 @@ namespace Tower
 
             if (canValidate)
             {
-                validationTime += 0.2f;
+                validationTime += 0.5f;
 
                 if (validationTime >= 100)
                 {

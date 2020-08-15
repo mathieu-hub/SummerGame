@@ -1,17 +1,19 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
     #region Variables
     [Header("Credits")]
     [SerializeField] private GameObject creditsPack;
-    [SerializeField] private GameObject creditsReturnButton;
+  
 
     [Header("OptionsReference")]
     public GameObject returnButton;
-    public GameObject optionsPack;
+    public GameObject allOptionsInteractions;
+    public Image inputsScreen;
 
     [Header("Main Menu")]
     [SerializeField] private GameObject AllInteractionsMain;
@@ -23,6 +25,12 @@ public class MainMenu : MonoBehaviour
     private bool credits = false;
     private bool commandes = false;
     #endregion
+
+    private void Start()
+    {
+        inputsScreen.enabled = false;
+    }
+
 
     private void Update()
     {
@@ -49,7 +57,8 @@ public class MainMenu : MonoBehaviour
         mainMenu = false;
         //Jouer Son Validation
         AllInteractionsMain.SetActive(false);
-        gameObject.GetComponent<EventSystem>().SetSelectedGameObject(returnButton);
+        allOptionsInteractions.SetActive(true);
+        //gameObject.GetComponent<EventSystem>().SetSelectedGameObject(returnButton);
     }
 
     public void Credits()
@@ -60,8 +69,31 @@ public class MainMenu : MonoBehaviour
         //Jouer Son Validation
         creditsPack.SetActive(true);
         AllInteractionsMain.SetActive(false);
-        gameObject.GetComponent<EventSystem>().SetSelectedGameObject(creditsReturnButton);
+        
     }
+    #region Options
+    public void FullScreen(bool isFullScreen)
+    {
+        Screen.fullScreen = isFullScreen;
+    }
+
+    public void SetVolume(float volume)
+    {
+
+        //audioMixer.SetFloat("volume", volume);
+    }
+
+    public void ShortCut()
+    {
+        options = false;
+        commandes = true;
+
+        //Bruit Validation
+        inputsScreen.enabled = true;
+        
+    }
+
+    #endregion
 
     //Working
     public void RetourOptions()
@@ -72,11 +104,14 @@ public class MainMenu : MonoBehaviour
         //Jouer Son Retour
         EventSystem.current.SetSelectedGameObject(playButton);
         AllInteractionsMain.SetActive(true);
-        optionsPack.SetActive(false);
+        allOptionsInteractions.SetActive(false);
     }
 
     public void RetourCommandes()
     {
+        inputsScreen.enabled = false;
+        options = true;
+        commandes = false;
         //EventSystem.current.SetSelectedGameObject(backOptionsButton);
         //AllInteractionsOptions.SetActive(true);
         //optionsPack.SetActive(true);

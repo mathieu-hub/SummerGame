@@ -14,6 +14,7 @@ namespace Ennemies
         [SerializeField] private float stopSpeed = 0f;
         [SerializeField] private Transform targetMovement;
         [SerializeField] private int wayPointIndex = 0;
+        [SerializeField] private int crossWayPointIndex = 0;
 
         [HideInInspector] public bool isPushed = false;
 
@@ -156,6 +157,11 @@ namespace Ennemies
                 wayPointIndex = 5;
             }
 
+            if (crossWayPointIndex > 3)
+            {
+                crossWayPointIndex = 3;
+            }
+
             if (defenseTarget == null)
             {
                 speed = initialspeed;
@@ -183,6 +189,7 @@ namespace Ennemies
                 {
                     Checking();
                     wayPointIndex++;
+                    crossWayPointIndex++;
                     targetMovement = GameMaster.Instance.WayMaster.way01[wayPointIndex];
                 }
             }            
@@ -206,6 +213,7 @@ namespace Ennemies
                 {
                     Checking();
                     wayPointIndex++;
+                    crossWayPointIndex++;
                     targetMovement = GameMaster.Instance.WayMaster.way02[wayPointIndex];
                 }
             }
@@ -230,6 +238,7 @@ namespace Ennemies
                 {
                     Checking();
                     wayPointIndex++;
+                    crossWayPointIndex++;
                     targetMovement = GameMaster.Instance.WayMaster.way03[wayPointIndex];
                 }
             }
@@ -254,6 +263,7 @@ namespace Ennemies
                 {
                     Checking();
                     wayPointIndex++;
+                    crossWayPointIndex++;
                     targetMovement = GameMaster.Instance.WayMaster.way04[wayPointIndex];
                 }
             }
@@ -278,6 +288,7 @@ namespace Ennemies
                 {
                     Checking();
                     wayPointIndex++;
+                    crossWayPointIndex++;
                     targetMovement = GameMaster.Instance.WayMaster.way05[wayPointIndex];
                 }
             }            
@@ -314,9 +325,10 @@ namespace Ennemies
                 
                 if (defenseTarget.GetComponent<DefenseType>().isRempart == true)
                 {
+                    speed = stopSpeed;
+
                     doingDamage = false;
                     canMakeDamage = true;
-                    speed = stopSpeed;
                     StartCoroutine(AttackOnRempart()); //Si type of ennemy is ...                    
                 }
             }
@@ -353,10 +365,6 @@ namespace Ennemies
             }
         }
 
-        IEnumerator CrossingWay()
-        {
-
-        }
 
         // Fait des dégâts au Silo et se détruit une fois arrivé au dernier Waypoint.  
         IEnumerator EndPath()

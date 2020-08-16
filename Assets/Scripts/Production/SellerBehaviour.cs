@@ -61,6 +61,10 @@ namespace Seller
 
                 myNewItem = items[indexInArray];
 
+                
+                positions[numberOfItemCalled].GetComponent<PositionSeller>().storedItem = myNewItem;
+                positions[numberOfItemCalled].GetComponent<PositionSeller>().placed = true;
+
                 items.Remove(myNewItem);
 
                 numberOfItemCalled += 1;
@@ -72,6 +76,12 @@ namespace Seller
        void Initialisation()
        {
             numberOfItemCalled = 0;
+
+            for (int i = 0; i < positions.Length; i++)
+            {
+                positions[i].GetComponent<PositionSeller>().sprRenderer.enabled = false;
+                positions[i].GetComponent<PositionSeller>().storedItem = positions[i].gameObject;
+            }
             
        }
 

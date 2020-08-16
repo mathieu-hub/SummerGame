@@ -49,6 +49,7 @@ public class ShopItem : MonoBehaviour
     [SerializeField] private float vertical;
 
     [SerializeField] private bool bought = false;
+    public bool wellBought = false;
 
 
     // Start is called before the first frame update
@@ -281,12 +282,15 @@ public class ShopItem : MonoBehaviour
 
     public void BuyPossible()
     {
+        wellBought = true;
+
         if (GameManager.Instance.totalAnimalWeight <= GameManager.Instance.maxStoredUnits)
         {
             Debug.Log("Start ELse");
             SecondEffects();
+            
             GameManager.Instance.vegetablesCount -= vegetablesCost;
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 

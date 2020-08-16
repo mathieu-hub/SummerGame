@@ -15,6 +15,7 @@ public class MainMenu : MonoBehaviour
     public GameObject allOptionsInteractions;
     public Image inputsScreen;
     public GameObject inputsButton;
+    public Slider fullscreenSlider;
 
     [Header("Main Menu")]
     [SerializeField] private GameObject AllInteractionsMain;
@@ -25,10 +26,15 @@ public class MainMenu : MonoBehaviour
     private bool options = false;
     private bool credits = false;
     private bool commandes = false;
+
+    [Header("Positions")]
+    public RectTransform[] positions;
+    public Image purin;
     #endregion
 
     private void Start()
     {
+        purin.rectTransform.position = positions[0].position;
         inputsScreen.enabled = false;
     }
 
@@ -38,6 +44,9 @@ public class MainMenu : MonoBehaviour
         Debug.Log(EventSystem.current.currentSelectedGameObject);
 
         ReturnB();
+        IconePositions();
+
+        
     }
 
     public void PlayGame()
@@ -56,6 +65,7 @@ public class MainMenu : MonoBehaviour
     {
         options = true;
         mainMenu = false;
+        inputsScreen.enabled = false;
         //Jouer Son Validation
         AllInteractionsMain.SetActive(false);
         allOptionsInteractions.SetActive(true);
@@ -75,7 +85,16 @@ public class MainMenu : MonoBehaviour
     #region Options
     public void FullScreen(bool isFullScreen)
     {
-        Screen.fullScreen = isFullScreen;
+        if(fullscreenSlider.value == 1)
+        {
+            Screen.fullScreen = true;
+        }
+        else
+        {
+            Screen.fullScreen = false;
+        }
+
+        
     }
 
     public void SetVolume(float volume)
@@ -86,6 +105,7 @@ public class MainMenu : MonoBehaviour
 
     public void ShortCut()
     {
+        Debug.Log("Shortcut");
         options = false;
         commandes = true;
 
@@ -148,5 +168,36 @@ public class MainMenu : MonoBehaviour
             }
         }
                 
+    }
+
+    public void IconePositions()
+    {
+        if (EventSystem.current.currentSelectedGameObject.name == "Commandes")
+        {
+            purin.rectTransform.position = positions[0].position;
+            purin.GetComponent<Image>().enabled = false;
+
+        }
+        else if (EventSystem.current.currentSelectedGameObject.name == "Volume")
+        {
+            purin.GetComponent<Image>().enabled = true;
+            purin.rectTransform.position = positions[1].position;
+        }
+
+        else if (EventSystem.current.currentSelectedGameObject.name == "FullScreen")
+        {
+            purin.GetComponent<Image>().enabled = true;
+            purin.rectTransform.position = positions[2].position;
+        }
+        else if (EventSystem.current.currentSelectedGameObject.name == "Resolutions")
+        {
+            purin.rectTransform.position = positions[3].position;
+            purin.GetComponent<Image>().enabled = true;
+        }
+        else if (EventSystem.current.currentSelectedGameObject.name == "SBACK")
+        {
+            purin.GetComponent<Image>().enabled = false;
+            purin.rectTransform.position = positions[4].position;
+        }
     }
 }

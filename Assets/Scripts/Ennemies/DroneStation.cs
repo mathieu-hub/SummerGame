@@ -7,11 +7,11 @@ namespace Ennemies
 	public class DroneStation : MonoBehaviour
 	{
         
-        private void OnTriggerEnter2D(Collider2D collision)
+        private void OnTriggerEnter2D(Collider2D other)
         {
-            if (collision.gameObject.name == "Drone")
+            if (other.gameObject.tag == "DroneCollider")
             {
-                collision.gameObject.GetComponent<EnnemiesMovement>().droneIsInStation = true;
+                other.gameObject.GetComponent<EnnemiesMovement>().droneIsInStation = true;
                 Debug.Log("un drone est entré");
             }
         }

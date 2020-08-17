@@ -15,13 +15,15 @@ namespace Ennemies
         [SerializeField] private Transform targetMovement;
         [SerializeField] private int wayPointIndex = 0;
         [SerializeField] private int crossWayPointIndex = 0;
+        public Transform crosspointTarget;
+        public float rangeForCrosspoint;
 
         [HideInInspector] public bool isPushed = false;
 
         //Make Damage
         [Header("Damage")]
         public Transform defenseTarget;
-        public float range;
+        public float rangeForDefense;
         public bool canMakeDamage = false;
         public bool doingDamage = false;
         [SerializeField] private int ennemyDamage;
@@ -53,7 +55,7 @@ namespace Ennemies
                 initialspeed = 10f;
                 ennemyDamage = 20;
                 speedAttack = 5;
-                range = 3f;
+                rangeForDefense = 3f;
             }
             else if (typeOfEnnemy == TypeOfEnnemy.Soldonaute)
             {
@@ -312,7 +314,7 @@ namespace Ennemies
                 }
             }
 
-            if (nearestDefense != null && shortestDistance <= range)
+            if (nearestDefense != null && shortestDistance <= rangeForDefense)
             {                              
                 defenseTarget = nearestDefense.transform;
 
@@ -340,6 +342,27 @@ namespace Ennemies
 
             //Checking des Crosspoints
             GameObject[] Crosspoints = GameObject.FindGameObjectsWithTag("Crosspoint");
+            float crosspointDetetection = Mathf.Infinity;
+            GameObject nearestCrosspoint = null;
+
+            foreach (GameObject Crosspoint in Crosspoints)
+            {
+                float distanceToCrosspoint = Vector3.Distance(transform.position, Crosspoint.transform.position);
+                if (distanceToCrosspoint < crosspointDetetection)
+                {
+                    crosspointDetetection = distanceToCrosspoint;
+                    nearestCrosspoint = Crosspoint;
+                }
+            }
+
+            if (nearestCrosspoint != null && crosspointDetetection <= rangeForCrosspoint)
+            {
+
+            }
+            else
+            {
+                crosspointTarget = null;
+            }
         }
 
         // Fait des dégâts à la tourelle tant qu'elle possède des points de vies  
@@ -398,7 +421,7 @@ namespace Ennemies
         private void OnDrawGizmosSelected()
         {
             Gizmos.color = Color.green;
-            Gizmos.DrawWireSphere(transform.position, range);
+            Gizmos.DrawWireSphere(transform.position, rangeForDefense);
         }
     }
 }

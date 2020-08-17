@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-namespace Tower
+namespace Turret
 {
     public class TurretLifeVisuel : MonoBehaviour
     {

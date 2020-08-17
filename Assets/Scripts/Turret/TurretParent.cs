@@ -6,7 +6,7 @@ using UnityEngine.UI;
 using Player;
 using Management;
 
-namespace Tower
+namespace Turret
 {
     /// <summary>
     /// Need this script on each towers for socle behaviour
@@ -16,6 +16,9 @@ namespace Tower
     public class TurretParent : MonoBehaviour
     {
         #region
+
+        [SerializeField] private Turret turretShootBehavior = null;
+        
         [Header("Values")]
         public string turretName;
         public int purinsCost;
@@ -492,6 +495,7 @@ namespace Tower
                 scrapUsedIn += sCost[currentLevel-1];
 
                 //Augmenter les Stats (range/dégats/fireRate/Level)
+                turretShootBehavior.Upgrade(upgradeRange[currentLevel - 1], upgradeDamages[currentLevel - 1], upgradeFireRate[currentLevel - 1]);
                 range = upgradeRange[currentLevel-1];
                 damage = upgradeDamages[currentLevel-1];
                 fireRate = upgradeFireRate[currentLevel-1];

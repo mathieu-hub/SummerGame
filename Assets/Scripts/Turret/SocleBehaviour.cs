@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine.UI;
 using Management;
 
-namespace Tower
+namespace Turret
 {
     public class SocleBehaviour : MonoBehaviour
     {

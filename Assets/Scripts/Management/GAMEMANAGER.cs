@@ -48,6 +48,7 @@ namespace Management
         public int waves;
         public int wavesBeforeSeller;
         public bool needToRefeshShop = false;
+        public bool inPause = false;
 
         void Awake()
         {

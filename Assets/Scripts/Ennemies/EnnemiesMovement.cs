@@ -18,6 +18,7 @@ namespace Ennemies
         public Transform crosspointTarget;
         public float rangeForCrosspoint;
         public Transform droneStation;
+        public bool droneIsInStation = false;
 
         [HideInInspector] public bool isPushed = false;
 
@@ -169,6 +170,14 @@ namespace Ennemies
             if (defenseTarget == null)
             {
                 speed = initialspeed;
+            }
+
+            if (droneIsInStation == true)
+            {
+                if (typeOfEnnemy == TypeOfEnnemy.Drone)
+                {
+                    speed = stopSpeed;
+                }
             }
         }
 

@@ -19,6 +19,9 @@ namespace Ennemies
         //LOOT
         public GameObject lootDrop;
 
+        //Squad
+        public GameObject squad;
+
         void Awake()
         {
             if (typeOfEnnemy == TypeOfEnnemy.Walker)
@@ -79,6 +82,11 @@ namespace Ennemies
             WaveSpawner.ennemyAlive--;
             Destroy(gameObject);
             Instantiate(lootDrop, transform.position, Quaternion.identity);
+
+            if (typeOfEnnemy == TypeOfEnnemy.Rover)
+            {
+                Instantiate(squad, transform.position, Quaternion.identity);
+            }
         }
 
         IEnumerator TakingDammage()

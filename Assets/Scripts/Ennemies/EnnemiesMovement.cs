@@ -341,36 +341,36 @@ namespace Ennemies
             }
 
             //Checking des Crosspoints
-            GameObject[] Crosspoints = GameObject.FindGameObjectsWithTag("Crosspoint");
-            float crosspointDetetection = Mathf.Infinity;
-            GameObject nearestCrosspoint = null;
+            /*GameObject[] Crosspoints = GameObject.FindGameObjectsWithTag("Crosspoint");
+             float crosspointDetetection = Mathf.Infinity;
+             GameObject nearestCrosspoint = null;
 
-            foreach (GameObject Crosspoint in Crosspoints)
-            {
-                float distanceToCrosspoint = Vector3.Distance(transform.position, Crosspoint.transform.position);
-                if (distanceToCrosspoint < crosspointDetetection)
-                {
-                    crosspointDetetection = distanceToCrosspoint;
-                    nearestCrosspoint = Crosspoint;
-                }
-            }
+             foreach (GameObject Crosspoint in Crosspoints)
+             {
+                 float distanceToCrosspoint = Vector3.Distance(transform.position, Crosspoint.transform.position);
+                 if (distanceToCrosspoint < crosspointDetetection)
+                 {
+                     crosspointDetetection = distanceToCrosspoint;
+                     nearestCrosspoint = Crosspoint;
+                 }
+             }
 
-            /*if (nearestCrosspoint != null && crosspointDetetection <= rangeForCrosspoint)
-            {
-                crosspointTarget = nearestCrosspoint.transform;
+             if (nearestCrosspoint != null && crosspointDetetection <= rangeForCrosspoint)
+             {
+                 crosspointTarget = nearestCrosspoint.transform;
 
-                if (crosspointTarget.GetComponent<Crosspoints>().isOpen == true)
-                {
-                    if (randomSpawn == 0)
-                    {
+                 if (crosspointTarget.GetComponent<Crosspoints>().isOpen == true)
+                 {
+                     if (randomSpawn == 0)
+                     {
 
-                    }
-                }
-            }
-            else
-            {
-                crosspointTarget = null;
-            }*/
+                     }
+                 }
+             }
+             else
+             {
+                 crosspointTarget = null;
+             }*/
         }
 
         // Fait des dégâts à la tourelle tant qu'elle possède des points de vies  

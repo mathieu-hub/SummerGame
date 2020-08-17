@@ -113,9 +113,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  target: {fileID: 0}
+  initialspeed: 0
+  stopSpeed: 0
+  targetMovement: {fileID: 0}
   wayPointIndex: 0
+  crossWayPointIndex: 0
+  crosspointTarget: {fileID: 0}
+  rangeForCrosspoint: 0
   isPushed: 0
+  defenseTarget: {fileID: 0}
+  rangeForDefense: 0
   canMakeDamage: 0
   doingDamage: 0
   ennemyDamage: 20
@@ -143,3 +150,4 @@ MonoBehaviour:
   isInvincible: 0
   lootDrop: {fileID: 2244743408426605433, guid: 46ae5e2aa4b851445acf27bf88933ff4,
     type: 3}
+  squad: {fileID: 9014347760548240107, guid: de3f4c2405de4fc45b76b1c74f70ec68, type: 3}

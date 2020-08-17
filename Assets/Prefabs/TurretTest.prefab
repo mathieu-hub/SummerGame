@@ -113,7 +113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   range: 4.5
-  turretDamage: 0
+  turretDamage: 10
   maxHealth: 30
   currentHealth: 0
 --- !u!58 &9066613591705526791

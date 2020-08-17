@@ -355,14 +355,22 @@ namespace Ennemies
                 }
             }
 
-            if (nearestCrosspoint != null && crosspointDetetection <= rangeForCrosspoint)
+            /*if (nearestCrosspoint != null && crosspointDetetection <= rangeForCrosspoint)
             {
+                crosspointTarget = nearestCrosspoint.transform;
 
+                if (crosspointTarget.GetComponent<Crosspoints>().isOpen == true)
+                {
+                    if (randomSpawn == 0)
+                    {
+
+                    }
+                }
             }
             else
             {
                 crosspointTarget = null;
-            }
+            }*/
         }
 
         // Fait des dégâts à la tourelle tant qu'elle possède des points de vies  

@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 46603089}
   m_Layer: 0
   m_Name: 'C4_01 '
-  m_TagString: Untagged
+  m_TagString: Crosspoint
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -342,7 +342,7 @@ GameObject:
   - component: {fileID: 110825536}
   m_Layer: 0
   m_Name: C3_02
-  m_TagString: Untagged
+  m_TagString: Crosspoint
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -868,7 +868,7 @@ GameObject:
   - component: {fileID: 297070625}
   m_Layer: 0
   m_Name: C3_03
-  m_TagString: Untagged
+  m_TagString: Crosspoint
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -912,7 +912,7 @@ GameObject:
   - component: {fileID: 318727249}
   m_Layer: 0
   m_Name: C2_03
-  m_TagString: Untagged
+  m_TagString: Crosspoint
   m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1424,7 +1424,7 @@ GameObject:
   - component: {fileID: 658125539}
   m_Layer: 0
   m_Name: C4_03
-  m_TagString: Untagged
+  m_TagString: Crosspoint
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2624,7 +2624,7 @@ GameObject:
   - component: {fileID: 1075016076}
   m_Layer: 0
   m_Name: C1_01
-  m_TagString: Untagged
+  m_TagString: Crosspoint
   m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3145,7 +3145,7 @@ GameObject:
   - component: {fileID: 1268036087}
   m_Layer: 0
   m_Name: C1_02
-  m_TagString: Untagged
+  m_TagString: Crosspoint
   m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3421,7 +3421,7 @@ GameObject:
   - component: {fileID: 1378635860}
   m_Layer: 0
   m_Name: C1_03
-  m_TagString: Untagged
+  m_TagString: Crosspoint
   m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3908,7 +3908,7 @@ GameObject:
   - component: {fileID: 1535960278}
   m_Layer: 0
   m_Name: 'C2_01 '
-  m_TagString: Untagged
+  m_TagString: Crosspoint
   m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4808,7 +4808,7 @@ GameObject:
   - component: {fileID: 1942638418}
   m_Layer: 0
   m_Name: 'C2_02 '
-  m_TagString: Untagged
+  m_TagString: Crosspoint
   m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5213,7 +5213,7 @@ GameObject:
   - component: {fileID: 2090790818}
   m_Layer: 0
   m_Name: 'C3_01 '
-  m_TagString: Untagged
+  m_TagString: Crosspoint
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5479,7 +5479,7 @@ GameObject:
   - component: {fileID: 2125391862}
   m_Layer: 0
   m_Name: 'C4_02 '
-  m_TagString: Untagged
+  m_TagString: Crosspoint
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

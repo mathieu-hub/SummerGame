@@ -339,7 +339,7 @@ namespace Ennemies
             }
 
             //Checking des Crosspoints
-
+            GameObject[] Crosspoints = GameObject.FindGameObjectsWithTag("Crosspoint");
         }
 
         // Fait des dégâts à la tourelle tant qu'elle possède des points de vies  

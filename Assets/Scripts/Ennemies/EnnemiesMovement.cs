@@ -17,6 +17,7 @@ namespace Ennemies
         [SerializeField] private int crossWayPointIndex = 0;
         public Transform crosspointTarget;
         public float rangeForCrosspoint;
+        public Transform droneStation;
 
         [HideInInspector] public bool isPushed = false;
 
@@ -28,6 +29,7 @@ namespace Ennemies
         public bool doingDamage = false;
         [SerializeField] private int ennemyDamage;
         [SerializeField] private int speedAttack;
+        public bool isNotDrone;
         
         [Header("Push")]
         [Range(2, 10)]
@@ -90,8 +92,8 @@ namespace Ennemies
             else if (typeOfEnnemy == TypeOfEnnemy.Drone)
             {
                 initialspeed = 10f;
-                ennemyDamage = 20;
-                speedAttack = 5;
+                ennemyDamage = 0;
+                speedAttack = 0;
             }
         }
 
@@ -177,7 +179,7 @@ namespace Ennemies
             {
                 if (wayPointIndex >= GameMaster.Instance.WayMaster.way01.Length - 1)
                 {
-                    if (!canMakeDamage)
+                    if (!canMakeDamage && isNotDrone)
                     {
                         doingDamage = false;
                         canMakeDamage = true;
@@ -185,7 +187,10 @@ namespace Ennemies
                         StartCoroutine(EndPath());
                         return;
                     }
-
+                    else if (!isNotDrone)
+                    {
+                        targetMovement = droneStation;
+                    }
                 }
                 else
                 {
@@ -201,7 +206,7 @@ namespace Ennemies
             {
                 if (wayPointIndex >= GameMaster.Instance.WayMaster.way02.Length - 1)
                 {
-                    if (!canMakeDamage)
+                    if (!canMakeDamage && isNotDrone)
                     {
                         doingDamage = false;
                         canMakeDamage = true;
@@ -209,7 +214,10 @@ namespace Ennemies
                         StartCoroutine(EndPath());
                         return;
                     }
-
+                    else if (!isNotDrone)
+                    {
+                        targetMovement = droneStation;
+                    }
                 }
                 else
                 {
@@ -226,7 +234,7 @@ namespace Ennemies
             {
                 if (wayPointIndex >= GameMaster.Instance.WayMaster.way03.Length - 1)
                 {
-                    if (!canMakeDamage)
+                    if (!canMakeDamage && isNotDrone)
                     {
                         doingDamage = false;
                         canMakeDamage = true;
@@ -234,7 +242,10 @@ namespace Ennemies
                         StartCoroutine(EndPath());
                         return;
                     }
-
+                    else if (!isNotDrone)
+                    {
+                        targetMovement = droneStation;
+                    }
                 }
                 else
                 {
@@ -251,7 +262,7 @@ namespace Ennemies
             {
                 if (wayPointIndex >= GameMaster.Instance.WayMaster.way04.Length - 1)
                 {
-                    if (!canMakeDamage)
+                    if (!canMakeDamage && isNotDrone)
                     {
                         doingDamage = false;
                         canMakeDamage = true;
@@ -259,7 +270,10 @@ namespace Ennemies
                         StartCoroutine(EndPath());
                         return;
                     }
-
+                    else if (!isNotDrone)
+                    {
+                        targetMovement = droneStation;
+                    }
                 }
                 else
                 {
@@ -276,7 +290,7 @@ namespace Ennemies
             {
                 if (wayPointIndex >= GameMaster.Instance.WayMaster.way05.Length - 1)
                 {
-                    if (!canMakeDamage)
+                    if (!canMakeDamage && isNotDrone)
                     {
                         doingDamage = false;
                         canMakeDamage = true;
@@ -284,7 +298,10 @@ namespace Ennemies
                         StartCoroutine(EndPath());
                         return;
                     }
-
+                    else if (!isNotDrone)
+                    {
+                        targetMovement = droneStation;
+                    }
                 }
                 else
                 {

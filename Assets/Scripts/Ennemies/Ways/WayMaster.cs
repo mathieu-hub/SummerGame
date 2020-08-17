@@ -28,12 +28,13 @@ public class WayMaster : MonoBehaviour
     public Transform[] Crossway01;
     public Transform[] Crossway02;
     public Transform[] Crossway03;
-    public Transform[] Crossway04;
+    
 
     public GameObject Crossway1;
     public GameObject Crossway2;
     public GameObject Crossway3;
-    public GameObject Crossway4;
+
+    
     
 
 
@@ -48,7 +49,9 @@ public class WayMaster : MonoBehaviour
         Crossway01 = Crossway1.GetComponent<Waypoints>().points;
         Crossway02 = Crossway2.GetComponent<Waypoints>().points;
         Crossway03 = Crossway3.GetComponent<Waypoints>().points;
-        Crossway04 = Crossway4.GetComponent<Waypoints>().points;
+
+       
+
     }
 
     private void Update()
@@ -63,7 +66,7 @@ public class WayMaster : MonoBehaviour
             Crossway1.SetActive(false);
             Crossway2.SetActive(false);
             Crossway3.SetActive(false);
-            Crossway4.SetActive(false);
+            
         }
 
         if (WaveSpawner.waveIndex == 2)
@@ -92,8 +95,7 @@ public class WayMaster : MonoBehaviour
 
         if (WaveSpawner.waveIndex == 5)
         {
-            way5.SetActive(true);
-            Crossway4.SetActive(true);
+            way5.SetActive(true);            
             numberOfWay = 5;
             numberOfCrossWay = 4;
         }

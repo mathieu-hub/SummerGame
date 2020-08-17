@@ -15,7 +15,7 @@ namespace Ennemies
         [SerializeField] private Transform targetMovement;
         [SerializeField] private int wayPointIndex = 0;
         [SerializeField] private int crossWayPointIndex = 0;
-        public Transform crosspointTarget;
+      
         public float rangeForCrosspoint;
         public Transform droneStation;
         public bool droneIsInStation = false;
@@ -44,7 +44,14 @@ namespace Ennemies
         [HideInInspector] public int pushedCount = 0;
 
         //Spawning
-        float randomSpawn;        
+        float randomSpawn;
+
+        public GameObject parentRef;
+
+        public bool needToCheck = false;
+
+        public Transform crossPointGauche;
+        public Transform crossPointDroit;
 
         //TYPE OF ENNEMY
         public enum TypeOfEnnemy { Walker, Soldonaute, SpaceScoot, Démolisseur, Carboniseur, Rover, Drone }
@@ -108,13 +115,14 @@ namespace Ennemies
 
         void StartingWay()
         {
-            randomSpawn = Random.Range(0, GameMaster.Instance.WayMaster.numberOfWay);            
+            randomSpawn = 0;//Random.Range(0, GameMaster.Instance.WayMaster.numberOfWay)            
             Debug.Log("randomspawn" + randomSpawn);
                       
             
             if (randomSpawn == 0)
             {
                 targetMovement = GameMaster.Instance.WayMaster.way01[0];
+
             }
             else if (randomSpawn == 1 && GameMaster.Instance.WayMaster.way2.activeInHierarchy)
             {
@@ -140,7 +148,9 @@ namespace Ennemies
         }
 
         private void Update()
-        {            
+        {
+            Debug.Log(targetMovement);
+
             //Check if enemy is being pushed by Tronçronce bullet
             if (isPushed || pushTest)
                 return;
@@ -150,10 +160,17 @@ namespace Ennemies
 
             //Déplacements des ennemies
             Vector3 direction = targetMovement.position - transform.position;
+
+            
+
             transform.Translate(direction.normalized * speed * Time.deltaTime);
 
-            if (Vector3.Distance(transform.position, targetMovement.position) <= 0.3f)
+            if (Vector3.Distance(transform.position, targetMovement.position) <= 0.3f && !needToCheck)
             {
+                needToCheck = true;
+
+                Debug.Log("proximité");
+                
                 GetNextWaypoint();
             }
 
@@ -183,6 +200,7 @@ namespace Ennemies
 
         private void GetNextWaypoint()
         {
+            
             //WAYPOINT FOR WAY01
             if (randomSpawn == 0)
             {
@@ -203,18 +221,20 @@ namespace Ennemies
                 }
                 else
                 {
+                    Debug.Log("Else");
                     Checking();
                     wayPointIndex++;
-                    crossWayPointIndex++;
+                    
                     targetMovement = GameMaster.Instance.WayMaster.way01[wayPointIndex];
                 }
             }            
 
             //WAYPOINT FOR WAY02
-            if (randomSpawn == 1)
+           else if (randomSpawn == 1)
             {
                 if (wayPointIndex >= GameMaster.Instance.WayMaster.way02.Length - 1)
                 {
+                    
                     if (!canMakeDamage && isNotDrone)
                     {
                         doingDamage = false;
@@ -230,16 +250,17 @@ namespace Ennemies
                 }
                 else
                 {
+                    
                     Checking();
                     wayPointIndex++;
-                    crossWayPointIndex++;
+               
                     targetMovement = GameMaster.Instance.WayMaster.way02[wayPointIndex];
                 }
             }
             
 
             //WAYPOINT FOR WAY03
-            if (randomSpawn == 2)
+            else if (randomSpawn == 2)
             {
                 if (wayPointIndex >= GameMaster.Instance.WayMaster.way03.Length - 1)
                 {
@@ -260,14 +281,14 @@ namespace Ennemies
                 {
                     Checking();
                     wayPointIndex++;
-                    crossWayPointIndex++;
+                 
                     targetMovement = GameMaster.Instance.WayMaster.way03[wayPointIndex];
                 }
             }
             
 
             //WAYPOINT FOR WAY04
-            if (randomSpawn == 3)
+            else if (randomSpawn == 3)
             {
                 if (wayPointIndex >= GameMaster.Instance.WayMaster.way04.Length - 1)
                 {
@@ -288,14 +309,14 @@ namespace Ennemies
                 {
                     Checking();
                     wayPointIndex++;
-                    crossWayPointIndex++;
+                   
                     targetMovement = GameMaster.Instance.WayMaster.way04[wayPointIndex];
                 }
             }
             
 
             //WAYPOINT FOR WAY05
-            if (randomSpawn == 4)
+            else if (randomSpawn == 4)
             {
                 if (wayPointIndex >= GameMaster.Instance.WayMaster.way05.Length - 1)
                 {
@@ -316,7 +337,7 @@ namespace Ennemies
                 {
                     Checking();
                     wayPointIndex++;
-                    crossWayPointIndex++;
+                    
                     targetMovement = GameMaster.Instance.WayMaster.way05[wayPointIndex];
                 }
             }            
@@ -328,7 +349,11 @@ namespace Ennemies
             //Checking des Défenses
             GameObject[] Defenses = GameObject.FindGameObjectsWithTag("Defense");
             float shortestDistance = Mathf.Infinity;
-            GameObject nearestDefense = null;
+            GameObject nearestDefense = null;            
+
+            int randomCrosspoint;
+
+           
 
             foreach (GameObject Defense in Defenses)
             {
@@ -356,47 +381,77 @@ namespace Ennemies
                 {
                     speed = stopSpeed;
 
-                    doingDamage = false;
-                    canMakeDamage = true;
-                    StartCoroutine(AttackOnRempart()); //Si type of ennemy is ...                    
+                    if(typeOfEnnemy == TypeOfEnnemy.Walker)
+                    {
+                        crossPointGauche = parentRef.GetComponent<CrossBrain>().crosspointGauche; 
+                           
+                        crossPointDroit = parentRef.GetComponent<CrossBrain>().crosspointDroit;
+
+                        randomCrosspoint = 0; // Random.Range(0, 2);
+                        //if 0 => Gauche
+                        //if 1 => Droite
+
+                        Debug.Log(randomCrosspoint);
+
+                        if (randomCrosspoint == 0) 
+                        {
+                            if(crossPointGauche.GetComponent<Crosspoints>().cantCross == false)
+                            {
+                                if (crossPointGauche.GetComponent<Crosspoints>().isOpen)
+                                {
+
+                                    GoingLeft();
+                                }
+                                else
+                                {
+                                    doingDamage = false;
+                                    canMakeDamage = true;
+                                    StartCoroutine(AttackOnRempart()); //Si type of ennemy is ...  
+                                }
+                            }
+                            
+
+                            
+
+                        }
+                        else
+                        {
+                            if (crossPointDroit.GetComponent<Crosspoints>().cantCross == false)
+                            {
+                                if (crossPointDroit.GetComponent<Crosspoints>().isOpen)
+                                {
+
+                                    GoingRight();
+
+                                   
+                                }
+                                else
+                                {
+                                    doingDamage = false;
+                                    canMakeDamage = true;
+                                    StartCoroutine(AttackOnRempart()); //Si type of ennemy is ...  
+                                }
+                            }
+                            
+
+
+
+                        }
+
+                        
+                    }
+
+
                 }
+                
             }
             else
             {
+                //needToCheck = false;
                 defenseTarget = null;
             }
 
-            //Checking des Crosspoints
-            /*GameObject[] Crosspoints = GameObject.FindGameObjectsWithTag("Crosspoint");
-             float crosspointDetetection = Mathf.Infinity;
-             GameObject nearestCrosspoint = null;
-
-             foreach (GameObject Crosspoint in Crosspoints)
-             {
-                 float distanceToCrosspoint = Vector3.Distance(transform.position, Crosspoint.transform.position);
-                 if (distanceToCrosspoint < crosspointDetetection)
-                 {
-                     crosspointDetetection = distanceToCrosspoint;
-                     nearestCrosspoint = Crosspoint;
-                 }
-             }
-
-             if (nearestCrosspoint != null && crosspointDetetection <= rangeForCrosspoint)
-             {
-                 crosspointTarget = nearestCrosspoint.transform;
-
-                 if (crosspointTarget.GetComponent<Crosspoints>().isOpen == true)
-                 {
-                     if (randomSpawn == 0)
-                     {
-
-                     }
-                 }
-             }
-             else
-             {
-                 crosspointTarget = null;
-             }*/
+            
         }
 
         // Fait des dégâts à la tourelle tant qu'elle possède des points de vies  
@@ -410,6 +465,7 @@ namespace Ennemies
                 yield return new WaitForSeconds(0.3f);
                 canMakeDamage = false;
             }
+            needToCheck = false;
         }
 
 
@@ -424,6 +480,7 @@ namespace Ennemies
                 yield return new WaitForSeconds(0.3f);
                 canMakeDamage = false;
             }
+            needToCheck = false;
         }
 
 
@@ -456,6 +513,70 @@ namespace Ennemies
         {
             Gizmos.color = Color.green;
             Gizmos.DrawWireSphere(transform.position, rangeForDefense);
+        }
+
+        void GoingLeft()
+        {
+            Debug.Log("GoingLeft");
+
+            if (randomSpawn == 2)
+            {
+                randomSpawn = 4;
+            }
+            else if (randomSpawn == 0)
+            {
+                randomSpawn = 2;
+
+            }
+            else if (randomSpawn == 1)
+            {
+                randomSpawn = 0;
+            }
+            else if (randomSpawn == 3)
+            {
+                randomSpawn = 1;
+            }
+
+            /*if (randomSpawn == 4)
+            {
+                randomSpawn = 4;
+            }*/
+
+            speed = initialspeed;
+            wayPointIndex--;
+            //needToCheck = false;
+        }
+
+        void GoingRight()
+        {
+
+            if (randomSpawn == 0)
+            {
+                randomSpawn = 1;
+            }
+
+            if (randomSpawn == 3)
+            {
+                randomSpawn = 0;
+            }
+
+            if (randomSpawn == 2)
+            {
+                randomSpawn = 0;
+            }
+
+            /*if (randomSpawn == 3)
+            {
+                randomSpawn = 3;
+            }*/
+            if (randomSpawn == 4)
+            {
+                randomSpawn = 2;
+            }
+
+            speed = initialspeed;
+            wayPointIndex--;
+            needToCheck = false;
         }
     }
 }

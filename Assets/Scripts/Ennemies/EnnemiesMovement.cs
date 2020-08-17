@@ -297,6 +297,7 @@ namespace Ennemies
         // À chaque Waypoint, vérifie si un rempart ou une tourelle est proche et déclenche le bon comportement à avoir pour chaque type d'ennemis 
         private void Checking()
         {
+            //Checking des Défenses
             GameObject[] Defenses = GameObject.FindGameObjectsWithTag("Defense");
             float shortestDistance = Mathf.Infinity;
             GameObject nearestDefense = null;
@@ -336,8 +337,11 @@ namespace Ennemies
             {
                 defenseTarget = null;
             }
+
+            //Checking des Crosspoints
+
         }
-        
+
         // Fait des dégâts à la tourelle tant qu'elle possède des points de vies  
         IEnumerator AttackOnTurret()
         {

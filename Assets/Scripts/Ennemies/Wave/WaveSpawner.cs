@@ -42,6 +42,7 @@ namespace Ennemies
         [Header("Wave Number")]
         [SerializeField]
         public static int waveIndex;
+        public int waveIndexAlt;
         public static int rounds; //Pour l'UI de GAME OVER
 
         //Vague en cours ou non
@@ -53,11 +54,13 @@ namespace Ennemies
         {
             waveIndex = 0;
             rounds = 0;
+
+            waveIndex = waveIndexAlt;
         }
 
         void Update()
 		{
-            Debug.Log("Wave" + waveIndex);
+            //Debug.Log("Wave" + waveIndex);
 
             if (ennemyAlive <= 0)
             {

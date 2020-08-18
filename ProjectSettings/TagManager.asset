@@ -6,6 +6,10 @@ TagManager:
   tags:
   - PlayerController
   - Enemy
+  - Turret
+  - Defense
+  - Crosspoint
+  - DroneCollider
   layers:
   - Default
   - TransparentFX
@@ -15,7 +19,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - DroneStation
   - 
   - 
   - 

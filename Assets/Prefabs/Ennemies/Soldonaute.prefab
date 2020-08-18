@@ -113,13 +113,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  target: {fileID: 0}
+  initialspeed: 0
+  stopSpeed: 0
+  targetMovement: {fileID: 0}
   wayPointIndex: 0
+  crossWayPointIndex: 0
+  crosspointTarget: {fileID: 0}
+  rangeForCrosspoint: 0
+  droneStation: {fileID: 5870863771012625590, guid: a28a815c83a9c8444bbf0c6a052da13c,
+    type: 3}
+  droneIsInStation: 0
   isPushed: 0
+  defenseTarget: {fileID: 0}
+  rangeForDefense: 0
   canMakeDamage: 0
   doingDamage: 0
   ennemyDamage: 20
   speedAttack: 5
+  isNotDrone: 0
   maxPushes: 2
   resistanceTime: 3
   pushTest: 0
@@ -143,3 +154,4 @@ MonoBehaviour:
   isInvincible: 0
   lootDrop: {fileID: 2244743408426605433, guid: 46ae5e2aa4b851445acf27bf88933ff4,
     type: 3}
+  squad: {fileID: 9014347760548240107, guid: de3f4c2405de4fc45b76b1c74f70ec68, type: 3}

@@ -14,6 +14,11 @@ namespace Tower
         [Header("PlayerHere")]
         [SerializeField] private bool playerHere = false;
 
+        [Header("ReferencesInCrossBrain")]
+        [SerializeField] private bool leftTurret = false;
+        [SerializeField] private bool rightTurret = false;
+        public GameObject turretSummon;
+
         [Header("UI")]
         [SerializeField] private TextMeshProUGUI turretN;
         [SerializeField] private TextMeshProUGUI purinsCost;
@@ -47,7 +52,7 @@ namespace Tower
         // Start is called before the first frame update
         void Start()
         {
-
+            turretSummon = null;
             AButton.SetActive(false);
             crossX.enabled = false;
             Ui.SetActive(false);
@@ -164,7 +169,7 @@ namespace Tower
         }
         void InstantiateTurret()
         {
-            Instantiate(GameManager.Instance.SocleManager.Turret[currentIndex], transform.position, Quaternion.identity);
+            turretSummon = Instantiate(GameManager.Instance.SocleManager.Turret[currentIndex], transform.position, Quaternion.identity);
             GameManager.Instance.purinCount -= GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().purinsCost;
             GameManager.Instance.scrapsCount -= GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().scrapCost;
             canValidate = false;

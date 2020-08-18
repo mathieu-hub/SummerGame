@@ -7,19 +7,30 @@ namespace Ennemies
 {
 	public class TurretTest : MonoBehaviour
 	{
+        [Header("Making Damage")]
         public Transform target;
         public float range = 15f;
         public int turretDamage;
 
+        [Header("Life")]
+        public int maxHealth;
+        public int currentHealth;
+
 		// Start is called before the first frame update
 		void Start()
 		{
+            currentHealth = maxHealth;
             InvokeRepeating("UpdateTarget", 0f, 0.5f);
 		}
 
         private void Update()
         {
-            UpdateTarget();            
+            UpdateTarget();   
+            
+            if (currentHealth <= 0)
+            {
+                Destroy(gameObject);
+            }
         }
 
         //permet de prendre l'ennemy le plus proche dans la range en target et de lui infliger des dégâts 

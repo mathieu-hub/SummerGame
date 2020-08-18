@@ -7,7 +7,7 @@ namespace Ennemies
 	public class Waypoints : MonoBehaviour
 	{
         public Transform[] points;
-
+   
         private void Awake()
         {
             points = new Transform[transform.childCount];
@@ -15,6 +15,8 @@ namespace Ennemies
             {
                 points[i] = transform.GetChild(i);
             }
+
+           
         }
 	}
 }

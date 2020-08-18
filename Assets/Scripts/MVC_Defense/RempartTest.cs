@@ -10,7 +10,7 @@ namespace Ennemies
         public int maxHealth;
         public int currentHealth;
 
-        void Start()
+        void Awake()
 		{
             currentHealth = maxHealth;
         }

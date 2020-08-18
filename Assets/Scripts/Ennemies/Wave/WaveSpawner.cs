@@ -60,7 +60,7 @@ namespace Ennemies
 
         void Update()
 		{
-            Debug.Log("Wave" + waveIndex);
+            //Debug.Log("Wave" + waveIndex);
 
             if (ennemyAlive <= 0)
             {

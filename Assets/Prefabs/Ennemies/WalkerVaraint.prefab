@@ -119,6 +119,7 @@ MonoBehaviour:
   lootDrop: {fileID: 2244743408426605433, guid: 46ae5e2aa4b851445acf27bf88933ff4,
     type: 3}
   squad: {fileID: 9014347760548240107, guid: de3f4c2405de4fc45b76b1c74f70ec68, type: 3}
+  troop: {fileID: 0}
 --- !u!50 &6146675336549755647
 Rigidbody2D:
   serializedVersion: 4
@@ -153,7 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   typeOfEnnemy: 0
-  isNotDrone: 0
+  isNotDrone: 1
   speed: 0
   initialspeed: 0
   stopSpeed: 0
@@ -162,12 +163,20 @@ MonoBehaviour:
   rangeForDefense: 0
   canMakeDamage: 1
   doingDamage: 0
+  canAttackTurret: 0
+  canAttackRempart: 0
   wayPointIndex: 0
+  currentWay: 0
   targetMovement: {fileID: 0}
+  canLeft: 0
+  canRight: 1
   parentRef: {fileID: 0}
   crossPointGauche: {fileID: 0}
   crossPointDroit: {fileID: 0}
-  defenseTarget: {fileID: 0}
+  rempartTarget: {fileID: 0}
+  turretTarget: {fileID: 0}
+  turretTargetL: {fileID: 0}
+  turretTargetR: {fileID: 0}
   maxPushes: 2
   resistanceTime: 3
   pushTest: 0

@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 5429196261517000529}
   - component: {fileID: 5429196261517000542}
   - component: {fileID: 2697619628915038861}
-  - component: {fileID: 5259093795017785660}
   - component: {fileID: 6402873754712522218}
+  - component: {fileID: 8552566252279078788}
+  - component: {fileID: 825245186248483253}
   m_Layer: 0
   m_Name: Carboniseur
   m_TagString: Enemy
@@ -100,43 +101,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.1
---- !u!114 &5259093795017785660
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5429196261517000543}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ddcfe732d4e31414f9dba0f78db95db7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
-  initialspeed: 0
-  stopSpeed: 0
-  targetMovement: {fileID: 0}
-  wayPointIndex: 0
-  crossWayPointIndex: 0
-  crosspointTarget: {fileID: 0}
-  rangeForCrosspoint: 0
-  droneStation: {fileID: 5870863771012625590, guid: a28a815c83a9c8444bbf0c6a052da13c,
-    type: 3}
-  droneIsInStation: 0
-  isPushed: 0
-  defenseTarget: {fileID: 0}
-  rangeForDefense: 0
-  canMakeDamage: 0
-  doingDamage: 0
-  ennemyDamage: 20
-  speedAttack: 5
-  isNotDrone: 0
-  maxPushes: 2
-  resistanceTime: 3
-  pushTest: 0
-  pushingBullet: {fileID: 0}
-  pushedCount: 0
-  typeOfEnnemy: 4
 --- !u!114 &6402873754712522218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,3 +119,66 @@ MonoBehaviour:
   lootDrop: {fileID: 2244743408426605433, guid: 46ae5e2aa4b851445acf27bf88933ff4,
     type: 3}
   squad: {fileID: 9014347760548240107, guid: de3f4c2405de4fc45b76b1c74f70ec68, type: 3}
+  troop: {fileID: 0}
+--- !u!114 &8552566252279078788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5429196261517000543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc32bc3859717b84eb017455bc34cef3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  typeOfEnnemy: 4
+  isNotDrone: 1
+  speed: 0
+  initialspeed: 0
+  stopSpeed: 0
+  ennemyDamage: 0
+  speedAttack: 0
+  rangeForDefense: 0
+  canMakeDamage: 1
+  doingDamage: 0
+  canAttackTurret: 0
+  canAttackRempart: 0
+  wayPointIndex: 0
+  currentWay: 0
+  targetMovement: {fileID: 0}
+  canLeft: 0
+  canRight: 1
+  parentRef: {fileID: 0}
+  crossPointGauche: {fileID: 0}
+  crossPointDroit: {fileID: 0}
+  rempartTarget: {fileID: 0}
+  turretTarget: {fileID: 0}
+  turretTargetL: {fileID: 0}
+  turretTargetR: {fileID: 0}
+  maxPushes: 2
+  resistanceTime: 3
+  pushTest: 0
+  pushingBullet: {fileID: 0}
+  pushedCount: 0
+--- !u!50 &825245186248483253
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5429196261517000543}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4

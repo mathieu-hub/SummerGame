@@ -21,6 +21,7 @@ namespace Ennemies
 
         //Squad
         public GameObject squad;
+        public GameObject troop;
 
         void Awake()
         {
@@ -57,6 +58,7 @@ namespace Ennemies
         void Start()
         {
             currentHealth = maxHealth;
+            troop = null;
         }
 
 
@@ -80,13 +82,15 @@ namespace Ennemies
         private void Die()
         {
             WaveSpawner.ennemyAlive--;
-            Destroy(gameObject);
             Instantiate(lootDrop, transform.position, Quaternion.identity);
 
             if (typeOfEnnemy == TypeOfEnnemy.Rover)
             {
-                Instantiate(squad, transform.position, Quaternion.identity);
+                troop = Instantiate(squad, transform.position, Quaternion.identity);
+                troop.GetComponent<NewEnnemiMovement>().currentWay = gameObject.GetComponent<NewEnnemiMovement>().currentWay;
             }
+
+            Destroy(gameObject);
         }
 
         IEnumerator TakingDammage()

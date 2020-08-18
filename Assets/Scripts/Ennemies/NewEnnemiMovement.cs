@@ -34,7 +34,7 @@ namespace Ennemies
 
         [Header("Ways")]
         [SerializeField] private int wayPointIndex = 0;
-        private float currentWay;
+        public float currentWay;
         [SerializeField] private Transform targetMovement;
         private int random;
 

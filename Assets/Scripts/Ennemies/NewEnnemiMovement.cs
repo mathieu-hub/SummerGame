@@ -27,6 +27,10 @@ namespace Ennemies
         [Header("Damage")]
         public bool canMakeDamage = true;
         public bool doingDamage = false;
+        public bool canAttackTurret = false;
+        public bool canAttackRempart = false;
+
+
 
         [Header("Ways")]
         [SerializeField] private int wayPointIndex = 0;
@@ -41,7 +45,10 @@ namespace Ennemies
         public GameObject parentRef;
         public Transform crossPointGauche;
         public Transform crossPointDroit;
-        public GameObject defenseTarget;
+        public GameObject rempartTarget;
+        public GameObject turretTarget;
+        public GameObject turretTargetL;
+        public GameObject turretTargetR;
 
         #region Push
         [Header("Push")]
@@ -82,7 +89,7 @@ namespace Ennemies
             canLeft = crossPointGauche.GetComponent<Crosspoints>().isOpen;
             canRight = crossPointDroit.GetComponent<Crosspoints>().isOpen;
 
-            if (defenseTarget != null)
+            if (rempartTarget != null || turretTarget !=null)
             {
                 speed = stopSpeed;
 
@@ -115,7 +122,7 @@ namespace Ennemies
                 {
                     if(typeOfEnnemy == TypeOfEnnemy.Walker)
                     {
-                        StartCoroutine("AttackOnRempart");
+                        StartCoroutine("Attack");
                     }
                 }
             }
@@ -273,50 +280,65 @@ namespace Ennemies
             parentRef = null;
             crossPointGauche = null;
             crossPointDroit = null;
-            defenseTarget = null;
+            rempartTarget = null;
 
             if (typeOfEnnemy == TypeOfEnnemy.Walker)
             {
                 initialspeed = 10f;
-                ennemyDamage = 20;
+                ennemyDamage = 10;
                 speedAttack = 5;
                 rangeForDefense = 3f;
+                canAttackTurret = false;
+                canAttackRempart = false;
             }
             else if (typeOfEnnemy == TypeOfEnnemy.Soldonaute)
             {
                 initialspeed = 10f;
                 ennemyDamage = 20;
                 speedAttack = 5;
+                canAttackTurret = false;
+                canAttackRempart = true;
             }
             else if (typeOfEnnemy == TypeOfEnnemy.SpaceScoot)
             {
                 initialspeed = 10f;
                 ennemyDamage = 20;
                 speedAttack = 5;
+                canAttackTurret = true;
+                canAttackRempart = true;
             }
             else if (typeOfEnnemy == TypeOfEnnemy.Démolisseur)
             {
                 initialspeed = 10f;
                 ennemyDamage = 20;
                 speedAttack = 5;
+                canAttackTurret = false;
+                canAttackRempart = false;
             }
             else if (typeOfEnnemy == TypeOfEnnemy.Carboniseur)
             {
                 initialspeed = 10f;
                 ennemyDamage = 20;
                 speedAttack = 5;
+                canAttackTurret = false;
+                canAttackRempart = true;
             }
             else if (typeOfEnnemy == TypeOfEnnemy.Rover)
             {
                 initialspeed = 10f;
                 ennemyDamage = 20;
                 speedAttack = 5;
+                canAttackTurret = true;
+                canAttackRempart = true;
             }
             else if (typeOfEnnemy == TypeOfEnnemy.Drone)
             {
                 initialspeed = 10f;
                 ennemyDamage = 0;
                 speedAttack = 0;
+                canAttackTurret = false;
+                canAttackRempart = false;
+
             }
 
             speed = initialspeed;
@@ -367,12 +389,27 @@ namespace Ennemies
         public void UpdateParent()
         {
             crossPointGauche = parentRef.GetComponent<CrossBrain>().crosspointGauche;
-
             crossPointDroit = parentRef.GetComponent<CrossBrain>().crosspointDroit;
+
+            /*turretTargetL = parentRef.GetComponent<CrossBrain>().leftTurret;
+            turretTargetR = parentRef.GetComponent<CrossBrain>().rightTurret;
+
+            float distanceToLeftTUrret = Vector3.Distance(transform.position, turretTargetL.transform.position);
+            float distanceToRightTUrret = Vector3.Distance(transform.position, turretTargetR.transform.position);
+
+            if(distanceToLeftTUrret < distanceToRightTUrret)
+            {
+                turretTarget = turretTargetL;
+            }
+            else
+            {
+                turretTarget = turretTargetR;
+            }*/
+
 
             if (parentRef.GetComponent<CrossBrain>().rempart)
             {
-                defenseTarget = parentRef.GetComponent<CrossBrain>().theRempart;
+                rempartTarget = parentRef.GetComponent<CrossBrain>().theRempart;
             }
         }
         void GoingLeft()
@@ -410,7 +447,7 @@ namespace Ennemies
             }*/
 
           
-            defenseTarget = null;
+            rempartTarget = null;
 
         }
 
@@ -455,7 +492,7 @@ namespace Ennemies
             }
 
            
-            defenseTarget = null;
+            rempartTarget = null;
 
 
         }
@@ -471,22 +508,21 @@ namespace Ennemies
             }
         }
 
-        IEnumerator AttackOnRempart()
+        IEnumerator Attack()
         {
             yield return new WaitForSeconds(speedAttack);
             if (canMakeDamage && !doingDamage)
             {
                 Debug.Log("A l'attaque");
                 doingDamage = true;
-                defenseTarget.GetComponent<RempartTest>().currentHealth -= ennemyDamage;
+                rempartTarget.GetComponent<RempartTest>().currentHealth -= ennemyDamage;
 
                 yield return new WaitForSeconds(0.3f);
 
                 canMakeDamage = false;
-                defenseTarget = null;
-
             }
-
+            doingDamage = false;
+            canMakeDamage = true;
             NeedToCheck();
         }
     }

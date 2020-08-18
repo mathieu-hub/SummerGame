@@ -3,11 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using Management;
 using Ennemies;
+using Tower;
 public class CrossBrain : MonoBehaviour
 {
 
     public Transform crosspointGauche;
     public Transform crosspointDroit;
+
+
+    public GameObject leftSocle;
+    public GameObject rightSocle;
+    public GameObject leftTurret;
+    public GameObject rightTurret;
+
+    public GameObject summonPosition;
 
     public GameObject theRempart;
     public bool rempartDead;
@@ -34,7 +43,7 @@ public class CrossBrain : MonoBehaviour
     {
         if(!rempart && SummonRempart)
         {
-            theRempart = Instantiate(GameMaster.Instance.rempartPrefab, transform.position, Quaternion.identity);
+            theRempart = Instantiate(GameMaster.Instance.rempartPrefab, summonPosition.transform.position, Quaternion.identity);
             SummonRempart = false;
             rempart = true;
         }
@@ -45,6 +54,10 @@ public class CrossBrain : MonoBehaviour
             rempartDead = true;
             rempart = false;
         }
+
+
+        //leftTurret = leftSocle.GetComponent<SocleBehaviour>().turretSummon;
+        //rightTurret = rightSocle.GetComponent<SocleBehaviour>().turretSummon;
     }
 
 }

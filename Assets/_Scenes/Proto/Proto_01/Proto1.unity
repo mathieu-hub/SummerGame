@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1002,8 +1002,8 @@ Transform:
   - {fileID: 1850492237}
   - {fileID: 65549888}
   - {fileID: 1956721707}
-  - {fileID: 265129176}
   - {fileID: 8341515679978882055}
+  - {fileID: 265129176}
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1071,47 +1071,49 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numberOfWay: 1
   way01:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 3414264566026628969}
+  - {fileID: 8341515680344133022}
+  - {fileID: 8341515679613418710}
+  - {fileID: 8341515679422692197}
+  - {fileID: 8341515679735837610}
   way02:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8341515679136357585}
+  - {fileID: 8341515679555128205}
+  - {fileID: 8341515680597855006}
+  - {fileID: 8341515679822350390}
+  - {fileID: 8341515678999023013}
   way03:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8341515679945413480}
+  - {fileID: 8341515680638367867}
+  - {fileID: 8341515680011721806}
+  - {fileID: 8341515678736698224}
+  - {fileID: 8341515680514323408}
   way04:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8341515680062702228}
+  - {fileID: 8341515679027299087}
+  - {fileID: 8341515680677811154}
+  - {fileID: 8341515680618973105}
+  - {fileID: 8341515679095021992}
   way05:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  way1: {fileID: 0}
-  way2: {fileID: 0}
-  way3: {fileID: 0}
-  way4: {fileID: 0}
-  way5: {fileID: 0}
+  - {fileID: 8341515680300079063}
+  - {fileID: 8341515679393811193}
+  - {fileID: 8341515680501958158}
+  - {fileID: 8341515680491658910}
+  - {fileID: 8341515680627011800}
+  way1: {fileID: 8341515679236317411}
+  way2: {fileID: 8341515679600370126}
+  way3: {fileID: 8341515678758699499}
+  way4: {fileID: 8341515679339697519}
+  way5: {fileID: 8341515680296017062}
   numberOfCrossWay: 1
   Crossway01: []
   Crossway02: []
   Crossway03: []
-  Crossway1: {fileID: 0}
-  Crossway2: {fileID: 0}
-  Crossway3: {fileID: 0}
+  Crossway04: []
+  Crossway1: {fileID: 8341515680585164854}
+  Crossway2: {fileID: 8341515678694117386}
+  Crossway3: {fileID: 8341515678939773691}
+  Crossway4: {fileID: 8341515679527146735}
 --- !u!114 &618439971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8348,6 +8350,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 710689849106011292, guid: 6970ae380ceff3e4f918d9a53f4eceff,
         type: 3}
+    - target: {fileID: 6675148116576768006, guid: 1ada26458111d2346bae2ecdbe247e45,
+        type: 3}
+      propertyPath: SummonRempart
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6675148116576768007, guid: 1ada26458111d2346bae2ecdbe247e45,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -15657,6 +15664,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8341515680585164841}
     m_Modifications:
+    - target: {fileID: 3615057894306317518, guid: 2423515d9ae9d194aa93529bf970bd1b,
+        type: 3}
+      propertyPath: isOpen
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3615057894306317519, guid: 2423515d9ae9d194aa93529bf970bd1b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -16621,7 +16633,7 @@ Transform:
   m_LocalScale: {x: 0.9716, y: 2.371455, z: 1}
   m_Children: []
   m_Father: {fileID: 615772455}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8341515679978882105
 MonoBehaviour:

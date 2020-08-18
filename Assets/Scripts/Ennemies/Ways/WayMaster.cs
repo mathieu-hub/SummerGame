@@ -28,14 +28,17 @@ public class WayMaster : MonoBehaviour
     public Transform[] Crossway01;
     public Transform[] Crossway02;
     public Transform[] Crossway03;
-    
+    public Transform[] Crossway04;
+
+
 
     public GameObject Crossway1;
     public GameObject Crossway2;
     public GameObject Crossway3;
+    public GameObject Crossway4;
 
-    
-    
+
+
 
 
     void Start()
@@ -49,8 +52,10 @@ public class WayMaster : MonoBehaviour
         Crossway01 = Crossway1.GetComponent<Waypoints>().points;
         Crossway02 = Crossway2.GetComponent<Waypoints>().points;
         Crossway03 = Crossway3.GetComponent<Waypoints>().points;
+        Crossway04 = Crossway4.GetComponent<Waypoints>().points;
 
-       
+
+
 
     }
 

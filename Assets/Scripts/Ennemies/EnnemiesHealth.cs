@@ -9,6 +9,7 @@ namespace Ennemies
         //TYPE OF ENNEMY
         public enum TypeOfEnnemy {Walker, Soldonaute, SpaceScoot, Démolisseur, Carboniseur, Rover, Drone}
         public TypeOfEnnemy typeOfEnnemy;
+        
 
         //Health
         int maxHealth;
@@ -88,6 +89,7 @@ namespace Ennemies
             {
                 troop = Instantiate(squad, transform.position, Quaternion.identity);
                 troop.GetComponent<NewEnnemiMovement>().currentWay = gameObject.GetComponent<NewEnnemiMovement>().currentWay;
+                //troop.GetComponent<NewEnnemiMovement>().wayPointIndex = gameObject.GetComponent<NewEnnemiMovement>().wayPointIndex;
             }
 
             Destroy(gameObject);

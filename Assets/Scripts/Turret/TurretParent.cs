@@ -141,8 +141,6 @@ namespace Turret
 
         private void Update()
         {
-            LinkScripts();
-
             if(playerHere && Input.GetButtonDown("A_Button"))
             {
                 APressed = true;
@@ -190,12 +188,6 @@ namespace Turret
             }
         }
 
-        void LinkScripts()
-        {
-            gameObject.GetComponent<TurretBehaviour>().range = range;
-            gameObject.GetComponent<TurretBehaviour>().damage = damage;
-            gameObject.GetComponent<TurretBehaviour>().fireRate = fireRate;
-        }
         void UpdateUI()
         {
             //Afficher Heal Quand necessaire

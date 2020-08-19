@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 using Management;
 
 namespace Ennemies
@@ -45,6 +46,8 @@ namespace Ennemies
         public static int waveIndex;
         public int waveIndexAlt;
         public static int rounds; //Pour l'UI de GAME OVER
+        [SerializeField]
+        private TextMeshProUGUI waveNumber;
 
         //Vague en cours ou non
         [Header("Wave In Preogress")]
@@ -84,7 +87,10 @@ namespace Ennemies
                 //Fonctionnement du compte à rebourd 
                 countdown -= Time.deltaTime;
                 waveCountdownTimer.text = Mathf.Round(countdown).ToString();
-            }           			
+            }
+
+            //Wave Number UI 
+            waveNumber.text = waveIndexAlt.ToString(); 
 		}
 
         IEnumerator SpawnWave()

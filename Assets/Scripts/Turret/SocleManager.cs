@@ -9,10 +9,10 @@ public class SocleManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Turret[0] = Resources.Load("Prefabs/Stroot Variant") as GameObject;
-        Turret[1] = Resources.Load("Prefabs/Bourlot Variant") as GameObject;
-        Turret[2] = Resources.Load("Prefabs/Snipic Variant") as GameObject;
-        Turret[3] = Resources.Load("Prefabs/Tronçoronce Variant") as GameObject;
+        Turret[0] = Resources.Load("Prefabs/Stroot") as GameObject;
+        Turret[1] = Resources.Load("Prefabs/Bourlo") as GameObject;
+        Turret[2] = Resources.Load("Prefabs/Snipic") as GameObject;
+        Turret[3] = Resources.Load("Prefabs/Tronçoronce") as GameObject;
         Turret[4] = Resources.Load("Prefabs/Invasive Variant") as GameObject;
     }
 

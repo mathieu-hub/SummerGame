@@ -2133,6 +2133,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 8.4
   damage: 20
+  broke: 0
   bulletPrefab: {fileID: 3199255332642906943, guid: 23c7df0b227bf8a4f8ea086c3db6c87c,
     type: 3}
   fireRate: 0.29
@@ -2152,6 +2153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9039e3d2443654f4f84716a61bdae641, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  turretBehaviour: {fileID: 3740806098214938747}
   turretName: "Tron\xE7oronce"
   purinsCost: 15
   planCost: 5

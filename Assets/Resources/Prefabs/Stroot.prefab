@@ -3140,7 +3140,7 @@ GameObject:
   - component: {fileID: 7114784870296778987}
   - component: {fileID: 1799193675385696412}
   m_Layer: 0
-  m_Name: StrootTurret
+  m_Name: Stroot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3196,6 +3196,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 5.5
   damage: 10
+  broke: 0
   bulletPrefab: {fileID: 3152970004767493502, guid: 54c156616239c5540917483e08d633f3,
     type: 3}
   fireRate: 1.7
@@ -3215,6 +3216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9039e3d2443654f4f84716a61bdae641, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  turretBehaviour: {fileID: 6894646036147033446}
   turretName: Stroot
   purinsCost: 5
   planCost: 0

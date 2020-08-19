@@ -160,9 +160,9 @@ namespace Ennemies
 
         public void UpdateParent()
         {
-            crossPointGauche = parentRef.GetComponent<CrossBrain>().crosspointGauche;
+            //crossPointGauche = parentRef.GetComponent<CrossBrain>().crosspointGauche;
 
-            crossPointDroit = parentRef.GetComponent<CrossBrain>().crosspointDroit;
+//            crossPointDroit = parentRef.GetComponent<CrossBrain>().crosspointDroit;
         }
 
         public void NeedToCheck()

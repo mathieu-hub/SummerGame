@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Management;
 
 namespace Ennemies
 {
@@ -92,6 +93,7 @@ namespace Ennemies
 
             WaveCompositor wave = waves[waveIndex];
 
+            GameManager.Instance.wavesBeforeSeller -= 1;
             waveIndex++;
             rounds++;
 

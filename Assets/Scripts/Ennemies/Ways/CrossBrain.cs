@@ -7,14 +7,14 @@ using Tower;
 public class CrossBrain : MonoBehaviour
 {
 
-    public Transform crosspointGauche;
-    public Transform crosspointDroit;
+    public GameObject crosspointGauche;
+    public GameObject crosspointDroit;
 
 
     public GameObject leftSocle;
     public GameObject rightSocle;
-    public GameObject leftTurret;
-    public GameObject rightTurret;
+    //public GameObject leftTurret = null;
+    //public GameObject rightTurret = null;
 
     public GameObject summonPosition;
 
@@ -31,10 +31,11 @@ public class CrossBrain : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-
+            Debug.Log("Trigger");
             collision.gameObject.GetComponent<NewEnnemiMovement>().parentRef = gameObject;
 
             collision.gameObject.GetComponent<NewEnnemiMovement>().UpdateParent();
+            Debug.Log("UpdateParentCross");
             collision.gameObject.GetComponent<NewEnnemiMovement>().NeedToCheck();
         }
     }

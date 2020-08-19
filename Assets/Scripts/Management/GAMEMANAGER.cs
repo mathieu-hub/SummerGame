@@ -45,7 +45,7 @@ namespace Management
         public SocleManager SocleManager = null;
 
         [Header("DéroulementDuJeu")]
-        public int waves;
+   
         public int wavesBeforeSeller;
         public bool needToRefeshShop = false;
         public bool inPause = false;
@@ -57,14 +57,13 @@ namespace Management
         private void Start()
         {
             wavesBeforeSeller = 5;
-            waves = 0;
+        
         }
 
         private void Update()
         {
             if (Input.GetButtonDown("X_Button"))
             {
-                waves += 1;
                 wavesBeforeSeller -= 1;
             }
 

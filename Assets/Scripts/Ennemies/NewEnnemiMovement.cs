@@ -43,12 +43,12 @@ namespace Ennemies
 
         [Header("Reference GO")]
         public GameObject parentRef;
-        public Transform crossPointGauche;
-        public Transform crossPointDroit;
+        public GameObject crossPointGauche;
+        public GameObject crossPointDroit;
         public GameObject rempartTarget;
-        public GameObject turretTarget;
-        public GameObject turretTargetL;
-        public GameObject turretTargetR;
+        public GameObject turretTarget = null;
+        public GameObject turretTargetL = null;
+        public GameObject turretTargetR = null;
 
         #region Push
         [Header("Push")]
@@ -86,10 +86,13 @@ namespace Ennemies
 
         public void NeedToCheck()
         {
+            crossPointGauche = parentRef.GetComponent<CrossBrain>().crosspointGauche;
+            crossPointDroit = parentRef.GetComponent<CrossBrain>().crosspointDroit;
+
             canLeft = crossPointGauche.GetComponent<Crosspoints>().isOpen;
             canRight = crossPointDroit.GetComponent<Crosspoints>().isOpen;
 
-            if (rempartTarget != null || turretTarget !=null)
+            if (rempartTarget != null)
             {
                 speed = stopSpeed;
 
@@ -388,8 +391,14 @@ namespace Ennemies
 
         public void UpdateParent()
         {
+            Debug.Log("updateParent");
             crossPointGauche = parentRef.GetComponent<CrossBrain>().crosspointGauche;
             crossPointDroit = parentRef.GetComponent<CrossBrain>().crosspointDroit;
+
+            canLeft = crossPointGauche.GetComponent<Crosspoints>().isOpen;
+            canRight = crossPointDroit.GetComponent<Crosspoints>().isOpen;
+
+            Debug.Log(canRight && canLeft);
 
             /*turretTargetL = parentRef.GetComponent<CrossBrain>().leftTurret;
             turretTargetR = parentRef.GetComponent<CrossBrain>().rightTurret;

@@ -63,6 +63,9 @@ namespace Ennemies
         [HideInInspector] public int pushedCount = 0;
         #endregion
 
+        [Header("Animator")]
+        public Animator animator;
+
         #endregion
         // Start is called before the first frame update
         void Awake()
@@ -74,6 +77,8 @@ namespace Ennemies
                 return;
         }
 
+
+
         // Update is called once per frame
         void Update()
         {
@@ -82,6 +87,17 @@ namespace Ennemies
             transform.Translate(direction.normalized * speed * Time.deltaTime);
 
             LimitArray();
+
+
+            //animations
+            if (speed == 0)
+            {
+                animator.SetBool("isMoving", false);
+            }
+            else
+            {
+                animator.SetBool("isMoving", false);
+            }
         }
 
         public void NeedToCheck()
@@ -301,6 +317,7 @@ namespace Ennemies
                 speedAttack = 5;
                 canAttackTurret = false;
                 canAttackRempart = true;
+                animator.SetBool("isSoldonaute", true);
             }
             else if (typeOfEnnemy == TypeOfEnnemy.SpaceScoot)
             {
@@ -309,6 +326,7 @@ namespace Ennemies
                 speedAttack = 5;
                 canAttackTurret = true;
                 canAttackRempart = true;
+                animator.SetBool("isScout", true);
             }
             else if (typeOfEnnemy == TypeOfEnnemy.Démolisseur)
             {
@@ -317,6 +335,8 @@ namespace Ennemies
                 speedAttack = 5;
                 canAttackTurret = false;
                 canAttackRempart = false;
+                animator.SetBool("isDestructeur", true);
+                Debug.Log("bien lu");
             }
             else if (typeOfEnnemy == TypeOfEnnemy.Carboniseur)
             {
@@ -325,6 +345,7 @@ namespace Ennemies
                 speedAttack = 5;
                 canAttackTurret = false;
                 canAttackRempart = true;
+                animator.SetBool("isCarboniseur", true);
             }
             else if (typeOfEnnemy == TypeOfEnnemy.Rover)
             {
@@ -333,6 +354,7 @@ namespace Ennemies
                 speedAttack = 5;
                 canAttackTurret = true;
                 canAttackRempart = true;
+                animator.SetBool("isRover", true);
             }
             else if (typeOfEnnemy == TypeOfEnnemy.Drone)
             {
@@ -341,6 +363,7 @@ namespace Ennemies
                 speedAttack = 0;
                 canAttackTurret = false;
                 canAttackRempart = false;
+                animator.SetBool("isDrone", true);
 
             }
 
@@ -540,6 +563,8 @@ namespace Ennemies
             
             NeedToCheck();
         }
+
+        
     }
 }
 

@@ -20,8 +20,10 @@ namespace Turret
 		
 		[Range(1f, 40f)]
 		public float range = 15f;
+		private CircleCollider2D rangeCollider;
 		[Range(1, 50)]
-		public int damage = 2;
+		[SerializeField] protected int damage = 2;
+		[HideInInspector] public bool broke = false;
 
 		[Header("Use Bullets")]
 		
@@ -46,7 +48,8 @@ namespace Turret
 		// Start is called before the first frame update
 		void Start()
 		{
-			gameObject.GetComponent<CircleCollider2D>().radius = range;
+			rangeCollider = gameObject.GetComponent<CircleCollider2D>();
+			rangeCollider.radius = range;
 			InvokeRepeating("UpdateTarget", 0f, 0.133f);
 		}
 
@@ -56,7 +59,7 @@ namespace Turret
 			//To do : On enemy's death, need to remove him from this turret enemiesInRange list if it was added ?
 			Debug.Log("Nb of enemies in range: " + enemiesInRange.Count);
 			Debug.Log(gameObject.name + " targeting: "+ target);
-			if (target == null)
+			if (target == null || broke)
             {
 				fireCountdown = 0f;
 				return;
@@ -78,7 +81,7 @@ namespace Turret
 		/// </summary>
 		protected virtual void UpdateTarget()
         {
-			if (enemiesInRange.Count == 0)
+			if (enemiesInRange.Count == 0 || broke)
             {
 				target = null;
 				return;
@@ -146,6 +149,9 @@ namespace Turret
 		/// </summary>
         void LockOnTarget()
 		{
+			if (broke)
+				return;
+
 			Vector3 posTarget = target.position;
 			Vector3 posTurret = transform.position;
 			Vector3 relativPos = new Vector3(posTarget.x - posTurret.x, posTarget.y - posTurret.y, 0);
@@ -167,6 +173,14 @@ namespace Turret
 
             if (bullet != null)
                 bullet.Seek(target, firePoint, damage);
+        }
+
+		public virtual void Upgrade(int newRange, int newDamage, int newFireRate)
+        {
+			range = newRange;
+			rangeCollider.radius = newRange;
+			damage = newDamage;
+			fireRate = newFireRate;
         }
 
 		void OnDrawGizmosSelected()

@@ -17,7 +17,7 @@ namespace Turret
 
         protected override void UpdateTarget()
         {
-			if (enemiesInRange.Count == 0)
+			if (enemiesInRange.Count == 0 || broke)
 			{
 				target = null;
 				return;

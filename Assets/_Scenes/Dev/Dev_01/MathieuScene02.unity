@@ -15727,6 +15727,7 @@ MonoBehaviour:
   countdown: 2
   waveCountdownTimer: {fileID: 8341515680750526223}
   waveIndexAlt: 3
+  waveNumber: {fileID: 901328527}
   waveInProgress: 0
 --- !u!4 &8341515679860509917
 Transform:

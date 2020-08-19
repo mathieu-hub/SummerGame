@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Turret
 {
-	public class Invasive : Turret
+	public class Invasive : TurretBehaviour
 	{
         #region Variables
 

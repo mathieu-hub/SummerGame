@@ -9,7 +9,7 @@ namespace Turret
 	/// <summary>
 	/// CHB -- Basic turret class
 	/// </summary>
-	public class Turret : MonoBehaviour
+	public class TurretBehaviour : MonoBehaviour
 	{
 		#region Variables
 		/*[SerializeField]*/protected Transform target = null;

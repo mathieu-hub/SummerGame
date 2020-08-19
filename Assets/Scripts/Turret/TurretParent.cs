@@ -17,7 +17,7 @@ namespace Turret
     {
         #region
 
-        [SerializeField] private Turret turretShootBehavior = null;
+        [SerializeField] private TurretBehaviour turretBehavior = null;
         
         [Header("Values")]
         public string turretName;
@@ -495,7 +495,7 @@ namespace Turret
                 scrapUsedIn += sCost[currentLevel-1];
 
                 //Augmenter les Stats (range/dégats/fireRate/Level)
-                turretShootBehavior.Upgrade(upgradeRange[currentLevel - 1], upgradeDamages[currentLevel - 1], upgradeFireRate[currentLevel - 1]);
+                turretBehavior.Upgrade(upgradeRange[currentLevel - 1], upgradeDamages[currentLevel - 1], upgradeFireRate[currentLevel - 1]);
                 range = upgradeRange[currentLevel-1];
                 damage = upgradeDamages[currentLevel-1];
                 fireRate = upgradeFireRate[currentLevel-1];

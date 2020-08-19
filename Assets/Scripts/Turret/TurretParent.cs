@@ -5,7 +5,6 @@ using TMPro;
 using UnityEngine.UI;
 using Player;
 using Management;
-using Turret;
 
 namespace Turret
 {

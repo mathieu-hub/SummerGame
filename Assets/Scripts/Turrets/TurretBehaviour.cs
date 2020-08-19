@@ -16,8 +16,6 @@ namespace Turret
 
 		protected List<GameObject> enemiesInRange = new List<GameObject>();
 
-		[SerializeField] protected TurretParent turretParent = null;
-
 		[Header("General")]
 		
 		[Range(1f, 40f)]
@@ -25,6 +23,7 @@ namespace Turret
 		private CircleCollider2D rangeCollider;
 		[Range(1, 50)]
 		[SerializeField] protected int damage = 2;
+		[HideInInspector] public bool broke = false;
 
 		[Header("Use Bullets")]
 		
@@ -60,7 +59,7 @@ namespace Turret
 			//To do : On enemy's death, need to remove him from this turret enemiesInRange list if it was added ?
 			Debug.Log("Nb of enemies in range: " + enemiesInRange.Count);
 			Debug.Log(gameObject.name + " targeting: "+ target);
-			if (target == null || turretParent.broke)
+			if (target == null || broke)
             {
 				fireCountdown = 0f;
 				return;
@@ -82,7 +81,7 @@ namespace Turret
 		/// </summary>
 		protected virtual void UpdateTarget()
         {
-			if (enemiesInRange.Count == 0 || turretParent.broke)
+			if (enemiesInRange.Count == 0 || broke)
             {
 				target = null;
 				return;
@@ -150,7 +149,7 @@ namespace Turret
 		/// </summary>
         void LockOnTarget()
 		{
-			if (turretParent.broke)
+			if (broke)
 				return;
 
 			Vector3 posTarget = target.position;

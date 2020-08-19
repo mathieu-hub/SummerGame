@@ -17,7 +17,7 @@ namespace Turret
     {
         #region
 
-        [SerializeField] private TurretBehaviour turretBehavior = null;
+        [SerializeField] private TurretBehaviour turretBehaviour = null;
         
         [Header("Values")]
         public string turretName;
@@ -341,14 +341,14 @@ namespace Turret
             if (currentHp <= 0)
             {
                 currentHp = 0;
-                broke = true;
+                turretBehaviour.broke = true;
             }
             else
             {
-                broke = false;
+                turretBehaviour.broke = false;
             }
 
-            if (broke)
+            if (turretBehaviour.broke)
             {
                 brokeParticule.SetActive(true);
             }
@@ -495,7 +495,7 @@ namespace Turret
                 scrapUsedIn += sCost[currentLevel-1];
 
                 //Augmenter les Stats (range/dégats/fireRate/Level)
-                turretBehavior.Upgrade(upgradeRange[currentLevel - 1], upgradeDamages[currentLevel - 1], upgradeFireRate[currentLevel - 1]);
+                turretBehaviour.Upgrade(upgradeRange[currentLevel - 1], upgradeDamages[currentLevel - 1], upgradeFireRate[currentLevel - 1]);
                 range = upgradeRange[currentLevel-1];
                 damage = upgradeDamages[currentLevel-1];
                 fireRate = upgradeFireRate[currentLevel-1];

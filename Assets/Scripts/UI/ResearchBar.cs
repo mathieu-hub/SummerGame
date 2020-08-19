@@ -19,11 +19,17 @@ namespace Ennemies
 
         private void Update()
         {
-            research.Update();
-
             barImage.fillAmount = research.GetNormalized();
         }
+
+        public void IncreaseResearchBar()
+        {
+            research.Update(); //uniquement lorsque des drones sont dans DroneStation
+        }
     }
+
+
+
 
     public class Research
     {
@@ -35,12 +41,13 @@ namespace Ennemies
         public Research()
         {
             researchAmount = 0f;
-            researchIncrease = 30f;
+            researchIncrease = 3f;
         }
 
         public void Update()
         {
             researchAmount += researchIncrease * Time.deltaTime;
+            researchAmount = Mathf.Clamp(researchAmount, 0f, researchMax);
         }
 
         public float GetNormalized()

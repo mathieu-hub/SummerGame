@@ -98,8 +98,7 @@ public class ShopItem : MonoBehaviour
 
         if(GameManager.Instance.tooMuchAnimals == true)
         {
-           
-            
+
             //ActiverCanvas
 
             if(validationTime == 100)
@@ -199,8 +198,16 @@ public class ShopItem : MonoBehaviour
     {
         Debug.Log("Recall");
         pulled = false;
+        Canvas.SetActive(false);
+        deleteTime = 0;
+        canDelete = false;
+        canDelete = true;
+        canValidate = false;
+        canValidate = true;
+        validationTime = 0;
         SellerBehaviour.Instance.items.Add(gameObject);
         gameObject.transform.position = SellerBehaviour.Instance.stockPosition.position;
+
     }
 
     void FirstEffects()

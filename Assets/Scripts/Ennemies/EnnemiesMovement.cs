@@ -151,10 +151,7 @@ namespace Ennemies
 
             if (droneIsInStation == true)
             {
-                if (typeOfEnnemy == TypeOfEnnemy.Drone)
-                {
-                    speed = stopSpeed;
-                }
+                speed = stopSpeed;
             }
         }
 

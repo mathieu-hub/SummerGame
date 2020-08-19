@@ -50,6 +50,11 @@ namespace Ennemies
         public GameObject turretTargetL = null;
         public GameObject turretTargetR = null;
 
+        //DroneStation
+        public Transform droneStation;
+        public bool droneIsInStation = false;
+
+
         #region Push
         [Header("Push")]
         [Range(2, 10)]
@@ -97,6 +102,12 @@ namespace Ennemies
             else
             {
                 animator.SetBool("isMoving", false);
+            }
+
+            //Le Drone arrive dans DroneStation, il s'arrête.
+            if (droneIsInStation == true)
+            {
+                speed = stopSpeed;
             }
         }
 
@@ -174,7 +185,7 @@ namespace Ennemies
                     }
                     else if (!isNotDrone)
                     {
-                        //targetMovement = droneStation;
+                        targetMovement = droneStation;
                     }
                 }
                 else
@@ -202,7 +213,7 @@ namespace Ennemies
                     }
                     else if (!isNotDrone)
                     {
-                        //targetMovement = droneStation;
+                        targetMovement = droneStation;
                     }
                 }
                 else
@@ -230,7 +241,7 @@ namespace Ennemies
                     }
                     else if (!isNotDrone)
                     {
-                        //targetMovement = droneStation;
+                        targetMovement = droneStation;
                     }
                 }
                 else
@@ -257,7 +268,7 @@ namespace Ennemies
                     }
                     else if (!isNotDrone)
                     {
-                        //targetMovement = droneStation;
+                        targetMovement = droneStation;
                     }
                 }
                 else
@@ -283,7 +294,7 @@ namespace Ennemies
                     }
                     else if (!isNotDrone)
                     {
-                        //targetMovement = droneStation;
+                        targetMovement = droneStation;
                     }
                 }
                 else

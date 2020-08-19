@@ -12,9 +12,14 @@ namespace Ennemies
         {
             if (other.gameObject.GetComponent<NewEnnemiMovement>().isNotDrone == true)
             {
-                //other.gameObject.GetComponent<EnnemiesMovement>().droneIsInStation = true; => à changer, utiliser comme condition pour faire augmenter la jauge. 
+                other.gameObject.GetComponent<NewEnnemiMovement>().droneIsInStation = true;  
                 Debug.Log("un drone est entré");
             }
+        }
+
+        void ResearchBar()
+        {
+
         }
 
         void SpawnPods()

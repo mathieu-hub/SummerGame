@@ -345,6 +345,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stroot Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 8054708342142068311, guid: 7962c5a4611a90344a220cbadcddbdac,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7962c5a4611a90344a220cbadcddbdac, type: 3}
 --- !u!114 &443012091549107241 stripped

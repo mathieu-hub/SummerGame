@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine.UI;
 using Player;
 using Management;
+using Turret;
 
 namespace Tower
 {
@@ -137,6 +138,8 @@ namespace Tower
 
         private void Update()
         {
+            LinkScripts();
+
             if(playerHere && Input.GetButtonDown("A_Button"))
             {
                 APressed = true;
@@ -184,6 +187,12 @@ namespace Tower
             }
         }
 
+        void LinkScripts()
+        {
+            gameObject.GetComponent<TurretBehaviour>().range = range;
+            gameObject.GetComponent<TurretBehaviour>().damage = damage;
+            gameObject.GetComponent<TurretBehaviour>().fireRate = fireRate;
+        }
         void UpdateUI()
         {
             //Afficher Heal Quand necessaire

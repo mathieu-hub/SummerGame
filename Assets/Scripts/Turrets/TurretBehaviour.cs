@@ -9,7 +9,7 @@ namespace Turret
 	/// <summary>
 	/// CHB -- Basic turret class
 	/// </summary>
-	public class Turret : MonoBehaviour
+	public class TurretBehaviour : MonoBehaviour
 	{
 		#region Variables
 		/*[SerializeField]*/protected Transform target = null;
@@ -21,7 +21,7 @@ namespace Turret
 		[Range(1f, 40f)]
 		public float range = 15f;
 		[Range(1, 50)]
-		[SerializeField] protected int damage = 2;
+		public int damage = 2;
 
 		[Header("Use Bullets")]
 		

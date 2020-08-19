@@ -174,6 +174,7 @@ GameObject:
   - component: {fileID: 3638973496166544068}
   - component: {fileID: 3638973496166544074}
   - component: {fileID: 6297018464142453760}
+  - component: {fileID: 7515604718553353669}
   m_Layer: 0
   m_Name: Snipic
   m_TagString: Untagged
@@ -233,6 +234,69 @@ MonoBehaviour:
   partToRotate: {fileID: 3638973494703882723}
   turnSpeed: 10
   firePoint: {fileID: 3638973496662171638}
+--- !u!114 &7515604718553353669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3638973496166544072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9039e3d2443654f4f84716a61bdae641, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turretName: 
+  purinsCost: 0
+  planCost: 0
+  scrapCost: 0
+  range: 0
+  damage: 0
+  fireRate: 0
+  purinSell: {fileID: 0}
+  scrapSell: {fileID: 0}
+  purinUpgrade: {fileID: 0}
+  scrapUpgrade: {fileID: 0}
+  pCost: 
+  sCost: 
+  currentLevel: 1
+  healCost: 1
+  needToHeal: 0
+  upgradeRange: 
+  upgradeDamages: 
+  upgradeFireRate: 
+  upgradeHpMax: 
+  currentHp: 0
+  maxHp: 0
+  canvas: {fileID: 0}
+  UIturretName: {fileID: 0}
+  UIRange: {fileID: 0}
+  UIDamage: {fileID: 0}
+  UIFireRate: {fileID: 0}
+  AButton: {fileID: 0}
+  upgradeVisuelHp: {fileID: 0}
+  upgradeVisuelRange: {fileID: 0}
+  upgradeVisuelDamages: {fileID: 0}
+  upgradeVisuelFireRate: {fileID: 0}
+  UPC: {fileID: 0}
+  USC: {fileID: 0}
+  SPC: {fileID: 0}
+  SSC: {fileID: 0}
+  ValidationAction: {fileID: 0}
+  healPoints: []
+  validationCircle: {fileID: 0}
+  validationTime: 0
+  deleteCircle: {fileID: 0}
+  deleteTime: 0
+  validationUpgrade: 0.2
+  crossX: {fileID: 0}
+  startColor: {r: 0, g: 0, b: 0, a: 0}
+  distance: 0
+  playerHere: 0
+  APressed: 0
+  needToVanish: 0
+  broke: 0
+  brokeParticule: {fileID: 0}
 --- !u!1 &3638973496662171639
 GameObject:
   m_ObjectHideFlags: 0

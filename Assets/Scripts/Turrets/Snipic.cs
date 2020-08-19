@@ -9,7 +9,7 @@ namespace Turret
 	/// <summary>
 	/// CHB -- A hit scan turret
 	/// </summary>
-	public class Snipic : Turret
+	public class Snipic : TurretBehaviour
 	{
 		#region Variables
 		private EnnemiesHealth targetEnemy;

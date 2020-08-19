@@ -144,11 +144,11 @@ namespace Ennemies
             //WAYPOINT FOR WAY01
             if (currentWay == 0)
             {
-                if (wayPointIndex >= GameMaster.Instance.WayMaster.way01.Length - 1)
+                if (wayPointIndex == GameMaster.Instance.WayMaster.way01.Length-1)
                 {
-                   
+                    Debug.Log("On est la");
 
-                    if (!canMakeDamage && isNotDrone)
+                    if (canMakeDamage && isNotDrone)
                     {
                         doingDamage = false;
                         canMakeDamage = true;
@@ -203,7 +203,7 @@ namespace Ennemies
                 if (wayPointIndex >= GameMaster.Instance.WayMaster.way03.Length - 1)
                 {
                   
-                    Debug.Log("On est La");
+                  
                     if (!canMakeDamage && isNotDrone)
                     {
                         doingDamage = false;
@@ -507,14 +507,20 @@ namespace Ennemies
         }
         IEnumerator EndPath()
         {
+            Debug.Log("EndedPath");
+
             yield return new WaitForSeconds(speedAttack);
             if (canMakeDamage && !doingDamage)
             {
+                canMakeDamage = false;
                 doingDamage = true;
                 SiloLife.lives -= ennemyDamage;
                 yield return new WaitForSeconds(0.3f);
-                canMakeDamage = false;
+                canMakeDamage = true;
+                doingDamage = false;
             }
+
+            StartCoroutine("EndPath");
         }
 
         IEnumerator Attack()
@@ -527,11 +533,11 @@ namespace Ennemies
                 rempartTarget.GetComponent<RempartTest>().currentHealth -= ennemyDamage;
 
                 yield return new WaitForSeconds(0.3f);
+                doingDamage = false;
+                canMakeDamage = true;
 
-                canMakeDamage = false;
             }
-            doingDamage = false;
-            canMakeDamage = true;
+            
             NeedToCheck();
         }
     }

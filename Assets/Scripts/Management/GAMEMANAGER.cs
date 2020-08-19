@@ -45,7 +45,8 @@ namespace Management
         public SocleManager SocleManager = null;
 
         [Header("DéroulementDuJeu")]
-   
+
+        public GameObject siloPoint;
         public int wavesBeforeSeller;
         public bool needToRefeshShop = false;
         public bool inPause = false;

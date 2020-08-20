@@ -37,10 +37,11 @@ namespace Ennemies
             if (GetComponent<ResearchBar>().barIsComplete == true)
             {
                 Debug.Log("la bar est complete");
+                droneInTheStation = 0;
+                GetComponent<ResearchBar>().ReinitializeResearchBar();
                 GetComponent<Research>().researchIsComplete = false;
                 GetComponent<ResearchBar>().barIsComplete = false;
                 SpawnPods();
-                droneInTheStation = 0;
             }
         }
 

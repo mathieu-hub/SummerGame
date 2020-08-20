@@ -33,6 +33,11 @@ namespace Ennemies
         {
             research.Update(); //uniquement lorsque des drones sont dans DroneStation
         }
+
+        public void ReinitializeResearchBar()
+        {
+            research.researchAmount = 0;
+        }
     }
 
 
@@ -42,7 +47,7 @@ namespace Ennemies
     {
         public const int researchMax = 100;
 
-        private float researchAmount;
+        public float researchAmount;
         private float researchIncrease;
         public bool researchIsComplete = false;
 

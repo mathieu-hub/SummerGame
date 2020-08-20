@@ -10,6 +10,8 @@ namespace Ennemies
         private Research research;
         private Image barImage;
 
+        public bool barIsComplete = false;
+
         private void Awake()
         {
             barImage = transform.Find("jauge").GetComponent<Image>();
@@ -20,6 +22,11 @@ namespace Ennemies
         private void Update()
         {
             barImage.fillAmount = research.GetNormalized();
+
+            if (research.researchIsComplete == true)
+            {
+                barIsComplete = true;
+            }
         }
 
         public void IncreaseResearchBar()
@@ -37,6 +44,7 @@ namespace Ennemies
 
         private float researchAmount;
         private float researchIncrease;
+        public bool researchIsComplete = false;
 
         public Research()
         {
@@ -47,7 +55,12 @@ namespace Ennemies
         public void Update()
         {
             researchAmount += researchIncrease * Time.deltaTime;
-            researchAmount = Mathf.Clamp(researchAmount, 0f, researchMax);
+            researchAmount = Mathf.Clamp(researchAmount, 0f, researchMax);   
+            
+            if (researchAmount >= researchMax)
+            {
+                researchIsComplete = true;
+            }
         }
 
         public float GetNormalized()

@@ -33,6 +33,15 @@ namespace Ennemies
             {
                 GetComponent<ResearchBar>().IncreaseResearchBar();
             }
+
+            if (GetComponent<ResearchBar>().barIsComplete == true)
+            {
+                Debug.Log("la bar est complete");
+                GetComponent<Research>().researchIsComplete = false;
+                GetComponent<ResearchBar>().barIsComplete = false;
+                SpawnPods();
+                droneInTheStation = 0;
+            }
         }
 
         void SpawnPods()

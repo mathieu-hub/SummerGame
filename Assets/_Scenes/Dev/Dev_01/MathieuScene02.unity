@@ -7308,6 +7308,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8a34b37daee0c740b85c88b1dde1423, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  barIsComplete: 0
 --- !u!1 &1400418060
 GameObject:
   m_ObjectHideFlags: 0
@@ -15767,12 +15768,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waves:
   - ennemy:
-    - {fileID: 225565058131935763, guid: 70d8ce5aae3fa9b4eab2182dea239aee, type: 3}
-    - {fileID: 225565058131935763, guid: 70d8ce5aae3fa9b4eab2182dea239aee, type: 3}
-    - {fileID: 225565058131935763, guid: 70d8ce5aae3fa9b4eab2182dea239aee, type: 3}
-    - {fileID: 225565058131935763, guid: 70d8ce5aae3fa9b4eab2182dea239aee, type: 3}
-    - {fileID: 225565058131935763, guid: 70d8ce5aae3fa9b4eab2182dea239aee, type: 3}
-    - {fileID: 225565058131935763, guid: 70d8ce5aae3fa9b4eab2182dea239aee, type: 3}
+    - {fileID: 3479738152389992204, guid: 8494921125d1bb74d8d72d69f83fb474, type: 3}
+    - {fileID: 3479738152389992204, guid: 8494921125d1bb74d8d72d69f83fb474, type: 3}
+    - {fileID: 3479738152389992204, guid: 8494921125d1bb74d8d72d69f83fb474, type: 3}
+    - {fileID: 3479738152389992204, guid: 8494921125d1bb74d8d72d69f83fb474, type: 3}
+    - {fileID: 3479738152389992204, guid: 8494921125d1bb74d8d72d69f83fb474, type: 3}
+    - {fileID: 3479738152389992204, guid: 8494921125d1bb74d8d72d69f83fb474, type: 3}
+    count: 2
+    rate: 1
+    maxEnnemy01: 1
+    maxEnnemy02: 1
+    maxEnnemy03: 1
+    maxEnnemy04: 1
+    maxEnnemy05: 1
+  - ennemy:
+    - {fileID: 3479738152389992204, guid: 8494921125d1bb74d8d72d69f83fb474, type: 3}
+    - {fileID: 3479738152389992204, guid: 8494921125d1bb74d8d72d69f83fb474, type: 3}
+    - {fileID: 3479738152389992204, guid: 8494921125d1bb74d8d72d69f83fb474, type: 3}
+    - {fileID: 3479738152389992204, guid: 8494921125d1bb74d8d72d69f83fb474, type: 3}
+    - {fileID: 3479738152389992204, guid: 8494921125d1bb74d8d72d69f83fb474, type: 3}
+    - {fileID: 3479738152389992204, guid: 8494921125d1bb74d8d72d69f83fb474, type: 3}
     count: 1
     rate: 1
     maxEnnemy01: 1
@@ -15781,12 +15796,12 @@ MonoBehaviour:
     maxEnnemy04: 1
     maxEnnemy05: 1
   - ennemy:
-    - {fileID: 225565058131935763, guid: 70d8ce5aae3fa9b4eab2182dea239aee, type: 3}
-    - {fileID: 225565058131935763, guid: 70d8ce5aae3fa9b4eab2182dea239aee, type: 3}
-    - {fileID: 225565058131935763, guid: 70d8ce5aae3fa9b4eab2182dea239aee, type: 3}
-    - {fileID: 225565058131935763, guid: 70d8ce5aae3fa9b4eab2182dea239aee, type: 3}
-    - {fileID: 225565058131935763, guid: 70d8ce5aae3fa9b4eab2182dea239aee, type: 3}
-    - {fileID: 225565058131935763, guid: 70d8ce5aae3fa9b4eab2182dea239aee, type: 3}
+    - {fileID: 3479738152389992204, guid: 8494921125d1bb74d8d72d69f83fb474, type: 3}
+    - {fileID: 3479738152389992204, guid: 8494921125d1bb74d8d72d69f83fb474, type: 3}
+    - {fileID: 3479738152389992204, guid: 8494921125d1bb74d8d72d69f83fb474, type: 3}
+    - {fileID: 3479738152389992204, guid: 8494921125d1bb74d8d72d69f83fb474, type: 3}
+    - {fileID: 3479738152389992204, guid: 8494921125d1bb74d8d72d69f83fb474, type: 3}
+    - {fileID: 3479738152389992204, guid: 8494921125d1bb74d8d72d69f83fb474, type: 3}
     count: 1
     rate: 1
     maxEnnemy01: 1
@@ -15795,12 +15810,12 @@ MonoBehaviour:
     maxEnnemy04: 1
     maxEnnemy05: 1
   - ennemy:
-    - {fileID: 225565058131935763, guid: 70d8ce5aae3fa9b4eab2182dea239aee, type: 3}
-    - {fileID: 225565058131935763, guid: 70d8ce5aae3fa9b4eab2182dea239aee, type: 3}
-    - {fileID: 225565058131935763, guid: 70d8ce5aae3fa9b4eab2182dea239aee, type: 3}
-    - {fileID: 225565058131935763, guid: 70d8ce5aae3fa9b4eab2182dea239aee, type: 3}
-    - {fileID: 225565058131935763, guid: 70d8ce5aae3fa9b4eab2182dea239aee, type: 3}
-    - {fileID: 225565058131935763, guid: 70d8ce5aae3fa9b4eab2182dea239aee, type: 3}
+    - {fileID: 3479738152389992204, guid: 8494921125d1bb74d8d72d69f83fb474, type: 3}
+    - {fileID: 3479738152389992204, guid: 8494921125d1bb74d8d72d69f83fb474, type: 3}
+    - {fileID: 3479738152389992204, guid: 8494921125d1bb74d8d72d69f83fb474, type: 3}
+    - {fileID: 3479738152389992204, guid: 8494921125d1bb74d8d72d69f83fb474, type: 3}
+    - {fileID: 3479738152389992204, guid: 8494921125d1bb74d8d72d69f83fb474, type: 3}
+    - {fileID: 3479738152389992204, guid: 8494921125d1bb74d8d72d69f83fb474, type: 3}
     count: 1
     rate: 1
     maxEnnemy01: 1
@@ -15809,26 +15824,12 @@ MonoBehaviour:
     maxEnnemy04: 1
     maxEnnemy05: 1
   - ennemy:
-    - {fileID: 225565058131935763, guid: 70d8ce5aae3fa9b4eab2182dea239aee, type: 3}
-    - {fileID: 225565058131935763, guid: 70d8ce5aae3fa9b4eab2182dea239aee, type: 3}
-    - {fileID: 225565058131935763, guid: 70d8ce5aae3fa9b4eab2182dea239aee, type: 3}
-    - {fileID: 225565058131935763, guid: 70d8ce5aae3fa9b4eab2182dea239aee, type: 3}
-    - {fileID: 225565058131935763, guid: 70d8ce5aae3fa9b4eab2182dea239aee, type: 3}
-    - {fileID: 225565058131935763, guid: 70d8ce5aae3fa9b4eab2182dea239aee, type: 3}
-    count: 1
-    rate: 1
-    maxEnnemy01: 1
-    maxEnnemy02: 1
-    maxEnnemy03: 1
-    maxEnnemy04: 1
-    maxEnnemy05: 1
-  - ennemy:
-    - {fileID: 225565058131935763, guid: 70d8ce5aae3fa9b4eab2182dea239aee, type: 3}
-    - {fileID: 225565058131935763, guid: 70d8ce5aae3fa9b4eab2182dea239aee, type: 3}
-    - {fileID: 225565058131935763, guid: 70d8ce5aae3fa9b4eab2182dea239aee, type: 3}
-    - {fileID: 225565058131935763, guid: 70d8ce5aae3fa9b4eab2182dea239aee, type: 3}
-    - {fileID: 225565058131935763, guid: 70d8ce5aae3fa9b4eab2182dea239aee, type: 3}
-    - {fileID: 225565058131935763, guid: 70d8ce5aae3fa9b4eab2182dea239aee, type: 3}
+    - {fileID: 3479738152389992204, guid: 8494921125d1bb74d8d72d69f83fb474, type: 3}
+    - {fileID: 3479738152389992204, guid: 8494921125d1bb74d8d72d69f83fb474, type: 3}
+    - {fileID: 3479738152389992204, guid: 8494921125d1bb74d8d72d69f83fb474, type: 3}
+    - {fileID: 3479738152389992204, guid: 8494921125d1bb74d8d72d69f83fb474, type: 3}
+    - {fileID: 3479738152389992204, guid: 8494921125d1bb74d8d72d69f83fb474, type: 3}
+    - {fileID: 3479738152389992204, guid: 8494921125d1bb74d8d72d69f83fb474, type: 3}
     count: 1
     rate: 1
     maxEnnemy01: 1

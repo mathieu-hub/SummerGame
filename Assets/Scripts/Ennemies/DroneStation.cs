@@ -7,21 +7,21 @@ namespace Ennemies
 	public class DroneStation : MonoBehaviour
 	{
         //PODS
-        public GameObject pods;
-        public Transform podsSpawn;
+        //public GameObject pods;
+        //public Transform podsSpawn;
 
         //TROOPS
-        public GameObject troops;
-        public Transform troopsSpawn;
+        //public GameObject troops;
+        //public Transform troopsSpawn;
 
         public int droneInTheStation = 0;
 
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.gameObject.GetComponent<NewEnnemiMovement>().isNotDrone == true)
+            if (other.gameObject.GetComponent<DroneMovement>().isNotDrone == false)
             {
-                other.gameObject.GetComponent<NewEnnemiMovement>().droneIsInStation = true;
+                other.gameObject.GetComponent<DroneMovement>().droneIsInStation = true;
                 droneInTheStation++;
                 Debug.Log("un drone est entré");
             }
@@ -41,11 +41,11 @@ namespace Ennemies
                 GetComponent<ResearchBar>().ReinitializeResearchBar();
                 GetComponent<Research>().researchIsComplete = false;
                 GetComponent<ResearchBar>().barIsComplete = false;
-                SpawnPods();
+                //SpawnPods();
             }
         }
 
-        void SpawnPods()
+        /*void SpawnPods()
         {
             Instantiate(pods, podsSpawn.transform.position, Quaternion.identity);
             StartCoroutine(DropTroops());
@@ -55,7 +55,7 @@ namespace Ennemies
         {
             yield return new WaitForSeconds(0.3f);
             Instantiate(troops, troopsSpawn.transform.position, Quaternion.identity);
-        }
+        }*/
     }
 }
 

@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
@@ -468,7 +467,7 @@ namespace Turret
 
         void Actions()
         {
-            healCost = currentLevel;
+            
 
             if(currentHp < maxHp)
             {

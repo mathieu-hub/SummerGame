@@ -85,6 +85,11 @@ namespace Ennemies
             WaveSpawner.ennemyAlive--;
             Instantiate(lootDrop, transform.position, Quaternion.identity);
 
+            if (GetComponent<NewEnnemiMovement>().droneIsInStation == true)
+            {
+                GetComponent<DroneStation>().droneInTheStation--;
+            }
+
             if (typeOfEnnemy == TypeOfEnnemy.Rover)
             {
                 troop = Instantiate(squad, transform.position, Quaternion.identity);

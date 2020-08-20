@@ -45,12 +45,16 @@ public class CrossBrain : MonoBehaviour
         if(!rempart && SummonRempart)
         {
             theRempart = Instantiate(GameMaster.Instance.rempartPrefab, summonPosition.transform.position, Quaternion.identity);
+            gameObject.GetComponentInChildren<RempartBrain>().enabled = false;
+            gameObject.GetComponentInChildren<SpriteRenderer>().enabled = false;
             SummonRempart = false;
             rempart = true;
         }
 
         if(rempart && theRempart.GetComponent<RempartTest>().currentHealth <= 0)
         {
+            gameObject.GetComponentInChildren<RempartBrain>().enabled = true;
+            gameObject.GetComponentInChildren<SpriteRenderer>().enabled = true;
             theRempart = null;
             rempartDead = true;
             rempart = false;

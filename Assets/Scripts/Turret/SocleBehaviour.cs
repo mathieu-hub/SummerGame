@@ -311,6 +311,7 @@ namespace Turret
             {
                 playerHere = false;
                 APressed = false;
+                AButton.SetActive(false);
             }
         }
 

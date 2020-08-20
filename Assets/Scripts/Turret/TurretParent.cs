@@ -387,7 +387,6 @@ namespace Turret
         {
             if (Input.GetButtonDown("A_Button") && APressed && !canDelete)
             {
-
                 BlockerValidation();
             }
 

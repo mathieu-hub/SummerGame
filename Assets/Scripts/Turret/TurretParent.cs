@@ -341,14 +341,14 @@ namespace Turret
             if (currentHp <= 0)
             {
                 currentHp = 0;
-                turretBehaviour.broke = true;
+                turretBehaviour.Break(true);
             }
             else
             {
-                turretBehaviour.broke = false;
+                turretBehaviour.Break(false);
             }
 
-            if (turretBehaviour.broke)
+            if (turretBehaviour.GetBrokeState())
             {
                 brokeParticule.SetActive(true);
             }

@@ -18,7 +18,10 @@ namespace Turret
         private void Awake()
         {
             for (int i = 0; i < 2; i++)
+            {
                 childTurretsBehaviour[i] = childTurrets[i].GetComponent<TurretBehaviour>();
+                childTurrets[i].SetActive(false);
+            }
         }
         public override void Upgrade(int newRange, int newDamage, int newFireRate)
         {

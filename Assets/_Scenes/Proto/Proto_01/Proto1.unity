@@ -1631,6 +1631,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: PLAYER
       objectReference: {fileID: 0}
+    - target: {fileID: 8741728877256596884, guid: a868d786b00ca2844a3fceeca9c93074,
+        type: 3}
+      propertyPath: amountOfHeal
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 8741728877256596884, guid: a868d786b00ca2844a3fceeca9c93074,
+        type: 3}
+      propertyPath: needToHeal
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a868d786b00ca2844a3fceeca9c93074, type: 3}
 --- !u!1 &996350948 stripped
@@ -14673,7 +14683,7 @@ PrefabInstance:
     - target: {fileID: 6675148116576768006, guid: 1ada26458111d2346bae2ecdbe247e45,
         type: 3}
       propertyPath: SummonRempart
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6675148116576768007, guid: 1ada26458111d2346bae2ecdbe247e45,
         type: 3}

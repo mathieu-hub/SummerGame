@@ -18,13 +18,16 @@ public class CrossBrain : MonoBehaviour
 
     public GameObject summonPosition;
 
-    public GameObject theRempart;
+    public GameObject theRempart = null;
     public bool rempartDead;
 
     public bool rempart = false;
     public bool SummonRempart = false;
 
-
+    private void Start()
+    {
+        theRempart = null;
+    }
 
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -42,27 +45,32 @@ public class CrossBrain : MonoBehaviour
 
     private void Update()
     {
-        if(!rempart && SummonRempart)
-        {
-            theRempart = Instantiate(GameMaster.Instance.rempartPrefab, summonPosition.transform.position, Quaternion.identity);
-            gameObject.GetComponentInChildren<RempartBrain>().enabled = false;
-            gameObject.GetComponentInChildren<SpriteRenderer>().enabled = false;
-            SummonRempart = false;
-            rempart = true;
-        }
-
-        if(rempart && theRempart.GetComponent<RempartTest>().currentHealth <= 0)
-        {
-            gameObject.GetComponentInChildren<RempartBrain>().enabled = true;
-            gameObject.GetComponentInChildren<SpriteRenderer>().enabled = true;
-            theRempart = null;
-            rempartDead = true;
-            rempart = false;
-        }
-
-
+   
         //leftTurret = leftSocle.GetComponent<SocleBehaviour>().turretSummon;
         //rightTurret = rightSocle.GetComponent<SocleBehaviour>().turretSummon;
     }
+
+    public void Dead()
+    {
+        gameObject.GetComponentInChildren<RempartBrain>().enabled = true;
+        gameObject.GetComponentInChildren<SpriteRenderer>().enabled = true;
+        theRempart = null;
+        rempartDead = true;
+        rempart = false;
+        SummonRempart = true;
+    }
+
+    public void Summon()
+    {
+
+        gameObject.GetComponent<RempartBrain>().validationTime = 0;
+        theRempart = Instantiate(GameMaster.Instance.rempartPrefab, summonPosition.transform.position, Quaternion.identity);
+        theRempart.GetComponent<RempartTest>().refParent = gameObject;
+        gameObject.GetComponentInChildren<CrossBrain>().enabled = false;
+        gameObject.GetComponentInChildren<SpriteRenderer>().enabled = false;
+        SummonRempart = false;
+        rempart = true;
+    }
+
 
 }

@@ -23,7 +23,7 @@ public class RempartBrain : MonoBehaviour
 
     [Header("Validation")]
     [SerializeField] private bool canValidate;
-    [SerializeField] private float validationTime = 0f;
+    [SerializeField] public float validationTime = 0f;
     [SerializeField] private Image validationCircle;
 
     [Header("Cost")]
@@ -67,7 +67,7 @@ public class RempartBrain : MonoBehaviour
             playerHere = false;
             GameManager.Instance.purinCount -= pCost;
             Initialisation();
-            gameObject.GetComponentInParent<CrossBrain>().SummonRempart = true;
+            gameObject.GetComponentInParent<CrossBrain>().Summon();
             
         }
 
@@ -75,7 +75,7 @@ public class RempartBrain : MonoBehaviour
 
         validationCircle.fillAmount = validationTime / 100f;
 
-        if (playerHere && !APressed)
+        if (playerHere && !APressed && gameObject.GetComponent<CrossBrain>().theRempart == null)
         {
             AButton.SetActive(true);
         }
@@ -83,6 +83,8 @@ public class RempartBrain : MonoBehaviour
         {
             AButton.SetActive(false);
         }
+
+        
     }
 
     #region Methods

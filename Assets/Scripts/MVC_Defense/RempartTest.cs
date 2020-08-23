@@ -9,21 +9,23 @@ namespace Ennemies
 {
 	public class RempartTest : MonoBehaviour
 	{
+        public GameObject refParent = null;
+
         [Header("PlayerRef")]
-        private bool playerHere = false;
+        public bool playerHere = false;
         private bool APressed = false;
 
-        private GameObject AButton;
+        [SerializeField] private GameObject AButton;
 
         [Header("Life")]
-        public int maxHealth;
-        public int currentHealth;
+        public int maxHealth = 20;
+        public int currentHealth = 20;
 
         [Header("Values")]
         [SerializeField] private int currentLevel;
         [SerializeField] private int healCost;
-        [SerializeField] private int purinUsedIn;
-        [SerializeField] private int scrapUsedIn;
+        [SerializeField] private float purinUsedIn;
+        [SerializeField] private float scrapUsedIn;
         [SerializeField] private float purinUsedInTotal;
         [SerializeField] private float scrapUsedInTotal;
         [SerializeField] private float validationUpgrade;
@@ -31,8 +33,8 @@ namespace Ennemies
 
         [Header("UI")]
         [SerializeField] private GameObject Canvas;
-        [SerializeField] private GameObject[] HpsInUI;
-        [SerializeField] private GameObject HPPARENT;
+        [SerializeField] private TextMeshProUGUI currentHP;
+        [SerializeField] private TextMeshProUGUI maxHP;
         [SerializeField] private TextMeshProUGUI crossX;
         [SerializeField] private Image validationCircle;
         [SerializeField] private Image deleteCircle;
@@ -66,27 +68,18 @@ namespace Ennemies
 
         void Awake()
 		{
+            purinUsedIn = 20;
             currentHealth = maxHealth;
             currentLevel = healCost;
 
-
-
-            HpsInUI = new GameObject[HPPARENT.transform.childCount];
-            for (int i = 0; i < HpsInUI.Length; i++)
-            {
-                HpsInUI[i] = transform.GetChild(i).gameObject;
-            }
         }
 
         private void Update()
         {
+            
             distance = Vector3.Distance(PlayerManager.Instance.transform.localPosition, transform.position);
 
-            if (currentHealth <= 0)
-            {
-                //changer la bool dans crossbrain
-                Destroy(gameObject);
-            }
+           
 
             if (playerHere && Input.GetButtonDown("A_Button"))
             {
@@ -97,6 +90,7 @@ namespace Ennemies
 
             if (deleteTime == 100)
             {
+                Debug.Log("Sell");
                 Sell();
             }
 
@@ -110,11 +104,18 @@ namespace Ennemies
 
             }
 
+            scrapUsedInTotal = scrapUsedIn / 100 * 40;
+            purinUsedInTotal = purinUsedIn / 100 * 40;
+
+            pCostTextSell.text = purinUsedInTotal.ToString();
+            sCostTextSell.text = scrapUsedInTotal.ToString();
+
+            DetectInputDelete();
             updateHealth();
             Actions();
-            Sell();
             Distance();
             UpdateUI();
+            DetectInputValidation();
         }
 
 
@@ -127,8 +128,9 @@ namespace Ennemies
                 if (distance <= 2)
                 {
                     playerHere = true;
+            
 
-                    if (!needToVanish)
+                if (!needToVanish)
                     {
                         AButton.SetActive(true);
                     }
@@ -215,33 +217,37 @@ namespace Ennemies
             }
 
             //Update Sell recipe
-            scrapUsedInTotal = Mathf.Floor(scrapUsedIn / 100 * 40);
-            purinUsedInTotal = Mathf.Floor(purinUsedIn / 100 * 40);
+           
 
-            pCostTextSell.text = purinUsedInTotal.ToString();
-            sCostTextSell.text = scrapUsedInTotal.ToString();
+           
 
             validationCircle.fillAmount = validationTime / 100;
             deleteCircle.fillAmount = deleteTime / 100;
 
            
 
-           
-
-
-
             //Update Visuel Values
             if (currentLevel <= 2)
             {
 
-                diffHealth = upgradeHealth[currentLevel];
+                diffHealth = upgradeHealth[currentLevel-1];
                 //Update Visuel Visuels
                 updateHp.text = "=>" + diffHealth.ToString();
 
 
-                pCostTextUpgrade.text = healCost.ToString();
+               
             }
 
+
+            if (playerHere && !APressed)
+            {
+                AButton.SetActive(true);
+            }
+            else
+            {
+                AButton.SetActive(false);
+
+            }
 
             if (APressed)
             {
@@ -251,18 +257,47 @@ namespace Ennemies
             else
             {
                 Canvas.SetActive(false);
-                AButton.SetActive(false);
             }
 
+            currentHP.text = currentHealth.ToString() + "/ ";
+            maxHP.text = maxHealth.ToString();
         }
         void Sell()
         {
+            refParent.GetComponent<CrossBrain>().Dead();
             canDelete = false;
             deleteTime = 0;
+            currentHealth = 0;
             GameManager.Instance.purinCount += (int)purinUsedInTotal;
             GameManager.Instance.scrapsCount += (int)scrapUsedInTotal;
-            //Changer les bools du CrossBrain;
+            Debug.Log("Sell");
             Destroy(gameObject);
+        }
+        void DetectInputDelete()
+        {
+            if (Input.GetButtonDown("B_Button") && APressed && !canValidate)
+            {
+                canDelete = true;
+
+            }
+
+            if (Input.GetButtonUp("B_Button") && playerHere)
+            {
+                canDelete = false;
+                deleteTime = 0;
+
+
+            }
+
+            if (canDelete)
+            {
+                deleteTime += 0.2f;
+
+                if (deleteTime >= 100)
+                {
+                    deleteTime = 100;
+                }
+            }
         }
 
         void updateHealth()
@@ -271,6 +306,7 @@ namespace Ennemies
             {
                 needToHeal = true;
                 validationAction.text = "Heal";
+                pCostTextUpgrade.text = healCost.ToString();
 
             }
 
@@ -278,7 +314,7 @@ namespace Ennemies
             {
                 needToHeal = false;
                 validationAction.text = "Upgrade";
-
+                pCostTextUpgrade.text = pCost[currentLevel-1].ToString();
                 if (currentLevel <= 2)
                 {
                     //Afficher les améliorations
@@ -308,32 +344,12 @@ namespace Ennemies
                 pCostTextUpgrade.enabled = true;
             }
 
-            for (int i = 0; i < maxHealth; i++)
-            {
-                HpsInUI[i].SetActive(true);
-            }
-
-            //Mettre en rouge les Hp manquants
-            if (currentHealth < maxHealth)
-            {
-                for (int i = currentHealth; i < maxHealth; i++)
-                {
-                    HpsInUI[i].GetComponent<SpriteRenderer>().color = Color.red;
-                }
-
-
-            }
-
-            for (int i = 0; i < currentHealth; i++)
-            {
-                HpsInUI[i].GetComponent<SpriteRenderer>().color = startColor;
-            }
-
 
             if (currentHealth <= 0)
             {
                 currentHealth = 0;
-                //Dead
+                refParent.GetComponent<CrossBrain>().Dead();
+                Destroy(gameObject);
             }
 
         }
@@ -365,7 +381,7 @@ namespace Ennemies
                 scrapUsedIn += sCost[currentLevel - 1];
 
                 //Augmenter les Stats (range/dégats/fireRate/Level)
-                maxHealth = upgradeHealth[currentLevel];
+                maxHealth = upgradeHealth[currentLevel-1];
                 currentLevel += 1;
                 currentHealth = maxHealth;
             }

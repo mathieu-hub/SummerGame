@@ -106,7 +106,7 @@ namespace Turret
 
 
         [Header("Bools")]
-        public bool playerHere = false;
+        public bool playerHere = true;
         public bool APressed = false;
         public bool needToVanish = false;
         private bool canValidate = false;

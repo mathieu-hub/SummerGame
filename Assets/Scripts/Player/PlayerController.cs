@@ -59,7 +59,6 @@ namespace Player
             {
                 if ((horizontal < -0.15 || horizontal > 0.15 || vertical < -0.15 || vertical > 0.15) && !isAttacking /*&& !isDashing*/ )
                 {
-
                     isMoving = true;
                     movementVector = new Vector2(horizontal, vertical);
                 }
@@ -78,7 +77,6 @@ namespace Player
             
 
         }
-
         void Move()
         {
 

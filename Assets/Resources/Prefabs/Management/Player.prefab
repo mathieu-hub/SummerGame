@@ -750,6 +750,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6149384269796761476}
   - component: {fileID: 6149384269796761477}
+  - component: {fileID: 1716336923}
   m_Layer: 0
   m_Name: Skin Sprite
   m_TagString: Player
@@ -766,7 +767,7 @@ Transform:
   m_GameObject: {fileID: 6149384269796761475}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_Children:
   - {fileID: 6149384271251370407}
   m_Father: {fileID: 6149384270338028344}
@@ -790,7 +791,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: aed26d6faf9133c44b4b3f7c21bd21ca, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -822,6 +823,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1716336923
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6149384269796761475}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 83c7a73e03fdba94d9027783c19f4d0b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6149384270338028357
 GameObject:
   m_ObjectHideFlags: 0
@@ -946,6 +966,8 @@ MonoBehaviour:
   needToStop: 0
   playerDead: 0
   movementVector: {x: 0, y: 0}
+  sprite: {fileID: 6149384269796761476}
+  animator: {fileID: 1716336923}
 --- !u!114 &8741728877256596884
 MonoBehaviour:
   m_ObjectHideFlags: 0

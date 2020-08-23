@@ -35,6 +35,9 @@ namespace Player
         float horizontal = 0f, vertical = 0f;
         public Vector2 movementVector = Vector2.zero;
 
+        [Header("Animator")]
+        public Transform sprite;
+        public Animator animator;
         #endregion
 
         void Start()
@@ -49,6 +52,8 @@ namespace Player
         {
             MoveInput();
             Move();
+            ChooseSide();
+            animator.SetFloat("Vertical", movementVector.y);
         }
 
         void MoveInput()
@@ -62,11 +67,13 @@ namespace Player
 
                     isMoving = true;
                     movementVector = new Vector2(horizontal, vertical);
+                    animator.SetBool("isRunning", true);
                 }
                 else
                 {
                     isMoving = false;
                     movementVector = Vector2.zero;
+                    animator.SetBool("isRunning", false);
                 }
 
             }
@@ -83,6 +90,19 @@ namespace Player
         {
 
             playerRb.velocity = movementVector * moveSpeed * Time.smoothDeltaTime;
+
+        }
+
+        void ChooseSide()
+        {
+            if (horizontal > 0)
+            {
+                sprite.transform.localScale = new Vector3(-0.2f, sprite.transform.localScale.y, sprite.transform.localScale.z);
+            }
+            else
+            {
+                sprite.transform.localScale = new Vector3(0.2f, sprite.transform.localScale.y, sprite.transform.localScale.z);
+            }
 
         }
     }

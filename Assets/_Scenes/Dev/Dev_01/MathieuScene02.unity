@@ -8818,7 +8818,7 @@ PrefabInstance:
     - target: {fileID: 6675148116576768006, guid: 1ada26458111d2346bae2ecdbe247e45,
         type: 3}
       propertyPath: SummonRempart
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6675148116576768007, guid: 1ada26458111d2346bae2ecdbe247e45,
         type: 3}
@@ -14663,7 +14663,7 @@ PrefabInstance:
     - target: {fileID: 6675148116576768006, guid: 1ada26458111d2346bae2ecdbe247e45,
         type: 3}
       propertyPath: SummonRempart
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6675148116576768007, guid: 1ada26458111d2346bae2ecdbe247e45,
         type: 3}

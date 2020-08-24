@@ -13,22 +13,22 @@ namespace Ennemies
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.gameObject.GetComponent<NewEnnemiMovement>().isNotDrone == true)
+            if (other.gameObject.GetComponent<DroneMovement>().isNotDrone == false)
             {
-                if (isStartPoint)
+                if (isStartPoint == true)
                 {
                     other.gameObject.GetComponent<DroneMovement>().passedTheFirst = true;
                     other.gameObject.GetComponent<DroneMovement>().passedTheLast = false;
                     other.gameObject.GetComponent<DroneMovement>().passedTheSilo = false;
 
                 }
-                else if (isEndPoint)
+                else if (isEndPoint == true)
                 {
                     other.gameObject.GetComponent<DroneMovement>().passedTheFirst = false;
                     other.gameObject.GetComponent<DroneMovement>().passedTheLast = true;
                     other.gameObject.GetComponent<DroneMovement>().passedTheSilo = false;
                 }
-                else if (isSiloPoint)
+                else if (isSiloPoint == true)
                 {
                     other.gameObject.GetComponent<DroneMovement>().passedTheFirst = false;
                     other.gameObject.GetComponent<DroneMovement>().passedTheLast = false;

@@ -140,20 +140,23 @@ namespace Ennemies
                     {
                         if(typeOfEnnemy == TypeOfEnnemy.Démolisseur)
                         {
+                            /*Debug.Log("Bug1");
+
                             int chance = Random.Range(0, 11);
 
                             if(chance <= 2 && crossPointDroit.GetComponent<Crosspoints>().cantCross == false)
                             {
                                 chance = 0;
 
-                                crossPointDroit.GetComponent<Crosspoints>().isOpen = true;
+                                parentRef.GetComponent<CrossBrain>().crosspointDroit.GetComponent<Crosspoints>().isOpen = true;
                                 NeedToCheck();
                             }
                             else
                             {
                                 chance = 0;
                                 GoingLeft();
-                            }
+                            }*/
+                            GoingLeft();
                         }
                         else
                         {
@@ -166,20 +169,23 @@ namespace Ennemies
                     {
                         if(typeOfEnnemy == TypeOfEnnemy.Démolisseur)
                         {
-                            int chance = Random.Range(0, 11);
 
-                            if (chance <= 2 && crossPointGauche.GetComponent<Crosspoints>().cantCross == false)
-                            {
-                                chance = 0;
+                            /*Debug.Log("Bug2");
+                             int chance = Random.Range(0, 11);
 
-                                crossPointGauche.GetComponent<Crosspoints>().isOpen = true;
-                                NeedToCheck();
-                            }
-                            else
-                            {
-                                chance = 0;
-                                GoingLeft();
-                            }
+                             if (chance <= 2 && crossPointGauche.GetComponent<Crosspoints>().cantCross == false)
+                             {
+                                 chance = 0;
+
+                                 parentRef.GetComponent<CrossBrain>().crosspointGauche.GetComponent<Crosspoints>().isOpen = true;
+                                 NeedToCheck();
+                             }
+                             else
+                             {
+                                 chance = 0;
+                                 GoingLeft();
+                             }*/
+                            GoingRight();
                         }
                         else
                         {
@@ -191,6 +197,7 @@ namespace Ennemies
                     }
                     else if (canLeft == true && canRight == true && crossPointDroit.GetComponent<Crosspoints>().cantCross == false && crossPointDroit.GetComponent<Crosspoints>().cantCross == false)
                     {
+                        Debug.Log("Bug3");
                         Debug.Log("Double");
                         random = Random.Range(0, 2);
                         Debug.Log("Random = " + random);
@@ -211,22 +218,60 @@ namespace Ennemies
                 {  //Créer Passages ou attaquer
                     if(typeOfEnnemy == TypeOfEnnemy.Démolisseur)
                     {
-
-                        Debug.Log("on est dans le démo");
+                        
+                       Debug.Log("on est dans le démo");
                         //Créer des passages
-                        int randomCreating = Random.Range(0, 2);
 
-                        if (randomCreating == 0 && crossPointGauche.GetComponent<Crosspoints>().cantCross == false)
+                        bool canDigLeft = false;
+                        bool canDigRight = true;
+
+                        if (parentRef.GetComponent<CrossBrain>().crosspointGauche.GetComponent<Crosspoints>().cantCross == false)
                         {
-                            crossPointGauche.GetComponent<Crosspoints>().isOpen = true;
+                            canDigLeft = true;
                         }
-                        if (randomCreating == 1 && crossPointGauche.GetComponent<Crosspoints>().cantCross == false)
+
+                        if(parentRef.GetComponent<CrossBrain>().crosspointDroit.GetComponent<Crosspoints>().cantCross == false)
                         {
-                            crossPointDroit.GetComponent<Crosspoints>().isOpen = true;
+                            canDigRight = true;
+                        }
+
+                        
+
+                       
+                        if (canDigLeft && !canDigRight)
+                        {
+                            parentRef.GetComponent<CrossBrain>().crosspointGauche.GetComponent<Crosspoints>().isOpen = true;
+                            NeedToCheck();
+                        }
+                        else if (!canDigLeft && canDigRight)
+                        {
+                            parentRef.GetComponent<CrossBrain>().crosspointDroit.GetComponent<Crosspoints>().isOpen = true;
+                            NeedToCheck();
+                        }else if(canDigLeft && canDigRight)
+                        {
+                            int randomCreating = Random.Range(0, 2);
+                            Debug.Log("randomCreating " + randomCreating);
+                            if (randomCreating == 0)
+                            {
+                                parentRef.GetComponent<CrossBrain>().crosspointGauche.GetComponent<Crosspoints>().isOpen = true;
+                                NeedToCheck();
+                            }
+                            else
+                            {
+                                parentRef.GetComponent<CrossBrain>().crosspointDroit.GetComponent<Crosspoints>().isOpen = true;
+                                NeedToCheck();
+                            }
+
+                            
+
+                        }
+                        else
+                        {
+                            StartCoroutine(WaitHere());
                         }
 
                        
-                        NeedToCheck();
+                        
 
                     }
                     //si je peux attaquer rempart j'attaque

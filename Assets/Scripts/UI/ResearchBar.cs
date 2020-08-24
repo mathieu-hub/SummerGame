@@ -7,6 +7,7 @@ namespace Ennemies
 {
 	public class ResearchBar : MonoBehaviour
 	{
+        public float TheValue;
         private Research research;
         private Image barImage;
 
@@ -24,6 +25,8 @@ namespace Ennemies
         {
             barImage.fillAmount = research.GetNormalized();
 
+            TheValue = research.researchAmount;
+
             if (increaseResearchBar == true)
             {
                 research.Update(); //uniquement lorsque des drones sont dans DroneStation
@@ -32,6 +35,10 @@ namespace Ennemies
             if (research.researchIsComplete == true)
             {
                 barIsComplete = true;
+            }
+            else if (research.researchIsComplete == false)
+            {
+                barIsComplete = false;
             }
         }
 
@@ -69,6 +76,10 @@ namespace Ennemies
             if (researchAmount >= researchMax)
             {
                 researchIsComplete = true;
+            }
+            else if (researchAmount < researchMax)
+            {
+                researchIsComplete = false;
             }
         }
 

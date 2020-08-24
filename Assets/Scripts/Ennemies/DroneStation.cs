@@ -15,6 +15,7 @@ namespace Ennemies
         //public Transform troopsSpawn;
 
         public GameObject bar;
+        public bool barIsReinitialized = false;
         public int droneInTheStation = 0;
         public List<GameObject> droneArrived = new List<GameObject>();
 
@@ -40,8 +41,9 @@ namespace Ennemies
             }
             
 
-            if (bar.GetComponent<ResearchBar>().barIsComplete == true)
+            if (bar.GetComponent<ResearchBar>().barIsComplete == true && barIsReinitialized == false)
             {
+                barIsReinitialized = true;
                 Debug.Log("la bar est complete");                
                 bar.GetComponent<ResearchBar>().ReinitializeResearchBar();                
 

@@ -88,6 +88,8 @@ namespace Turret
                 APressed = false;
                 playerHere = false;
                 Ui.SetActive(false);
+
+                
             }
 
             if(turretSummoned && turretSummon.GetComponent<TurretParent>().currentHp <= 0)

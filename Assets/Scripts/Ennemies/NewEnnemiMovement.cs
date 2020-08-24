@@ -232,7 +232,7 @@ namespace Ennemies
                         if (canAttackRempart)
                         {
                             Debug.Log("on est dans l'attaque");
-                            StartCoroutine("AttackRempart");
+                            StartCoroutine(AttackRempart());
 
                         }
                         else if (!canAttackRempart && canAttackTurret)
@@ -464,7 +464,7 @@ namespace Ennemies
                 ennemyDamage = 20;
                 speedAttack = 5;
                 canAttackTurret = true;
-                canAttackRempart = true;
+                canAttackRempart = false;
                 animator.SetBool("isScout", true);
             }
             else if (typeOfEnnemy == TypeOfEnnemy.Démolisseur)

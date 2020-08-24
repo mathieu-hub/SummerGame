@@ -133,6 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isNotDrone: 0
+  bar: {fileID: 3322183046127411751, guid: b0db73b2bb1ebfa41a52cf8ff1b9654c, type: 3}
   speed: 0
   initialspeed: 0
   stopSpeed: 0

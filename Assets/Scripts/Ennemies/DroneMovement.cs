@@ -7,6 +7,7 @@ namespace Ennemies
 	public class DroneMovement : MonoBehaviour	
     {
         public bool isNotDrone;
+        public GameObject bar;
 
         [Header("Values")]
         [SerializeField] private float speed;
@@ -58,7 +59,7 @@ namespace Ennemies
                 speed = stopSpeed;
             }
             //le Drone est dans la station et la jauge de recherche est complète.
-            if (droneIsInStation == true && GetComponent<ResearchBar>().barIsComplete == true)
+            if (droneIsInStation == true && bar.GetComponent<ResearchBar>().barIsComplete == true)
             {
                 WaveSpawner.ennemyAlive--;
                 Destroy(gameObject);

@@ -121,6 +121,7 @@ namespace Ennemies
         public void NeedToCheck()
         {
             UpdateParent();
+            Debug.Log("needToCheck");
 
             //Si rempart alors on attaque
             if (rempartTarget != null)
@@ -227,15 +228,13 @@ namespace Ennemies
                     else
                     {
 
-                        
-
                         if (canAttackRempart)
                         {
                             Debug.Log("on est dans l'attaque");
                             StartCoroutine(AttackRempart());
 
                         }
-                        else if (!canAttackRempart && canAttackTurret)
+                        else if (canAttackTurret && (turretTargetL !=null || turretTargetR != null))
                         {
                             if (turretTarget == null)
                             {
@@ -271,10 +270,11 @@ namespace Ennemies
                             }
 
                         }
-                        else
+                        else if((canAttackTurret && turretTargetL == null && turretTargetR == null))
                         {
+                            Debug.Log("Ici");
                             //Je check Constament que l'on m'ouvre la voie
-                            NeedToCheck();
+                            StartCoroutine(WaitHere());
                             
                         }
                     }
@@ -675,7 +675,7 @@ namespace Ennemies
         IEnumerator AttackRempart()
         {
             yield return new WaitForSeconds(speedAttack);
-            if (canMakeDamage && !doingDamage)
+            if (canMakeDamage && !doingDamage && parentRef.GetComponent<CrossBrain>().theRempart != null)
             {
                 Debug.Log("A l'attaque");
                 doingDamage = true;
@@ -684,16 +684,35 @@ namespace Ennemies
                 yield return new WaitForSeconds(0.3f);
                 doingDamage = false;
                 canMakeDamage = true;
-
+                NeedToCheck();
+            }
+            else
+            {
+                NeedToCheck();
             }
             
-            NeedToCheck();
+            
+        }
+
+        IEnumerator WaitHere()
+        {
+            if(parentRef.GetComponent<CrossBrain>().theRempart == null)
+            {
+                NeedToCheck();
+            }
+            else
+            {
+                yield return new WaitForSeconds(speedAttack);
+                NeedToCheck();
+            }
+
+            
         }
 
         IEnumerator AttackTurret()
         {
             yield return new WaitForSeconds(speedAttack);
-            if (canMakeDamage && !doingDamage)
+            if (canMakeDamage && !doingDamage && turretTarget != null)
             {
                 Debug.Log("A l'attaque");
                 doingDamage = true;
@@ -703,9 +722,14 @@ namespace Ennemies
                 doingDamage = false;
                 canMakeDamage = true;
 
+
+            }
+            else
+            {
+                NeedToCheck();
             }
 
-            NeedToCheck();
+
         }
        
 

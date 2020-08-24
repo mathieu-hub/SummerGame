@@ -140,6 +140,11 @@ namespace Turret
 
         private void Update()
         {
+            if(currentHp < 0)
+            {
+                currentHp = 0;
+            }
+
             if(playerHere && Input.GetButtonDown("A_Button"))
             {
                 APressed = true;
@@ -324,7 +329,7 @@ namespace Turret
             //Mettre en rouge les Hp manquants
             if(currentHp < maxHp)
             {
-                for (int i = currentHp; i < maxHp; i++)
+                for (int i = currentHp; i <= maxHp; i++)
                 {
                     healPoints[i].GetComponent<SpriteRenderer>().color = Color.red;
                 }

@@ -45,10 +45,28 @@ public class CrossBrain : MonoBehaviour
 
     private void Update()
     {
-        leftTurret = leftSocle.GetComponent<SocleBehaviour>().turretSummon;
+        if (leftSocle.GetComponent<SocleBehaviour>().turretSummoned)
+        {
+            leftTurret = leftSocle.GetComponent<SocleBehaviour>().turretSummon;
+        }
+        else
+        {
+            leftTurret = null;
+        }
+
+        if (rightSocle.GetComponent<SocleBehaviour>().turretSummoned)
+        {
+            leftTurret = leftSocle.GetComponent<SocleBehaviour>().turretSummon;
+        }
+        else
+        {
+            rightTurret = null;
+        }
+
+
         rightTurret = rightSocle.GetComponent<SocleBehaviour>().turretSummon;
 
-        if (SummonRempart)
+        if (SummonRempart && !rempartDead)
         {
             Summon();
         }

@@ -127,8 +127,13 @@ namespace Ennemies
             if (rempartTarget != null)
             {
                 speed = stopSpeed;
+
+                if(typeOfEnnemy == TypeOfEnnemy.Carboniseur)
+                {
+                    StartCoroutine(AttackRempart());
+                }
                 //Si il y a un rempart mais que les deux points sont ouverts alors je me déplace;
-                if(canLeft || canRight)
+                else if(canLeft || canRight && typeOfEnnemy != TypeOfEnnemy.Carboniseur)
                 {
                     //test gauche droite blabla
                     if (canLeft == true && canRight == false && crossPointGauche.GetComponent<Crosspoints>().cantCross == false)

@@ -985,6 +985,7 @@ MonoBehaviour:
   currentHealthPoint: 0
   needToHeal: 0
   healthBar: {fileID: 126042432}
+  animator: {fileID: 1716336923}
 --- !u!61 &6149384270585069676
 BoxCollider2D:
   m_ObjectHideFlags: 0

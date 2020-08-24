@@ -25,12 +25,15 @@ namespace Player
         [Header("UI References")]
         [SerializeField] private Image healthBar;
 
+        [Header("Animator")]
+        public Animator animator;
         #endregion
 
         private void Start()
         {
 
             currentHealthPoint = maxHealthPoint;
+            animator.SetBool("isDead", false);
         }
 
         private void Update()
@@ -45,6 +48,7 @@ namespace Player
             if (currentHealthPoint <= 0 && PlayerManager.Instance.controller.playerDead == false)
             {
                 Death();
+                animator.SetBool("isDead", true);
             }
 
             if (currentHealthPoint == maxHealthPoint && PlayerManager.Instance.controller.playerDead == true)

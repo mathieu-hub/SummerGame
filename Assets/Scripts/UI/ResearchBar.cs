@@ -2,92 +2,75 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Management;
 
 namespace Ennemies
 {
 	public class ResearchBar : MonoBehaviour
 	{
         public float TheValue;
-        private Research research;
+       
         private Image barImage;
 
         public bool barIsComplete = false;
-        public bool increaseResearchBar = false;
 
+        public bool canIncrease = false;
+
+        public bool initialState = false;
+        
         private void Awake()
         {
             barImage = transform.Find("jauge").GetComponent<Image>();
 
-            research = new Research();
+            initialState = true;
         }
 
         private void Update()
         {
-            barImage.fillAmount = research.GetNormalized();
+            barImage.fillAmount = TheValue / 100f;
 
-            TheValue = research.researchAmount;
-
-            if (increaseResearchBar == true)
+            if(GameMaster.Instance.DroneStation.GetComponent<DroneStation>().droneArrived.Count > 0 && initialState)
             {
-                research.Update(); //uniquement lorsque des drones sont dans DroneStation
-            }            
-
-            if (research.researchIsComplete == true)
-            {
-                barIsComplete = true;
+                canIncrease = true;
             }
-            else 
+
+            if(canIncrease == true && GameMaster.Instance.DroneStation.GetComponent<DroneStation>().droneArrived != null)
             {
-                barIsComplete = false;
+                TheValue++;
             }
+
+            if(TheValue > 100)
+            {
+               initialState = false;
+               canIncrease = false;
+               TheValue = 100;
+               FullBar();
+            }
+
         }
 
-
-        public void ReinitializeResearchBar()
+        void FullBar()
         {
-            research.researchAmount = 0;
-            barIsComplete = false;
-            Debug.Log("Bar Reinitialized");
+            TheValue = 0;
+
+            //Enleve tout les drones
+            for (int i = GameMaster.Instance.DroneStation.GetComponent<DroneStation>().droneArrived.Count;  i > 0; i++)
+            {
+                GameObject thisEnemy = GameMaster.Instance.DroneStation.GetComponent<DroneStation>().droneArrived[i];
+
+                GameMaster.Instance.DroneStation.GetComponent<DroneStation>().droneArrived.Remove(thisEnemy);
+                Destroy(thisEnemy);
+                WaveSpawner.ennemyAlive--;
+            }
+
+
         }
+     
     }
 
 
 
 
-    public class Research
-    {
-        public const int researchMax = 100;
-
-        public float researchAmount;
-        private float researchIncrease;
-        public bool researchIsComplete = false;
-
-        public Research()
-        {
-            researchAmount = 0f;
-            researchIncrease = 15f;
-        }
-
-        public void Update()
-        {
-            researchAmount += researchIncrease * Time.deltaTime;
-            researchAmount = Mathf.Clamp(researchAmount, 0f, researchMax);   
-            
-            if (researchAmount >= researchMax)
-            {
-                researchIsComplete = true;
-            }
-            else if (researchAmount < researchMax)
-            {
-                researchIsComplete = false;
-            }
-        }
-
-        public float GetNormalized()
-        {
-            return researchAmount / researchMax;
-        }
-
-    }
+   
 }
 

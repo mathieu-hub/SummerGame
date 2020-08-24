@@ -7,6 +7,7 @@ public class GameMaster : Singleton<GameMaster>
 {
     public WayMaster WayMaster = null;
     public GameObject rempartPrefab;
+    public GameObject DroneStation = null;
     private void Awake()
     {
         MakeSingleton(true);

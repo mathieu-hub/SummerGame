@@ -23,46 +23,36 @@ namespace Ennemies
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.gameObject.GetComponent<DroneMovement>().isNotDrone == false)
+            //Dès qu'un drone passe dans le trigger
+            if (other.gameObject.GetComponent<DroneMovement>().isNotDrone == false && other.gameObject.GetComponent<DroneMovement>().isAdd == false)
             {
-                if (other.gameObject.GetComponent<DroneMovement>().isAdd == false)
-                {
+                //je l'ajoute à un tableau.  La Bool "isAdd" permet de bloquer un sur Ajout.
                     droneArrived.Add(other.gameObject);
                     other.gameObject.GetComponent<DroneMovement>().droneIsInStation = true;
-                    Debug.Log("un drone est entré");
-                }                
+                    Debug.Log("un drone est entré");           
             }
         }
 
         private void Update()
         {          
-            if (droneInTheStation > 0)
-            {
-                bar.GetComponent<ResearchBar>().increaseResearchBar = true;
-            }
-            
-
-            if (bar.GetComponent<ResearchBar>().barIsComplete == true)
-            {
-                ResearchComplete();
-            }
+           
         }
 
         void ResearchComplete()
         {
-            bar.GetComponent<ResearchBar>().barIsComplete = false;
-            //barIsReinitialized = true;
-            Debug.Log("la bar est complete");
-            bar.GetComponent<ResearchBar>().ReinitializeResearchBar();
-            bar.GetComponent<ResearchBar>().increaseResearchBar = false;
-            droneInTheStation = 0;
+            //bar.GetComponent<Research>().researchIsComplete = false;
+            ////barIsReinitialized = true;
+            //Debug.Log("la bar est complete");
+            //bar.GetComponent<ResearchBar>().ReinitializeResearchBar();
+            //bar.GetComponent<ResearchBar>().increaseResearchBar = false;
+            //droneInTheStation = 0;
 
-            for (int i = 0; i < droneArrived.Count; i++)
-            {
-                Debug.Log("Destruction Drone");
-                Destroy(droneArrived[i]);
-                WaveSpawner.ennemyAlive--;
-            }
+            //for (int i = 0; i < droneArrived.Count; i++)
+            //{
+            //    Debug.Log("Destruction Drone");
+            //    Destroy(droneArrived[i]);
+            //    WaveSpawner.ennemyAlive--;
+            //}
 
             //SpawnPods();
         }

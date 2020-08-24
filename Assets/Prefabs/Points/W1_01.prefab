@@ -79,8 +79,6 @@ MonoBehaviour:
   crosspointDroit: {fileID: 0}
   leftSocle: {fileID: 0}
   rightSocle: {fileID: 0}
-  leftTurret: {fileID: 0}
-  rightTurret: {fileID: 0}
   summonPosition: {fileID: 6675148115828998102}
   theRempart: {fileID: 0}
   rempartDead: 0

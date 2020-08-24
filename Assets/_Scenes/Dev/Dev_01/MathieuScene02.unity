@@ -8893,6 +8893,27 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 3414264566026628968}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &3414264566026628970 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6675148116576768004, guid: 1ada26458111d2346bae2ecdbe247e45,
+    type: 3}
+  m_PrefabInstance: {fileID: 3414264566026628968}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3414264566026628971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3414264566026628970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edf650bea361fd1429ca115dcbe54523, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isStartPoint: 1
+  isEndPoint: 0
+  isSiloPoint: 0
 --- !u!1001 &3943216520465310546
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9897,6 +9918,27 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8341515678736698223}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8341515678736698225 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6675148116576768004, guid: 1ada26458111d2346bae2ecdbe247e45,
+    type: 3}
+  m_PrefabInstance: {fileID: 8341515678736698223}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8341515678736698226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8341515678736698225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edf650bea361fd1429ca115dcbe54523, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isStartPoint: 0
+  isEndPoint: 1
+  isSiloPoint: 0
 --- !u!4 &8341515678758699498
 Transform:
   m_ObjectHideFlags: 0
@@ -10661,6 +10703,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8341515678999023013}
+  - component: {fileID: 8341515678999023012}
+  - component: {fileID: 8341515678999023011}
   m_Layer: 0
   m_Name: 'SiloPoint '
   m_TagString: Untagged
@@ -10668,6 +10712,47 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!61 &8341515678999023011
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8341515678999023010}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!114 &8341515678999023012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8341515678999023010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edf650bea361fd1429ca115dcbe54523, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isStartPoint: 0
+  isEndPoint: 0
+  isSiloPoint: 1
 --- !u!4 &8341515678999023013
 Transform:
   m_ObjectHideFlags: 0
@@ -11558,6 +11643,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8341515679095021992}
+  - component: {fileID: 8341515679095021995}
+  - component: {fileID: 8341515679095021994}
   m_Layer: 0
   m_Name: SiloPoint
   m_TagString: Untagged
@@ -11565,6 +11652,47 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!61 &8341515679095021994
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8341515679095021993}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!114 &8341515679095021995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8341515679095021993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edf650bea361fd1429ca115dcbe54523, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isStartPoint: 0
+  isEndPoint: 0
+  isSiloPoint: 1
 --- !u!1001 &8341515679132481810
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11737,6 +11865,27 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8341515679136357584}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8341515679136357586 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6675148116576768004, guid: 1ada26458111d2346bae2ecdbe247e45,
+    type: 3}
+  m_PrefabInstance: {fileID: 8341515679136357584}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8341515679136357587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8341515679136357586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edf650bea361fd1429ca115dcbe54523, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isStartPoint: 1
+  isEndPoint: 0
+  isSiloPoint: 0
 --- !u!1001 &8341515679187301918
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13473,6 +13622,27 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8341515679422692196}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8341515679422692198 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6675148116576768004, guid: 1ada26458111d2346bae2ecdbe247e45,
+    type: 3}
+  m_PrefabInstance: {fileID: 8341515679422692196}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8341515679422692199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8341515679422692198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edf650bea361fd1429ca115dcbe54523, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isStartPoint: 0
+  isEndPoint: 1
+  isSiloPoint: 0
 --- !u!1001 &8341515679436992666
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14763,6 +14933,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8341515679735837610}
+  - component: {fileID: 8341515679735837613}
+  - component: {fileID: 8341515679735837612}
   m_Layer: 0
   m_Name: SiloPoint
   m_TagString: Untagged
@@ -14770,6 +14942,47 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!61 &8341515679735837612
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8341515679735837611}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!114 &8341515679735837613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8341515679735837611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edf650bea361fd1429ca115dcbe54523, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isStartPoint: 0
+  isEndPoint: 0
+  isSiloPoint: 1
 --- !u!1001 &8341515679755562671
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15608,6 +15821,27 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8341515679822350389}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8341515679822350391 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6675148116576768004, guid: 1ada26458111d2346bae2ecdbe247e45,
+    type: 3}
+  m_PrefabInstance: {fileID: 8341515679822350389}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8341515679822350392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8341515679822350391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edf650bea361fd1429ca115dcbe54523, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isStartPoint: 0
+  isEndPoint: 1
+  isSiloPoint: 0
 --- !u!1 &8341515679844693194
 GameObject:
   m_ObjectHideFlags: 0
@@ -16994,6 +17228,27 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8341515679945413479}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8341515679945413481 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6675148116576768004, guid: 1ada26458111d2346bae2ecdbe247e45,
+    type: 3}
+  m_PrefabInstance: {fileID: 8341515679945413479}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8341515679945413482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8341515679945413481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edf650bea361fd1429ca115dcbe54523, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isStartPoint: 1
+  isEndPoint: 0
+  isSiloPoint: 0
 --- !u!212 &8341515679978882052
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -17411,6 +17666,27 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8341515680062702227}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8341515680062702229 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6675148116576768004, guid: 1ada26458111d2346bae2ecdbe247e45,
+    type: 3}
+  m_PrefabInstance: {fileID: 8341515680062702227}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8341515680062702230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8341515680062702229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edf650bea361fd1429ca115dcbe54523, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isStartPoint: 1
+  isEndPoint: 0
+  isSiloPoint: 0
 --- !u!1001 &8341515680079938294
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18882,6 +19158,27 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8341515680300079062}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8341515680300079064 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6675148116576768004, guid: 1ada26458111d2346bae2ecdbe247e45,
+    type: 3}
+  m_PrefabInstance: {fileID: 8341515680300079062}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8341515680300079065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8341515680300079064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edf650bea361fd1429ca115dcbe54523, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isStartPoint: 1
+  isEndPoint: 0
+  isSiloPoint: 0
 --- !u!1001 &8341515680306328654
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19708,6 +20005,27 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8341515680491658909}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8341515680491658911 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6675148116576768004, guid: 1ada26458111d2346bae2ecdbe247e45,
+    type: 3}
+  m_PrefabInstance: {fileID: 8341515680491658909}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8341515680491658912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8341515680491658911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edf650bea361fd1429ca115dcbe54523, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isStartPoint: 0
+  isEndPoint: 1
+  isSiloPoint: 0
 --- !u!1001 &8341515680499161421
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20058,6 +20376,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8341515680514323408}
+  - component: {fileID: 8341515680514323411}
+  - component: {fileID: 8341515680514323410}
   m_Layer: 0
   m_Name: SiloPoint
   m_TagString: Untagged
@@ -20065,6 +20385,47 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!61 &8341515680514323410
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8341515680514323409}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!114 &8341515680514323411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8341515680514323409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edf650bea361fd1429ca115dcbe54523, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isStartPoint: 0
+  isEndPoint: 0
+  isSiloPoint: 1
 --- !u!1001 &8341515680582044550
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20389,6 +20750,27 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8341515680618973104}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8341515680618973106 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6675148116576768004, guid: 1ada26458111d2346bae2ecdbe247e45,
+    type: 3}
+  m_PrefabInstance: {fileID: 8341515680618973104}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8341515680618973107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8341515680618973106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edf650bea361fd1429ca115dcbe54523, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isStartPoint: 0
+  isEndPoint: 1
+  isSiloPoint: 0
 --- !u!224 &8341515680624124264
 RectTransform:
   m_ObjectHideFlags: 0
@@ -20569,6 +20951,8 @@ GameObject:
   - component: {fileID: 8341515680627011800}
   - component: {fileID: 8341515680627011802}
   - component: {fileID: 8341515680627011803}
+  - component: {fileID: 8341515680627011805}
+  - component: {fileID: 8341515680627011804}
   m_Layer: 0
   m_Name: SiloPoint
   m_TagString: Untagged
@@ -20623,6 +21007,47 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!61 &8341515680627011804
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8341515680627011801}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!114 &8341515680627011805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8341515680627011801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edf650bea361fd1429ca115dcbe54523, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isStartPoint: 0
+  isEndPoint: 0
+  isSiloPoint: 1
 --- !u!1001 &8341515680638367866
 PrefabInstance:
   m_ObjectHideFlags: 0

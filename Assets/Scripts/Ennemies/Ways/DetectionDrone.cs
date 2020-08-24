@@ -4,9 +4,9 @@ using UnityEngine;
 
 namespace Ennemies
 {
-	public class DetectionDrone : MonoBehaviour
-	{
-		public bool isStartPoint;
+    public class DetectionDrone : MonoBehaviour
+    {
+        public bool isStartPoint;
         public bool isEndPoint;
         public bool isSiloPoint;
 

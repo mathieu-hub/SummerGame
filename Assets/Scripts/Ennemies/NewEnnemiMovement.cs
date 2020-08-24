@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Management;
+using Turret;
 
 namespace Ennemies
 {
@@ -119,49 +120,162 @@ namespace Ennemies
 
         public void NeedToCheck()
         {
-            crossPointGauche = parentRef.GetComponent<CrossBrain>().crosspointGauche;
-            crossPointDroit = parentRef.GetComponent<CrossBrain>().crosspointDroit;
+            UpdateParent();
 
-            canLeft = crossPointGauche.GetComponent<Crosspoints>().isOpen;
-            canRight = crossPointDroit.GetComponent<Crosspoints>().isOpen;
-
+            //Si rempart alors on attaque
             if (rempartTarget != null)
             {
                 speed = stopSpeed;
+                //Si il y a un rempart mais que les deux points sont ouverts alors je me déplace;
+                if(canLeft || canRight)
+                {
+                    //test gauche droite blabla
+                    if (canLeft == true && canRight == false && crossPointGauche.GetComponent<Crosspoints>().cantCross == false)
+                    {
+                        if(typeOfEnnemy == TypeOfEnnemy.Démolisseur)
+                        {
+                            int chance = Random.Range(0, 11);
 
-                
-                if (canLeft == true && canRight == false && crossPointGauche.GetComponent<Crosspoints>().cantCross == false)
-                {
-                    GoingLeft();
-                }
-                else if (canLeft == false && canRight == true && crossPointDroit.GetComponent<Crosspoints>().cantCross == false)
-                {
-                    Debug.Log("Right");
-                    GoingRight();
-                }
-                else if (canLeft == true && canRight == true && crossPointDroit.GetComponent<Crosspoints>().cantCross == false && crossPointDroit.GetComponent<Crosspoints>().cantCross == false)
-                {
-                    Debug.Log("Double");
-                    random = Random.Range(0, 2);
-                    Debug.Log("Random = " + random);
-                    if (random == 0)
+                            if(chance <= 2 && crossPointDroit.GetComponent<Crosspoints>().cantCross == false)
+                            {
+                                chance = 0;
+
+                                crossPointDroit.GetComponent<Crosspoints>().isOpen = true;
+                                NeedToCheck();
+                            }
+                            else
+                            {
+                                chance = 0;
+                                GoingLeft();
+                            }
+                        }
+                        else
+                        {
+                            GoingLeft();
+                        }
+
+                        
+                    }
+                    else if (canLeft == false && canRight == true && crossPointDroit.GetComponent<Crosspoints>().cantCross == false)
                     {
-                        GoingLeft();
+                        if(typeOfEnnemy == TypeOfEnnemy.Démolisseur)
+                        {
+                            int chance = Random.Range(0, 11);
+
+                            if (chance <= 2 && crossPointGauche.GetComponent<Crosspoints>().cantCross == false)
+                            {
+                                chance = 0;
+
+                                crossPointGauche.GetComponent<Crosspoints>().isOpen = true;
+                                NeedToCheck();
+                            }
+                            else
+                            {
+                                chance = 0;
+                                GoingLeft();
+                            }
+                        }
+                        else
+                        {
+                            
+                            GoingRight();
+                        }
+
+                       
+                    }
+                    else if (canLeft == true && canRight == true && crossPointDroit.GetComponent<Crosspoints>().cantCross == false && crossPointDroit.GetComponent<Crosspoints>().cantCross == false)
+                    {
+                        Debug.Log("Double");
+                        random = Random.Range(0, 2);
+                        Debug.Log("Random = " + random);
+                        if (random == 0)
+                        {
+                            GoingLeft();
+                        }
+
+                        if (random == 1)
+                        {
+                            GoingRight();
+                        }
                     }
 
-                    if (random == 1)
-                    {
-                        GoingRight();
-                    }
+                    //Si aucun des deux n'est ouvert alors je dois attaquer//Créer un chemin//Rien faire
                 }
-                else 
-                {
-                    if(typeOfEnnemy == TypeOfEnnemy.Walker)
+                else
+                {  //Créer Passages ou attaquer
+                    if(typeOfEnnemy == TypeOfEnnemy.Démolisseur)
                     {
-                        StartCoroutine("Attack");
+                        //Créer des passages
+                        int randomCreating = Random.Range(0, 2);
+
+                        if (randomCreating == 0 && crossPointGauche.GetComponent<Crosspoints>().cantCross == false)
+                        {
+                            crossPointGauche.GetComponent<Crosspoints>().isOpen = true;
+                        }
+                        if (randomCreating == 1 && crossPointGauche.GetComponent<Crosspoints>().cantCross == false)
+                        {
+                            crossPointDroit.GetComponent<Crosspoints>().isOpen = true;
+                        }
+
+                        randomCreating = 0;
+                        NeedToCheck();
+
                     }
+                    //si je peux attaquer rempart j'attaque
+                    else
+                    {
+                        if (canAttackRempart)
+                        {
+                            AttackRempart();
+
+                        }
+                        else if (!canAttackRempart && canAttackTurret)
+                        {
+                            if (turretTarget == null)
+                            {
+                                int maxRange = 0;
+
+                                if (turretTargetL != null)
+                                {
+                                    maxRange += 1;
+                                }
+                                if (turretTargetR != null)
+                                {
+                                    maxRange += 1;
+                                }
+
+                                int sortRandom = Random.Range(0, maxRange);
+
+                                if (sortRandom == 0)
+                                {
+                                    turretTarget = turretTargetL;
+
+                                }
+                                if (sortRandom == 1)
+                                {
+                                    turretTarget = turretTargetR;
+                                }
+
+                                AttackTurret();
+                                maxRange = 0;
+                            }
+                            else
+                            {
+                                AttackTurret();
+                            }
+
+                        }
+                        else
+                        {
+                            //Je check Constament que l'on m'ouvre la voie
+                            NeedToCheck();
+                        }
+                    }
+                    
+                    
                 }
-            }
+
+            }//Je continues mon chemin car pas de remparts
             else
             {
                 speed = initialspeed;
@@ -440,21 +554,8 @@ namespace Ennemies
 
             Debug.Log(canRight && canLeft);
 
-            /*turretTargetL = parentRef.GetComponent<CrossBrain>().leftTurret;
+            turretTargetL = parentRef.GetComponent<CrossBrain>().leftTurret;
             turretTargetR = parentRef.GetComponent<CrossBrain>().rightTurret;
-
-            float distanceToLeftTUrret = Vector3.Distance(transform.position, turretTargetL.transform.position);
-            float distanceToRightTUrret = Vector3.Distance(transform.position, turretTargetR.transform.position);
-
-            if(distanceToLeftTUrret < distanceToRightTUrret)
-            {
-                turretTarget = turretTargetL;
-            }
-            else
-            {
-                turretTarget = turretTargetR;
-            }*/
-
 
             if (parentRef.GetComponent<CrossBrain>().rempart)
             {
@@ -563,7 +664,7 @@ namespace Ennemies
             StartCoroutine("EndPath");
         }
 
-        IEnumerator Attack()
+        IEnumerator AttackRempart()
         {
             yield return new WaitForSeconds(speedAttack);
             if (canMakeDamage && !doingDamage)
@@ -581,7 +682,26 @@ namespace Ennemies
             NeedToCheck();
         }
 
-        
+        IEnumerator AttackTurret()
+        {
+            yield return new WaitForSeconds(speedAttack);
+            if (canMakeDamage && !doingDamage)
+            {
+                Debug.Log("A l'attaque");
+                doingDamage = true;
+                turretTarget.GetComponent<TurretParent>().currentHp -= ennemyDamage;
+
+                yield return new WaitForSeconds(0.3f);
+                doingDamage = false;
+                canMakeDamage = true;
+
+            }
+
+            NeedToCheck();
+        }
+       
+
+
     }
 }
 

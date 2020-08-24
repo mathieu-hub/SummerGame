@@ -13,8 +13,8 @@ public class CrossBrain : MonoBehaviour
 
     public GameObject leftSocle;
     public GameObject rightSocle;
-    //public GameObject leftTurret = null;
-    //public GameObject rightTurret = null;
+    public GameObject leftTurret = null;
+    public GameObject rightTurret = null;
 
     public GameObject summonPosition;
 
@@ -45,9 +45,8 @@ public class CrossBrain : MonoBehaviour
 
     private void Update()
     {
-   
-        //leftTurret = leftSocle.GetComponent<SocleBehaviour>().turretSummon;
-        //rightTurret = rightSocle.GetComponent<SocleBehaviour>().turretSummon;
+        leftTurret = leftSocle.GetComponent<SocleBehaviour>().turretSummon;
+        rightTurret = rightSocle.GetComponent<SocleBehaviour>().turretSummon;
     }
 
     public void Dead()
@@ -62,7 +61,6 @@ public class CrossBrain : MonoBehaviour
 
     public void Summon()
     {
-
         gameObject.GetComponent<RempartBrain>().validationTime = 0;
         theRempart = Instantiate(GameMaster.Instance.rempartPrefab, summonPosition.transform.position, Quaternion.identity);
         theRempart.GetComponent<RempartTest>().refParent = gameObject;

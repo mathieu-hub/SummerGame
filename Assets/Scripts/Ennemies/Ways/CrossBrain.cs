@@ -69,7 +69,7 @@ public class CrossBrain : MonoBehaviour
         gameObject.GetComponent<RempartBrain>().validationTime = 0;
         theRempart = Instantiate(GameMaster.Instance.rempartPrefab, summonPosition.transform.position, Quaternion.identity);
         theRempart.GetComponent<RempartTest>().refParent = gameObject;
-        gameObject.GetComponentInChildren<CrossBrain>().enabled = false;
+        //gameObject.GetComponentInChildren<CrossBrain>().enabled = false;
         gameObject.GetComponentInChildren<SpriteRenderer>().enabled = false;
         SummonRempart = false;
         rempart = true;

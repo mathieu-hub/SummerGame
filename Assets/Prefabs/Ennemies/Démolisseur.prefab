@@ -134,7 +134,7 @@ MonoBehaviour:
   currentWay: 0
   targetMovement: {fileID: 0}
   canLeft: 0
-  canRight: 1
+  canRight: 0
   parentRef: {fileID: 0}
   crossPointGauche: {fileID: 0}
   crossPointDroit: {fileID: 0}

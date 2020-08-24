@@ -11,6 +11,8 @@ namespace Turret
     {
         #region Variables
 
+        public bool turretSummoned = false;
+
         [Header("PlayerHere")]
         [SerializeField] private bool playerHere = false;
 
@@ -53,7 +55,6 @@ namespace Turret
         void Start()
         {
 
-
             turretSummon = null;
             AButton.SetActive(false);
             crossX.enabled = false;
@@ -80,7 +81,21 @@ namespace Turret
                 InstantiateTurret();
             }
 
-            
+            if (turretSummoned)
+            {
+                GetComponent<SpriteRenderer>().enabled = false;
+                AButton.SetActive(false);
+                APressed = false;
+                playerHere = false;
+                Ui.SetActive(false);
+            }
+
+            if(turretSummoned && turretSummon.GetComponent<TurretParent>().currentHp <= 0)
+            {
+                turretSummoned = false;
+                GetComponent<SpriteRenderer>().enabled = false;
+                turretSummon = null;
+            }
 
         }
 
@@ -171,13 +186,15 @@ namespace Turret
         }
         void InstantiateTurret()
         {
+            turretSummoned = true;
+
             turretSummon = Instantiate(GameManager.Instance.SocleManager.Turret[currentIndex], transform.position, Quaternion.identity);
             GameManager.Instance.purinCount -= GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().purinsCost;
             GameManager.Instance.scrapsCount -= GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().scrapCost;
             canValidate = false;
             validationTime = 0f;
             gameObject.GetComponent<CircleCollider2D>().enabled = false;
-            gameObject.SetActive(false);
+   
         }
         void UpdateUi()
         {

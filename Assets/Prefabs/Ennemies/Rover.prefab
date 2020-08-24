@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 7542951312619859889}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.802, y: -12.97, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.18, y: 0.18, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -100,9 +100,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.99110067}
   serializedVersion: 2
-  m_Radius: 0.1
+  m_Radius: 2.6559987
 --- !u!114 &8876032726102387972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,7 +150,7 @@ MonoBehaviour:
   currentWay: 0
   targetMovement: {fileID: 0}
   canLeft: 0
-  canRight: 1
+  canRight: 0
   parentRef: {fileID: 0}
   crossPointGauche: {fileID: 0}
   crossPointDroit: {fileID: 0}
@@ -158,6 +158,8 @@ MonoBehaviour:
   turretTarget: {fileID: 0}
   turretTargetL: {fileID: 0}
   turretTargetR: {fileID: 0}
+  droneStation: {fileID: 0}
+  droneIsInStation: 0
   maxPushes: 2
   resistanceTime: 3
   pushTest: 0

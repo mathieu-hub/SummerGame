@@ -28,7 +28,7 @@ namespace Ennemies
         {
             if (typeOfEnnemy == TypeOfEnnemy.Walker)
             {
-                maxHealth = 10;
+                maxHealth = 20;
             }
             else if (typeOfEnnemy == TypeOfEnnemy.Soldonaute)
             {
@@ -36,7 +36,7 @@ namespace Ennemies
             }
             else if (typeOfEnnemy == TypeOfEnnemy.SpaceScoot)
             {
-                maxHealth = 150;
+                maxHealth = 25;
             }
             else if (typeOfEnnemy == TypeOfEnnemy.Démolisseur)
             {
@@ -48,7 +48,7 @@ namespace Ennemies
             }
             else if (typeOfEnnemy == TypeOfEnnemy.Rover)
             {
-                maxHealth = 500;
+                maxHealth = 30;
             }
             else if (typeOfEnnemy == TypeOfEnnemy.Drone)
             {

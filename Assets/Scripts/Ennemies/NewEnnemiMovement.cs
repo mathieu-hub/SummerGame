@@ -52,7 +52,7 @@ namespace Ennemies
         public GameObject turretTargetR = null;
 
         //DroneStation
-        public Transform droneStation;
+        public Transform droneStation = null;
         public bool droneIsInStation = false;
 
 
@@ -205,6 +205,8 @@ namespace Ennemies
                 {  //Créer Passages ou attaquer
                     if(typeOfEnnemy == TypeOfEnnemy.Démolisseur)
                     {
+
+                        Debug.Log("on est dans le démo");
                         //Créer des passages
                         int randomCreating = Random.Range(0, 2);
 
@@ -217,16 +219,20 @@ namespace Ennemies
                             crossPointDroit.GetComponent<Crosspoints>().isOpen = true;
                         }
 
-                        randomCreating = 0;
+                       
                         NeedToCheck();
 
                     }
                     //si je peux attaquer rempart j'attaque
                     else
                     {
+
+                        
+
                         if (canAttackRempart)
                         {
-                            AttackRempart();
+                            Debug.Log("on est dans l'attaque");
+                            StartCoroutine("AttackRempart");
 
                         }
                         else if (!canAttackRempart && canAttackTurret)
@@ -256,12 +262,12 @@ namespace Ennemies
                                     turretTarget = turretTargetR;
                                 }
 
-                                AttackTurret();
+                                StartCoroutine("AttackTurret");
                                 maxRange = 0;
                             }
                             else
                             {
-                                AttackTurret();
+                                StartCoroutine("AttackTurret");
                             }
 
                         }
@@ -269,6 +275,7 @@ namespace Ennemies
                         {
                             //Je check Constament que l'on m'ouvre la voie
                             NeedToCheck();
+                            
                         }
                     }
                     
@@ -320,11 +327,12 @@ namespace Ennemies
             //WAYPOINT FOR WAY02
             else if (currentWay == 1)
             {
-                if (wayPointIndex >= GameMaster.Instance.WayMaster.way02.Length - 1)
+                if (wayPointIndex >= GameMaster.Instance.WayMaster.way02.Length -1 )
                 {
                  
-                    if (!canMakeDamage && isNotDrone)
+                    if (canMakeDamage && isNotDrone)
                     {
+                        Debug.Log("EndPath");
                         doingDamage = false;
                         canMakeDamage = true;
                         speed = stopSpeed;
@@ -351,7 +359,7 @@ namespace Ennemies
                 {
                   
                   
-                    if (!canMakeDamage && isNotDrone)
+                    if (canMakeDamage && isNotDrone)
                     {
                         doingDamage = false;
                         canMakeDamage = true;
@@ -378,7 +386,7 @@ namespace Ennemies
                 if (wayPointIndex >= GameMaster.Instance.WayMaster.way04.Length - 1)
                 {
            
-                    if (!canMakeDamage && isNotDrone)
+                    if (canMakeDamage && isNotDrone)
                     {
                         doingDamage = false;
                         canMakeDamage = true;
@@ -404,7 +412,7 @@ namespace Ennemies
           
                 if (wayPointIndex >= GameMaster.Instance.WayMaster.way05.Length - 1)
                 {
-                    if (!canMakeDamage && isNotDrone)
+                    if (canMakeDamage && isNotDrone)
                     {
                         doingDamage = false;
                         canMakeDamage = true;
@@ -648,7 +656,7 @@ namespace Ennemies
         }
         IEnumerator EndPath()
         {
-            Debug.Log("EndedPath");
+         
 
             yield return new WaitForSeconds(speedAttack);
             if (canMakeDamage && !doingDamage)

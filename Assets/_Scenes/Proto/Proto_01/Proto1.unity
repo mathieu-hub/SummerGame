@@ -1216,7 +1216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bfeb48e5c8783942b9aa9f19a54e99d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfWay: 1
+  numberOfWay: 2
   way01:
   - {fileID: 3414264566026628969}
   - {fileID: 8341515680344133022}
@@ -15216,6 +15216,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8341515679735837610}
+  - component: {fileID: 8341515679735837613}
+  - component: {fileID: 8341515679735837612}
   m_Layer: 0
   m_Name: SiloPoint
   m_TagString: Untagged
@@ -15223,6 +15225,55 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8341515679735837612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8341515679735837611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a703053f8441ef41a548f87ebe4adb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crosspointGauche: {fileID: 8894569}
+  crosspointDroit: {fileID: 1732171036}
+  leftSocle: {fileID: 0}
+  rightSocle: {fileID: 0}
+  leftTurret: {fileID: 0}
+  rightTurret: {fileID: 0}
+  summonPosition: {fileID: 0}
+  theRempart: {fileID: 0}
+  rempartDead: 0
+  rempart: 0
+  SummonRempart: 0
+--- !u!61 &8341515679735837613
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8341515679735837611}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1001 &8341515679755562671
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16291,12 +16342,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waves:
   - ennemy:
-    - {fileID: 225565058131935763, guid: 70d8ce5aae3fa9b4eab2182dea239aee, type: 3}
-    - {fileID: 225565058131935763, guid: 70d8ce5aae3fa9b4eab2182dea239aee, type: 3}
-    - {fileID: 225565058131935763, guid: 70d8ce5aae3fa9b4eab2182dea239aee, type: 3}
-    - {fileID: 225565058131935763, guid: 70d8ce5aae3fa9b4eab2182dea239aee, type: 3}
-    - {fileID: 225565058131935763, guid: 70d8ce5aae3fa9b4eab2182dea239aee, type: 3}
-    - {fileID: 225565058131935763, guid: 70d8ce5aae3fa9b4eab2182dea239aee, type: 3}
+    - {fileID: 1439800598672498062, guid: 7eeccf2dd403cf24c8cafd7514dc5435, type: 3}
+    - {fileID: 1439800598672498062, guid: 7eeccf2dd403cf24c8cafd7514dc5435, type: 3}
+    - {fileID: 1439800598672498062, guid: 7eeccf2dd403cf24c8cafd7514dc5435, type: 3}
+    - {fileID: 1439800598672498062, guid: 7eeccf2dd403cf24c8cafd7514dc5435, type: 3}
+    - {fileID: 1439800598672498062, guid: 7eeccf2dd403cf24c8cafd7514dc5435, type: 3}
+    - {fileID: 1439800598672498062, guid: 7eeccf2dd403cf24c8cafd7514dc5435, type: 3}
     count: 1
     rate: 1
     maxEnnemy01: 1
@@ -21740,8 +21791,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8341515680627011800}
-  - component: {fileID: 8341515680627011802}
-  - component: {fileID: 8341515680627011803}
   m_Layer: 0
   m_Name: SiloPoint
   m_TagString: Untagged
@@ -21749,55 +21798,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &8341515680627011802
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8341515680627011801}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a703053f8441ef41a548f87ebe4adb7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  crosspointGauche: {fileID: 8894569}
-  crosspointDroit: {fileID: 1732171036}
-  leftSocle: {fileID: 0}
-  rightSocle: {fileID: 0}
-  leftTurret: {fileID: 0}
-  rightTurret: {fileID: 0}
-  summonPosition: {fileID: 0}
-  theRempart: {fileID: 0}
-  rempartDead: 0
-  rempart: 0
-  SummonRempart: 0
---- !u!61 &8341515680627011803
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8341515680627011801}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!1001 &8341515680638367866
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -67,12 +67,9 @@ public class WayMaster : MonoBehaviour
             way3.SetActive(false);
             way4.SetActive(false);
             way5.SetActive(false);
-
-           
-            
         }
 
-        if (WaveSpawner.waveIndex == 2)
+        if (WaveSpawner.waveIndex == 2 || numberOfWay ==2)
         {
             way2.SetActive(true);
            

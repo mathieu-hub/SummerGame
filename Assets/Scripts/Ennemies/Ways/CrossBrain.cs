@@ -47,6 +47,11 @@ public class CrossBrain : MonoBehaviour
     {
         leftTurret = leftSocle.GetComponent<SocleBehaviour>().turretSummon;
         rightTurret = rightSocle.GetComponent<SocleBehaviour>().turretSummon;
+
+        if (SummonRempart)
+        {
+            Summon();
+        }
     }
 
     public void Dead()

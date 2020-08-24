@@ -39,6 +39,8 @@ namespace Ennemies
         public void ReinitializeResearchBar()
         {
             research.researchAmount = 0;
+            barIsComplete = false;
+            Debug.Log("Bar Reinitialized");
         }
     }
 
@@ -56,7 +58,7 @@ namespace Ennemies
         public Research()
         {
             researchAmount = 0f;
-            researchIncrease = 3f;
+            researchIncrease = 15f;
         }
 
         public void Update()

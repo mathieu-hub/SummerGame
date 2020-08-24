@@ -15659,7 +15659,7 @@ MonoBehaviour:
     - {fileID: 3479738152389992204, guid: 8494921125d1bb74d8d72d69f83fb474, type: 3}
     - {fileID: 3479738152389992204, guid: 8494921125d1bb74d8d72d69f83fb474, type: 3}
     - {fileID: 3479738152389992204, guid: 8494921125d1bb74d8d72d69f83fb474, type: 3}
-    count: 2
+    count: 3
     rate: 1
     maxEnnemy01: 1
     maxEnnemy02: 1
@@ -15731,7 +15731,7 @@ MonoBehaviour:
   timeBreak: 21
   countdown: 2
   waveCountdownTimer: {fileID: 8341515680750526223}
-  waveIndexAlt: 3
+  waveIndexAlt: 0
   waveNumber: {fileID: 901328527}
   waveInProgress: 0
 --- !u!4 &8341515679860509917

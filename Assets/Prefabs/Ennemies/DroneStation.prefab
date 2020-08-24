@@ -70,4 +70,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c7b67743e270df4f8659c42ef4733e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bar: {fileID: 3322183046127411751, guid: b0db73b2bb1ebfa41a52cf8ff1b9654c, type: 3}
   droneInTheStation: 0

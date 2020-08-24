@@ -1164,6 +1164,7 @@ GameObject:
   - component: {fileID: 618439972}
   - component: {fileID: 618439971}
   - component: {fileID: 618439970}
+  - component: {fileID: 618439968}
   m_Layer: 0
   m_Name: Game Master (mathieu)
   m_TagString: Untagged
@@ -1171,6 +1172,38 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &618439968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 618439967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae6e6954e92f4164380f6a78bc8e05b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  way1Cross:
+  - {fileID: 477962841}
+  - {fileID: 1601676416}
+  - {fileID: 320595892}
+  - {fileID: 8341515679132481812}
+  way2Cross:
+  - {fileID: 1409640542}
+  - {fileID: 553720853}
+  - {fileID: 785781852}
+  - {fileID: 8341515678842811138}
+  way3Cross:
+  - {fileID: 1619121022}
+  - {fileID: 356972993}
+  - {fileID: 55823488}
+  - {fileID: 1732171036}
+  way4Cross:
+  - {fileID: 604012248}
+  - {fileID: 398545921}
+  - {fileID: 2083284447}
+  - {fileID: 884158437}
 --- !u!114 &618439970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10052,11 +10085,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: ext3_04
       objectReference: {fileID: 0}
+    - target: {fileID: 9083457757492862567, guid: 3ceb2d02dd124fc4dbc27bdaf847e64a,
+        type: 3}
+      propertyPath: cantCross
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ceb2d02dd124fc4dbc27bdaf847e64a, type: 3}
 --- !u!4 &8341515678842811137 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5006343452645307846, guid: 3ceb2d02dd124fc4dbc27bdaf847e64a,
+    type: 3}
+  m_PrefabInstance: {fileID: 8341515678842811136}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8341515678842811138 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5885185430628865110, guid: 3ceb2d02dd124fc4dbc27bdaf847e64a,
     type: 3}
   m_PrefabInstance: {fileID: 8341515678842811136}
   m_PrefabAsset: {fileID: 0}
@@ -11630,11 +11674,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: ext4_04
       objectReference: {fileID: 0}
+    - target: {fileID: 9083457757492862567, guid: 3ceb2d02dd124fc4dbc27bdaf847e64a,
+        type: 3}
+      propertyPath: cantCross
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ceb2d02dd124fc4dbc27bdaf847e64a, type: 3}
 --- !u!4 &8341515679132481811 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5006343452645307846, guid: 3ceb2d02dd124fc4dbc27bdaf847e64a,
+    type: 3}
+  m_PrefabInstance: {fileID: 8341515679132481810}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8341515679132481812 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5885185430628865110, guid: 3ceb2d02dd124fc4dbc27bdaf847e64a,
     type: 3}
   m_PrefabInstance: {fileID: 8341515679132481810}
   m_PrefabAsset: {fileID: 0}
@@ -21585,6 +21640,8 @@ MonoBehaviour:
   crosspointDroit: {fileID: 1732171036}
   leftSocle: {fileID: 0}
   rightSocle: {fileID: 0}
+  leftTurret: {fileID: 0}
+  rightTurret: {fileID: 0}
   summonPosition: {fileID: 0}
   theRempart: {fileID: 0}
   rempartDead: 0

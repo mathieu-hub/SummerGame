@@ -52,10 +52,17 @@ namespace Ennemies
             }
             else if (typeOfEnnemy == TypeOfEnnemy.Drone)
             {
-                maxHealth = 50;
+                maxHealth = 15;
             }
         }
 
+        private void Update()
+        {
+            if (currentHealth <= 0)
+            {
+                Die();
+            }
+        }
         void Start()
         {
             currentHealth = maxHealth;
@@ -66,28 +73,36 @@ namespace Ennemies
         //Prise de Dégâts et Mort de l'ennemi (à utiliser dans les scripts tourelles par la suite)
         public void TakeDammage(int damage)
         {
-            if (!isInvincible)
+            currentHealth -= damage;
+
+            /*if (!isInvincible)
             {
                 isInvincible = true;
                 currentHealth -= damage;
                 StartCoroutine(TakingDammage());
                 Debug.Log("Enemy " + gameObject.name + " took " + damage + " damage!");
-            }
+            }*/
 
-            if (currentHealth <= 0)
-            {
-                Die();
-            }
+            
         }
+
+       
 
         private void Die()
         {
             WaveSpawner.ennemyAlive--;
             Instantiate(lootDrop, transform.position, Quaternion.identity);
 
-            if (GetComponent<NewEnnemiMovement>().droneIsInStation == true)
+            if (GetComponent<DroneMovement>().isAdd == true)
             {
+                Debug.Log("On est ici la");
                 DroneStation.droneInTheStation--;
+
+                GameMaster.Instance.DroneStation.GetComponent<DroneStation>().droneArrived.Remove(gameObject);
+
+                Destroy(gameObject);
+
+
             }
 
             if (typeOfEnnemy == TypeOfEnnemy.Rover)
@@ -97,7 +112,7 @@ namespace Ennemies
                 //troop.GetComponent<NewEnnemiMovement>().wayPointIndex = gameObject.GetComponent<NewEnnemiMovement>().wayPointIndex;
             }
 
-            Destroy(gameObject);
+           
         }
 
         IEnumerator TakingDammage()

@@ -110,7 +110,7 @@ namespace Ennemies
                 speed = stopSpeed;
             }
             //le Drone est dans la station est la jauge de recherche est complète.
-            if (droneIsInStation == true && GetComponent<ResearchBar>().barIsComplete == true)
+            if (droneIsInStation == true && ResearchBar.barIsComplete == true)
             {
                 WaveSpawner.ennemyAlive--;
                 Destroy(gameObject);

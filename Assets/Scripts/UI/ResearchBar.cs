@@ -12,60 +12,66 @@ namespace Ennemies
        
         private Image barImage;
 
-        public bool barIsComplete = false;
+        public static bool barIsComplete = false;
 
         public bool canIncrease = false;
 
-        public bool initialState = false;
+    
         
         private void Awake()
         {
             barImage = transform.Find("jauge").GetComponent<Image>();
 
-            initialState = true;
+            
         }
 
         private void Update()
         {
             barImage.fillAmount = TheValue / 100f;
 
-            if(GameMaster.Instance.DroneStation.GetComponent<DroneStation>().droneArrived.Count > 0 && initialState)
+            if(GameMaster.Instance.DroneStation.GetComponent<DroneStation>().droneArrived.Count >0 && barIsComplete == false)
             {
                 canIncrease = true;
             }
-
-            if(canIncrease == true && GameMaster.Instance.DroneStation.GetComponent<DroneStation>().droneArrived != null)
+            else
             {
-                TheValue++;
+                canIncrease = false;
+            }
+                    
+
+            if(canIncrease == true)
+            {
+                TheValue += 0.1f;
             }
 
             if(TheValue > 100)
             {
-               initialState = false;
-               canIncrease = false;
-               TheValue = 100;
-               FullBar();
+                TheValue = 100;
+                canIncrease = false;
+            }
+
+            if(TheValue == 100)
+            {
+               StartCoroutine(FullBar());
             }
 
         }
 
-        void FullBar()
+        IEnumerator FullBar()
         {
+            barIsComplete = true;
+
             TheValue = 0;
+            yield return new WaitForSeconds(0.2f);
 
-            //Enleve tout les drones
-            for (int i = GameMaster.Instance.DroneStation.GetComponent<DroneStation>().droneArrived.Count;  i > 0; i++)
-            {
-                GameObject thisEnemy = GameMaster.Instance.DroneStation.GetComponent<DroneStation>().droneArrived[i];
+            WaveSpawner.ennemyAlive -= GameMaster.Instance.DroneStation.GetComponent<DroneStation>().droneArrived.Count;
+            GameMaster.Instance.DroneStation.GetComponent<DroneStation>().droneArrived.Clear();
 
-                GameMaster.Instance.DroneStation.GetComponent<DroneStation>().droneArrived.Remove(thisEnemy);
-                Destroy(thisEnemy);
-                WaveSpawner.ennemyAlive--;
-            }
-
+            barIsComplete = false;
 
         }
      
+      
     }
 
 

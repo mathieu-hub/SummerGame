@@ -65,7 +65,15 @@ namespace Ennemies
                     DroneStation.droneInTheStation++;
                 }
 
-            }            
+
+                if (isAdd && ResearchBar.barIsComplete)
+                {
+                    Destroy(gameObject);
+                }
+            }       
+            
+           
+                    
         }
 
         void InitialisationValues()

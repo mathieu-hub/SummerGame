@@ -34,8 +34,8 @@ namespace Ennemies
         }
 
         private void Update()
-        {          
-           
+        {
+            droneInTheStation = droneArrived.Count;
         }
 
         void ResearchComplete()

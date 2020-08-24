@@ -14,7 +14,9 @@ namespace Ennemies
         //public GameObject troops;
         //public Transform troopsSpawn;
 
+        public GameObject bar;
         public int droneInTheStation = 0;
+        
 
 
         private void OnTriggerEnter2D(Collider2D other)
@@ -29,18 +31,20 @@ namespace Ennemies
 
         private void Update()
         {
-            if (droneInTheStation >= 1)
+            if (droneInTheStation > 0)
             {
-                GetComponent<ResearchBar>().IncreaseResearchBar();
+                bar.GetComponent<ResearchBar>().increaseResearchBar = true;
             }
+            
 
             if (GetComponent<ResearchBar>().barIsComplete == true)
             {
                 Debug.Log("la bar est complete");
+                bar.GetComponent<ResearchBar>().increaseResearchBar = false;
                 droneInTheStation = 0;
-                GetComponent<ResearchBar>().ReinitializeResearchBar();
-                GetComponent<Research>().researchIsComplete = false;
-                GetComponent<ResearchBar>().barIsComplete = false;
+                bar.GetComponent<ResearchBar>().ReinitializeResearchBar();
+                bar.GetComponent<Research>().researchIsComplete = false;
+                bar.GetComponent<ResearchBar>().barIsComplete = false;
                 //SpawnPods();
             }
         }

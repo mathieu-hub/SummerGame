@@ -11,6 +11,7 @@ namespace Ennemies
         private Image barImage;
 
         public bool barIsComplete = false;
+        public bool increaseResearchBar = false;
 
         private void Awake()
         {
@@ -23,16 +24,17 @@ namespace Ennemies
         {
             barImage.fillAmount = research.GetNormalized();
 
+            if (increaseResearchBar == true)
+            {
+                research.Update(); //uniquement lorsque des drones sont dans DroneStation
+            }            
+
             if (research.researchIsComplete == true)
             {
                 barIsComplete = true;
             }
         }
 
-        public void IncreaseResearchBar()
-        {
-            research.Update(); //uniquement lorsque des drones sont dans DroneStation
-        }
 
         public void ReinitializeResearchBar()
         {

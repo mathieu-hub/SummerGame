@@ -8908,6 +8908,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ext1_01
       objectReference: {fileID: 0}
+    - target: {fileID: 9083457757492862567, guid: 3ceb2d02dd124fc4dbc27bdaf847e64a,
+        type: 3}
+      propertyPath: cantCross
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ceb2d02dd124fc4dbc27bdaf847e64a, type: 3}
 --- !u!4 &3943216520465310547 stripped
@@ -9475,6 +9480,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8341515680585164841}
     m_Modifications:
+    - target: {fileID: 3615057894306317518, guid: 2423515d9ae9d194aa93529bf970bd1b,
+        type: 3}
+      propertyPath: cantCross
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3615057894306317519, guid: 2423515d9ae9d194aa93529bf970bd1b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9604,6 +9614,11 @@ PrefabInstance:
         type: 3}
       propertyPath: isOpen
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3615057894306317518, guid: 2423515d9ae9d194aa93529bf970bd1b,
+        type: 3}
+      propertyPath: cantCross
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3615057894306317519, guid: 2423515d9ae9d194aa93529bf970bd1b,
         type: 3}
@@ -9739,6 +9754,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ext1_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 9083457757492862567, guid: 3ceb2d02dd124fc4dbc27bdaf847e64a,
+        type: 3}
+      propertyPath: cantCross
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9083457757492862567, guid: 3ceb2d02dd124fc4dbc27bdaf847e64a,
+        type: 3}
+      propertyPath: isOpen
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ceb2d02dd124fc4dbc27bdaf847e64a, type: 3}
@@ -10180,6 +10205,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8341515678694117389}
     m_Modifications:
+    - target: {fileID: 3615057894306317518, guid: 2423515d9ae9d194aa93529bf970bd1b,
+        type: 3}
+      propertyPath: cantCross
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3615057894306317518, guid: 2423515d9ae9d194aa93529bf970bd1b,
+        type: 3}
+      propertyPath: isOpen
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3615057894306317519, guid: 2423515d9ae9d194aa93529bf970bd1b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10735,6 +10770,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ext2_03
+      objectReference: {fileID: 0}
+    - target: {fileID: 9083457757492862567, guid: 3ceb2d02dd124fc4dbc27bdaf847e64a,
+        type: 3}
+      propertyPath: cantCross
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ceb2d02dd124fc4dbc27bdaf847e64a, type: 3}
@@ -11338,6 +11378,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ext2_04
+      objectReference: {fileID: 0}
+    - target: {fileID: 9083457757492862567, guid: 3ceb2d02dd124fc4dbc27bdaf847e64a,
+        type: 3}
+      propertyPath: cantCross
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ceb2d02dd124fc4dbc27bdaf847e64a, type: 3}
@@ -12152,6 +12197,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ext1_04
       objectReference: {fileID: 0}
+    - target: {fileID: 9083457757492862567, guid: 3ceb2d02dd124fc4dbc27bdaf847e64a,
+        type: 3}
+      propertyPath: cantCross
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ceb2d02dd124fc4dbc27bdaf847e64a, type: 3}
 --- !u!4 &8341515679188430940 stripped
@@ -12167,6 +12217,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8341515678939773690}
     m_Modifications:
+    - target: {fileID: 3615057894306317518, guid: 2423515d9ae9d194aa93529bf970bd1b,
+        type: 3}
+      propertyPath: cantCross
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3615057894306317519, guid: 2423515d9ae9d194aa93529bf970bd1b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13738,6 +13793,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8341515678939773690}
     m_Modifications:
+    - target: {fileID: 3615057894306317518, guid: 2423515d9ae9d194aa93529bf970bd1b,
+        type: 3}
+      propertyPath: cantCross
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3615057894306317519, guid: 2423515d9ae9d194aa93529bf970bd1b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13965,6 +14025,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ext1_03
+      objectReference: {fileID: 0}
+    - target: {fileID: 9083457757492862567, guid: 3ceb2d02dd124fc4dbc27bdaf847e64a,
+        type: 3}
+      propertyPath: cantCross
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ceb2d02dd124fc4dbc27bdaf847e64a, type: 3}
@@ -15814,6 +15879,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ext6_04
       objectReference: {fileID: 0}
+    - target: {fileID: 9083457757492862567, guid: 3ceb2d02dd124fc4dbc27bdaf847e64a,
+        type: 3}
+      propertyPath: cantCross
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ceb2d02dd124fc4dbc27bdaf847e64a, type: 3}
 --- !u!4 &8341515679768687545 stripped
@@ -16591,6 +16661,11 @@ PrefabInstance:
         type: 3}
       propertyPath: isOpen
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3615057894306317518, guid: 2423515d9ae9d194aa93529bf970bd1b,
+        type: 3}
+      propertyPath: cantCross
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3615057894306317519, guid: 2423515d9ae9d194aa93529bf970bd1b,
         type: 3}
@@ -18378,6 +18453,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8341515678939773690}
     m_Modifications:
+    - target: {fileID: 3615057894306317518, guid: 2423515d9ae9d194aa93529bf970bd1b,
+        type: 3}
+      propertyPath: cantCross
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3615057894306317519, guid: 2423515d9ae9d194aa93529bf970bd1b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -19164,6 +19244,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: ext2_02
       objectReference: {fileID: 0}
+    - target: {fileID: 9083457757492862567, guid: 3ceb2d02dd124fc4dbc27bdaf847e64a,
+        type: 3}
+      propertyPath: cantCross
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9083457757492862567, guid: 3ceb2d02dd124fc4dbc27bdaf847e64a,
+        type: 3}
+      propertyPath: isOpen
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ceb2d02dd124fc4dbc27bdaf847e64a, type: 3}
 --- !u!4 &8341515680161363912 stripped
@@ -19179,6 +19269,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8341515678939773690}
     m_Modifications:
+    - target: {fileID: 3615057894306317518, guid: 2423515d9ae9d194aa93529bf970bd1b,
+        type: 3}
+      propertyPath: cantCross
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3615057894306317519, guid: 2423515d9ae9d194aa93529bf970bd1b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -19321,6 +19416,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8341515678694117389}
     m_Modifications:
+    - target: {fileID: 3615057894306317518, guid: 2423515d9ae9d194aa93529bf970bd1b,
+        type: 3}
+      propertyPath: cantCross
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3615057894306317518, guid: 2423515d9ae9d194aa93529bf970bd1b,
+        type: 3}
+      propertyPath: isOpen
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3615057894306317519, guid: 2423515d9ae9d194aa93529bf970bd1b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -19607,6 +19712,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8341515678694117389}
     m_Modifications:
+    - target: {fileID: 3615057894306317518, guid: 2423515d9ae9d194aa93529bf970bd1b,
+        type: 3}
+      propertyPath: cantCross
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3615057894306317518, guid: 2423515d9ae9d194aa93529bf970bd1b,
+        type: 3}
+      propertyPath: isOpen
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3615057894306317519, guid: 2423515d9ae9d194aa93529bf970bd1b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -19923,6 +20038,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8341515680585164841}
     m_Modifications:
+    - target: {fileID: 3615057894306317518, guid: 2423515d9ae9d194aa93529bf970bd1b,
+        type: 3}
+      propertyPath: cantCross
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3615057894306317519, guid: 2423515d9ae9d194aa93529bf970bd1b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -20988,6 +21108,11 @@ PrefabInstance:
     - target: {fileID: 3615057894306317518, guid: 2423515d9ae9d194aa93529bf970bd1b,
         type: 3}
       propertyPath: isOpen
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3615057894306317518, guid: 2423515d9ae9d194aa93529bf970bd1b,
+        type: 3}
+      propertyPath: cantCross
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3615057894306317519, guid: 2423515d9ae9d194aa93529bf970bd1b,
@@ -22063,6 +22188,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ext5_04
+      objectReference: {fileID: 0}
+    - target: {fileID: 9083457757492862567, guid: 3ceb2d02dd124fc4dbc27bdaf847e64a,
+        type: 3}
+      propertyPath: cantCross
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ceb2d02dd124fc4dbc27bdaf847e64a, type: 3}

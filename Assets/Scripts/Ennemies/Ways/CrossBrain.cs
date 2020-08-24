@@ -11,8 +11,8 @@ public class CrossBrain : MonoBehaviour
     public GameObject crosspointDroit;
 
 
-    public GameObject leftSocle;
-    public GameObject rightSocle;
+    public GameObject leftSocle = null;
+    public GameObject rightSocle = null;
     public GameObject leftTurret = null;
     public GameObject rightTurret = null;
 

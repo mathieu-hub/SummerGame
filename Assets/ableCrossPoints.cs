@@ -38,7 +38,7 @@ public class ableCrossPoints : MonoBehaviour
         {
             for (int i = 0; i < way2Cross.Length; i++)
             {
-                way1Cross[i].GetComponent<Crosspoints>().cantCross = false;
+                way2Cross[i].GetComponent<Crosspoints>().cantCross = false;
             }
         }
 
@@ -46,7 +46,7 @@ public class ableCrossPoints : MonoBehaviour
         {
             for (int i = 0; i < way3Cross.Length; i++)
             {
-                way1Cross[i].GetComponent<Crosspoints>().cantCross = false;
+                way3Cross[i].GetComponent<Crosspoints>().cantCross = false;
             }
         }
 
@@ -54,7 +54,7 @@ public class ableCrossPoints : MonoBehaviour
         {
             for (int i = 0; i < way4Cross.Length; i++)
             {
-                way1Cross[i].GetComponent<Crosspoints>().cantCross = false;
+                way4Cross[i].GetComponent<Crosspoints>().cantCross = false;
             }
         }
 

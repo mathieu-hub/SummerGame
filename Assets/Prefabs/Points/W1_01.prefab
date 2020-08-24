@@ -362,13 +362,13 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 1.1712236, w: 1.106513}
   m_textInfo:
     textComponent: {fileID: 8841045402627400010}
-    characterCount: 1
+    characterCount: 0
     spriteCount: 0
     spaceCount: 0
-    wordCount: 1
+    wordCount: 0
     linkCount: 0
-    lineCount: 1
-    pageCount: 1
+    lineCount: 0
+    pageCount: 0
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -853,6 +853,8 @@ MonoBehaviour:
     type: 3}
   rightSocle: {fileID: 710689851167311462, guid: 6970ae380ceff3e4f918d9a53f4eceff,
     type: 3}
+  leftTurret: {fileID: 0}
+  rightTurret: {fileID: 0}
   summonPosition: {fileID: 6675148115828998102}
   theRempart: {fileID: 0}
   rempartDead: 0
@@ -871,7 +873,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.034023345, y: 0.40389156}
+  m_Offset: {x: 0.034023345, y: 0.23007703}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -882,7 +884,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.568669, y: 1.2662926}
+  m_Size: {x: 1.568669, y: 1.6139216}
   m_EdgeRadius: 0
 --- !u!114 &3414264566026628971
 MonoBehaviour:

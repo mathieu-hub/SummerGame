@@ -68,24 +68,21 @@ public class WayMaster : MonoBehaviour
             way4.SetActive(false);
             way5.SetActive(false);
 
-            Crossway1.SetActive(false);
-            Crossway2.SetActive(false);
-            Crossway3.SetActive(false);
+           
             
         }
 
         if (WaveSpawner.waveIndex == 2)
         {
             way2.SetActive(true);
-            Crossway2.SetActive(true);
+           
             numberOfWay = 2;
             numberOfCrossWay = 1; 
         }
 
         if (WaveSpawner.waveIndex == 3)
         {
-            way3.SetActive(true);
-            Crossway1.SetActive(true);
+            way3.SetActive(true); 
             numberOfWay = 3;
             numberOfCrossWay = 2;
         }
@@ -93,7 +90,7 @@ public class WayMaster : MonoBehaviour
         if (WaveSpawner.waveIndex == 4)
         {
             way4.SetActive(true);
-            Crossway3.SetActive(true);
+           
             numberOfWay = 4;
             numberOfCrossWay = 3;
         }

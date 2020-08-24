@@ -59,7 +59,7 @@ namespace Ennemies
             waveIndex = 0;
             rounds = 0;
 
-            waveIndex = waveIndexAlt;
+            
         }
 
         void Update()

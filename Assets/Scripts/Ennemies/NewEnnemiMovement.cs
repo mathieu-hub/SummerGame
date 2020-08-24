@@ -56,6 +56,10 @@ namespace Ennemies
         public bool droneIsInStation = false;
 
 
+        private SpriteRenderer spriteRend;
+
+        private Color startColor;
+
         #region Push
         [Header("Push")]
         [Range(2, 10)]
@@ -81,6 +85,12 @@ namespace Ennemies
 
             if (pushTest)
                 return;
+        }
+        private void Start()
+        {
+            spriteRend = GetComponent<SpriteRenderer>();
+
+            startColor = spriteRend.color;
         }
 
 
@@ -724,9 +734,13 @@ namespace Ennemies
 
         IEnumerator AttackRempart()
         {
+            spriteRend.color = Color.red;
+
             yield return new WaitForSeconds(speedAttack);
             if (canMakeDamage && !doingDamage && parentRef.GetComponent<CrossBrain>().theRempart != null)
             {
+                spriteRend.color = startColor;
+
                 Debug.Log("A l'attaque");
                 doingDamage = true;
                 rempartTarget.GetComponent<RempartTest>().currentHealth -= ennemyDamage;
@@ -735,6 +749,8 @@ namespace Ennemies
                 doingDamage = false;
                 canMakeDamage = true;
                 NeedToCheck();
+
+              
             }
             else
             {
@@ -761,9 +777,13 @@ namespace Ennemies
 
         IEnumerator AttackTurret()
         {
+            spriteRend.color = Color.red;
+
             yield return new WaitForSeconds(speedAttack);
             if (canMakeDamage && !doingDamage && turretTarget != null)
             {
+                spriteRend.color = startColor;
+
                 Debug.Log("A l'attaque");
                 doingDamage = true;
                 turretTarget.GetComponent<TurretParent>().currentHp -= ennemyDamage;
@@ -772,7 +792,7 @@ namespace Ennemies
                 doingDamage = false;
                 canMakeDamage = true;
 
-
+                
             }
             else
             {

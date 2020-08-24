@@ -87,7 +87,7 @@ namespace Ennemies
 
             if (GetComponent<NewEnnemiMovement>().droneIsInStation == true)
             {
-                GetComponent<DroneStation>().droneInTheStation--;
+                DroneStation.droneInTheStation--;
             }
 
             if (typeOfEnnemy == TypeOfEnnemy.Rover)

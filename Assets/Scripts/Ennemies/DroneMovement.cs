@@ -24,6 +24,7 @@ namespace Ennemies
         [Header("Drone Station")]
         public Transform droneStation;
         public bool droneIsInStation = false;
+        public bool isAdd = false;
 
         //[Header("Animator")]
         //public Animator animator;
@@ -57,7 +58,13 @@ namespace Ennemies
            
             if (droneIsInStation == true)
             {
-                speed = stopSpeed;                
+                speed = stopSpeed; 
+                if (isAdd == false)
+                {
+                    isAdd = true;
+                    DroneStation.droneInTheStation++;
+                }
+
             }            
         }
 

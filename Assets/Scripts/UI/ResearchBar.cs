@@ -36,7 +36,7 @@ namespace Ennemies
             {
                 barIsComplete = true;
             }
-            else if (research.researchIsComplete == false)
+            else 
             {
                 barIsComplete = false;
             }

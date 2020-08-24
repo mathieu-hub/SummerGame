@@ -1614,6 +1614,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 139bf1af8406689419d81e33bb8f25ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  turretSummoned: 0
   playerHere: 0
   leftTurret: 0
   rightTurret: 0
@@ -1741,7 +1742,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2724395105461996019
 RectTransform:
   m_ObjectHideFlags: 0

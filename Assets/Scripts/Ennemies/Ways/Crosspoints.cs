@@ -11,6 +11,11 @@ public class Crosspoints : MonoBehaviour
 
     private SpriteRenderer spriteRend;
 
+    private void Start()
+    {
+        spriteRend = gameObject.GetComponent<SpriteRenderer>();
+    }
+
     private void Update()
     {
         if (isOpen)

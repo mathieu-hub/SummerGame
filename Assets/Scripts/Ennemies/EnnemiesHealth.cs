@@ -102,7 +102,7 @@ namespace Ennemies
             WaveSpawner.ennemyAlive--;
             Instantiate(lootDrop, transform.position, Quaternion.identity);
 
-            if (GetComponent<DroneMovement>().isAdd == true)
+            if (typeOfEnnemy == TypeOfEnnemy.Drone && gameObject.GetComponent<DroneMovement>().isAdd == true)
             {
                 Debug.Log("On est ici la");
                 DroneStation.droneInTheStation--;
@@ -110,7 +110,6 @@ namespace Ennemies
                 GameMaster.Instance.DroneStation.GetComponent<DroneStation>().droneArrived.Remove(gameObject);
 
                 Destroy(gameObject);
-
 
             }
 

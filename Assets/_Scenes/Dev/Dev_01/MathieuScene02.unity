@@ -405,7 +405,7 @@ GameObject:
   m_Layer: 0
   m_Name: Pods
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -417,7 +417,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 246892669}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.6656656, y: 11.788834, z: 0}
+  m_LocalPosition: {x: 8.79, y: 12.22, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1227,6 +1227,7 @@ MonoBehaviour:
   WayMaster: {fileID: 618439970}
   rempartPrefab: {fileID: 1577482439861861487, guid: 92809a9527bc3054c9fe4316ee8d3329,
     type: 3}
+  DroneStation: {fileID: 0}
 --- !u!4 &618439972
 Transform:
   m_ObjectHideFlags: 0
@@ -1501,6 +1502,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 845322679}
+  - component: {fileID: 845322681}
+  - component: {fileID: 845322680}
   m_Layer: 0
   m_Name: 'Base Area '
   m_TagString: Untagged
@@ -1516,12 +1519,51 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 845322678}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.6656656, y: 11.788834, z: 0}
+  m_LocalPosition: {x: -6.45, y: 8.57, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &845322680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 845322678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9d5c13200501d84dbe735957492a21f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInBase: 1
+--- !u!61 &845322681
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 845322678}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 7.376314, y: 7.5925674}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 39.39529, y: 16.185135}
+  m_EdgeRadius: 0
 --- !u!1 &884158437 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5885185430628865110, guid: 3ceb2d02dd124fc4dbc27bdaf847e64a,
@@ -2835,7 +2877,7 @@ PrefabInstance:
     - target: {fileID: 340684232747212614, guid: ec8ec130dc6d7524d8f0248f0e355575,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 340684232747212614, guid: ec8ec130dc6d7524d8f0248f0e355575,
         type: 3}
@@ -9363,7 +9405,7 @@ Transform:
   - {fileID: 4269391534849816424}
   - {fileID: 37825807}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4269391534902383733
 GameObject:
@@ -21097,6 +21139,8 @@ MonoBehaviour:
   crosspointDroit: {fileID: 1732171036}
   leftSocle: {fileID: 0}
   rightSocle: {fileID: 0}
+  leftTurret: {fileID: 0}
+  rightTurret: {fileID: 0}
   summonPosition: {fileID: 0}
   theRempart: {fileID: 0}
   rempartDead: 0

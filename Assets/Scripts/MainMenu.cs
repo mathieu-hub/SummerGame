@@ -2,6 +2,7 @@
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using TMPro;
 
 public class MainMenu : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class MainMenu : MonoBehaviour
     public GameObject returnButton;
     public GameObject allOptionsInteractions;
     public Image inputsScreen;
+    public TextMeshProUGUI inputsText;
+    public Image controls;
     public GameObject inputsButton;
     public Slider fullscreenSlider;
 
@@ -66,6 +69,8 @@ public class MainMenu : MonoBehaviour
         options = true;
         mainMenu = false;
         inputsScreen.enabled = false;
+        inputsText.enabled = false;
+        controls.enabled = false; 
         //Jouer Son Validation
         AllInteractionsMain.SetActive(false);
         allOptionsInteractions.SetActive(true);
@@ -111,7 +116,9 @@ public class MainMenu : MonoBehaviour
 
         //Bruit Validation
         inputsScreen.enabled = true;
-        
+        inputsText.enabled = true;
+        controls.enabled = true;
+
     }
 
     #endregion
@@ -131,6 +138,8 @@ public class MainMenu : MonoBehaviour
     public void RetourCommandes()
     {
         inputsScreen.enabled = false;
+        inputsText.enabled = false;
+        controls.enabled = false;
         options = true;
         commandes = false;
         //EventSystem.current.SetSelectedGameObject(backOptionsButton);

@@ -4,7 +4,6 @@ using TMPro;
 using UnityEngine.UI;
 using Player;
 using Management;
-using Turret;
 
 namespace Turret
 {
@@ -346,14 +345,14 @@ namespace Turret
             if (currentHp <= 0)
             {
                 currentHp = 0;
-                turretBehaviour.broke = true;
+                turretBehaviour.Break(true);
             }
             else
             {
-                turretBehaviour.broke = false;
+                turretBehaviour.Break(false);
             }
 
-            if (turretBehaviour.broke)
+            if (turretBehaviour.GetBrokeState())
             {
                 brokeParticule.SetActive(true);
             }

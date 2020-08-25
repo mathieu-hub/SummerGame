@@ -23,7 +23,7 @@ namespace Turret
 		private CircleCollider2D rangeCollider;
 		[Range(1, 50)]
 		[SerializeField] protected int damage = 2;
-		[HideInInspector] public bool broke = false;
+		protected bool broke = false;
 
 		[Header("Use Bullets")]
 		
@@ -183,6 +183,15 @@ namespace Turret
 			fireRate = newFireRate;
         }
 
+		public virtual void Break(bool setBroke)
+        {
+			broke = setBroke;
+        }
+
+		public bool GetBrokeState()
+        {
+			return broke;
+        }
 		void OnDrawGizmosSelected()
 		{
 			Gizmos.color = Color.red;

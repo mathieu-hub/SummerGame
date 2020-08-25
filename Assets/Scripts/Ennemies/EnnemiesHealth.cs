@@ -24,6 +24,11 @@ namespace Ennemies
         public GameObject squad;
         public GameObject troop;
 
+        //Particles
+        [Header("Partciles")]
+        public GameObject bigExplo;
+        public GameObject lowExplo;
+
         void Awake()
         {
             if (typeOfEnnemy == TypeOfEnnemy.Walker)
@@ -54,6 +59,10 @@ namespace Ennemies
             {
                 maxHealth = 5;
             }
+
+            //initialisation des explo
+            bigExplo.SetActive(false);
+            lowExplo.SetActive(false);
         }
 
         void Start()
@@ -97,13 +106,29 @@ namespace Ennemies
                 //troop.GetComponent<NewEnnemiMovement>().wayPointIndex = gameObject.GetComponent<NewEnnemiMovement>().wayPointIndex;
             }
 
+            ChooseExplo();
             Destroy(gameObject);
+
         }
 
         IEnumerator TakingDammage()
         {
             yield return new WaitForSeconds(2f);
             isInvincible = false;
+        }
+
+        private void ChooseExplo()
+        {
+            if( typeOfEnnemy != TypeOfEnnemy.Rover || typeOfEnnemy != TypeOfEnnemy.Démolisseur)
+            {
+                bigExplo.SetActive(false);
+                lowExplo.SetActive(true);
+            }
+            else
+            {
+                lowExplo.SetActive(false);
+                bigExplo.SetActive(true);
+            }
         }
     }
 }

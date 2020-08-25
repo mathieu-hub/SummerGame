@@ -534,7 +534,7 @@ namespace Ennemies
                 speedAttack = 5;
                 canAttackTurret = false;
                 canAttackRempart = false;
-                animator.SetBool("isDestructeur", true);
+                animator.SetBool("IsDestructeur", true);
                 Debug.Log("bien lu");
             }
             else if (typeOfEnnemy == TypeOfEnnemy.Carboniseur)

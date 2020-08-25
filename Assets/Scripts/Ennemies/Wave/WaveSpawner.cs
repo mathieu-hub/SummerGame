@@ -19,6 +19,7 @@ namespace Ennemies
 
         //Le nombre d'ennemis en vie        
         public static int ennemyAlive = 0;
+        public int ennemyAliveDisplay;
 
         //Le nombre d'ennemis présent pour chaque type        
         [Header("Ennemy Type Here")]
@@ -64,6 +65,8 @@ namespace Ennemies
 
         void Update()
 		{
+            ennemyAliveDisplay = ennemyAlive;
+
             //Debug.Log("Wave" + waveIndex);
 
             if (ennemyAlive <= 0)

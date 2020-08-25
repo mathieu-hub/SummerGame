@@ -10,7 +10,7 @@ public class RessourcesPickup : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.name == "Player")
+        if (other.name == "PlayerController")
         {
             if (currentObject == PickupObject.scraps)
             {

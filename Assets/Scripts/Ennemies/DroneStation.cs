@@ -7,44 +7,57 @@ namespace Ennemies
 	public class DroneStation : MonoBehaviour
 	{
         //PODS
-        public GameObject pods;
-        public Transform podsSpawn;
+        //public GameObject pods;
+        //public Transform podsSpawn;
 
         //TROOPS
-        public GameObject troops;
-        public Transform troopsSpawn;
+        //public GameObject troops;
+        //public Transform troopsSpawn;
 
-        public int droneInTheStation = 0;
+        public GameObject bar;
+        public bool barIsReinitialized = false;
+        public static int droneInTheStation = 0;
+        public List<GameObject> droneArrived = new List<GameObject>();
+
 
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.gameObject.GetComponent<NewEnnemiMovement>().isNotDrone == true)
+            //Dès qu'un drone passe dans le trigger
+            if (other.gameObject.GetComponent<DroneMovement>().isNotDrone == false && other.gameObject.GetComponent<DroneMovement>().isAdd == false)
             {
-                other.gameObject.GetComponent<NewEnnemiMovement>().droneIsInStation = true;
-                droneInTheStation++;
-                Debug.Log("un drone est entré");
+                //je l'ajoute à un tableau.  La Bool "isAdd" permet de bloquer un sur Ajout.
+                    droneArrived.Add(other.gameObject);
+                    other.gameObject.GetComponent<DroneMovement>().droneIsInStation = true;
+                    Debug.Log("un drone est entré");           
             }
         }
 
         private void Update()
         {
-            if (droneInTheStation >= 1)
-            {
-                GetComponent<ResearchBar>().IncreaseResearchBar();
-            }
-
-            if (GetComponent<ResearchBar>().barIsComplete == true)
-            {
-                Debug.Log("la bar est complete");
-                GetComponent<Research>().researchIsComplete = false;
-                GetComponent<ResearchBar>().barIsComplete = false;
-                SpawnPods();
-                droneInTheStation = 0;
-            }
+            droneInTheStation = droneArrived.Count;
         }
 
-        void SpawnPods()
+        void ResearchComplete()
+        {
+            //bar.GetComponent<Research>().researchIsComplete = false;
+            ////barIsReinitialized = true;
+            //Debug.Log("la bar est complete");
+            //bar.GetComponent<ResearchBar>().ReinitializeResearchBar();
+            //bar.GetComponent<ResearchBar>().increaseResearchBar = false;
+            //droneInTheStation = 0;
+
+            //for (int i = 0; i < droneArrived.Count; i++)
+            //{
+            //    Debug.Log("Destruction Drone");
+            //    Destroy(droneArrived[i]);
+            //    WaveSpawner.ennemyAlive--;
+            //}
+
+            //SpawnPods();
+        }
+
+        /*void SpawnPods()
         {
             Instantiate(pods, podsSpawn.transform.position, Quaternion.identity);
             StartCoroutine(DropTroops());
@@ -54,7 +67,8 @@ namespace Ennemies
         {
             yield return new WaitForSeconds(0.3f);
             Instantiate(troops, troopsSpawn.transform.position, Quaternion.identity);
-        }
+        }*/
+
     }
 }
 

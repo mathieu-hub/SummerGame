@@ -2,72 +2,81 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Management;
 
 namespace Ennemies
 {
 	public class ResearchBar : MonoBehaviour
 	{
-        private Research research;
+        public float TheValue;
+       
         private Image barImage;
 
-        public bool barIsComplete = false;
+        public static bool barIsComplete = false;
 
+        public bool canIncrease = false;
+
+    
+        
         private void Awake()
         {
             barImage = transform.Find("jauge").GetComponent<Image>();
 
-            research = new Research();
+            
         }
 
         private void Update()
         {
-            barImage.fillAmount = research.GetNormalized();
+            barImage.fillAmount = TheValue / 100f;
 
-            if (research.researchIsComplete == true)
+            if(GameMaster.Instance.DroneStation.GetComponent<DroneStation>().droneArrived.Count >0 && barIsComplete == false)
             {
-                barIsComplete = true;
+                canIncrease = true;
             }
+            else
+            {
+                canIncrease = false;
+            }
+                    
+
+            if(canIncrease == true)
+            {
+                TheValue += 0.1f;
+            }
+
+            if(TheValue > 100)
+            {
+                TheValue = 100;
+                canIncrease = false;
+            }
+
+            if(TheValue == 100)
+            {
+               StartCoroutine(FullBar());
+            }
+
         }
 
-        public void IncreaseResearchBar()
+        IEnumerator FullBar()
         {
-            research.Update(); //uniquement lorsque des drones sont dans DroneStation
+            barIsComplete = true;
+
+            TheValue = 0;
+            yield return new WaitForSeconds(0.2f);
+
+            WaveSpawner.ennemyAlive -= GameMaster.Instance.DroneStation.GetComponent<DroneStation>().droneArrived.Count;
+            GameMaster.Instance.DroneStation.GetComponent<DroneStation>().droneArrived.Clear();
+
+            barIsComplete = false;
+
         }
+     
+      
     }
 
 
 
 
-    public class Research
-    {
-        public const int researchMax = 100;
-
-        private float researchAmount;
-        private float researchIncrease;
-        public bool researchIsComplete = false;
-
-        public Research()
-        {
-            researchAmount = 0f;
-            researchIncrease = 3f;
-        }
-
-        public void Update()
-        {
-            researchAmount += researchIncrease * Time.deltaTime;
-            researchAmount = Mathf.Clamp(researchAmount, 0f, researchMax);   
-            
-            if (researchAmount >= researchMax)
-            {
-                researchIsComplete = true;
-            }
-        }
-
-        public float GetNormalized()
-        {
-            return researchAmount / researchMax;
-        }
-
-    }
+   
 }
 

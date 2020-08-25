@@ -135,11 +135,7 @@ namespace Bullet{
         {
             Destroy(gameObject);
         }
-        private void OnDrawGizmos()
-        {
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(transform.position, circleCol.radius);
-        }
+      
 
         void Damages()
         {

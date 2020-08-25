@@ -88,7 +88,7 @@ namespace Player
             }
             else if (needToCharge)
             {
-                loadingTime += 0.1f;
+                loadingTime += 0.5f;
             }
 
             if(loadingTime >= maxLoadingTime)

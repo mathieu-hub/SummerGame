@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4988630161159641439}
   - component: {fileID: 3102016205506690188}
   - component: {fileID: 6248988912844184555}
+  - component: {fileID: 1035069386558954697}
   - component: {fileID: 4852939504998711345}
   - component: {fileID: 1600656836}
   m_Layer: 0
@@ -125,6 +126,28 @@ MonoBehaviour:
   troop: {fileID: 0}
   bigExplo: {fileID: 3882308801770062715}
   lowExplo: {fileID: 7663387151166457767}
+--- !u!114 &1035069386558954697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4988630161159641438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0be12d1b5c6b0e4b8b3d3aa1f2ad471, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isNotDrone: 1
+  speed: 0
+  initialspeed: 0
+  stopSpeed: 0
+  targetMovement: {fileID: 0}
+  player: {fileID: 6149384270338028344, guid: a868d786b00ca2844a3fceeca9c93074, type: 3}
+  siloPoint: {fileID: 972193969075272232, guid: ee0d71cf0b4dab745aa760ab27b63e28,
+    type: 3}
+  baseArea: {fileID: 3925845298633877161, guid: c0e6881be090a2542b0d9b1bbd5948ba,
+    type: 3}
 --- !u!50 &4852939504998711345
 Rigidbody2D:
   serializedVersion: 4

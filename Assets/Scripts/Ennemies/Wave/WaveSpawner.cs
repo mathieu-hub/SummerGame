@@ -45,7 +45,7 @@ namespace Ennemies
         [Header("Wave Number")]
         [SerializeField]
         public static int waveIndex;
-        public int waveIndexAlt;
+
         public static int rounds; //Pour l'UI de GAME OVER
         [SerializeField]
         private TextMeshProUGUI waveNumber;
@@ -65,6 +65,8 @@ namespace Ennemies
 
         void Update()
 		{
+           
+
             ennemyAliveDisplay = ennemyAlive;
 
             //Debug.Log("Wave" + waveIndex);
@@ -93,7 +95,7 @@ namespace Ennemies
             }
 
             //Wave Number UI 
-            waveNumber.text = waveIndexAlt.ToString(); 
+            waveNumber.text = waveIndex.ToString(); 
 		}
 
         IEnumerator SpawnWave()

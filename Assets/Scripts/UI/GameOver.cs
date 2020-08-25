@@ -16,12 +16,12 @@ public class GameOver : MonoBehaviour
 
     public void Retry()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(2);
     }
 
     public void Menu()
     {
-        Debug.Log("Allons-y Let's Go, c'est parti les amis");
+        SceneManager.LoadScene(0);
     }
 }
 

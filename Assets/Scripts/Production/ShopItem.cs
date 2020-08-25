@@ -232,11 +232,11 @@ public class ShopItem : MonoBehaviour
             GameManager.Instance.totalAnimalWeight += 3;
             
         }
-        if(isBarnUpgrade)
+        if(isGardenUpgrade)
         {
             GameManager.Instance.numberOfGardens += 1;
         }
-        if (isGardenUpgrade)
+        if (isBarnUpgrade)
         {
             GameManager.Instance.maxStoredUnits += 3;
 
@@ -423,14 +423,15 @@ public class ShopItem : MonoBehaviour
                 needToChange = false;
                 currentIndex += modifierIndex;
 
-                if (currentIndex < 0)
+                if (currentIndex <= 0)
                 {
                     currentIndex = 0;
                 }
-                if (currentIndex > 4)
+                if (currentIndex >= 4)
                 {
                     currentIndex = 4;
                 }
+
                 modifierIndex = 0;
             }
         }

@@ -16,6 +16,14 @@ namespace Seller
         public List<int> intUsed = new List<int>();
         public Transform stockPosition;
 
+
+
+        [Header("Socles")]
+        [SerializeField] private GameObject socle1;
+        [SerializeField] private GameObject socle2;
+        [SerializeField] private GameObject socle3;
+        [SerializeField] private GameObject socle4;
+
         private int numberOfItemCalled = 0;
         #endregion
 
@@ -27,6 +35,11 @@ namespace Seller
         private void Start()
         {
             stockPosition = gameObject.transform;
+
+            socle1.SetActive(false);
+            socle2.SetActive(false);
+            socle3.SetActive(false);
+            socle4.SetActive(false);
         }
 
         // Update is called once per frame
@@ -40,7 +53,23 @@ namespace Seller
             if (GameManager.Instance.needToRefeshShop)
             {
                 Initialisation();
+
+                socle1.SetActive(false);
+                socle2.SetActive(false);
+                socle3.SetActive(false);
+                socle4.SetActive(false);
+            
+
             }
+
+            if(GameManager.Instance.wavesBeforeSeller == 0)
+            {
+                socle1.SetActive(true);
+                socle2.SetActive(true);
+                socle3.SetActive(true);
+                socle4.SetActive(true);
+            }
+                    
         }
 
         void Seller()

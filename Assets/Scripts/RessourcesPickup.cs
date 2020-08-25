@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Management;
 
 public class RessourcesPickup : MonoBehaviour
 {
@@ -10,20 +11,21 @@ public class RessourcesPickup : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.name == "PlayerController")
+        if (other.gameObject.CompareTag("PlayerController"))
         {
             if (currentObject == PickupObject.scraps)
             {
-                PlayerRessourcesTEST.playerRessourcesTEST.scraps += ressourceQuantity;
-                Debug.Log(PlayerRessourcesTEST.playerRessourcesTEST.scraps);
+                GameManager.Instance.scrapsCount += 1;
+
+
             }
             else if (currentObject == PickupObject.planDeRecherches)
             {
-                PlayerRessourcesTEST.playerRessourcesTEST.planDeRecherches += ressourceQuantity;
-                Debug.Log(PlayerRessourcesTEST.playerRessourcesTEST.planDeRecherches);
+                GameManager.Instance.plansCount += 1;
             }
 
             Destroy(gameObject);
+            
         }
     }
 }

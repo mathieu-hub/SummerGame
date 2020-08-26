@@ -60,6 +60,7 @@ public class ShopItem : MonoBehaviour
 
         Canvas.SetActive(false);
 
+        gameObject.transform.position = SellerBehaviour.Instance.stockPosition.position;
     }
 
     // Update is called once per frame
@@ -192,6 +193,8 @@ public class ShopItem : MonoBehaviour
         }
 
         BuyPossible();
+
+        
     }
 
     void Recall()
@@ -206,7 +209,7 @@ public class ShopItem : MonoBehaviour
         canValidate = true;
         validationTime = 0;
         SellerBehaviour.Instance.items.Add(gameObject);
-        gameObject.transform.position = SellerBehaviour.Instance.stockPosition.position;
+        gameObject.transform.position = SellerBehaviour.Instance.stockPosition.transform.position;
 
     }
 
@@ -298,6 +301,8 @@ public class ShopItem : MonoBehaviour
             
             GameManager.Instance.vegetablesCount -= vegetablesCost;
             gameObject.SetActive(false);
+
+            //Anim marchand Content;
         }
     }
 

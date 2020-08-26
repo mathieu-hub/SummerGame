@@ -16,7 +16,7 @@ namespace Seller
         public List<int> intUsed = new List<int>();
         public Transform stockPosition;
 
-
+        private SpriteRenderer spriteRendSeller;
 
         [Header("Socles")]
         [SerializeField] private GameObject socle1;
@@ -25,6 +25,8 @@ namespace Seller
         [SerializeField] private GameObject socle4;
 
         private int numberOfItemCalled = 0;
+
+        private bool isOut = false;
         #endregion
 
         private void Awake()
@@ -34,8 +36,11 @@ namespace Seller
 
         private void Start()
         {
-            stockPosition = gameObject.transform;
+            spriteRendSeller = GetComponent<SpriteRenderer>();
 
+            spriteRendSeller.enabled = false;
+
+            
             socle1.SetActive(false);
             socle2.SetActive(false);
             socle3.SetActive(false);
@@ -45,6 +50,7 @@ namespace Seller
         // Update is called once per frame
         void Update()
         {
+
             if(GameManager.Instance.wavesBeforeSeller == 0 && numberOfItemCalled < positions.Length)
             {
                 Seller();
@@ -58,8 +64,10 @@ namespace Seller
                 socle2.SetActive(false);
                 socle3.SetActive(false);
                 socle4.SetActive(false);
-            
 
+                spriteRendSeller.enabled = false;
+
+                isOut = false;
             }
 
             if(GameManager.Instance.wavesBeforeSeller == 0)
@@ -68,8 +76,21 @@ namespace Seller
                 socle2.SetActive(true);
                 socle3.SetActive(true);
                 socle4.SetActive(true);
+
+                spriteRendSeller.enabled = true;
+
+                isOut = true;
             }
-                    
+
+            if (isOut)
+            {
+                //Tu peux jouer l'anim ici en boucle
+            }
+            else
+            {
+                //Tu peux stop l'anim ici
+            }
+
         }
 
         void Seller()

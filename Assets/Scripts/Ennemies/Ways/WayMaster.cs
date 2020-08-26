@@ -37,8 +37,11 @@ public class WayMaster : MonoBehaviour
     public GameObject Crossway3;
     public GameObject Crossway4;
 
-
-
+    public GameObject Blocker1;
+    public GameObject Blocker2;
+    public GameObject Blocker3;
+    public GameObject Blocker4;
+    public GameObject Blocker5;
 
 
     void Start()
@@ -54,9 +57,6 @@ public class WayMaster : MonoBehaviour
         Crossway03 = Crossway3.GetComponent<Waypoints>().points;
         Crossway04 = Crossway4.GetComponent<Waypoints>().points;
 
-
-
-
     }
 
     private void Update()
@@ -67,19 +67,24 @@ public class WayMaster : MonoBehaviour
             way3.SetActive(false);
             way4.SetActive(false);
             way5.SetActive(false);
+            Blocker1.SetActive(false);
         }
 
         if (WaveSpawner.waveIndex == 2 || numberOfWay ==2)
         {
             way2.SetActive(true);
-           
+            Blocker2.SetActive(false);
+
+
             numberOfWay = 2;
             numberOfCrossWay = 1; 
         }
 
         if (WaveSpawner.waveIndex == 3)
         {
-            way3.SetActive(true); 
+            way3.SetActive(true);
+            Blocker3.SetActive(false);
+
             numberOfWay = 3;
             numberOfCrossWay = 2;
         }
@@ -87,14 +92,17 @@ public class WayMaster : MonoBehaviour
         if (WaveSpawner.waveIndex == 4)
         {
             way4.SetActive(true);
-           
+            Blocker4.SetActive(false);
+
             numberOfWay = 4;
             numberOfCrossWay = 3;
         }
 
         if (WaveSpawner.waveIndex == 5)
         {
-            way5.SetActive(true);            
+            way5.SetActive(true);
+            Blocker5.SetActive(false);
+
             numberOfWay = 5;
             numberOfCrossWay = 4;
         }

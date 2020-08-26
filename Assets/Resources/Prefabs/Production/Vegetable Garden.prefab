@@ -417,7 +417,7 @@ GameObject:
   - component: {fileID: 4041788214711318179}
   - component: {fileID: 4041788214711318178}
   - component: {fileID: 1966478167}
-  - component: {fileID: 1966478168}
+  - component: {fileID: 8673895175603826342}
   m_Layer: 0
   m_Name: Vegetable Garden
   m_TagString: Untagged
@@ -513,6 +513,7 @@ MonoBehaviour:
   storedCount: {fileID: 4041788216452340705}
   timerCountdown: {fileID: 3668384745001007253}
   storedVegetable: 0
+  refresh: 0
   boosted: 0
   vegetablesBoostedCount: 0
   storedTime: 0
@@ -529,11 +530,11 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 2.541791, y: 0}
+  m_Offset: {x: 2.541791, y: 1.3900036}
   serializedVersion: 2
-  m_Radius: 1.3342788
---- !u!61 &1966478168
-BoxCollider2D:
+  m_Radius: 1.6694188
+--- !u!60 &8673895175603826342
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -545,19 +546,22 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.21801364, y: -0.20057201}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.4983728, y: 0.03550014}
     oldSize: {x: 4.93, y: 3.48}
     newSize: {x: 1.28, y: 1.28}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 4.1926622, y: 2.971784}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: -2.3118334, y: -0.017040223}
+      - {x: -1.8280661, y: 2.5014682}
+      - {x: 1.8123081, y: 2.448173}
+      - {x: 1.3217459, y: -0.06235283}
 --- !u!1 &4041788214828605172
 GameObject:
   m_ObjectHideFlags: 0
@@ -1012,6 +1016,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vegetables: []
+  numberOfVegetablesCreated: 0
 --- !u!1 &5803846364595827787
 GameObject:
   m_ObjectHideFlags: 0

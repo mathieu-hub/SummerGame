@@ -12,6 +12,7 @@ namespace Ennemies
         [SerializeField] private float speed;
         [SerializeField] private float initialspeed;
         [SerializeField] private float stopSpeed = 0f;
+        [SerializeField] [Range(1f, 5f)] private float stoppingDistance;
 
         [Header("Location")]
         [SerializeField] private Transform targetMovement;
@@ -50,8 +51,20 @@ namespace Ennemies
 		{
             //Movements
             Vector3 direction = targetMovement.position - transform.position;
-            transform.Translate(direction.normalized * speed * Time.deltaTime);   
-            
+
+            if (targetMovement == player)
+            {
+                if(Vector2.Distance(transform.position, targetMovement.position) > stoppingDistance)
+                {
+                    transform.Translate(direction.normalized * speed * Time.deltaTime);
+                }
+            }
+            else
+            {
+                transform.Translate(direction.normalized * speed * Time.deltaTime);
+            }
+
+
             if (isOnTheSilo == true)
             {
                 speed = stopSpeed;

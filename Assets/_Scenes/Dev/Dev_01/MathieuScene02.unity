@@ -1527,6 +1527,11 @@ PrefabInstance:
       propertyPath: siloPoint
       value: 
       objectReference: {fileID: 8341515679735837610}
+    - target: {fileID: 1035069386558954697, guid: 232a0e4c8b4b63c4eb5996242f1f22a6,
+        type: 3}
+      propertyPath: stoppingDistance
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4988630161159641424, guid: 232a0e4c8b4b63c4eb5996242f1f22a6,
         type: 3}
       propertyPath: m_LocalPosition.x

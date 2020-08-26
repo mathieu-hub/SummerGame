@@ -39,6 +39,8 @@ public class MainMenu : MonoBehaviour
     {
         purin.rectTransform.position = positions[0].position;
         inputsScreen.enabled = false;
+
+        Debug.Log("MainMenu");
     }
 
 
@@ -56,6 +58,7 @@ public class MainMenu : MonoBehaviour
     {
         //Jouer Son Validation
         SceneManager.LoadScene(1);
+        Debug.Log("Play");
     }
 
     public void QuitGame()

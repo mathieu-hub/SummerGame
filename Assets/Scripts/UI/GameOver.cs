@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using Ennemies;
+using SuperManagement;
 
 public class GameOver : MonoBehaviour
 {
@@ -16,12 +17,16 @@ public class GameOver : MonoBehaviour
 
     public void Retry()
     {
-        SceneManager.LoadScene(2);
+        SuperGameManager.Instance.Reset();
+        SceneManager.LoadScene(1);
+        
     }
 
     public void Menu()
     {
+        SuperGameManager.Instance.Reset();
         SceneManager.LoadScene(0);
+        
     }
 }
 

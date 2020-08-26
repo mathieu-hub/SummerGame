@@ -19,10 +19,12 @@ public class LoadingScript : MonoBehaviour
         dot3.enabled = false;
 
         StartCoroutine(FirstAppering());
+        Debug.Log("Start");
     }
 
     IEnumerator FirstAppering()
     {
+
         yield return new WaitForSeconds(0.7f);
         dot1.enabled = true;
         yield return new WaitForSeconds(0.7f);

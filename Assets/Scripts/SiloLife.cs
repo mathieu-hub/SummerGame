@@ -6,7 +6,7 @@ using Ennemies;
 public class SiloLife : MonoBehaviour
 {
     public static int lives;
-    public int startLives = 100;
+    public int startLives = 10;
 
     public static bool gameIsOver;
 

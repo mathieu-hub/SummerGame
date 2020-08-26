@@ -9068,11 +9068,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8341515678852444693}
     m_Modifications:
-    - target: {fileID: 3925845298633877159, guid: c0e6881be090a2542b0d9b1bbd5948ba,
-        type: 3}
-      propertyPath: playerInBase
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3925845298633877160, guid: c0e6881be090a2542b0d9b1bbd5948ba,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -15158,6 +15153,7 @@ GameObject:
   - component: {fileID: 8341515679735837610}
   - component: {fileID: 8341515679735837613}
   - component: {fileID: 8341515679735837612}
+  - component: {fileID: 8341515679735837614}
   m_Layer: 0
   m_Name: SiloPoint
   m_TagString: Untagged
@@ -15205,6 +15201,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isStartPoint: 0
   isEndPoint: 0
+  isSiloPoint: 1
+--- !u!114 &8341515679735837614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8341515679735837611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dce79485badf124393ee719c434d865, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   isSiloPoint: 1
 --- !u!1001 &8341515679755562671
 PrefabInstance:

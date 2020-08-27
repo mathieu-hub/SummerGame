@@ -41,8 +41,10 @@ namespace Turret
 		}
 		protected override void Shoot()
         {
-            targetEnemy.TakeDammage(damage);
-        }
+			anim.SetBool("Attack", true);
+			targetEnemy.TakeDammage(damage);
+			anim.SetBool("Attack", false);
+		}
     }
 }
 

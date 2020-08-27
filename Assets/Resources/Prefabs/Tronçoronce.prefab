@@ -2141,6 +2141,7 @@ MonoBehaviour:
   partToRotate: {fileID: 3740806099683842899}
   turnSpeed: 25
   firePoint: {fileID: 3740806097854399814}
+  anim: {fileID: 1607268872}
 --- !u!114 &5948681822022492988
 MonoBehaviour:
   m_ObjectHideFlags: 0

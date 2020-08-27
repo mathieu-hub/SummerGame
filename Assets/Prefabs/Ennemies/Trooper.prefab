@@ -142,12 +142,18 @@ MonoBehaviour:
   speed: 0
   initialspeed: 0
   stopSpeed: 0
+  stoppingDistance: 2
   targetMovement: {fileID: 0}
   player: {fileID: 6149384270338028344, guid: a868d786b00ca2844a3fceeca9c93074, type: 3}
   siloPoint: {fileID: 972193969075272232, guid: ee0d71cf0b4dab745aa760ab27b63e28,
     type: 3}
   baseArea: {fileID: 3925845298633877161, guid: c0e6881be090a2542b0d9b1bbd5948ba,
     type: 3}
+  isOnTheSilo: 0
+  canMakeDamage: 1
+  doingDamage: 0
+  ennemyDamage: 0
+  speedAttack: 0
 --- !u!50 &4852939504998711345
 Rigidbody2D:
   serializedVersion: 4

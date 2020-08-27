@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Player;
 
 namespace Ennemies 
 {
@@ -8,7 +9,7 @@ namespace Ennemies
 	{
         public bool isNotDrone;
 
-        [Header("Values")]
+        [Header("Movement")]
         [SerializeField] private float speed;
         [SerializeField] private float initialspeed;
         [SerializeField] private float stopSpeed = 0f;
@@ -26,6 +27,8 @@ namespace Ennemies
         public bool doingDamage = false;
         [SerializeField] private int ennemyDamage;
         [SerializeField] private int speedAttack;
+        [SerializeField] [Range(1f, 5f)] private float distanceToAttack;
+
 
         //[Header("Animator")]
         //public Animator animator;
@@ -57,6 +60,11 @@ namespace Ennemies
                 if(Vector2.Distance(transform.position, targetMovement.position) > stoppingDistance)
                 {
                     transform.Translate(direction.normalized * speed * Time.deltaTime);
+                }
+
+                if(Vector2.Distance(transform.position, targetMovement.position) < distanceToAttack)
+                {
+                    AttackPlayer();
                 }
             }
             else
@@ -94,7 +102,21 @@ namespace Ennemies
                 doingDamage = false;
             }
         }
-        
+
+        IEnumerator AttackPlayer()
+        {
+            yield return new WaitForSeconds(speedAttack);
+            if (canMakeDamage && !doingDamage)
+            {
+                canMakeDamage = false;
+                doingDamage = true;
+                //Enlever Point de vie au Player ICI <==
+                yield return new WaitForSeconds(speedAttack);
+                canMakeDamage = true;
+                doingDamage = false;
+            }
+        }
+
     }
 }
 

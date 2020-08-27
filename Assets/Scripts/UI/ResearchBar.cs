@@ -16,21 +16,19 @@ namespace Ennemies
 
         public bool canIncrease = false;
 
-        [Header("PODS")]
-        public GameObject pods;
-        public Transform podsSpawn;
+        //[Header("PODS")]
+        //public GameObject pods;
+        //public Transform podsSpawn;
 
-        [Header("TROOPS")]
-        public GameObject troops;
-        public Transform troopsSpawn;
+        //[Header("TROOPS")]
+        //public GameObject troops;
+        //public Transform troopsSpawn;
 
 
 
         private void Awake()
         {
-            barImage = transform.Find("jauge").GetComponent<Image>();
-
-            
+            barImage = transform.Find("jauge").GetComponent<Image>();            
         }
 
         private void Update()
@@ -75,29 +73,31 @@ namespace Ennemies
             WaveSpawner.ennemyAlive -= GameMaster.Instance.DroneStation.GetComponent<DroneStation>().droneArrived.Count;
             GameMaster.Instance.DroneStation.GetComponent<DroneStation>().droneArrived.Clear();
 
-            SpawnPods();
-        }
-
-        public void SpawnPods()
-        {
-            Instantiate(pods, podsSpawn.transform.position, Quaternion.identity);
-            StartCoroutine(DropTroops());
-        }
-
-        IEnumerator DropTroops()
-        {
-            yield return new WaitForSeconds(0.3f);
-            Instantiate(troops, troopsSpawn.transform.position, Quaternion.identity);
-            yield return new WaitForSeconds(0.3f);
-            Instantiate(troops, troopsSpawn.transform.position, Quaternion.identity);
-            yield return new WaitForSeconds(0.3f);
-            Instantiate(troops, troopsSpawn.transform.position, Quaternion.identity);
-            
-            yield return new WaitForSeconds(0.3f);
-
+            //SpawnPods();
             barIsComplete = false;
-            Destroy(pods);
+
         }
+
+        //public void SpawnPods()
+        //{
+        //    Instantiate(pods, podsSpawn.transform.position, Quaternion.identity);
+        //    StartCoroutine(DropTroops());
+        //}
+
+        //IEnumerator DropTroops()
+        //{
+        //    yield return new WaitForSeconds(0.3f);
+        //    Instantiate(troops, troopsSpawn.transform.position, Quaternion.identity);
+        //    yield return new WaitForSeconds(0.3f);
+        //    Instantiate(troops, troopsSpawn.transform.position, Quaternion.identity);
+        //    yield return new WaitForSeconds(0.3f);
+        //    Instantiate(troops, troopsSpawn.transform.position, Quaternion.identity);
+            
+        //    yield return new WaitForSeconds(0.3f);
+
+        //    barIsComplete = false;
+        //    Destroy(pods);
+        //}
 
     }
 

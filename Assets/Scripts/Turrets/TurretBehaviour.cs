@@ -43,6 +43,8 @@ namespace Turret
 		public float turnSpeed = 10f;
 
 		public Transform firePoint;
+
+		[SerializeField] protected Animator anim;
 		#endregion
 
 		// Start is called before the first frame update
@@ -168,12 +170,16 @@ namespace Turret
 		/// </summary>
 		protected virtual void Shoot()
         {
+			anim.SetBool("Attack", true);
+			
 			GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
 			Bullet bullet = bulletGO.GetComponent<Bullet>();
 
             if (bullet != null)
                 bullet.Seek(target, firePoint, damage);
-        }
+
+			anim.SetBool("Attack", false);
+		}
 
 		public virtual void Upgrade(int newRange, int newDamage, int newFireRate)
         {

@@ -4623,6 +4623,7 @@ MonoBehaviour:
   partToRotate: {fileID: 8655896258678152302}
   turnSpeed: 10
   firePoint: {fileID: 8655896258329428603}
+  anim: {fileID: 6536642281994171631}
   turretParent: {fileID: 4975796885388460747}
   childTurrets:
   - {fileID: 2028745473155390355}

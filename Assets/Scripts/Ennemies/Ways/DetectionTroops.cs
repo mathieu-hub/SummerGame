@@ -11,12 +11,17 @@ namespace Ennemies
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.gameObject.GetComponent<TroopsMovement>().isNotDrone == true)
+            if (other.gameObject.GetComponent<EnnemiesHealth>().typeOfEnnemy == EnnemiesHealth.TypeOfEnnemy.Trooper)
             {
-                if (isSiloPoint == true)
+                if(other.gameObject.GetComponent<TroopsMovement>().isNotDrone == true)
                 {
-                    other.gameObject.GetComponent<TroopsMovement>().isOnTheSilo = true;
+                    if (isSiloPoint == true)
+                    {
+                        other.gameObject.GetComponent<TroopsMovement>().isOnTheSilo = true;
+                    }
                 }
+
+               
             }
         }
     }

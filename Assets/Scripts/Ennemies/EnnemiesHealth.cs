@@ -7,7 +7,7 @@ namespace Ennemies
     public class EnnemiesHealth : MonoBehaviour
     {
         //TYPE OF ENNEMY
-        public enum TypeOfEnnemy {Walker, Soldonaute, SpaceScoot, Démolisseur, Carboniseur, Rover, Drone}
+        public enum TypeOfEnnemy {Walker, Soldonaute, SpaceScoot, Démolisseur, Carboniseur, Rover, Drone, Trooper}
         public TypeOfEnnemy typeOfEnnemy;
         
 

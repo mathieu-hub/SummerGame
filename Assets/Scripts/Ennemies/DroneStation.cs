@@ -14,19 +14,25 @@ namespace Ennemies
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            //Dès qu'un drone passe dans le trigger
-            if (other.gameObject.GetComponent<DroneMovement>().isNotDrone == false && other.gameObject.GetComponent<DroneMovement>().isAdd == false)
+            if (other.gameObject.CompareTag("Enemy"))
             {
-                //je l'ajoute à un tableau.  La Bool "isAdd" permet de bloquer un sur Ajout.
+                if (other.gameObject.GetComponent<DroneMovement>().isNotDrone == false && other.gameObject.GetComponent<DroneMovement>().isAdd == false)
+                {
+                    //je l'ajoute à un tableau.  La Bool "isAdd" permet de bloquer un sur Ajout.
                     droneArrived.Add(other.gameObject);
                     other.gameObject.GetComponent<DroneMovement>().droneIsInStation = true;
-                    Debug.Log("un drone est entré");           
+                    Debug.Log("un drone est entré");
+                }
             }
+
+            //Dès qu'un drone passe dans le trigger
+            
         }
 
         private void Update()
         {
             droneInTheStation = droneArrived.Count;
+            
         }        
 
     }

@@ -37,6 +37,7 @@ namespace Ennemies
 
             if(GameMaster.Instance.DroneStation.GetComponent<DroneStation>().droneArrived.Count > 0 && barIsComplete == false)
             {
+                print("Ca passe");
                 canIncrease = true;
             }
             else

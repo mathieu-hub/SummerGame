@@ -63,8 +63,8 @@ namespace Ennemies
                 }
 
                 if(Vector2.Distance(transform.position, targetMovement.position) < distanceToAttack)
-                {
-                    AttackPlayer();
+                {                    
+                    StartCoroutine(AttackPlayer());
                 }
             }
             else
@@ -82,7 +82,7 @@ namespace Ennemies
 
         void InitialisationValues()
         {
-            initialspeed = 10f;
+            initialspeed = 3f;
             speed = initialspeed;
             ennemyDamage = 5;
             speedAttack = 2;
@@ -108,12 +108,15 @@ namespace Ennemies
             yield return new WaitForSeconds(speedAttack);
             if (canMakeDamage && !doingDamage)
             {
-                canMakeDamage = false;
-                doingDamage = true;
-                //Enlever Point de vie au Player ICI <==
-                yield return new WaitForSeconds(speedAttack);
-                canMakeDamage = true;
-                doingDamage = false;
+                if (Vector2.Distance(transform.position, targetMovement.position) < distanceToAttack)
+                {
+                    canMakeDamage = false;
+                    doingDamage = true;
+                    PlayerManager.Instance.Life.currentHealthPoint -= ennemyDamage;
+                    yield return new WaitForSeconds(speedAttack);
+                    canMakeDamage = true;
+                    doingDamage = false;
+                }                
             }
         }
 

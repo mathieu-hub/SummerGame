@@ -154,6 +154,7 @@ MonoBehaviour:
   doingDamage: 0
   ennemyDamage: 0
   speedAttack: 0
+  distanceToAttack: 2.1
 --- !u!50 &4852939504998711345
 Rigidbody2D:
   serializedVersion: 4

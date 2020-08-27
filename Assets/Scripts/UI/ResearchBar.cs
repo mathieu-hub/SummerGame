@@ -35,7 +35,7 @@ namespace Ennemies
         {
             barImage.fillAmount = TheValue / 100f;
 
-            if(GameMaster.Instance.DroneStation.GetComponent<DroneStation>().droneArrived.Count >0 && barIsComplete == false)
+            if(GameMaster.Instance.DroneStation.GetComponent<DroneStation>().droneArrived.Count > 0 && barIsComplete == false)
             {
                 canIncrease = true;
             }

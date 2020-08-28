@@ -22,7 +22,7 @@ namespace Ennemies
 
         //Squad
         public GameObject squad;
-        public GameObject troop;
+        
 
         //Particles
         [Header("Partciles")]
@@ -75,7 +75,11 @@ namespace Ennemies
         void Start()
         {
             currentHealth = maxHealth;
-            troop = null;
+
+            if (typeOfEnnemy != TypeOfEnnemy.Rover)
+            {
+                squad = null;
+            }
         }
 
 
@@ -115,21 +119,26 @@ namespace Ennemies
 
             if (typeOfEnnemy == TypeOfEnnemy.Rover)
             {
-                troop = Instantiate(squad, transform.position, Quaternion.identity);
-                troop.GetComponent<NewEnnemiMovement>().currentWay = gameObject.GetComponent<NewEnnemiMovement>().currentWay;
-                //troop.GetComponent<NewEnnemiMovement>().wayPointIndex = gameObject.GetComponent<NewEnnemiMovement>().wayPointIndex;
+                squad.GetComponent<NewEnnemiMovement>().currentWay = gameObject.GetComponent<NewEnnemiMovement>().currentWay;
+                squad.GetComponent<NewEnnemiMovement>().wayPointIndex = gameObject.GetComponent<NewEnnemiMovement>().wayPointIndex;
+
+                StartCoroutine(DropSquad());
             }
 
-            ChooseExplo();
-            Destroy(gameObject);
+            if (typeOfEnnemy != TypeOfEnnemy.Rover)
+            {
+                ChooseExplo();
+                Destroy(gameObject);
+            }
+            
 
         }
 
-        IEnumerator TakingDammage()
-        {
-            yield return new WaitForSeconds(2f);
-            isInvincible = false;
-        }
+        //IEnumerator TakingDammage()
+        //{
+        //    yield return new WaitForSeconds(2f);
+        //    isInvincible = false;
+        //}
 
         private void ChooseExplo()
         {
@@ -143,6 +152,21 @@ namespace Ennemies
                 lowExplo.SetActive(false);
                 bigExplo.SetActive(true);
             }
+        }
+
+        IEnumerator DropSquad()
+        {
+            yield return new WaitForSeconds(0.3f);
+            Instantiate(squad, transform.position, Quaternion.identity);
+            yield return new WaitForSeconds(0.3f);
+            Instantiate(squad, transform.position, Quaternion.identity);
+            yield return new WaitForSeconds(0.3f);
+            Instantiate(squad, transform.position, Quaternion.identity);
+            
+            yield return new WaitForSeconds(0.3f);
+            
+            ChooseExplo();
+            Destroy(gameObject);
         }
     }
 }

@@ -11,7 +11,7 @@ public class TutoScreen : MonoBehaviour
     [SerializeField] private string[] text;
     [SerializeField] private Image[] images;
 
-    [SerializeField] private Image ImageView;
+    
     [SerializeField] private TextMeshProUGUI textView;
 
     [SerializeField] private int currentState;
@@ -42,7 +42,7 @@ public class TutoScreen : MonoBehaviour
         text[0] = "In this game you play as an alien named Bolb." +  " He lives peacefully in the company of his animals and vegetables.";
         text[1] = "However, one day, the ORS (Organisation of Space Research) discovered Bolb’s farm on a Saturn's satellite.";
         text[2] = "Bolb does not like to be disturbed. To keep his existence secret, Bolb will have to use his plants to defend himself.";
-        text[3] = "Nevertheless the production of Bolb cannot stop facing these waves of assailants. Three resources will allow Bolb to build a worthy defense.";
+        text[3] = "Nevertheless the production of Bolb cannot stop facing these waves of assailants. Three resources will allow Bolb to build a worthy defense to keep safe his bin.";
         text[4] = "The ORS will not be doing any research and will be able to call for reinforcements. However, Bolb, is not alone. He can count on his friend Flint, the salesman.";
         text[5] = "Help Bolb keep his life peaceful.";
 
@@ -80,12 +80,14 @@ public class TutoScreen : MonoBehaviour
 
 
         //Bon
-        ImageView.sprite = images[currentState].GetComponent<Image>().sprite; ;
+
+        updateVisuel();
+       
 
 
         textView.text = text[currentState];
 
-        Debug.Log(ImageView.sprite);
+        
 
 
         if(Input.GetAxisRaw("Left_Joystick_X") > 0.15 && !changing && !canCancel)
@@ -139,7 +141,64 @@ public class TutoScreen : MonoBehaviour
 
         
     }
+    void updateVisuel()
+    {
+        if (currentState == 0)
+        {
+            images[0].gameObject.SetActive(true);
+            images[1].gameObject.SetActive(false);
+            images[2].gameObject.SetActive(false);
+            images[3].gameObject.SetActive(false);
+            images[4].gameObject.SetActive(false);
+            images[5].gameObject.SetActive(false);
+        }
 
+        if (currentState == 1)
+        {
+            images[1].gameObject.SetActive(true);
+            images[0].gameObject.SetActive(false);
+            images[2].gameObject.SetActive(false);
+            images[3].gameObject.SetActive(false);
+            images[4].gameObject.SetActive(false);
+            images[5].gameObject.SetActive(false);
+        }
+        if (currentState == 2)
+        {
+            images[2].gameObject.SetActive(true);
+            images[1].gameObject.SetActive(false);
+            images[0].gameObject.SetActive(false);
+            images[3].gameObject.SetActive(false);
+            images[4].gameObject.SetActive(false);
+            images[5].gameObject.SetActive(false);
+        }
+        if (currentState == 3)
+        {
+            images[3].gameObject.SetActive(true);
+            images[1].gameObject.SetActive(false);
+            images[2].gameObject.SetActive(false);
+            images[0].gameObject.SetActive(false);
+            images[4].gameObject.SetActive(false);
+            images[5].gameObject.SetActive(false);
+        }
+        if (currentState == 4)
+        {
+            images[4].gameObject.SetActive(true);
+            images[1].gameObject.SetActive(false);
+            images[2].gameObject.SetActive(false);
+            images[3].gameObject.SetActive(false);
+            images[5].gameObject.SetActive(false);
+            images[0].gameObject.SetActive(false);
+        }
+        if (currentState == 5)
+        {
+            images[5].gameObject.SetActive(true);
+            images[1].gameObject.SetActive(false);
+            images[2].gameObject.SetActive(false);
+            images[3].gameObject.SetActive(false);
+            images[4].gameObject.SetActive(false);
+            images[0].gameObject.SetActive(false);
+        }
+    }
     void Change()
     {
 
@@ -168,4 +227,6 @@ public class TutoScreen : MonoBehaviour
             currentState = 0;
         }
     }
+
+    
 }

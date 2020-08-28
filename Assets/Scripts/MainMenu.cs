@@ -54,6 +54,11 @@ public class MainMenu : MonoBehaviour
         
     }
 
+    public void Tuto()
+    {
+        SceneManager.LoadScene(3);
+    }
+
     public void PlayGame()
     {
         //Jouer Son Validation

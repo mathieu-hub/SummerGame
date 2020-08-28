@@ -29,6 +29,8 @@ namespace Ennemies
         [SerializeField] private int speedAttack;
         [SerializeField] [Range(1f, 5f)] private float distanceToAttack;
 
+        private SpriteRenderer spriteRend;
+        private Color startColor;
 
         //[Header("Animator")]
         //public Animator animator;
@@ -40,7 +42,11 @@ namespace Ennemies
 
         void Start()
 		{
-			if (baseArea.GetComponent<DetectionPlayer>().playerInBase == true)
+            spriteRend = GetComponent<SpriteRenderer>();
+
+            startColor = spriteRend.color;
+
+            if (baseArea.GetComponent<DetectionPlayer>().playerInBase == true)
             {
                 targetMovement = player;
             }

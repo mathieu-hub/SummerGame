@@ -30,6 +30,8 @@ namespace Ennemies
         public Transform TS02;
         public Transform TS03;
         
+        
+        
 
         private void Awake()
         {

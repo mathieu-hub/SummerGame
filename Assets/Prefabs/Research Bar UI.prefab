@@ -349,8 +349,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8a34b37daee0c740b85c88b1dde1423, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  barIsComplete: 0
-  increaseResearchBar: 0
+  TheValue: 0
+  canIncrease: 0
+  pods: {fileID: 8697274901792512985, guid: bb424798709594443b8b6685b8207c3a, type: 3}
+  podsSpawn: {fileID: 0}
+  podsSpawn2: {fileID: 0}
+  podsSpawn3: {fileID: 0}
+  troops: {fileID: 0}
+  troopsSpawn: {fileID: 0}
 --- !u!1 &3322183046231849331
 GameObject:
   m_ObjectHideFlags: 0

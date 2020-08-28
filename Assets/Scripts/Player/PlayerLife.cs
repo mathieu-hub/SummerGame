@@ -31,7 +31,6 @@ namespace Player
 
         private void Start()
         {
-
             currentHealthPoint = maxHealthPoint;
             animator.SetBool("isDead", false);
         }

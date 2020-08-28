@@ -35,12 +35,15 @@ public class CrossBrain : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             Debug.Log("Trigger");
-            collision.gameObject.GetComponent<NewEnnemiMovement>().parentRef = gameObject;
-
-            collision.gameObject.GetComponent<NewEnnemiMovement>().UpdateParent();
-            Debug.Log("UpdateParentCross");
-            collision.gameObject.GetComponent<NewEnnemiMovement>().NeedToCheck();
+            if(collision.gameObject.GetComponent<EnnemiesHealth>().typeOfEnnemy != EnnemiesHealth.TypeOfEnnemy.Drone)
+            {
+                collision.gameObject.GetComponent<NewEnnemiMovement>().parentRef = gameObject;
+                collision.gameObject.GetComponent<NewEnnemiMovement>().UpdateParent();
+                Debug.Log("UpdateParentCross");
+                collision.gameObject.GetComponent<NewEnnemiMovement>().NeedToCheck();
+            }
         }
+           
     }
 
     private void Update()

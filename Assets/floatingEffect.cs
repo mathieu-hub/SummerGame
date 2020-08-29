@@ -6,6 +6,9 @@ public class floatingEffect : MonoBehaviour
 {
     private float floatingEffet = 0f;
 
+
+    [SerializeField] private float float1;
+    [SerializeField] private float float2;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +19,6 @@ public class floatingEffect : MonoBehaviour
     void Update()
     {
         floatingEffet += 0.03f;
-        transform.position = new Vector3(transform.position.x, transform.position.y + 0.005f * Mathf.Sin(floatingEffet) * 0.2f, 0f);
+        transform.position = new Vector3(transform.position.x, transform.position.y + float1 /*0.005f*/ * Mathf.Sin(floatingEffet) * float2 /*0.2f*/, 0f);
     }
 }

@@ -78,7 +78,7 @@ namespace Ennemies
 
             if (!waveInProgress)
             {
-                if (countdown <= 0f)
+                if (countdown <= 0f && Cinématique.lastBool)
                 {
                     ennemy01Here = 0;
                     ennemy02Here = 0;

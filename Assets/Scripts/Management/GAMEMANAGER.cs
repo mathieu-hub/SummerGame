@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Player;
+using Cinemachine;
 
 
 namespace Management
@@ -50,6 +51,12 @@ namespace Management
         public int wavesBeforeSeller;
         public bool needToRefeshShop = false;
         public bool inPause = false;
+
+        [Header("Cinématique Stuff")]
+        public bool arrivedFirst = false;
+        public bool arrivedSecond = false;
+
+       public CinemachineVirtualCamera vCam;
 
         void Awake()
         {

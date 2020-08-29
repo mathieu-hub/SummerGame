@@ -100,6 +100,7 @@ namespace Ennemies
             yield return new WaitForSeconds(speedAttack);
             if (canMakeDamage && !doingDamage)
             {
+                spriteRend.color = Color.red;
                 canMakeDamage = false;
                 doingDamage = true;
                 SiloLife.lives -= ennemyDamage;
@@ -116,10 +117,12 @@ namespace Ennemies
             {
                 if (Vector2.Distance(transform.position, targetMovement.position) < distanceToAttack)
                 {
+                    spriteRend.color = Color.red;
                     canMakeDamage = false;
                     doingDamage = true;
                     PlayerManager.Instance.Life.currentHealthPoint -= ennemyDamage;
                     yield return new WaitForSeconds(speedAttack);
+                    spriteRend.color = startColor;
                     canMakeDamage = true;
                     doingDamage = false;
                 }                

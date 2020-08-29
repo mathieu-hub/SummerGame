@@ -122,8 +122,7 @@ MonoBehaviour:
   isInvincible: 0
   lootDrop: {fileID: 8275495655300942345, guid: bcca9e5e7d8af2343b7c3889d6cabee2,
     type: 3}
-  squad: {fileID: 9014347760548240107, guid: de3f4c2405de4fc45b76b1c74f70ec68, type: 3}
-  troop: {fileID: 0}
+  squad: {fileID: 4988630161159641438, guid: 9a798289f471a2742a2cf6c17ff181ca, type: 3}
   bigExplo: {fileID: 3009780242621872857}
   lowExplo: {fileID: 3994279063011763938}
 --- !u!114 &4305254644684517680

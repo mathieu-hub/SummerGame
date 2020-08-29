@@ -603,7 +603,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6034994654315437967}
-  - component: {fileID: 6465385703285371593}
   m_Layer: 0
   m_Name: PodsArrow
   m_TagString: Untagged
@@ -626,25 +625,6 @@ Transform:
   m_Father: {fileID: 6149384270338028344}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6465385703285371593
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1819064229806203350}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30830c336567d9942a00d9193f805a99, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  logo: {fileID: 8278763748004834169}
-  activateLogo: 0
-  rotationVector: {x: 0, y: 0, z: 0}
-  orientationQuaternion: {x: 0, y: 0, z: 0, w: 0}
-  horizontal: 0
-  vertical: 0
 --- !u!1 &2884904711992295224
 GameObject:
   m_ObjectHideFlags: 0
@@ -1399,7 +1379,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1612778235296424182}
-  - component: {fileID: 2322913429024133949}
   m_Layer: 0
   m_Name: MarchandArrow
   m_TagString: Untagged
@@ -1422,25 +1401,6 @@ Transform:
   m_Father: {fileID: 6149384270338028344}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2322913429024133949
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7021526199678215320}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30830c336567d9942a00d9193f805a99, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  logo: {fileID: 4036469955519053461}
-  activateLogo: 0
-  rotationVector: {x: 0, y: 0, z: 0}
-  orientationQuaternion: {x: 0, y: 0, z: 0, w: 0}
-  horizontal: 0
-  vertical: 0
 --- !u!1 &8278763748004834169
 GameObject:
   m_ObjectHideFlags: 0

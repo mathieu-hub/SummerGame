@@ -36,8 +36,8 @@ namespace Player
 
         private void LogoOrientation()
         {
-            horizontal = 
-            vertical = 
+            //horizontal = 
+            //vertical = 
 
             //Checker si un input est enclenché.
             if (activateLogo == true)

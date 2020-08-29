@@ -14,10 +14,11 @@ namespace Ennemies
         [SerializeField] private float initialspeed;
         [SerializeField] private float stopSpeed = 0f;
         [SerializeField] [Range(1f, 5f)] private float stoppingDistance;
+        [SerializeField] [Range(1f, 5f)] private float retreatDistance;
 
         [Header("Location")]
         [SerializeField] private Transform targetMovement;
-        public Transform player;
+        private Transform player;
         public Transform siloPoint;
         public GameObject baseArea;
         public bool isOnTheSilo = false;
@@ -42,6 +43,8 @@ namespace Ennemies
 
         void Start()
 		{
+            player = GameObject.FindGameObjectWithTag("PlayerController").transform;
+
             spriteRend = GetComponent<SpriteRenderer>();
 
             startColor = spriteRend.color;
@@ -67,8 +70,16 @@ namespace Ennemies
                 {
                     transform.Translate(direction.normalized * speed * Time.deltaTime);
                 }
+                else if (Vector2.Distance(transform.position, targetMovement.position) < stoppingDistance && Vector2.Distance(transform.position, targetMovement.position) > retreatDistance)
+                {
+                    transform.position = this.transform.position;
+                }
+                else if (Vector2.Distance(transform.position, targetMovement.position) < retreatDistance)
+                {
+                    transform.Translate(direction.normalized * -speed * Time.deltaTime);
+                }
 
-                if(Vector2.Distance(transform.position, targetMovement.position) < distanceToAttack)
+                if (Vector2.Distance(transform.position, targetMovement.position) < distanceToAttack)
                 {                    
                     StartCoroutine(AttackPlayer());
                 }
@@ -125,7 +136,11 @@ namespace Ennemies
                     spriteRend.color = startColor;
                     canMakeDamage = true;
                     doingDamage = false;
-                }                
+                }  
+                else
+                {
+                    PlayerManager.Instance.Life.currentHealthPoint -= 0;
+                }
             }
         }
 

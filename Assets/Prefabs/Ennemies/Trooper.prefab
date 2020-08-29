@@ -123,7 +123,6 @@ MonoBehaviour:
   lootDrop: {fileID: 2244743408426605433, guid: 46ae5e2aa4b851445acf27bf88933ff4,
     type: 3}
   squad: {fileID: 9014347760548240107, guid: de3f4c2405de4fc45b76b1c74f70ec68, type: 3}
-  troop: {fileID: 0}
   bigExplo: {fileID: 3882308801770062715}
   lowExplo: {fileID: 7663387151166457767}
 --- !u!114 &1035069386558954697
@@ -143,8 +142,8 @@ MonoBehaviour:
   initialspeed: 0
   stopSpeed: 0
   stoppingDistance: 2
+  retreatDistance: 1.5
   targetMovement: {fileID: 0}
-  player: {fileID: 6149384270338028344, guid: a868d786b00ca2844a3fceeca9c93074, type: 3}
   siloPoint: {fileID: 972193969075272232, guid: ee0d71cf0b4dab745aa760ab27b63e28,
     type: 3}
   baseArea: {fileID: 3925845298633877161, guid: c0e6881be090a2542b0d9b1bbd5948ba,

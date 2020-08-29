@@ -1,0 +1,376 @@
+fileFormatVersion: 2
+guid: 1642572f828f9c544994914a882acb95
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5275026009837775652
+    second: Warning sheet_0
+  - first:
+      213: -2996264506986850043
+    second: Warning sheet_1
+  - first:
+      213: -8479815925580426698
+    second: Warning sheet_2
+  - first:
+      213: 8447520125535393090
+    second: Warning sheet_3
+  - first:
+      213: 1874229056650706292
+    second: Warning sheet_4
+  - first:
+      213: 5441349249346090131
+    second: Warning sheet_5
+  - first:
+      213: -7042312478655967850
+    second: Warning sheet_6
+  - first:
+      213: -2332885600004816889
+    second: Warning sheet_7
+  - first:
+      213: 5566952840677585588
+    second: Warning sheet_8
+  - first:
+      213: 4129793588082128994
+    second: Warning sheet_9
+  - first:
+      213: -4326353652864401229
+    second: Warning sheet_10
+  - first:
+      213: 4907326593088098665
+    second: Warning sheet_11
+  - first:
+      213: 5801378252770815866
+    second: Warning sheet_12
+  - first:
+      213: 737686876722336661
+    second: Warning sheet_13
+  - first:
+      213: 4810873037483433609
+    second: Warning sheet_14
+  - first:
+      213: 6023379765207762319
+    second: Warning sheet_15
+  - first:
+      213: 5436990553381363152
+    second: Warning sheet_16
+  - first:
+      213: -1318328238596389248
+    second: Warning sheet_17
+  - first:
+      213: -4048864175290956550
+    second: Warning sheet_18
+  - first:
+      213: 5566736189569555834
+    second: Warning sheet_19
+  - first:
+      213: -4565739581762049024
+    second: Warning sheet_20
+  - first:
+      213: -5696769086739445308
+    second: Warning sheet_21
+  - first:
+      213: 4318841461433275768
+    second: Warning sheet_22
+  - first:
+      213: -2251310645355694016
+    second: Warning sheet_23
+  - first:
+      213: -6330056834529655676
+    second: Warning sheet_24
+  - first:
+      213: -4985349368693905281
+    second: Warning sheet_25
+  - first:
+      213: 5747578311635615551
+    second: Warning sheet_26
+  - first:
+      213: -2957128583943607464
+    second: Warning sheet_27
+  - first:
+      213: 851147417821020867
+    second: Warning sheet_28
+  - first:
+      213: -9175800579594768008
+    second: Warning sheet_29
+  - first:
+      213: 219687251973597696
+    second: Warning sheet_30
+  - first:
+      213: 6050369174136682884
+    second: Warning sheet_31
+  - first:
+      213: 1713007940189290560
+    second: Warning sheet_32
+  - first:
+      213: -957279328288845567
+    second: Warning sheet_33
+  - first:
+      213: -3569132646884420645
+    second: Warning sheet_34
+  - first:
+      213: 4512406493100238545
+    second: Warning sheet_35
+  - first:
+      213: 167017615799641087
+    second: Warning sheet_36
+  - first:
+      213: -3891887727383190771
+    second: Warning sheet_37
+  - first:
+      213: 7545982656276536202
+    second: Warning sheet_38
+  - first:
+      213: -1844552538323591659
+    second: Warning sheet_39
+  - first:
+      213: -2489745997905646552
+    second: Warning sheet_40
+  - first:
+      213: -8561562115624923919
+    second: Warning sheet_41
+  - first:
+      213: 2121490408547735241
+    second: Warning sheet_42
+  - first:
+      213: 5252501817900922628
+    second: Warning sheet_43
+  - first:
+      213: -7277921678571029564
+    second: Warning sheet_44
+  - first:
+      213: 8660533932851647620
+    second: Warning sheet_45
+  - first:
+      213: -4954024564585365585
+    second: Warning sheet_46
+  - first:
+      213: -4007469584590566094
+    second: Warning sheet_47
+  - first:
+      213: 8868524915785328096
+    second: Warning sheet_48
+  - first:
+      213: 6906433869337042978
+    second: Warning sheet_49
+  - first:
+      213: 5682717613314073034
+    second: Warning sheet_50
+  - first:
+      213: -6510967631831952526
+    second: Warning sheet_51
+  - first:
+      213: -5914946284670844337
+    second: Warning sheet_52
+  - first:
+      213: -562309770044873402
+    second: Warning sheet_53
+  - first:
+      213: 6597312066333345524
+    second: Warning sheet_54
+  - first:
+      213: -4535588315543301100
+    second: Warning sheet_55
+  - first:
+      213: -9163019012409095368
+    second: Warning sheet_56
+  - first:
+      213: -2314755341037651721
+    second: Warning sheet_57
+  - first:
+      213: 1926555956632315973
+    second: Warning sheet_58
+  - first:
+      213: 8866361762709833083
+    second: Warning sheet_59
+  - first:
+      213: 5365275473981480343
+    second: Warning sheet_60
+  - first:
+      213: -679060330783932962
+    second: Warning sheet_61
+  - first:
+      213: 7086831797878486721
+    second: Warning sheet_62
+  - first:
+      213: -484887519900444775
+    second: Warning sheet_63
+  - first:
+      213: 4207516655431035706
+    second: Warning sheet_64
+  - first:
+      213: 6481231051917510030
+    second: Warning sheet_65
+  - first:
+      213: 7414835436777963744
+    second: Warning sheet_66
+  - first:
+      213: 7564146572818666137
+    second: Warning sheet_67
+  - first:
+      213: 3499578163947263049
+    second: Warning sheet_68
+  - first:
+      213: -6612290774722779376
+    second: Warning sheet_69
+  - first:
+      213: -7593499625061597746
+    second: Warning sheet_70
+  - first:
+      213: 4992605303950886865
+    second: Warning sheet_71
+  - first:
+      213: -7654424552154980352
+    second: Warning sheet_72
+  - first:
+      213: 3960659528422284699
+    second: Warning sheet_73
+  - first:
+      213: 3829142682927927778
+    second: Warning sheet_74
+  - first:
+      213: 713045308258766148
+    second: Warning sheet_75
+  - first:
+      213: -1014213906984241099
+    second: Warning sheet_76
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Warning sheet_0
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 33
+        width: 436
+        height: 449
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42ba3592538a43940800000000000000
+      internalID: 5275026009837775652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning sheet_1
+      rect:
+        serializedVersion: 2
+        x: 531
+        y: 33
+        width: 436
+        height: 449
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50910f74e412b66d0800000000000000
+      internalID: -2996264506986850043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

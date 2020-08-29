@@ -7,7 +7,9 @@ namespace Player
 {
 	public class DirectionnalLogo : MonoBehaviour
 	{
-        [SerializeField] private Transform target;
+        [SerializeField] private GameObject target;
+
+        RaycastHit2D hit;
 
         //GameObject References
         SpriteRenderer logoRenderer;
@@ -28,15 +30,17 @@ namespace Player
         }
         void Update()
         {
-            LogoOrientation();
+            
         }
+
+
         private void LogoOrientation()
         {
-            horizontal = Input.GetAxis("Right_Joystick_X");
-            vertical = -Input.GetAxis("Right_Joystick_Y");
+            horizontal = 
+            vertical = 
 
             //Checker si un input est enclenché.
-            if (horizontal < -0.1 || horizontal > 0.1 || vertical < -0.1 || vertical > 0.1)
+            if (activateLogo == true)
             {
                 logoRenderer.enabled = true;
                 //Permet de prendre la position sur un cercle.
@@ -54,7 +58,7 @@ namespace Player
 
 
         }
-        
-	}
+
+    }
 }
 

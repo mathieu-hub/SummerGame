@@ -30,8 +30,13 @@ namespace Ennemies
         public bool doingDamage = false;
         public bool canAttackTurret = false;
         public bool canAttackRempart = false;
-
-
+        
+        [Header("Shoot")]
+        public GameObject projectile;
+        public bool shooting = false;
+        [SerializeField] private Transform targetToShoot;
+        [SerializeField] private float timeBtwShots;
+        [SerializeField] [Range(0f, 2f)] private float startTimeBtwShots;
 
         [Header("Ways")]
         [HideInInspector] public int wayPointIndex = 0;
@@ -113,6 +118,11 @@ namespace Ennemies
             else
             {
                 animator.SetBool("isMoving", false);
+            }
+
+            if (shooting == true)
+            {
+                ShootProjectile();
             }
 
             //Le Drone arrive dans DroneStation, il s'arrête.
@@ -714,6 +724,21 @@ namespace Ennemies
 
 
         }
+
+        void ShootProjectile()
+        {
+            if(timeBtwShots <= 0)
+            {
+                Instantiate(projectile, transform.position, Quaternion.identity);
+                timeBtwShots = startTimeBtwShots;
+            }
+            else
+            {
+                timeBtwShots -= Time.deltaTime;
+            }
+        }
+
+
         IEnumerator EndPath()
         {
          
@@ -739,6 +764,7 @@ namespace Ennemies
             yield return new WaitForSeconds(speedAttack);
             if (canMakeDamage && !doingDamage && parentRef.GetComponent<CrossBrain>().theRempart != null)
             {
+                shooting = true;
                 spriteRend.color = startColor;
 
                 Debug.Log("A l'attaque");
@@ -748,6 +774,7 @@ namespace Ennemies
                 yield return new WaitForSeconds(0.3f);
                 doingDamage = false;
                 canMakeDamage = true;
+                shooting = false;
                 NeedToCheck();
 
               
@@ -778,10 +805,12 @@ namespace Ennemies
         IEnumerator AttackTurret()
         {
             spriteRend.color = Color.red;
+           
 
             yield return new WaitForSeconds(speedAttack);
             if (canMakeDamage && !doingDamage && turretTarget != null)
             {
+                shooting = true;
                 spriteRend.color = startColor;
 
                 Debug.Log("A l'attaque");
@@ -791,6 +820,7 @@ namespace Ennemies
                 yield return new WaitForSeconds(0.3f);
                 doingDamage = false;
                 canMakeDamage = true;
+                shooting = false;
 
                 
             }
@@ -799,10 +829,9 @@ namespace Ennemies
                 NeedToCheck();
             }
 
-
         }
        
-
+        
 
     }
 }

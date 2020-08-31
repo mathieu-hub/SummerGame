@@ -115,7 +115,9 @@ namespace Ennemies
         }
 
         IEnumerator DropTroops()
-        {            
+        {
+            GameManager.Instance.isPods = true;
+            GameManager.Instance.podsPositions = podsSpawned;
             yield return new WaitForSeconds(0.3f);
             Instantiate(trooper, troopsSpawn.transform.position, Quaternion.identity);
             yield return new WaitForSeconds(0.3f);
@@ -123,9 +125,11 @@ namespace Ennemies
             yield return new WaitForSeconds(0.3f);
             Instantiate(trooper, troopsSpawn.transform.position, Quaternion.identity);
 
-            yield return new WaitForSeconds(0.3f);
+            yield return new WaitForSeconds(2f);
 
             barIsComplete = false;
+            GameManager.Instance.podsPositions = null;
+            GameManager.Instance.isPods = false;
             podsSpawned = null;
             Destroy(podsSpawned);
         }

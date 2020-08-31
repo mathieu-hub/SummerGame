@@ -47,6 +47,14 @@ namespace Seller
             socle4.SetActive(false);
         }
 
+        private void OnBecameVisible()
+        {
+            if (GameManager.Instance.isMarchand)
+            {
+                GameManager.Instance.isMarchand = false;
+            }
+        }
+
         // Update is called once per frame
         void Update()
         {
@@ -58,6 +66,8 @@ namespace Seller
 
             if (GameManager.Instance.needToRefeshShop)
             {
+                GameManager.Instance.isMarchand = false;
+
                 Initialisation();
 
                 socle1.SetActive(false);
@@ -95,6 +105,7 @@ namespace Seller
 
         void Seller()
         {
+            GameManager.Instance.isMarchand = true;
             Debug.Log("Seller");
 
             if (numberOfItemCalled < positions.Length)

@@ -46,9 +46,11 @@ namespace Management
         public SocleManager SocleManager = null;
 
         [Header("DéroulementDuJeu")]
-
         public GameObject siloPoint;
+        public bool isPods = false;
+        public bool siloAttacked = false;
         public int wavesBeforeSeller;
+        public bool isMarchand = false;
         public bool needToRefeshShop = false;
         public bool inPause = false;
 
@@ -58,7 +60,10 @@ namespace Management
 
         public GameObject baseArea;
 
-       public CinemachineVirtualCamera vCam;
+        public CinemachineVirtualCamera vCam;
+
+        public GameObject Seller;
+        public GameObject podsPositions = null;
 
         void Awake()
         {
@@ -85,6 +90,7 @@ namespace Management
             else
             {
                 needToRefeshShop = false;
+                
             }
 
         }

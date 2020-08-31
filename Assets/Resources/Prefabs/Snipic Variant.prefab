@@ -351,6 +351,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Snipic Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 7817008582870077479, guid: 7962c5a4611a90344a220cbadcddbdac,
+        type: 3}
+      propertyPath: m_TagString
+      value: Turret
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7962c5a4611a90344a220cbadcddbdac, type: 3}
 --- !u!114 &2458471207918819095 stripped

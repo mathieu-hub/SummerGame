@@ -56,6 +56,8 @@ namespace Management
         public bool arrivedFirst = false;
         public bool arrivedSecond = false;
 
+        public GameObject baseArea;
+
        public CinemachineVirtualCamera vCam;
 
         void Awake()

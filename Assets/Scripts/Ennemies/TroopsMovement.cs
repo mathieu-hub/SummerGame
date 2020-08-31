@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Player;
+using Management;
 
 namespace Ennemies 
 {
@@ -18,7 +19,7 @@ namespace Ennemies
 
         [Header("Location")]
         [SerializeField] private Transform targetMovement;
-        private Transform player;
+        public Transform player;
         public Transform siloPoint;
         public GameObject baseArea;
         public bool isOnTheSilo = false;
@@ -43,19 +44,22 @@ namespace Ennemies
         
         void Start()
 		{
-            player = GameObject.FindGameObjectWithTag("PlayerController").transform;
+
+            siloPoint = GameManager.Instance.siloPoint.transform;
+            player = PlayerManager.Instance.controller.transform;
 
             spriteRend = GetComponent<SpriteRenderer>();
 
             startColor = spriteRend.color;
 
-            if (baseArea.GetComponent<DetectionPlayer>().playerInBase == true)
+            if (GameManager.Instance.baseArea.GetComponent<DetectionPlayer>().playerInBase == true)
             {
                 targetMovement = player;
             }
-            else if (baseArea.GetComponent<DetectionPlayer>().playerInBase == false)
+            else if (GameManager.Instance.baseArea.GetComponent<DetectionPlayer>().playerInBase == false)
             {
                 targetMovement = siloPoint;
+                
             }
 		}
 
@@ -63,6 +67,15 @@ namespace Ennemies
 		{
             //Movements
             Vector3 direction = targetMovement.position - transform.position;
+            if (GameManager.Instance.baseArea.GetComponent<DetectionPlayer>().playerInBase == true)
+            {
+                targetMovement = player;
+            }
+            else if (GameManager.Instance.baseArea.GetComponent<DetectionPlayer>().playerInBase == false)
+            {
+                targetMovement = siloPoint;
+            }
+
 
             if (targetMovement == player)
             {

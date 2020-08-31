@@ -59,6 +59,10 @@ namespace Ennemies
             {
                 maxHealth = 15;
             }
+            else if (typeOfEnnemy == TypeOfEnnemy.Trooper)
+            {
+                maxHealth = 15;
+            }
 
             //initialisation des explo
             bigExplo.SetActive(false);

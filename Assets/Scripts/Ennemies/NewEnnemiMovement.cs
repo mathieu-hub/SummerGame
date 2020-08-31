@@ -34,7 +34,7 @@ namespace Ennemies
         [Header("Shoot")]
         public GameObject projectile;
         public bool shooting = false;
-        [SerializeField] private Transform targetToShoot;
+        public Transform targetToShoot;
         [SerializeField] private float timeBtwShots;
         [SerializeField] [Range(0f, 2f)] private float startTimeBtwShots;
 

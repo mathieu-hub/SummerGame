@@ -345,6 +345,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stroot Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 7817008582870077479, guid: 7962c5a4611a90344a220cbadcddbdac,
+        type: 3}
+      propertyPath: m_TagString
+      value: Turret
+      objectReference: {fileID: 0}
     - target: {fileID: 8054708342142068311, guid: 7962c5a4611a90344a220cbadcddbdac,
         type: 3}
       propertyPath: m_IsActive

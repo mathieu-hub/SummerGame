@@ -126,7 +126,7 @@ namespace Ennemies
             yield return new WaitForSeconds(0.3f);
 
             barIsComplete = false;
-            podsSpawned = false;
+            podsSpawned = null;
             Destroy(podsSpawned);
         }
 

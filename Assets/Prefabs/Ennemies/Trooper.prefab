@@ -117,7 +117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc87953ddef82f544863c6f50b074758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  typeOfEnnemy: 1
+  typeOfEnnemy: 7
   currentHealth: 0
   isInvincible: 0
   lootDrop: {fileID: 2244743408426605433, guid: 46ae5e2aa4b851445acf27bf88933ff4,

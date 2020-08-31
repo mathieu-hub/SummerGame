@@ -39,7 +39,7 @@ namespace Ennemies
         [SerializeField] [Range(0f, 2f)] private float startTimeBtwShots;
 
         [Header("Ways")]
-        [HideInInspector] public int wayPointIndex = 0;
+        public int wayPointIndex = 0;
         public float currentWay;
         [SerializeField] private Transform targetMovement;
         private int random;
@@ -96,6 +96,12 @@ namespace Ennemies
             spriteRend = GetComponent<SpriteRenderer>();
 
             startColor = spriteRend.color;
+
+            if(typeOfEnnemy != TypeOfEnnemy.SpaceScoot)
+            {
+                projectile = null;
+                targetToShoot = null;
+            }
         }
 
 
@@ -727,15 +733,28 @@ namespace Ennemies
 
         void ShootProjectile()
         {
-            if(timeBtwShots <= 0)
+            if(typeOfEnnemy == TypeOfEnnemy.SpaceScoot)
             {
-                Instantiate(projectile, transform.position, Quaternion.identity);
-                timeBtwShots = startTimeBtwShots;
+                if (turretTarget != null)
+                {
+                    targetToShoot = turretTarget.transform;
+                }
+                else
+                {
+                    targetToShoot = null;
+                }
+
+                if (timeBtwShots <= 0)
+                {
+                    Instantiate(projectile, transform.position, Quaternion.identity);
+                    timeBtwShots = startTimeBtwShots;
+                }
+                else
+                {
+                    timeBtwShots -= Time.deltaTime;
+                }
             }
-            else
-            {
-                timeBtwShots -= Time.deltaTime;
-            }
+            
         }
 
 

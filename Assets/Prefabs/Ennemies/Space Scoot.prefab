@@ -123,7 +123,6 @@ MonoBehaviour:
   lootDrop: {fileID: 2244743408426605433, guid: 46ae5e2aa4b851445acf27bf88933ff4,
     type: 3}
   squad: {fileID: 9014347760548240107, guid: de3f4c2405de4fc45b76b1c74f70ec68, type: 3}
-  troop: {fileID: 0}
   bigExplo: {fileID: 298823886805625660}
   lowExplo: {fileID: 2546878472983790703}
 --- !u!114 &8418155774807949522
@@ -150,6 +149,12 @@ MonoBehaviour:
   doingDamage: 0
   canAttackTurret: 0
   canAttackRempart: 0
+  projectile: {fileID: 8820920963349397918, guid: 06308098b88c17c4d8d77d0152a3181d,
+    type: 3}
+  shooting: 0
+  targetToShoot: {fileID: 0}
+  timeBtwShots: 0
+  startTimeBtwShots: 0.3
   wayPointIndex: 0
   currentWay: 0
   targetMovement: {fileID: 0}

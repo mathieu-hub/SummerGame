@@ -811,6 +811,7 @@ GameObject:
   - component: {fileID: 6675148116576768009}
   - component: {fileID: 3414264566026628971}
   - component: {fileID: 672864857625941576}
+  - component: {fileID: 3958969301073096242}
   m_Layer: 0
   m_Name: W1_01
   m_TagString: Untagged
@@ -849,8 +850,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   crosspointGauche: {fileID: 0}
   crosspointDroit: {fileID: 0}
+  isSiloPoint: 0
   leftSocle: {fileID: 0}
   rightSocle: {fileID: 0}
+  leftTurret: {fileID: 0}
+  rightTurret: {fileID: 0}
   summonPosition: {fileID: 6675148115828998102}
   theRempart: {fileID: 0}
   rempartDead: 0
@@ -954,6 +958,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3958969301073096242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6675148116576768004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edf650bea361fd1429ca115dcbe54523, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isStartPoint: 0
+  isEndPoint: 0
+  isSiloPoint: 0
 --- !u!1 &7321346128179807549
 GameObject:
   m_ObjectHideFlags: 0

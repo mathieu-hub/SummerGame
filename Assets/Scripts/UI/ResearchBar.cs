@@ -18,6 +18,8 @@ namespace Ennemies
 
         [Header("PODS")]
         public GameObject pods;
+
+        public GameObject podsSpawned;
         public Transform podsSpawn;
         public Transform podsSpawn2;
         public Transform podsSpawn3;
@@ -35,7 +37,9 @@ namespace Ennemies
 
         private void Awake()
         {
-            barImage = transform.Find("jauge").GetComponent<Image>();            
+            barImage = transform.Find("jauge").GetComponent<Image>();
+
+            trooper = Resources.Load("Prefabs/Trooper") as GameObject;
         }
 
         private void Update()
@@ -93,17 +97,17 @@ namespace Ennemies
 
             if (randomSpawn == 0)
             {
-                Instantiate(pods, podsSpawn.transform.position, Quaternion.identity);
+                podsSpawned =  Instantiate(pods, podsSpawn.transform.position, Quaternion.identity);
                 troopsSpawn = TS01;
             }
             else if (randomSpawn == 1)
             {
-                Instantiate(pods, podsSpawn2.transform.position, Quaternion.identity);
+                podsSpawned = Instantiate(pods, podsSpawn2.transform.position, Quaternion.identity);
                 troopsSpawn = TS02;
             }
             else if (randomSpawn == 2)
             {
-                Instantiate(pods, podsSpawn3.transform.position, Quaternion.identity);
+                podsSpawned = Instantiate(pods, podsSpawn3.transform.position, Quaternion.identity);
                 troopsSpawn = TS03;
             }
 
@@ -122,7 +126,8 @@ namespace Ennemies
             yield return new WaitForSeconds(0.3f);
 
             barIsComplete = false;
-            Destroy(pods);
+            podsSpawned = false;
+            Destroy(podsSpawned);
         }
 
     }

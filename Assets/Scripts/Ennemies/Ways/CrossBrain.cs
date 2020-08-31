@@ -10,6 +10,7 @@ public class CrossBrain : MonoBehaviour
     public GameObject crosspointGauche;
     public GameObject crosspointDroit;
 
+    public bool isSiloPoint = false;
 
     public GameObject leftSocle = null;
     public GameObject rightSocle = null;
@@ -35,7 +36,7 @@ public class CrossBrain : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             Debug.Log("Trigger");
-            if(collision.gameObject.GetComponent<EnnemiesHealth>().typeOfEnnemy != EnnemiesHealth.TypeOfEnnemy.Drone)
+            if(collision.gameObject.GetComponent<EnnemiesHealth>().typeOfEnnemy != EnnemiesHealth.TypeOfEnnemy.Drone )
             {
                 collision.gameObject.GetComponent<NewEnnemiMovement>().parentRef = gameObject;
                 collision.gameObject.GetComponent<NewEnnemiMovement>().UpdateParent();
@@ -48,7 +49,7 @@ public class CrossBrain : MonoBehaviour
 
     private void Update()
     {
-        if (leftSocle.GetComponent<SocleBehaviour>().turretSummoned)
+        if (!isSiloPoint && leftSocle.GetComponent<SocleBehaviour>().turretSummoned)
         {
             leftTurret = leftSocle.GetComponent<SocleBehaviour>().turretSummon;
         }
@@ -57,7 +58,7 @@ public class CrossBrain : MonoBehaviour
             leftTurret = null;
         }
 
-        if (rightSocle.GetComponent<SocleBehaviour>().turretSummoned)
+        if (!isSiloPoint && rightSocle.GetComponent<SocleBehaviour>().turretSummoned)
         {
             leftTurret = leftSocle.GetComponent<SocleBehaviour>().turretSummon;
         }
@@ -66,8 +67,11 @@ public class CrossBrain : MonoBehaviour
             rightTurret = null;
         }
 
-
-        rightTurret = rightSocle.GetComponent<SocleBehaviour>().turretSummon;
+        if (!isSiloPoint)
+        {
+            rightTurret = rightSocle.GetComponent<SocleBehaviour>().turretSummon;
+        }
+        
 
         if (SummonRempart && !rempartDead)
         {

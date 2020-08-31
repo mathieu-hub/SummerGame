@@ -96,7 +96,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -120,9 +120,10 @@ MonoBehaviour:
   lootDrop: {fileID: 8275495655300942345, guid: bcca9e5e7d8af2343b7c3889d6cabee2,
     type: 3}
   squad: {fileID: 9014347760548240107, guid: de3f4c2405de4fc45b76b1c74f70ec68, type: 3}
-  troop: {fileID: 0}
-  bigExplo: {fileID: 0}
-  lowExplo: {fileID: 0}
+  bigExplo: {fileID: 1480751688154752706, guid: 3ea97023f560f744eb40539e4c92a20a,
+    type: 3}
+  lowExplo: {fileID: 2848690599750656989, guid: 88ceb9269ce707243aa253dc08ddee9e,
+    type: 3}
 --- !u!114 &-5697959981538449029
 MonoBehaviour:
   m_ObjectHideFlags: 0

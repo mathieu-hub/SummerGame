@@ -29,7 +29,7 @@ public class IconesManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.Instance.isPods)
+        if (GameManager.Instance.isPods || GameManager.Instance.underAttack)
         {
             warning.SetActive(true);
         }
@@ -63,7 +63,18 @@ public class IconesManager : MonoBehaviour
 
         //Warning
 
-        if (GameManager.Instance.isPods)
+        if (GameManager.Instance.isPods && GameManager.Instance.underAttack == false)
+        {
+            float WarningVertical = PlayerManager.Instance.transform.position.y - GameManager.Instance.podsPositions.transform.position.y;
+            float Warninghorizontal = PlayerManager.Instance.transform.position.x - GameManager.Instance.podsPositions.transform.position.x;
+
+            rotationVectorWarning = new Vector3(0, 0, Mathf.Atan2(WarningVertical, Warninghorizontal) * 180 / Mathf.PI);
+            //Obligé d'utiliser les Quaternions pour les rotations
+            orientationQuaternionWarning = Quaternion.Euler(rotationVectorWarning);
+            //Oriente le sprite selon la position définie.
+            warning.transform.rotation = orientationQuaternionWarning;
+
+        }else
         {
             float WarningVertical = PlayerManager.Instance.transform.position.y - GameManager.Instance.podsPositions.transform.position.y;
             float Warninghorizontal = PlayerManager.Instance.transform.position.x - GameManager.Instance.podsPositions.transform.position.x;
@@ -75,7 +86,7 @@ public class IconesManager : MonoBehaviour
             warning.transform.rotation = orientationQuaternionWarning;
         }
 
-        //if Gamemanager under attack
+        
         
     }
 }

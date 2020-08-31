@@ -65,6 +65,8 @@ namespace Management
         public GameObject Seller;
         public GameObject podsPositions = null;
 
+        public bool underAttack = false;
+
         void Awake()
         {
             MakeSingleton(true);

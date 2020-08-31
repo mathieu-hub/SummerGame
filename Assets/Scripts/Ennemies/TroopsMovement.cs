@@ -40,7 +40,7 @@ namespace Ennemies
         {
             InitialisationValues();            
         }
-
+        
         void Start()
 		{
             player = GameObject.FindGameObjectWithTag("PlayerController").transform;

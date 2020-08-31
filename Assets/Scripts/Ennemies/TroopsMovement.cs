@@ -34,6 +34,8 @@ namespace Ennemies
         private SpriteRenderer spriteRend;
         private Color startColor;
 
+        public bool isAdd = false;
+
         //[Header("Animator")]
         //public Animator animator;
 

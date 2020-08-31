@@ -16,6 +16,7 @@ namespace Ennemies
         public bool isNotDrone;
         public enum TypeOfEnnemy { Walker, Soldonaute, SpaceScoot, Démolisseur, Carboniseur, Rover, Drone }
 
+        public bool isAdd;
 
         [Header("Values")]
         [SerializeField] private float speed;

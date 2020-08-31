@@ -118,7 +118,7 @@ namespace Ennemies
         {
             GameManager.Instance.isPods = true;
             GameManager.Instance.podsPositions = podsSpawned;
-            yield return new WaitForSeconds(0.3f);
+            yield return new WaitForSeconds(2f);
             Instantiate(trooper, troopsSpawn.transform.position, Quaternion.identity);
             yield return new WaitForSeconds(0.3f);
             Instantiate(trooper, troopsSpawn.transform.position, Quaternion.identity);

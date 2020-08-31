@@ -74,10 +74,12 @@ public class IconesManager : MonoBehaviour
             //Oriente le sprite selon la position définie.
             warning.transform.rotation = orientationQuaternionWarning;
 
-        }else
+        }
+
+        else
         {
-            float WarningVertical = PlayerManager.Instance.transform.position.y - GameManager.Instance.podsPositions.transform.position.y;
-            float Warninghorizontal = PlayerManager.Instance.transform.position.x - GameManager.Instance.podsPositions.transform.position.x;
+            float WarningVertical = PlayerManager.Instance.transform.position.y - GameManager.Instance.siloPoint.transform.position.y;
+            float Warninghorizontal = PlayerManager.Instance.transform.position.x - GameManager.Instance.siloPoint.transform.position.x;
 
             rotationVectorWarning = new Vector3(0, 0, Mathf.Atan2(WarningVertical, Warninghorizontal) * 180 / Mathf.PI);
             //Obligé d'utiliser les Quaternions pour les rotations

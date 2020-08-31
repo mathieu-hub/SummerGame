@@ -13,7 +13,7 @@ namespace Ennemies
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.gameObject.GetComponent<DroneMovement>().isNotDrone == false)
+            if (other.gameObject.GetComponent<EnnemiesHealth>().typeOfEnnemy == EnnemiesHealth.TypeOfEnnemy.Drone)
             {
                 if (isStartPoint == true)
                 {

@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using Management;
+using AudioManager;
 
 namespace Turret
 {
@@ -189,6 +190,8 @@ namespace Turret
         void InstantiateTurret()
         {
             turretSummoned = true;
+
+            SoundManager.Instance.Play("PlayerPlant");
 
             turretSummon = Instantiate(GameManager.Instance.SocleManager.Turret[currentIndex], transform.position, Quaternion.identity);
             GameManager.Instance.purinCount -= GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().purinsCost;

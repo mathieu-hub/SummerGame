@@ -67,6 +67,8 @@ namespace Management
 
         public bool underAttack = false;
 
+        public float volume;
+
         void Awake()
         {
             MakeSingleton(true);

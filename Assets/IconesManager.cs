@@ -14,11 +14,11 @@ public class IconesManager : MonoBehaviour
     public GameObject warning;
     public GameObject warningSprite;
 
-    public Vector3 rotationVectorWallet = Vector3.zero;
-   public Quaternion orientationQuaternionWallet;
+    private Vector3 rotationVectorWallet = Vector3.zero;
+    private Quaternion orientationQuaternionWallet;
 
-    public Vector3 rotationVectorWarning = Vector3.zero;
-    public Quaternion orientationQuaternionWarning;
+    private Vector3 rotationVectorWarning = Vector3.zero;
+    private Quaternion orientationQuaternionWarning;
 
     void Start()
     {

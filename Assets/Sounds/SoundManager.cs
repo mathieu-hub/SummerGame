@@ -11,7 +11,7 @@ namespace AudioManager
 
         private void Awake()
         {
-            DontDestroyOnLoad(gameObject);
+           
 
             MakeSingleton(true);
 

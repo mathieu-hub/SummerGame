@@ -5,6 +5,7 @@ using Player;
 using Cinemachine;
 
 
+
 namespace Management
 {
     public class GameManager : Singleton<GameManager>

@@ -1,0 +1,286 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6901889034101626133
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6901889034101626135}
+  - component: {fileID: 6901889034101626134}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6901889034101626135
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6901889034101626133}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -30.34324}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6901889034101626134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6901889034101626133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa786e8713c8e0943940b7a64b2a3275, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: TirMortier
+    clip: {fileID: 8300000, guid: 452ce8a9084bf1341b0cd9e761fa77b4, type: 3}
+    volume: 0.2
+    pitch: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - name: TirSnipic
+    clip: {fileID: 8300000, guid: 6c99c01740d299f4da1426911b4833ac, type: 3}
+    volume: 0.2
+    pitch: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - name: "TirTron\xE7o"
+    clip: {fileID: 0}
+    volume: 0.2
+    pitch: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - name: TirStroot
+    clip: {fileID: 0}
+    volume: 0.2
+    pitch: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - name: TirInvasive
+    clip: {fileID: 0}
+    volume: 0.2
+    pitch: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - name: CreateWalls
+    clip: {fileID: 8300000, guid: 15a972d34a11bbd4b9bfb08555fa6db9, type: 3}
+    volume: 0.2
+    pitch: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - name: Repare
+    clip: {fileID: 8300000, guid: 068fee590b1e36748809e709c5f474fe, type: 3}
+    volume: 0.2
+    pitch: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - name: TirStroot
+    clip: {fileID: 8300000, guid: eddb6602b6ebb00499affc3d42bc6667, type: 3}
+    volume: 0.2
+    pitch: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - name: UnlockTurret
+    clip: {fileID: 8300000, guid: f8ceeee3a6d556e45b0361a7bb562f17, type: 3}
+    volume: 0.2
+    pitch: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - name: TurretBroke
+    clip: {fileID: 8300000, guid: 5867cebef62fac945929f5862a565899, type: 3}
+    volume: 0.2
+    pitch: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - name: Attack_Carbo
+    clip: {fileID: 8300000, guid: c4c0bf1bb9b31c1468d8b38b3385f5d1, type: 3}
+    volume: 0.2
+    pitch: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - name: Attack_Demo
+    clip: {fileID: 8300000, guid: 3ed01267cf13fea41bc727334c7db496, type: 3}
+    volume: 0.2
+    pitch: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - name: Attack_Soldo
+    clip: {fileID: 8300000, guid: a31c20b1f98a2aa418deaed0b1d3683c, type: 3}
+    volume: 0.2
+    pitch: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - name: Attack_Space
+    clip: {fileID: 8300000, guid: acec1019fd98ae949993102e68df64aa, type: 3}
+    volume: 0.2
+    pitch: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - name: Analyse_Drone
+    clip: {fileID: 8300000, guid: fd5dd65f4cd194d48812cf04a2f4efc1, type: 3}
+    volume: 0.2
+    pitch: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - name: Attack_Pods
+    clip: {fileID: 8300000, guid: 997ef327d9227af40bfbaf7f24d01465, type: 3}
+    volume: 0.2
+    pitch: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - name: EnemyDead_Little
+    clip: {fileID: 8300000, guid: 43ceb8887f3734549a9871309374620f, type: 3}
+    volume: 0.2
+    pitch: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - name: EnemyDead_Big
+    clip: {fileID: 8300000, guid: fd671b8dfd7083145a068f877d4716ae, type: 3}
+    volume: 0.2
+    pitch: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - name: ReturnMenu
+    clip: {fileID: 8300000, guid: 50925953e89587743bba068158f92efa, type: 3}
+    volume: 0.2
+    pitch: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - name: AcceptMenu
+    clip: {fileID: 8300000, guid: f3adcc025f9b8e04ba60882ebcf88e02, type: 3}
+    volume: 0.2
+    pitch: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - name: StartWave
+    clip: {fileID: 8300000, guid: f3adcc025f9b8e04ba60882ebcf88e02, type: 3}
+    volume: 0.2
+    pitch: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - name: CountDown
+    clip: {fileID: 8300000, guid: f3adcc025f9b8e04ba60882ebcf88e02, type: 3}
+    volume: 0.2
+    pitch: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - name: WaveEnd
+    clip: {fileID: 8300000, guid: f3adcc025f9b8e04ba60882ebcf88e02, type: 3}
+    volume: 0.2
+    pitch: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - name: SellerBuy
+    clip: {fileID: 8300000, guid: 3a6e3929c99223d409f405f3b611126a, type: 3}
+    volume: 0.2
+    pitch: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - name: SellerCantBuy
+    clip: {fileID: 8300000, guid: 8954be9a7c5f39441aef8b8a82c3efd4, type: 3}
+    volume: 0.2
+    pitch: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - name: GameOver
+    clip: {fileID: 8300000, guid: 342c2a45b20687146b3070b884084110, type: 3}
+    volume: 0.2
+    pitch: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - name: MainMenu
+    clip: {fileID: 8300000, guid: a25bc165befcdb245a6503f44dab513f, type: 3}
+    volume: 0.2
+    pitch: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - name: PauseMusic
+    clip: {fileID: 8300000, guid: 83d57c2070ce8b843bb05754aecb5269, type: 3}
+    volume: 0.2
+    pitch: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - name: OptionsMusic
+    clip: {fileID: 8300000, guid: a3f4bf8c89472d546ada00842a57f1bb, type: 3}
+    volume: 0.2
+    pitch: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - name: InGameMusic
+    clip: {fileID: 8300000, guid: 457e1dcf4a96f2b4487ee72a478dce93, type: 3}
+    volume: 0.2
+    pitch: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - name: GetPurins
+    clip: {fileID: 8300000, guid: 2e92c652ab330be44938d3f9033c8ef2, type: 3}
+    volume: 0.2
+    pitch: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - name: GetRewards
+    clip: {fileID: 8300000, guid: c4129dde70984534f83b680c108dfd6e, type: 3}
+    volume: 0.2
+    pitch: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - name: PlayerHeal
+    clip: {fileID: 8300000, guid: bde3ae77e3cd1e24c8f927a05a4dff07, type: 3}
+    volume: 0.2
+    pitch: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - name: PlayerPlant
+    clip: {fileID: 8300000, guid: ed15b3b1384ce3d43a616447cfb4616c, type: 3}
+    volume: 0.2
+    pitch: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - name: PlayerAttack
+    clip: {fileID: 8300000, guid: 0431518d2736d6b4390530d219fbb60a, type: 3}
+    volume: 0.2
+    pitch: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - name: PlayerDead
+    clip: {fileID: 8300000, guid: 3789f124da472c54d9f523cbebcbde28, type: 3}
+    volume: 0.2
+    pitch: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - name: PlayerHit
+    clip: {fileID: 8300000, guid: cba6495d1800f1e4281ded65de532c1f, type: 3}
+    volume: 0.2
+    pitch: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - name: SellerArrived
+    clip: {fileID: 8300000, guid: 966e0c784d8704d4eb6089f774e51d00, type: 3}
+    volume: 0.2
+    pitch: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - name: SiloUnderAttack
+    clip: {fileID: 0}
+    volume: 0.2
+    pitch: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - name: '?'
+    clip: {fileID: 8300000, guid: 342c2a45b20687146b3070b884084110, type: 3}
+    volume: 0.2
+    pitch: 0.1
+    loop: 0
+    source: {fileID: 0}

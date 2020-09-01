@@ -6,9 +6,12 @@ using Management;
 using Player;
 using Seller;
 using TMPro;
+using AudioManager;
 
 public class ShopItem : MonoBehaviour
 {
+    private AudioSource audioSource;
+
     private float distance;
     public bool pulled = false;
     [SerializeField] private GameObject AButton;
@@ -55,6 +58,8 @@ public class ShopItem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+
         crossX.enabled = false;
         AButton.SetActive(false);
 
@@ -302,6 +307,9 @@ public class ShopItem : MonoBehaviour
             GameManager.Instance.vegetablesCount -= vegetablesCost;
             gameObject.SetActive(false);
 
+            SingletonAudioSource.Instance.soundmanager.setValues(audioSource, 23);
+            audioSource.Play();
+
             //Anim marchand Content;
         }
     }
@@ -461,5 +469,7 @@ public class ShopItem : MonoBehaviour
         crossX.enabled = true;
         yield return new WaitForSeconds(0.5f);
         crossX.enabled = false;
+        SingletonAudioSource.Instance.soundmanager.setValues(audioSource, 24);
+        audioSource.Play();
     }
 }

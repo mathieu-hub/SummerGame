@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Player;
+using AudioManager;
 
 namespace House
 {
@@ -11,6 +12,8 @@ namespace House
 
     public class FireCamp : MonoBehaviour
     {
+        private AudioSource audioSource;
+
         #region
         //BoxCollider reference
         public CircleCollider2D circleCol;
@@ -30,6 +33,10 @@ namespace House
 
         private void Start()
         {
+            audioSource = GetComponent<AudioSource>();
+            
+
+
             circleCol = gameObject.GetComponent<CircleCollider2D>();
         }
        
@@ -39,6 +46,9 @@ namespace House
             {
                 playerHere = true;
                 PlayerManager.Instance.Life.needToHeal = true;
+                SingletonAudioSource.Instance.soundmanager.setValues(audioSource, 32);
+              
+                audioSource.Play();
             }
         }
         private void OnTriggerExit2D(Collider2D collision)
@@ -47,7 +57,7 @@ namespace House
             {
                 playerHere = false;
                 PlayerManager.Instance.Life.needToHeal = false;
-
+                audioSource.Stop();
             }
         }
 

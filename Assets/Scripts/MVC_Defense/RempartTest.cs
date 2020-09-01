@@ -4,11 +4,14 @@ using UnityEngine.UI;
 using TMPro;
 using Management;
 using Player;
+using AudioManager;
 
 namespace Ennemies
 {
 	public class RempartTest : MonoBehaviour
 	{
+        private AudioSource audioSource;
+
         public GameObject refParent = null;
 
         [Header("PlayerRef")]
@@ -72,6 +75,7 @@ namespace Ennemies
             currentHealth = maxHealth;
             currentLevel = healCost;
 
+            audioSource = GetComponent<AudioSource>();
         }
 
         private void Update()
@@ -79,7 +83,6 @@ namespace Ennemies
             
             distance = Vector3.Distance(PlayerManager.Instance.transform.localPosition, transform.position);
 
-           
 
             if (playerHere && Input.GetButtonDown("A_Button"))
             {
@@ -264,6 +267,9 @@ namespace Ennemies
         }
         void Sell()
         {
+            SingletonAudioSource.Instance.soundmanager.setValues(audioSource, 33);
+            audioSource.Play();
+
             refParent.GetComponent<CrossBrain>().Dead();
             canDelete = false;
             deleteTime = 0;
@@ -367,9 +373,14 @@ namespace Ennemies
                 validationTime = 0;
                 currentHealth += 1;
                 canValidate = false;
+                SingletonAudioSource.Instance.soundmanager.setValues(audioSource, 6);
+                audioSource.Play();
             }
             else if (!needToHeal && validationTime == 100 && currentLevel < 3)
             {
+                SingletonAudioSource.Instance.soundmanager.setValues(audioSource, 39);
+                audioSource.Play();
+
                 //Restart Validation
                 validationTime = 0;
                 canValidate = false;
@@ -398,6 +409,8 @@ namespace Ennemies
             crossX.enabled = true;
             yield return new WaitForSeconds(0.5f);
             crossX.enabled = false;
+            SingletonAudioSource.Instance.soundmanager.setValues(audioSource, 18);
+            audioSource.Play();
         }
         #endregion 
     }

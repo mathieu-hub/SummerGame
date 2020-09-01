@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6901889034101626135}
   - component: {fileID: 6901889034101626134}
+  - component: {fileID: 3848218965258410182}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -198,19 +199,19 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 342c2a45b20687146b3070b884084110, type: 3}
     volume: 0.2
     pitch: 0.1
-    loop: 0
+    loop: 1
     source: {fileID: 0}
   - name: MainMenu
     clip: {fileID: 8300000, guid: a25bc165befcdb245a6503f44dab513f, type: 3}
     volume: 0.2
     pitch: 0.1
-    loop: 0
+    loop: 1
     source: {fileID: 0}
   - name: PauseMusic
     clip: {fileID: 8300000, guid: 83d57c2070ce8b843bb05754aecb5269, type: 3}
     volume: 0.2
     pitch: 0.1
-    loop: 0
+    loop: 1
     source: {fileID: 0}
   - name: OptionsMusic
     clip: {fileID: 8300000, guid: a3f4bf8c89472d546ada00842a57f1bb, type: 3}
@@ -222,7 +223,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 457e1dcf4a96f2b4487ee72a478dce93, type: 3}
     volume: 0.2
     pitch: 0.1
-    loop: 0
+    loop: 1
     source: {fileID: 0}
   - name: GetPurins
     clip: {fileID: 8300000, guid: 2e92c652ab330be44938d3f9033c8ef2, type: 3}
@@ -284,3 +285,17 @@ MonoBehaviour:
     pitch: 0.1
     loop: 0
     source: {fileID: 0}
+  volumeManager: 0.1
+--- !u!114 &3848218965258410182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6901889034101626133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9801d30a4d11ab438588c7ee246c52a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundmanager: {fileID: 6901889034101626134}

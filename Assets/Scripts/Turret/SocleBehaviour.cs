@@ -50,13 +50,14 @@ namespace Turret
 
         [SerializeField] private float horizontal;
 
+        [SerializeField] private AudioSource audioSource;
 
         #endregion
 
         // Start is called before the first frame update
         void Start()
         {
-
+            audioSource = GetComponent<AudioSource>();
             turretSummon = null;
             AButton.SetActive(false);
             crossX.enabled = false;
@@ -145,6 +146,8 @@ namespace Turret
                 validationTime = 0f;
                 StartCoroutine("Error");
                 return;
+
+
             }
       
             if (currentIndex == 1 && (GameManager.Instance.bourloUnlock == false || GameManager.Instance.purinCount < GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().purinsCost || GameManager.Instance.scrapsCount < GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().scrapCost))
@@ -192,7 +195,8 @@ namespace Turret
         {
             turretSummoned = true;
 
-            SoundManager.Instance.Play("PlayerPlant");
+            audioSource.clip = SingletonAudioSource.Instance.soundmanager.sounds[33].clip;
+            audioSource.Play();
 
             turretSummon = Instantiate(GameManager.Instance.SocleManager.Turret[currentIndex], transform.position, Quaternion.identity);
             GameManager.Instance.purinCount -= GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().purinsCost;
@@ -346,6 +350,9 @@ namespace Turret
             crossX.enabled = true;
             yield return new WaitForSeconds(0.5f);
             crossX.enabled = false;
+
+            audioSource.clip = SingletonAudioSource.Instance.soundmanager.sounds[18].clip;
+            audioSource.Play();
         }
     }
 }

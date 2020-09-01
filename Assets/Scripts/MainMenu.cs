@@ -3,9 +3,13 @@ using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using TMPro;
+using AudioManager;
 
 public class MainMenu : MonoBehaviour
 {
+    private AudioSource audioSource;
+    public AudioSource clicAudioSource;
+
     #region Variables
     [Header("Credits")]
     [SerializeField] private GameObject creditsPack;
@@ -19,6 +23,8 @@ public class MainMenu : MonoBehaviour
     public Image controls;
     public GameObject inputsButton;
     public Slider fullscreenSlider;
+
+    public Slider volumeSlider;
 
     [Header("Main Menu")]
     [SerializeField] private GameObject AllInteractionsMain;
@@ -37,8 +43,15 @@ public class MainMenu : MonoBehaviour
 
     private void Start()
     {
+        volumeSlider.value = 0.2f;
+
         purin.rectTransform.position = positions[0].position;
         inputsScreen.enabled = false;
+        audioSource = gameObject.GetComponent<AudioSource>();
+        SingletonAudioSource.Instance.soundmanager.setValues(audioSource, 26);
+        audioSource.Play();
+
+        
 
         Debug.Log("MainMenu");
     }
@@ -46,6 +59,10 @@ public class MainMenu : MonoBehaviour
 
     private void Update()
     {
+
+        volumeSlider.value = SingletonAudioSource.Instance.soundmanager.volumeManager;
+        audioSource.volume = volumeSlider.value;
+
         Debug.Log(EventSystem.current.currentSelectedGameObject);
 
         ReturnB();
@@ -56,11 +73,17 @@ public class MainMenu : MonoBehaviour
 
     public void Tuto()
     {
+        SingletonAudioSource.Instance.soundmanager.setValues(clicAudioSource, 19);
+        clicAudioSource.Play();
+
         SceneManager.LoadScene(3);
     }
 
     public void PlayGame()
     {
+        SingletonAudioSource.Instance.soundmanager.setValues(clicAudioSource, 19);
+        clicAudioSource.Play();
+
         //Jouer Son Validation
         SceneManager.LoadScene(1);
         Debug.Log("Play");
@@ -74,6 +97,12 @@ public class MainMenu : MonoBehaviour
 
     public void Options()
     {
+        SingletonAudioSource.Instance.soundmanager.setValues(clicAudioSource, 19);
+        clicAudioSource.Play();
+
+        SingletonAudioSource.Instance.soundmanager.setValues(audioSource, 28);
+        audioSource.Play();
+
         options = true;
         mainMenu = false;
         inputsScreen.enabled = false;
@@ -87,6 +116,9 @@ public class MainMenu : MonoBehaviour
 
     public void Credits()
     {
+        SingletonAudioSource.Instance.soundmanager.setValues(clicAudioSource, 19);
+        clicAudioSource.Play();
+
         credits = true;
         mainMenu = false;
 
@@ -98,7 +130,10 @@ public class MainMenu : MonoBehaviour
     #region Options
     public void FullScreen(bool isFullScreen)
     {
-        if(fullscreenSlider.value == 1)
+        SingletonAudioSource.Instance.soundmanager.setValues(clicAudioSource, 19);
+        clicAudioSource.Play();
+
+        if (fullscreenSlider.value == 1)
         {
             Screen.fullScreen = true;
         }
@@ -118,6 +153,9 @@ public class MainMenu : MonoBehaviour
 
     public void ShortCut()
     {
+        SingletonAudioSource.Instance.soundmanager.setValues(clicAudioSource, 19);
+        clicAudioSource.Play();
+
         Debug.Log("Shortcut");
         options = false;
         commandes = true;
@@ -134,6 +172,12 @@ public class MainMenu : MonoBehaviour
     //Working
     public void RetourOptions()
     {
+        SingletonAudioSource.Instance.soundmanager.setValues(audioSource, 26);
+        audioSource.Play();
+
+        SingletonAudioSource.Instance.soundmanager.setValues(clicAudioSource, 18);
+        clicAudioSource.Play();
+
         mainMenu = true;
         options = false;
 
@@ -145,6 +189,9 @@ public class MainMenu : MonoBehaviour
 
     public void RetourCommandes()
     {
+        SingletonAudioSource.Instance.soundmanager.setValues(clicAudioSource, 18);
+        clicAudioSource.Play();
+
         inputsScreen.enabled = false;
         inputsText.enabled = false;
         controls.enabled = false;
@@ -158,6 +205,9 @@ public class MainMenu : MonoBehaviour
     //Working
     public void RetourCredits()
     {
+        SingletonAudioSource.Instance.soundmanager.setValues(clicAudioSource, 18);
+        clicAudioSource.Play();
+
         mainMenu = true;
         credits = false;
 
@@ -169,6 +219,8 @@ public class MainMenu : MonoBehaviour
 
     public void ReturnB()
     {
+      
+
         if (Input.GetButtonDown("B_Button"))
         {
             if (credits)

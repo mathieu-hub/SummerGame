@@ -1,18 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using AudioManager;
 
 namespace Ennemies
 {
 	public class DroneMovement : MonoBehaviour	
     {
         public bool isNotDrone;
-        
+
+        public AudioSource audioSource;
 
         [Header("Values")]
         [SerializeField] private float speed;
         [SerializeField] private float initialspeed;
         [SerializeField] private float stopSpeed = 0f;
+
+        private bool sonDone = false;
 
         [Header("Ways")]
         public float currentWay;
@@ -32,6 +36,7 @@ namespace Ennemies
 
         void Awake()
         {
+            audioSource = GetComponent<AudioSource>();
             InitialisationValues();
             StartingWay();
         }
@@ -58,6 +63,13 @@ namespace Ennemies
            
             if (droneIsInStation == true)
             {
+                if(sonDone == false)
+                {
+                    sonDone = true;
+                    SingletonAudioSource.Instance.soundmanager.setValues(audioSource, 14);
+                    audioSource.Play();
+                }
+
                 speed = stopSpeed; 
                 if (isAdd == false)
                 {
@@ -68,6 +80,7 @@ namespace Ennemies
 
                 if (isAdd && ResearchBar.barIsComplete)
                 {
+                    audioSource.Stop();
                     Destroy(gameObject);
                 }
             }       

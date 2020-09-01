@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine.UI;
 using Player;
 using Management;
+using AudioManager;
 
 namespace Turret
 {
@@ -103,6 +104,7 @@ namespace Turret
 
         public float distance = 0f;
 
+        private AudioSource audioSource;
 
         [Header("Bools")]
         public bool playerHere = true;
@@ -117,6 +119,8 @@ namespace Turret
 
         private void Start()
         {
+            audioSource = GetComponent<AudioSource>();
+
             brokeParticule.SetActive(false);
 
             //Gère Ui
@@ -461,6 +465,9 @@ namespace Turret
 
         void Sell()
         {
+            SingletonAudioSource.Instance.soundmanager.setValues(audioSource, 9);
+            audioSource.Play();
+
             canDelete = false;
             deleteTime = 0;
             GameManager.Instance.purinCount += (int)purinTotalAtSell;
@@ -484,9 +491,16 @@ namespace Turret
                 validationTime = 0;
                 currentHp += 1;
                 canValidate = false;
+
+                SingletonAudioSource.Instance.soundmanager.setValues(audioSource, 6);
+                audioSource.Play();
             }
             else if(!needToHeal && validationTime == 100 && currentLevel < 3)
             {
+                SingletonAudioSource.Instance.soundmanager.setValues(audioSource, 39);
+                audioSource.Play();
+
+
                 //Restart Validation
                 validationTime = 0;
                 canValidate = false;
@@ -528,6 +542,9 @@ namespace Turret
             crossX.enabled = true;
             yield return new WaitForSeconds(0.5f);
             crossX.enabled = false;
+
+            SingletonAudioSource.Instance.soundmanager.setValues(audioSource, 18);
+            audioSource.Play();
         }
 
     }

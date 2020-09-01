@@ -4,12 +4,15 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using Management;
+using AudioManager;
 
 namespace Turret
 {
     public class WorkBenchController : MonoBehaviour
     {
         #region Variables
+
+        private AudioSource audioSource;
 
         [Header("PlayerHere")]
         [SerializeField] private bool playerHere = false;
@@ -45,7 +48,8 @@ namespace Turret
         void Start()
         {
             crossX.enabled = false;
-           
+
+            audioSource = GetComponent<AudioSource>();
         }
 
         // Update is called once per frame
@@ -96,6 +100,9 @@ namespace Turret
 
         void Buying()
         {
+
+          
+
             if (GameManager.Instance.bourloUnlock == false && validationTime == 100 && currentIndex == 1 && GameManager.Instance.plansCount >= GameManager.Instance.SocleManager.Turret[currentIndex].GetComponent<TurretParent>().planCost)
             {
               
@@ -103,7 +110,10 @@ namespace Turret
                     GameManager.Instance.bourloUnlock = true;
                     canValidate = false;
                     validationTime = 0f;
-                    return;
+
+                audioSource.clip = SingletonAudioSource.Instance.soundmanager.sounds[8].clip;
+                audioSource.Play();
+                return;
 
             }
             else
@@ -120,6 +130,8 @@ namespace Turret
                 GameManager.Instance.snipicUnlock = true;
                 canValidate = false;
                 validationTime = 0f;
+                audioSource.clip = SingletonAudioSource.Instance.soundmanager.sounds[8].clip;
+                audioSource.Play();
                 return;
 
             }
@@ -137,6 +149,8 @@ namespace Turret
                 GameManager.Instance.tronçoronceUnlock = true;
                 canValidate = false;
                 validationTime = 0f;
+                audioSource.clip = SingletonAudioSource.Instance.soundmanager.sounds[8].clip;
+                audioSource.Play();
                 return;
 
             }
@@ -154,6 +168,8 @@ namespace Turret
                 GameManager.Instance.invasiveUnlock = true;
                 canValidate = false;
                 validationTime = 0f;
+                audioSource.clip = SingletonAudioSource.Instance.soundmanager.sounds[8].clip;
+                audioSource.Play();
                 return;
 
             }
@@ -170,6 +186,7 @@ namespace Turret
             {
                 canValidate = false;
                 StartCoroutine("Error");
+
                 return;
             }
             else
@@ -348,6 +365,8 @@ namespace Turret
             crossX.enabled = true;
             yield return new WaitForSeconds(0.5f);
             crossX.enabled = false;
+            audioSource.clip = SingletonAudioSource.Instance.soundmanager.sounds[18].clip;
+            audioSource.Play();
         }
     }
 }

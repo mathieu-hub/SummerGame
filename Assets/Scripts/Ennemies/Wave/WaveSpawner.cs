@@ -4,11 +4,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using Management;
+using AudioManager;
 
 namespace Ennemies
 {
 	public class WaveSpawner : MonoBehaviour
 	{
+        private AudioSource audioSource;
+
         //Permet de Composer les différentes vagues via divers variables (types d'ennemis, nbr max, taux ...)
         [Header("Wave Compositor (mettre 6 dans enney size)")]
         public WaveCompositor[] waves;
@@ -60,12 +63,11 @@ namespace Ennemies
             waveIndex = 0;
             rounds = 0;
 
-            
+            audioSource = GetComponent<AudioSource>();
         }
 
         void Update()
 		{
-           
 
             ennemyAliveDisplay = ennemyAlive;
 
@@ -74,10 +76,15 @@ namespace Ennemies
             if (ennemyAlive <= 0)
             {
                 waveInProgress = false;
+
+                SingletonAudioSource.Instance.soundmanager.setValues(audioSource, 22);
+                audioSource.Play();
             }
 
             if (!waveInProgress)
             {
+                
+
                 if (countdown <= 0f && Cinématique.lastBool)
                 {
                     ennemy01Here = 0;
@@ -123,6 +130,9 @@ namespace Ennemies
 
             ennemySelector = Random.Range(0, 6);
             Debug.Log(ennemySelector);
+
+            SingletonAudioSource.Instance.soundmanager.setValues(audioSource, 20);
+            audioSource.Play();
 
             if (ennemySelector == 0)
             {

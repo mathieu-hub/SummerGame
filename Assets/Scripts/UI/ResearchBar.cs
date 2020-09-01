@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Management;
+using AudioManager;
 
 namespace Ennemies
 {
 	public class ResearchBar : MonoBehaviour
 	{
+        private AudioSource audioSource;
+
         public float TheValue;
         
         private Image barImage;
@@ -40,6 +43,8 @@ namespace Ennemies
             barImage = transform.Find("jauge").GetComponent<Image>();
 
             trooper = Resources.Load("Prefabs/Trooper") as GameObject;
+
+            audioSource = GetComponent<AudioSource>();
         }
 
         private void Update()
@@ -92,6 +97,9 @@ namespace Ennemies
 
         public void SpawnPods()
         {
+            SingletonAudioSource.Instance.soundmanager.setValues(audioSource, 15);
+            audioSource.Play();
+
             randomSpawn = Random.Range(0, 2);
             Debug.Log("YAAAAAA" + randomSpawn);
 

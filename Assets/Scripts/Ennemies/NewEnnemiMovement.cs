@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Management;
 using Turret;
+using AudioManager;
 
 namespace Ennemies
 {
@@ -61,6 +62,7 @@ namespace Ennemies
         public Transform droneStation = null;
         public bool droneIsInStation = false;
 
+        public AudioSource audioSource;
 
         private SpriteRenderer spriteRend;
 
@@ -86,6 +88,8 @@ namespace Ennemies
         // Start is called before the first frame update
         void Awake()
         {
+            audioSource = GetComponent<AudioSource>();
+
             InitialisationValues();
             StartingWay();
 
@@ -268,11 +272,15 @@ namespace Ennemies
                         if (canDigLeft && !canDigRight)
                         {
                             parentRef.GetComponent<CrossBrain>().crosspointGauche.GetComponent<Crosspoints>().isOpen = true;
+                            SingletonAudioSource.Instance.soundmanager.setValues(audioSource, 11);
+                            audioSource.Play();
                             NeedToCheck();
                         }
                         else if (!canDigLeft && canDigRight)
                         {
                             parentRef.GetComponent<CrossBrain>().crosspointDroit.GetComponent<Crosspoints>().isOpen = true;
+                            SingletonAudioSource.Instance.soundmanager.setValues(audioSource, 11);
+                            audioSource.Play();
                             NeedToCheck();
                         }else if(canDigLeft && canDigRight)
                         {
@@ -281,11 +289,15 @@ namespace Ennemies
                             if (randomCreating == 0)
                             {
                                 parentRef.GetComponent<CrossBrain>().crosspointGauche.GetComponent<Crosspoints>().isOpen = true;
+                                SingletonAudioSource.Instance.soundmanager.setValues(audioSource, 11);
+                                audioSource.Play();
                                 NeedToCheck();
                             }
                             else
                             {
                                 parentRef.GetComponent<CrossBrain>().crosspointDroit.GetComponent<Crosspoints>().isOpen = true;
+                                SingletonAudioSource.Instance.soundmanager.setValues(audioSource, 11);
+                                audioSource.Play();
                                 NeedToCheck();
                             }
 
@@ -749,6 +761,9 @@ namespace Ennemies
                 {
                     Instantiate(projectile, transform.position, Quaternion.identity);
                     timeBtwShots = startTimeBtwShots;
+
+                    SingletonAudioSource.Instance.soundmanager.setValues(audioSource, 12);
+                    audioSource.Play();
                 }
                 else
                 {
@@ -784,6 +799,25 @@ namespace Ennemies
             yield return new WaitForSeconds(speedAttack);
             if (canMakeDamage && !doingDamage && parentRef.GetComponent<CrossBrain>().theRempart != null)
             {
+                if (typeOfEnnemy == TypeOfEnnemy.Carboniseur)
+                {
+                    SingletonAudioSource.Instance.soundmanager.setValues(audioSource, 10);
+                    audioSource.Play();
+                }
+
+                if (typeOfEnnemy == TypeOfEnnemy.Soldonaute)
+                {
+                    SingletonAudioSource.Instance.soundmanager.setValues(audioSource, 12);
+                    audioSource.Play();
+                }
+
+                if (typeOfEnnemy == TypeOfEnnemy.Rover)
+                {
+                    SingletonAudioSource.Instance.soundmanager.setValues(audioSource, 12);
+                    audioSource.Play();
+                }
+
+
                 shooting = true;
                 spriteRend.color = startColor;
 
@@ -842,7 +876,25 @@ namespace Ennemies
                 canMakeDamage = true;
                 shooting = false;
 
-                
+                if (typeOfEnnemy == TypeOfEnnemy.Carboniseur)
+                {
+                    SingletonAudioSource.Instance.soundmanager.setValues(audioSource, 10);
+                    audioSource.Play();
+                }
+
+                if (typeOfEnnemy == TypeOfEnnemy.Soldonaute)
+                {
+                    SingletonAudioSource.Instance.soundmanager.setValues(audioSource, 12);
+                    audioSource.Play();
+                }
+
+                if (typeOfEnnemy == TypeOfEnnemy.Rover)
+                {
+                    SingletonAudioSource.Instance.soundmanager.setValues(audioSource, 12);
+                    audioSource.Play();
+                }
+
+
             }
             else
             {

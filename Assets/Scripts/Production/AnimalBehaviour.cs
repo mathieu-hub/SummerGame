@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using Management;
+using AudioManager;
 
 
 namespace Production
@@ -40,6 +41,7 @@ namespace Production
         public TextMeshProUGUI timerCountdown;
         private Color green;
 
+        private AudioSource audioSource;
         #endregion
 
         void Start()
@@ -50,7 +52,8 @@ namespace Production
 
             inProduction = false;
             green = durationBarBackground.color;
-            
+
+            audioSource = GetComponent<AudioSource>();
         }
 
         #region AddToGMList
@@ -99,7 +102,9 @@ namespace Production
                 durationBarBackground.color = green;
                 timer = new Clock(duration);
                 timer.Pause();
-                
+
+                SingletonAudioSource.Instance.soundmanager.setValues(audioSource, 30);
+                audioSource.Play();
             }
         }
 

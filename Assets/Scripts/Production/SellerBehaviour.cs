@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Management;
+using AudioManager;
 
 namespace Seller
 {/// <summary>
@@ -24,6 +25,8 @@ namespace Seller
         [SerializeField] private GameObject socle3;
         [SerializeField] private GameObject socle4;
 
+        private AudioSource audioSource;
+
         private int numberOfItemCalled = 0;
 
         private bool isOut = false;
@@ -40,6 +43,7 @@ namespace Seller
 
             spriteRendSeller.enabled = false;
 
+            audioSource = GetComponent<AudioSource>();
             
             socle1.SetActive(false);
             socle2.SetActive(false);
@@ -108,6 +112,9 @@ namespace Seller
             GameManager.Instance.isMarchand = true;
             Debug.Log("Seller");
 
+            SingletonAudioSource.Instance.soundmanager.setValues(audioSource, 37);
+            audioSource.Play();
+
             if (numberOfItemCalled < positions.Length)
             {
 
@@ -136,6 +143,8 @@ namespace Seller
 
        void Initialisation()
        {
+           
+
             numberOfItemCalled = 0;
 
             for (int i = 0; i < positions.Length; i++)

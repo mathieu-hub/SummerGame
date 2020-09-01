@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Management;
+using AudioManager;
 
 namespace Ennemies
 {
     public class EnnemiesMovement : MonoBehaviour
     {
+        private AudioSource audioSource;
+
         //Movement
         [Header("Movement")]
         [SerializeField] private float speed;
@@ -65,7 +68,7 @@ namespace Ennemies
 
         void Awake()
         {
-
+            audioSource = GetComponent<AudioSource>();
             Initialisation();
             
         }

@@ -4,10 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+using AudioManager;
 
 public class TutoScreen : MonoBehaviour
 {
-
+    private AudioSource audioSource;
     [SerializeField] private string[] text;
     [SerializeField] private Image[] images;
 
@@ -45,6 +46,11 @@ public class TutoScreen : MonoBehaviour
         text[3] = "Nevertheless the production of Bolb cannot stop facing these waves of assailants. Three resources will allow Bolb to build a worthy defense to keep safe his bin.";
         text[4] = "The ORS will not be doing any research and will be able to call for reinforcements. However, Bolb, is not alone. He can count on his friend Flint, the salesman.";
         text[5] = "Help Bolb keep his life peaceful.";
+
+        audioSource = GetComponent<AudioSource>();
+
+        SingletonAudioSource.Instance.soundmanager.setValues(audioSource, 27);
+        audioSource.Play();
 
     }
 

@@ -5,10 +5,12 @@ using Management;
 using Player;
 using TMPro;
 using UnityEngine.UI;
+using AudioManager;
 
 public class RempartBrain : MonoBehaviour
 {
     #region Variables
+    private AudioSource audioSource;
 
     //Présence du player;
     [SerializeField] private bool playerHere = false;
@@ -35,6 +37,8 @@ public class RempartBrain : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+
         Initialisation();
     }
 
@@ -67,6 +71,7 @@ public class RempartBrain : MonoBehaviour
             playerHere = false;
             GameManager.Instance.purinCount -= pCost;
             Initialisation();
+            SingletonAudioSource.Instance.soundmanager.setValues(audioSource, 5);
             gameObject.GetComponentInParent<CrossBrain>().Summon();
             
         }
@@ -167,6 +172,7 @@ public class RempartBrain : MonoBehaviour
         crossX.enabled = true;
         yield return new WaitForSeconds(0.5f);
         crossX.enabled = false;
+        SingletonAudioSource.Instance.soundmanager.setValues(audioSource, 18);
     }
     #endregion
 }

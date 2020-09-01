@@ -5,46 +5,45 @@ using Management;
 
 namespace AudioManager
 {
-    public class SoundManager : Singleton<SoundManager>
+    public class SoundManager : MonoBehaviour
     {
         public Sounds[] sounds;
+        [Range(0.01f, 1f)]
+        public float volumeManager;
 
-        private void Awake()
+        private void Start()
         {
-           
-
-            MakeSingleton(true);
 
             foreach (Sounds s in sounds)
             {
-                s.source = gameObject.AddComponent<AudioSource>();
 
-                s.source.clip = s.clip;
+                s.volume = volumeManager;
+
+            }
+
+
+        }
+
+        public void SetVolume()
+        {
+            foreach (Sounds s in sounds)
+            {
 
                 s.source.volume = GameManager.Instance.volume;
 
-                s.source.pitch = s.pitch;
-
-                s.source.loop = s.loop;
             }
-
 
         }
 
-
-        public void Play(string name)
+        public void setValues(AudioSource audioSource, int index)
         {
-            Sounds s = Array.Find(sounds, sound => sound.name == name);
-
-            if(s == null)
-            {
-                Debug.LogWarning("Sound: " + name + "not found!");
-                return;
-            }
-
-            s.source.Play();
-
+            audioSource.clip = sounds[index].clip;
+            audioSource.volume = sounds[index].volume;
+            audioSource.loop = sounds[index].loop;
+            audioSource.volume = sounds[index].volume;
         }
+
+       
     }
 
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using Management;
+using AudioManager;
 
 
 namespace Production
@@ -17,6 +18,8 @@ namespace Production
         #region Variables
 
         [HideInInspector] public bool playerHere = false;
+
+        private AudioSource audioSource;
 
         [Header("Clock")]
         [Range(0.0F, 15.0F)]
@@ -51,6 +54,11 @@ namespace Production
             //Start a clock when the Game Start.
             timer = new Clock(duration);
 
+        }
+
+        private void Start()
+        {
+            audioSource = GetComponent<AudioSource>();
         }
 
         // Update is called once per frame
@@ -124,6 +132,9 @@ namespace Production
         void GetProduction()
         {
 
+            SingletonAudioSource.Instance.soundmanager.setValues(audioSource, 33);
+            audioSource.Play();
+
             if (storedVegetable == 6)
             {
                 timer = new Clock(duration);
@@ -152,19 +163,14 @@ namespace Production
                 vegetablesBoostedCount += 1;
             }
 
-            
-
-            
-
-            
-
-
             timer = new Clock(duration);
 
         }
 
         void Boost()
         {
+            SingletonAudioSource.Instance.soundmanager.setValues(audioSource, 41);
+
             GameManager.Instance.purinCount -= 1;
             boosted = true;
             storedTime = timer.time;

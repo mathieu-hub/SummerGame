@@ -5,14 +5,15 @@ using Player;
 
 
 
-namespace Bullet{
+namespace Bullet
+{
     /// <summary>
     /// This script makes the Player's Bullet Moving and increasing damage zone;
     /// </summary>
     public class BulletBehaviour : MonoBehaviour
     {
         #region
-        [Header("")]
+        
         private float horizontal;
         private float vertical;
         private Vector2 direction;

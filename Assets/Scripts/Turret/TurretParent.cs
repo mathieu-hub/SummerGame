@@ -98,6 +98,7 @@ namespace Turret
         [SerializeField] private float validationUpgrade = 0.2f;
         [SerializeField] private TextMeshProUGUI crossX;
 
+        private bool playOnce = false;
 
         public Color startColor;
 
@@ -350,9 +351,18 @@ namespace Turret
             {
                 currentHp = 0;
                 turretBehaviour.Break(true);
+
+                if (!playOnce)
+                {
+                    playOnce = true;
+                    SingletonAudioSource.Instance.soundmanager.setValues(audioSource, 9);
+                    audioSource.Play();
+                }
+
             }
             else
             {
+                playOnce = false;
                 turretBehaviour.Break(false);
             }
 
@@ -364,6 +374,8 @@ namespace Turret
             {
                 brokeParticule.SetActive(false);
             }
+
+            
 
             #endregion
 
@@ -465,8 +477,7 @@ namespace Turret
 
         void Sell()
         {
-            SingletonAudioSource.Instance.soundmanager.setValues(audioSource, 9);
-            audioSource.Play();
+            
 
             canDelete = false;
             deleteTime = 0;

@@ -49,8 +49,7 @@ public class TutoScreen : MonoBehaviour
 
         audioSource = GetComponent<AudioSource>();
 
-        SingletonAudioSource.Instance.soundmanager.setValues(audioSource, 27);
-        audioSource.Play();
+       
 
     }
 

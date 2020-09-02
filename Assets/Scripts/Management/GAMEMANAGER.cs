@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Player;
 using Cinemachine;
+using AudioManager;
 
 
 
@@ -77,11 +78,18 @@ namespace Management
         private void Start()
         {
             wavesBeforeSeller = 5;
-        
+
+            
+
+            SingletonAudioSource.Instance.soundmanager.GetComponent<AudioSource>().clip = SingletonAudioSource.Instance.soundmanager.sounds[29].clip;
+            SingletonAudioSource.Instance.soundmanager.GetComponent<AudioSource>().Play();
         }
 
         private void Update()
         {
+
+            
+
             if (Input.GetButtonDown("X_Button"))
             {
                 wavesBeforeSeller -= 1;

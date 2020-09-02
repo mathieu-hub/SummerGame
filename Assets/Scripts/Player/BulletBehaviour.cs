@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Player;
+using Ennemies;
 
 
 
@@ -148,7 +149,7 @@ namespace Bullet
                 Debug.Log("Called Once");
                 damageDone = true;
               
-                ennemiesTouched[i].GetComponent<EnemyController>().TakeDamages = 5;
+                ennemiesTouched[i].GetComponent<EnnemiesHealth>().currentHealth -= 5;
 
                 thisEnemy = ennemiesTouched[i];
 

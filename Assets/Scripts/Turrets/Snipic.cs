@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Ennemies;
+using AudioManager;
 
 
 namespace Turret
@@ -13,7 +14,13 @@ namespace Turret
 	{
 		#region Variables
 		private EnnemiesHealth targetEnemy;
+        private AudioSource audioSource;
         #endregion
+
+        private void Start()
+        {
+            audioSource = GetComponent<AudioSource>();
+        }
 
         protected override void UpdateTarget()
         {
@@ -39,9 +46,14 @@ namespace Turret
 			target = nearestEnemy.transform;
 			targetEnemy = nearestEnemy.GetComponent<EnnemiesHealth>();
 		}
+
+
 		protected override void Shoot()
         {
-			anim.SetBool("Attack", true);
+            SingletonAudioSource.Instance.soundmanager.setValues(audioSource, 1);
+            audioSource.Play();
+
+            anim.SetBool("Attack", true);
 			targetEnemy.TakeDammage(damage);
 			anim.SetBool("Attack", false);
 		}

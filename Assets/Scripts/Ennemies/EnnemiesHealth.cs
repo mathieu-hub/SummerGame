@@ -170,7 +170,16 @@ namespace Ennemies
 
         private void ChooseExplo()
         {
-            if( typeOfEnnemy != TypeOfEnnemy.Rover || typeOfEnnemy != TypeOfEnnemy.Démolisseur)
+            if(typeOfEnnemy == TypeOfEnnemy.Drone)
+            {
+                bigExplo.SetActive(false);
+                lowExplo.SetActive(true);
+
+                SingletonAudioSource.Instance.soundmanager.setValues(gameObject.GetComponent<DroneMovement>().audioSource, 16);
+                gameObject.GetComponent<DroneMovement>().audioSource.Play();
+            }
+
+           else if( (typeOfEnnemy != TypeOfEnnemy.Rover || typeOfEnnemy != TypeOfEnnemy.Démolisseur) && typeOfEnnemy != TypeOfEnnemy.Drone)
             {
                 bigExplo.SetActive(false);
                 lowExplo.SetActive(true);

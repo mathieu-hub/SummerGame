@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using AudioManager;
 
 namespace Turret
 {
@@ -11,9 +12,11 @@ namespace Turret
 	{
         #region Variables
         [SerializeField] private GameObject explosion;
+        [SerializeField] private AudioSource audioSource;
         #endregion
         private void Awake()
         {
+            audioSource = GetComponent<AudioSource>();
             explosion.SetActive(false);
         }
 
@@ -31,6 +34,8 @@ namespace Turret
 
         protected override void DealDamage(GameObject enemy)
         {
+            SingletonAudioSource.Instance.soundmanager.setValues(audioSource, 0);
+            audioSource.Play();
             enemyDir = Vector2.zero;
             explosion.SetActive(true);
         }

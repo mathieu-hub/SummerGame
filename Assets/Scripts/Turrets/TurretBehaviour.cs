@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Ennemies;
+using AudioManager;
 
 
 namespace Turret
@@ -13,6 +14,8 @@ namespace Turret
 	{
 		#region Variables
 		/*[SerializeField]*/protected Transform target = null;
+
+        private AudioSource audioSource;
 
 		protected List<GameObject> enemiesInRange = new List<GameObject>();
 
@@ -50,7 +53,9 @@ namespace Turret
 		// Start is called before the first frame update
 		void Start()
 		{
-			rangeCollider = gameObject.GetComponent<CircleCollider2D>();
+            audioSource = GetComponent<AudioSource>();
+
+            rangeCollider = gameObject.GetComponent<CircleCollider2D>();
 			rangeCollider.radius = range;
 			InvokeRepeating("UpdateTarget", 0f, 0.133f);
 		}
@@ -171,8 +176,23 @@ namespace Turret
 		protected virtual void Shoot()
         {
 			anim.SetBool("Attack", true);
-			
-			GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+
+            if(bulletPrefab.name == "TronçoronceBullet")
+            {
+                SingletonAudioSource.Instance.soundmanager.setValues(audioSource, 2);
+                audioSource.Play();
+            }else if (bulletPrefab.name == "Bullet")
+            {
+                SingletonAudioSource.Instance.soundmanager.setValues(audioSource, 7);
+                audioSource.Play();
+            }else if(bulletPrefab.name == "MortarBullet"){
+                SingletonAudioSource.Instance.soundmanager.setValues(audioSource, 0);
+                audioSource.Play();
+            }
+
+
+
+                GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
 			Bullet bullet = bulletGO.GetComponent<Bullet>();
 
             if (bullet != null)

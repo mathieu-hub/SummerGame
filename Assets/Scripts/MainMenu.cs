@@ -7,7 +7,7 @@ using AudioManager;
 
 public class MainMenu : MonoBehaviour
 {
-    private AudioSource audioSource;
+    public AudioSource audioSource;
     public AudioSource clicAudioSource;
 
     #region Variables
@@ -47,7 +47,7 @@ public class MainMenu : MonoBehaviour
 
         purin.rectTransform.position = positions[0].position;
         inputsScreen.enabled = false;
-        audioSource = gameObject.GetComponent<AudioSource>();
+
         SingletonAudioSource.Instance.soundmanager.setValues(audioSource, 26);
         audioSource.Play();
 
@@ -60,7 +60,7 @@ public class MainMenu : MonoBehaviour
     private void Update()
     {
 
-        volumeSlider.value = SingletonAudioSource.Instance.soundmanager.volumeManager;
+         SingletonAudioSource.Instance.soundmanager.volumeManager = volumeSlider.value;
         audioSource.volume = volumeSlider.value;
 
         Debug.Log(EventSystem.current.currentSelectedGameObject);
@@ -73,8 +73,7 @@ public class MainMenu : MonoBehaviour
 
     public void Tuto()
     {
-        SingletonAudioSource.Instance.soundmanager.setValues(clicAudioSource, 19);
-        clicAudioSource.Play();
+        
 
         SceneManager.LoadScene(3);
     }
@@ -148,7 +147,7 @@ public class MainMenu : MonoBehaviour
     public void SetVolume(float volume)
     {
 
-        //audioMixer.SetFloat("volume", volume);
+        audioSource.volume = volumeSlider.value;
     }
 
     public void ShortCut()

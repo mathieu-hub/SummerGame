@@ -91,7 +91,7 @@ namespace Ennemies
 
         void InitialisationValues()
         {
-            initialspeed = 10f;
+            initialspeed = 5f;
             speed = initialspeed;
             //animator.SetBool("isDrone", true);
         }

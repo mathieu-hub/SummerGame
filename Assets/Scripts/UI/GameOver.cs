@@ -21,9 +21,10 @@ public class GameOver : MonoBehaviour
     private void OnEnable()
     {
         roundsText.text = WaveSpawner.rounds.ToString();
-        SingletonAudioSource.Instance.soundmanager.setValues(gameObject.GetComponent<NewEnnemiMovement>().audioSource, 25);
-        gameObject.GetComponent<NewEnnemiMovement>().audioSource.Play();
 
+
+        SingletonAudioSource.Instance.soundmanager.GetComponent<AudioSource>().clip = SingletonAudioSource.Instance.soundmanager.sounds[25].clip;
+        SingletonAudioSource.Instance.soundmanager.GetComponent<AudioSource>().Play();
     }
 
     public void Retry()

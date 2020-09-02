@@ -14,12 +14,12 @@ namespace AudioManager
         private void Start()
         {
 
-            foreach (Sounds s in sounds)
+            /*foreach (Sounds s in sounds)
             {
 
                 s.volume = volumeManager;
 
-            }
+            }*/
 
 
         }

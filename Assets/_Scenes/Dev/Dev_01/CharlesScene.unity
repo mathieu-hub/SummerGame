@@ -270,7 +270,8 @@ MonoBehaviour:
   isInvincible: 0
   lootDrop: {fileID: 0}
   squad: {fileID: 0}
-  troop: {fileID: 0}
+  bigExplo: {fileID: 0}
+  lowExplo: {fileID: 0}
 --- !u!114 &442026612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1003,7 +1004,8 @@ MonoBehaviour:
   isInvincible: 0
   lootDrop: {fileID: 0}
   squad: {fileID: 0}
-  troop: {fileID: 0}
+  bigExplo: {fileID: 0}
+  lowExplo: {fileID: 0}
 --- !u!114 &1387381263
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1195,7 +1197,8 @@ MonoBehaviour:
   isInvincible: 0
   lootDrop: {fileID: 0}
   squad: {fileID: 0}
-  troop: {fileID: 0}
+  bigExplo: {fileID: 0}
+  lowExplo: {fileID: 0}
 --- !u!114 &1460167429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1387,7 +1390,8 @@ MonoBehaviour:
   isInvincible: 0
   lootDrop: {fileID: 0}
   squad: {fileID: 0}
-  troop: {fileID: 0}
+  bigExplo: {fileID: 0}
+  lowExplo: {fileID: 0}
 --- !u!114 &1651578565
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1588,7 +1592,7 @@ PrefabInstance:
     - target: {fileID: 3638973496166544068, guid: 5226e912da2131346ae3b6abe22c3930,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.73
+      value: -4.12
       objectReference: {fileID: 0}
     - target: {fileID: 3638973496166544068, guid: 5226e912da2131346ae3b6abe22c3930,
         type: 3}
@@ -1648,7 +1652,7 @@ PrefabInstance:
     - target: {fileID: 3638973496166544072, guid: 5226e912da2131346ae3b6abe22c3930,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5226e912da2131346ae3b6abe22c3930, type: 3}

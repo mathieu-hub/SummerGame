@@ -4,6 +4,7 @@ using Management;
 using System.Collections;
 using System.Collections.Generic;
 using GameCanvas;
+using AudioManager;
 
 namespace Player
 {
@@ -112,6 +113,9 @@ namespace Player
 
         IEnumerator DeathEnum()
         {
+            SingletonAudioSource.Instance.soundmanager.setValues(PlayerManager.Instance.audioSource, 35);
+            PlayerManager.Instance.audioSource.Play();
+
             needToHeal = true;
             //cooldown.Play();
             PlayerManager.Instance.controller.playerDead = true;

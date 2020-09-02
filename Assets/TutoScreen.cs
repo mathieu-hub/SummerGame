@@ -33,8 +33,12 @@ public class TutoScreen : MonoBehaviour
     public float cancelTime;
     public bool canCancel = false;
 
+  
+
     private void Start()
     {
+        
+
         startcolor = leftArrowInt.color;
 
         leftArrowExt.enabled = false;
@@ -139,6 +143,10 @@ public class TutoScreen : MonoBehaviour
 
         if(cancelTime >= 100)
         {
+
+            SingletonAudioSource.Instance.soundmanager.setValues(audioSource, 18);
+            audioSource.Play();
+
             cancelTime = 0;
             currentState = 0;
             SceneManager.LoadScene(0);
@@ -216,11 +224,17 @@ public class TutoScreen : MonoBehaviour
         if (currentState != images.Length - 1)
         {
             currentState += Modifier;
+
+            SingletonAudioSource.Instance.soundmanager.setValues(audioSource, 19);
+            audioSource.Play();
         }
 
         if (currentState == images.Length - 1 && Modifier == -1)
         {
             currentState += Modifier;
+
+            SingletonAudioSource.Instance.soundmanager.setValues(audioSource, 19);
+            audioSource.Play();
         }
 
         Modifier = 0;

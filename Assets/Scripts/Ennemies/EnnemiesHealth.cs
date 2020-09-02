@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using AudioManager;
+using Management;
 
 namespace Ennemies
 {
@@ -135,8 +136,7 @@ namespace Ennemies
                 {
                     Debug.Log("On est ici la");
                     DroneStation.droneInTheStation--;
-                    SingletonAudioSource.Instance.soundmanager.setValues(gameObject.GetComponent<DroneMovement>().audioSource, 17);
-                    gameObject.GetComponent<DroneMovement>().audioSource.Play();
+                    
                     GameMaster.Instance.DroneStation.GetComponent<DroneStation>().droneArrived.Remove(gameObject);
 
                     Destroy(gameObject);
@@ -175,8 +175,8 @@ namespace Ennemies
                 bigExplo.SetActive(false);
                 lowExplo.SetActive(true);
 
-                SingletonAudioSource.Instance.soundmanager.setValues(gameObject.GetComponent<DroneMovement>().audioSource, 16);
-                gameObject.GetComponent<DroneMovement>().audioSource.Play();
+                SingletonAudioSource.Instance.soundmanager.setValues(GameManager.Instance.ExtraSounds, 16);
+                GameManager.Instance.ExtraSounds.Play();
             }
 
             else if(typeOfEnnemy == TypeOfEnnemy.Trooper)
@@ -184,8 +184,8 @@ namespace Ennemies
                 bigExplo.SetActive(false);
                 lowExplo.SetActive(true);
 
-                SingletonAudioSource.Instance.soundmanager.setValues(gameObject.GetComponent<TroopsMovement>().audioSource, 16);
-                gameObject.GetComponent<TroopsMovement>().audioSource.Play();
+                SingletonAudioSource.Instance.soundmanager.setValues(GameManager.Instance.ExtraSounds, 16);
+                GameManager.Instance.ExtraSounds.Play();
             }
 
            else if( (typeOfEnnemy != TypeOfEnnemy.Rover || typeOfEnnemy != TypeOfEnnemy.Démolisseur) && typeOfEnnemy != TypeOfEnnemy.Drone)
@@ -193,16 +193,16 @@ namespace Ennemies
                 bigExplo.SetActive(false);
                 lowExplo.SetActive(true);
 
-                SingletonAudioSource.Instance.soundmanager.setValues(gameObject.GetComponent<NewEnnemiMovement>().audioSource, 16);
-                gameObject.GetComponent<NewEnnemiMovement>().audioSource.Play();
+                SingletonAudioSource.Instance.soundmanager.setValues(GameManager.Instance.ExtraSounds, 16);
+                GameManager.Instance.ExtraSounds.Play();
             }
             else
             {
                 lowExplo.SetActive(false);
                 bigExplo.SetActive(true);
 
-                SingletonAudioSource.Instance.soundmanager.setValues(gameObject.GetComponent<NewEnnemiMovement>().audioSource, 17);
-                gameObject.GetComponent<NewEnnemiMovement>().audioSource.Play();
+                SingletonAudioSource.Instance.soundmanager.setValues(GameManager.Instance.ExtraSounds, 17);
+                GameManager.Instance.ExtraSounds.Play();
             }
         }
 

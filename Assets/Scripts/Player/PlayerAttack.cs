@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Management;
 using Player;
+using AudioManager;
 
 namespace Player
 {
@@ -130,6 +131,9 @@ namespace Player
                 //Instantiate
                 Debug.Log("Gros bullet");
             }
+            SingletonAudioSource.Instance.soundmanager.setValues(PlayerManager.Instance.audioSource, 34);
+            PlayerManager.Instance.audioSource.Play();
+
             Instantiate(bullet, instantiatePosition.transform.position, Quaternion.identity);
             lastNumberOfVegetablesEat = numberOfVegetablesEat;
             Initialisation();

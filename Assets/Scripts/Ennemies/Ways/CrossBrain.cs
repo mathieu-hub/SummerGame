@@ -4,8 +4,10 @@ using UnityEngine;
 using Management;
 using Ennemies;
 using Turret;
+using AudioManager;
 public class CrossBrain : MonoBehaviour
 {
+    private AudioSource audioSource;
 
     public GameObject crosspointGauche;
     public GameObject crosspointDroit;
@@ -28,6 +30,8 @@ public class CrossBrain : MonoBehaviour
     private void Start()
     {
         theRempart = null;
+
+        audioSource = GetComponent<AudioSource>();
     }
 
 
@@ -91,6 +95,9 @@ public class CrossBrain : MonoBehaviour
 
     public void Summon()
     {
+        SingletonAudioSource.Instance.soundmanager.setValues(audioSource, 5);
+        audioSource.Play();
+
         gameObject.GetComponent<RempartBrain>().validationTime = 0;
         theRempart = Instantiate(GameMaster.Instance.rempartPrefab, summonPosition.transform.position, Quaternion.identity);
         theRempart.GetComponent<RempartTest>().refParent = gameObject;

@@ -32,6 +32,14 @@ namespace Seller
         private bool isOut = false;
         #endregion
 
+        private void OnTriggerStay2D(Collider2D collision)
+        {
+            if (collision.gameObject.CompareTag("PlayerController"))
+            {
+                GameManager.Instance.isMarchand = false;
+            }
+        }
+
         private void Awake()
         {
             MakeSingleton(true);
@@ -62,6 +70,8 @@ namespace Seller
         // Update is called once per frame
         void Update()
         {
+
+            
 
             if(GameManager.Instance.wavesBeforeSeller == 0 && numberOfItemCalled < positions.Length)
             {

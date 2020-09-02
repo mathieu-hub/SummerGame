@@ -229,7 +229,7 @@ MonoBehaviour:
   scrapCost: 2
   range: 4
   damage: 3
-  fireRate: 10
+  fireRate: 2
   purinSell: {fileID: 8946057923488876939}
   scrapSell: {fileID: 2488389181768119098}
   purinUpgrade: {fileID: 4810555142890786548}
@@ -241,7 +241,7 @@ MonoBehaviour:
   needToHeal: 0
   upgradeRange: 050000000a000000
   upgradeDamages: 050000000a000000
-  upgradeFireRate: 050000000a000000
+  upgradeFireRate: 0300000005000000
   upgradeHpMax: 040000000600000008000000
   currentHp: 1
   maxHp: 4

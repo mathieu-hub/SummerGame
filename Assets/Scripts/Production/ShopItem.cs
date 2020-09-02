@@ -58,7 +58,7 @@ public class ShopItem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
+        audioSource = SellerBehaviour.Instance.GetComponent<AudioSource>();
 
         crossX.enabled = false;
         AButton.SetActive(false);
@@ -80,7 +80,7 @@ public class ShopItem : MonoBehaviour
             PlayerManager.Instance.controller.needToStop = false;
         }
 
-        if (Vector3.Distance(PlayerManager.Instance.transform.position, gameObject.transform.position) < 1 && pulled)
+        if (Vector3.Distance(PlayerManager.Instance.transform.position, gameObject.transform.position) < 2.5 && pulled)
         {
             AButton.SetActive(true);
 
@@ -242,12 +242,13 @@ public class ShopItem : MonoBehaviour
         }
         if(isGardenUpgrade)
         {
-            GameManager.Instance.numberOfGardens += 1;
+           
+            audioSource.Play();
         }
         if (isBarnUpgrade)
         {
-            GameManager.Instance.maxStoredUnits += 3;
-
+           
+            audioSource.Play();
         }
 
     }
@@ -291,6 +292,10 @@ public class ShopItem : MonoBehaviour
             //Debug.Log("Start ELse");
             SecondEffects();
             GameManager.Instance.vegetablesCount -= vegetablesCost;
+
+            SingletonAudioSource.Instance.soundmanager.setValues(audioSource, 23);
+            audioSource.Play();
+
             Destroy(gameObject);
         }
     }

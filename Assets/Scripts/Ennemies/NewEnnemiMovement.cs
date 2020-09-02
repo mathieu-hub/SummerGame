@@ -781,6 +781,29 @@ namespace Ennemies
             yield return new WaitForSeconds(speedAttack);
             if (canMakeDamage && !doingDamage)
             {
+                if(typeOfEnnemy == TypeOfEnnemy.Carboniseur)
+                {
+                    SingletonAudioSource.Instance.soundmanager.setValues(gameObject.GetComponent<AudioSource>(), 10);
+                    gameObject.GetComponent<AudioSource>().Play();
+                }
+                else if (typeOfEnnemy == TypeOfEnnemy.Démolisseur)
+                {
+                    SingletonAudioSource.Instance.soundmanager.setValues(gameObject.GetComponent<AudioSource>(), 11);
+                    gameObject.GetComponent<AudioSource>().Play();
+                }
+                else if (typeOfEnnemy == TypeOfEnnemy.SpaceScoot)
+                {
+                    SingletonAudioSource.Instance.soundmanager.setValues(gameObject.GetComponent<AudioSource>(), 13);
+                    gameObject.GetComponent<AudioSource>().Play();
+                }
+                else if (typeOfEnnemy == TypeOfEnnemy.Soldonaute)
+                {
+                    SingletonAudioSource.Instance.soundmanager.setValues(gameObject.GetComponent<AudioSource>(), 12);
+                    gameObject.GetComponent<AudioSource>().Play();
+                }
+
+
+
                 canMakeDamage = false;
                 doingDamage = true;
                 SiloLife.lives -= ennemyDamage;

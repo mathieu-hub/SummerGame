@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Player;
 using Management;
+using AudioManager;
 
 namespace Ennemies 
 {
@@ -130,6 +131,8 @@ namespace Ennemies
             yield return new WaitForSeconds(speedAttack);
             if (canMakeDamage && !doingDamage)
             {
+                SingletonAudioSource.Instance.soundmanager.setValues(gameObject.GetComponent<AudioSource>(), 12);
+                gameObject.GetComponent<AudioSource>().Play();
                 spriteRend.color = Color.red;
                 canMakeDamage = false;
                 doingDamage = true;
@@ -147,6 +150,9 @@ namespace Ennemies
             {
                 if (Vector2.Distance(transform.position, targetMovement.position) < distanceToAttack)
                 {
+
+                    SingletonAudioSource.Instance.soundmanager.setValues(gameObject.GetComponent<AudioSource>(), 12);
+                    gameObject.GetComponent<AudioSource>().Play();
                     spriteRend.color = Color.red;
                     canMakeDamage = false;
                     doingDamage = true;

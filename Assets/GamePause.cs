@@ -47,8 +47,8 @@ namespace Management
             PlayerManager.Instance.controller.needToStop = true;
             Time.timeScale = 0;
 
-            SingletonAudioSource.Instance.soundmanager.GetComponent<AudioSource>().clip = SingletonAudioSource.Instance.soundmanager.sounds[27].clip;
-            SingletonAudioSource.Instance.soundmanager.GetComponent<AudioSource>().Play();
+            SingletonAudioSource.Instance.soundmanager.setValues(SingletonAudioSource.Instance.GetComponent<AudioSource>(), 27);
+            SingletonAudioSource.Instance.GetComponent<AudioSource>().Play();
 
         }
 
@@ -58,8 +58,8 @@ namespace Management
             PlayerManager.Instance.controller.needToStop = false;
             Time.timeScale = 1;
 
-            SingletonAudioSource.Instance.soundmanager.GetComponent<AudioSource>().clip = SingletonAudioSource.Instance.soundmanager.sounds[29].clip;
-            SingletonAudioSource.Instance.soundmanager.GetComponent<AudioSource>().Play();
+            SingletonAudioSource.Instance.soundmanager.setValues(SingletonAudioSource.Instance.GetComponent<AudioSource>(), 29);
+            SingletonAudioSource.Instance.GetComponent<AudioSource>().Play();
         }
     }
 }

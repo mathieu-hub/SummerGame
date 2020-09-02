@@ -48,6 +48,8 @@ public class MainMenu : MonoBehaviour
         purin.rectTransform.position = positions[0].position;
         inputsScreen.enabled = false;
 
+        audioSource = SingletonAudioSource.Instance.soundmanager.GetComponent<AudioSource>();
+
         SingletonAudioSource.Instance.soundmanager.setValues(audioSource, 26);
         audioSource.Play();
 
@@ -61,7 +63,7 @@ public class MainMenu : MonoBehaviour
     {
 
          SingletonAudioSource.Instance.soundmanager.volumeManager = volumeSlider.value;
-        audioSource.volume = volumeSlider.value;
+           audioSource.volume = volumeSlider.value;
 
         Debug.Log(EventSystem.current.currentSelectedGameObject);
 

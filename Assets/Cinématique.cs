@@ -70,7 +70,7 @@ public class Cinématique : MonoBehaviour
         {
             GameManager.Instance.vCam.m_Lens.OrthographicSize = 7;
             GameManager.Instance.vCam.Follow = PlayerManager.Instance.transform;
-            camScale.camMode = 0;
+       
             PlayerManager.Instance.controller.needToStop = false;
         }
     }

@@ -186,13 +186,13 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: SellerBuy
     clip: {fileID: 8300000, guid: 3a6e3929c99223d409f405f3b611126a, type: 3}
-    volume: 0.2
+    volume: 0.4
     pitch: 0.1
     loop: 0
     source: {fileID: 0}
   - name: SellerCantBuy
     clip: {fileID: 8300000, guid: 8954be9a7c5f39441aef8b8a82c3efd4, type: 3}
-    volume: 0.2
+    volume: 0.4
     pitch: 0.1
     loop: 0
     source: {fileID: 0}
@@ -287,12 +287,12 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: Boost
-    clip: {fileID: 8300000, guid: 19588c73344a4e24a87fd972d7499516, type: 3}
+    clip: {fileID: 8300000, guid: e030cb5110cddfa4cb1cab3ba76e6bdc, type: 3}
     volume: 0.2
     pitch: 0.1
     loop: 0
     source: {fileID: 0}
-  volumeManager: 0.1
+  volumeManager: 0.02
 --- !u!114 &3848218965258410182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -318,7 +318,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0

@@ -8,7 +8,7 @@ public class CamScale : MonoBehaviour
 {
     public CinemachineVirtualCamera shortCam;
     public CinemachineVirtualCamera largeCam;
-    public int camMode;
+    public int camMode = 1;
 
     void Update()
     {

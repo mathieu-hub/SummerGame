@@ -10,6 +10,8 @@ namespace Ennemies
 	{
         public bool isNotDrone;
 
+        public AudioSource audioSource;
+
         [Header("Movement")]
         [SerializeField] private float speed;
         [SerializeField] private float initialspeed;
@@ -41,6 +43,8 @@ namespace Ennemies
 
         void Awake()
         {
+            audioSource = GetComponent<AudioSource>();
+
             InitialisationValues();            
         }
         

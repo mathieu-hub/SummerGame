@@ -169,7 +169,8 @@ namespace Production
 
         void Boost()
         {
-            SingletonAudioSource.Instance.soundmanager.setValues(audioSource, 41);
+            SingletonAudioSource.Instance.soundmanager.setValues(audioSource, 40);
+            audioSource.Play();
 
             GameManager.Instance.purinCount -= 1;
             boosted = true;

@@ -179,6 +179,15 @@ namespace Ennemies
                 gameObject.GetComponent<DroneMovement>().audioSource.Play();
             }
 
+            else if(typeOfEnnemy == TypeOfEnnemy.Trooper)
+            {
+                bigExplo.SetActive(false);
+                lowExplo.SetActive(true);
+
+                SingletonAudioSource.Instance.soundmanager.setValues(gameObject.GetComponent<TroopsMovement>().audioSource, 16);
+                gameObject.GetComponent<TroopsMovement>().audioSource.Play();
+            }
+
            else if( (typeOfEnnemy != TypeOfEnnemy.Rover || typeOfEnnemy != TypeOfEnnemy.Démolisseur) && typeOfEnnemy != TypeOfEnnemy.Drone)
             {
                 bigExplo.SetActive(false);

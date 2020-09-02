@@ -139,6 +139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isNotDrone: 1
+  audioSource: {fileID: 0}
   speed: 0
   initialspeed: 0
   stopSpeed: 0
@@ -440,6 +441,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Death_Rover_Destructeur
+      objectReference: {fileID: 0}
+    - target: {fileID: 7243850586458471164, guid: e39cfbfe20317c245ac751d9d30be486,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e39cfbfe20317c245ac751d9d30be486, type: 3}

@@ -11,6 +11,8 @@ namespace AudioManager
         [Range(0.01f, 1f)]
         public float volumeManager;
 
+        public AudioSource ExtraSounds;
+
         private void Start()
         {
 

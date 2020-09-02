@@ -38,6 +38,8 @@ namespace Management
         public GameObject respawnPoint;
         #endregion
 
+        public AudioSource ExtraSounds;
+
         [Header("Towers")]
         public bool strootUnlock = true;
         public bool bourloUnlock = false;

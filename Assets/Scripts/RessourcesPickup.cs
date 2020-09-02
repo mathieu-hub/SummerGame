@@ -14,7 +14,7 @@ public class RessourcesPickup : MonoBehaviour
 
     private void Start()
     {
-        audioSource = GetComponent<AudioSource>();
+        audioSource = GameManager.Instance.ExtraSounds;
     }
 
     private void OnTriggerEnter2D(Collider2D other)

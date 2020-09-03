@@ -170,36 +170,20 @@ namespace Ennemies
 
         private void ChooseExplo()
         {
-            if(typeOfEnnemy == TypeOfEnnemy.Drone)
+           
+            //low
+            if( typeOfEnnemy == TypeOfEnnemy.Soldonaute || typeOfEnnemy == TypeOfEnnemy.SpaceScoot || typeOfEnnemy == TypeOfEnnemy.Carboniseur || typeOfEnnemy == TypeOfEnnemy.Trooper)
             {
-                bigExplo.SetActive(false);
-                lowExplo.SetActive(true);
+                Instantiate(lowExplo, transform.position, Quaternion.identity);
 
                 SingletonAudioSource.Instance.soundmanager.setValues(GameManager.Instance.ExtraSounds, 16);
                 GameManager.Instance.ExtraSounds.Play();
             }
-
-            else if(typeOfEnnemy == TypeOfEnnemy.Trooper)
+            else //big 
             {
-                bigExplo.SetActive(false);
-                lowExplo.SetActive(true);
 
-                SingletonAudioSource.Instance.soundmanager.setValues(GameManager.Instance.ExtraSounds, 16);
-                GameManager.Instance.ExtraSounds.Play();
-            }
-
-           else if( (typeOfEnnemy != TypeOfEnnemy.Rover || typeOfEnnemy != TypeOfEnnemy.Démolisseur) && typeOfEnnemy != TypeOfEnnemy.Drone)
-            {
-                bigExplo.SetActive(false);
-                lowExplo.SetActive(true);
-
-                SingletonAudioSource.Instance.soundmanager.setValues(GameManager.Instance.ExtraSounds, 16);
-                GameManager.Instance.ExtraSounds.Play();
-            }
-            else
-            {
-                lowExplo.SetActive(false);
-                bigExplo.SetActive(true);
+                Instantiate(bigExplo, transform.position, Quaternion.identity);
+              
 
                 SingletonAudioSource.Instance.soundmanager.setValues(GameManager.Instance.ExtraSounds, 17);
                 GameManager.Instance.ExtraSounds.Play();

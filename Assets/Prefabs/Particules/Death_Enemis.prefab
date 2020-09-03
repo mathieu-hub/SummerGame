@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1099621851029562244}
   - component: {fileID: 4223344163074434726}
   - component: {fileID: 5060992981353978573}
+  - component: {fileID: 2871012937412602707}
   m_Layer: 0
   m_Name: Death_Enemis
   m_TagString: Untagged
@@ -4755,6 +4756,19 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &2871012937412602707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2848690599750656989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28b70ef5f02c1b44bb72f86086312f11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 1
 --- !u!1 &4085942062350016334
 GameObject:
   m_ObjectHideFlags: 0

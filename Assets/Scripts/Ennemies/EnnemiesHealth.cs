@@ -174,6 +174,8 @@ namespace Ennemies
             //low
             if( typeOfEnnemy == TypeOfEnnemy.Soldonaute || typeOfEnnemy == TypeOfEnnemy.SpaceScoot || typeOfEnnemy == TypeOfEnnemy.Carboniseur || typeOfEnnemy == TypeOfEnnemy.Trooper)
             {
+
+                lowExplo.SetActive(true);
                 Instantiate(lowExplo, transform.position, Quaternion.identity);
 
                 SingletonAudioSource.Instance.soundmanager.setValues(GameManager.Instance.ExtraSounds, 16);
@@ -181,7 +183,7 @@ namespace Ennemies
             }
             else //big 
             {
-
+                bigExplo.SetActive(true);
                 Instantiate(bigExplo, transform.position, Quaternion.identity);
               
 

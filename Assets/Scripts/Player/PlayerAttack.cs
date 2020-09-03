@@ -18,6 +18,7 @@ namespace Player
         public bool isLoadingAttack = false;
         public bool isAttacking = false;
         public bool needToCharge = false;
+        public bool canAttack = true;
 
         [Header("Floats")]
         [SerializeField] public float loadingTime;
@@ -26,6 +27,7 @@ namespace Player
         [SerializeField] private int firstLevel;
         [SerializeField] private int secondLevel;
         [HideInInspector] public int lastNumberOfVegetablesEat = 0;
+        [SerializeField] private float cooldown;
 
         [Header("AttackPosition")]
         [SerializeField] public GameObject instantiatePosition;
@@ -41,19 +43,21 @@ namespace Player
 
         void Update()
         {
-            if (Input.GetButtonDown("Right_Bumper") && GameManager.Instance.vegetablesCount >=1 && PlayerManager.Instance.controller.needToStop == false)
+            if (Input.GetButtonDown("Right_Bumper") && canAttack)
             {
+                canAttack = false;
                 Debug.Log("Called");
                 isLoadingAttack = true;
                 lastNumberOfVegetablesEat = 0;
                 isAttacking = true;
                 needToCharge = true;
-                GameManager.Instance.vegetablesCount -= 1;
+               
                 numberOfVegetablesEat = 1;
             }
 
-            if (Input.GetButtonUp("Right_Bumper") )
+            if (Input.GetButtonUp("Right_Bumper"))
             {
+                
                 isLoadingAttack = false;
                 PlayerManager.Instance.controller.moveSpeed = PlayerManager.Instance.controller.initialMoveSpeed;
             }
@@ -89,7 +93,7 @@ namespace Player
             }
             else if (needToCharge)
             {
-                loadingTime += 0.5f;
+                loadingTime += 0.2f;
             }
 
             if(loadingTime >= maxLoadingTime)
@@ -101,15 +105,14 @@ namespace Player
 
         void Eating()
         {
-            if(loadingTime >= firstLevel && numberOfVegetablesEat == 1 && GameManager.Instance.vegetablesCount >= 1)
+            if(loadingTime >= firstLevel && numberOfVegetablesEat == 1)
             {
-                GameManager.Instance.vegetablesCount -= 1;
                 numberOfVegetablesEat = 2;
             }
 
-            if (loadingTime >= secondLevel && numberOfVegetablesEat == 2 && GameManager.Instance.vegetablesCount >= 1)
+            if (loadingTime >= secondLevel && numberOfVegetablesEat == 2)
             {
-                GameManager.Instance.vegetablesCount -= 1;
+                
                 numberOfVegetablesEat = 3;
             }
 
@@ -131,12 +134,14 @@ namespace Player
                 //Instantiate
                 Debug.Log("Gros bullet");
             }
+
             SingletonAudioSource.Instance.soundmanager.setValues(PlayerManager.Instance.audioSource, 34);
             PlayerManager.Instance.audioSource.Play();
 
             Instantiate(bullet, instantiatePosition.transform.position, Quaternion.identity);
             lastNumberOfVegetablesEat = numberOfVegetablesEat;
             Initialisation();
+            StartCoroutine(Cooldown());
         }
 
         void Initialisation()
@@ -145,10 +150,31 @@ namespace Player
             isLoadingAttack = false;
             isAttacking = false;
             needToCharge = false;
-            loadingTime = 0;
+          
             maxLoadingTime = 100;
             numberOfVegetablesEat = 0;
             
+        }
+
+        IEnumerator Cooldown()
+        {
+            
+
+            if(loadingTime > 0)
+            {
+                loadingTime -= 3f;
+                yield return new WaitForSeconds(0.1f);
+                StartCoroutine(Cooldown());
+            }
+            else
+            {
+                loadingTime = 0;
+                canAttack = true;
+            }
+
+
+
+          
         }
         
     }

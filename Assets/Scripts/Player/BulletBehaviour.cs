@@ -115,6 +115,8 @@ namespace Bullet
             {
                 circleCol.radius = storedRadiuslevel1;
                 Debug.Log(circleCol.radius);
+
+                damages = 1;
                 
             }
             if (PlayerManager.Instance.attack.lastNumberOfVegetablesEat == 2)
@@ -122,12 +124,15 @@ namespace Bullet
                 circleCol.radius = storedRadiuslevel2;
                 Debug.Log(circleCol.radius);
 
+                damages = 4;
+
             }
             if (PlayerManager.Instance.attack.lastNumberOfVegetablesEat == 3)
             {
                 circleCol.radius = storedRadiuslevel3;
                 Debug.Log(circleCol.radius);
 
+                damages = 10;
             }
 
             circleCol.enabled = false;

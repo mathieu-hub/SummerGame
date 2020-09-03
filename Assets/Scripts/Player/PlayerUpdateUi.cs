@@ -11,9 +11,7 @@ namespace Player
     {
 
         [SerializeField] private Image attackbar;
-        [SerializeField] private Image vegetable1;
-        [SerializeField] private Image vegetable2;
-        [SerializeField] private Image vegetable3;
+      
         [SerializeField] private Color stockColor;
 
 
@@ -22,9 +20,7 @@ namespace Player
         {
             stockColor = attackbar.color;
 
-            vegetable1.enabled = false;
-            vegetable2.enabled = false;
-            vegetable3.enabled = false;
+           
 
         }
 
@@ -33,27 +29,7 @@ namespace Player
         {
             attackbar.fillAmount = (float) PlayerManager.Instance.attack.loadingTime / (float) PlayerManager.Instance.attack.maxLoadingTime;
 
-            if (PlayerManager.Instance.attack.isLoadingAttack)
-            {
-                if (PlayerManager.Instance.attack.numberOfVegetablesEat == 1)
-                {
-                    vegetable1.enabled = true;
-                }
-                if (PlayerManager.Instance.attack.numberOfVegetablesEat == 2)
-                {
-                    vegetable2.enabled = true;
-                }
-                if (PlayerManager.Instance.attack.numberOfVegetablesEat == 3)
-                {
-                    vegetable3.enabled = true;
-                }
-            }
-            else
-            {
-                vegetable1.enabled = false;
-                vegetable2.enabled = false;
-                vegetable3.enabled = false;
-            }
+            
 
 
             if (PlayerManager.Instance.attack.isAttacking && PlayerManager.Instance.attack.needToCharge == false)

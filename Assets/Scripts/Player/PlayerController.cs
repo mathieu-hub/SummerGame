@@ -17,7 +17,7 @@ namespace Player
         [SerializeField] public float moveSpeed;
         [Range(100f, 1000f)]
         [SerializeField] public float initialMoveSpeed;
-        [Range(100f, 1000f)]
+        [Range(25f, 1000f)]
         [SerializeField] public float loadingMoveSpeed;
 
         [Header("Bools")]

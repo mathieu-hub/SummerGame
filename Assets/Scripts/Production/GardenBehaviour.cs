@@ -81,7 +81,7 @@ namespace Production
                 print(timer.time);
             }*/
 
-            if (Input.GetButtonDown("A_Button") && playerHere){
+            if (Input.GetButtonDown("A_Button") && playerHere && storedVegetable > 0){
                 GetProduction();
             }
 

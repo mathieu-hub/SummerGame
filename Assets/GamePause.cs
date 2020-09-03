@@ -9,13 +9,13 @@ namespace Management
     {
 
         [SerializeField] private Image pauseMenu;
-        public Slider pauseSliderVolume;
+        public GameObject pauseSliderVolume;
 
 
         private void Start()
         {
-            pauseSliderVolume.value = SingletonAudioSource.Instance.soundmanager.volumeManager;
-            pauseSliderVolume.enabled = false;
+            pauseSliderVolume.GetComponent<Slider>().value = SingletonAudioSource.Instance.soundmanager.volumeManager;
+            pauseSliderVolume.SetActive(false);
         }
 
         // Update is called once per frame
@@ -25,18 +25,20 @@ namespace Management
             {
                 EnterInPauseMenu();
                 GameManager.Instance.inPause = true;
-                pauseSliderVolume.enabled = true;
+                pauseSliderVolume.SetActive(true);
                 //Son
             }
             else if (Input.GetButtonDown("Start_Button") && GameManager.Instance.inPause == true)
             {
                 LeavingPauseMenu();
                 GameManager.Instance.inPause = false;
-                pauseSliderVolume.enabled = false;
+                pauseSliderVolume.SetActive(false);
 
             }
 
-            SingletonAudioSource.Instance.soundmanager.volumeManager = pauseSliderVolume.value;
+            SingletonAudioSource.Instance.soundmanager.volumeManager = pauseSliderVolume.GetComponent<Slider>().value;
+
+            SingletonAudioSource.Instance.soundmanager.GetComponent<AudioSource>().volume = pauseSliderVolume.GetComponent<Slider>().value;
 
 
         }

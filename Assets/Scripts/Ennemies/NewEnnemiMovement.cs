@@ -826,6 +826,8 @@ namespace Ennemies
                 {
                     SingletonAudioSource.Instance.soundmanager.setValues(audioSource, 10);
                     audioSource.Play();
+
+                   
                 }
 
                 if (typeOfEnnemy == TypeOfEnnemy.Soldonaute)

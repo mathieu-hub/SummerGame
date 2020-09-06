@@ -39,31 +39,31 @@ namespace Ennemies
             }
             else if (typeOfEnnemy == TypeOfEnnemy.Soldonaute)
             {
-                maxHealth = 20;
+                maxHealth = 3;
             }
             else if (typeOfEnnemy == TypeOfEnnemy.SpaceScoot)
             {
-                maxHealth = 10;
+                maxHealth = 2;
             }
             else if (typeOfEnnemy == TypeOfEnnemy.Démolisseur)
             {
-                maxHealth = 50;
+                maxHealth = 5;
             }
             else if (typeOfEnnemy == TypeOfEnnemy.Carboniseur)
             {
-                maxHealth = 30;
+                maxHealth = 5;
             }
             else if (typeOfEnnemy == TypeOfEnnemy.Rover)
             {
-                maxHealth = 45;
+                maxHealth = 10;
             }
             else if (typeOfEnnemy == TypeOfEnnemy.Drone)
             {
-                maxHealth = 15;
+                maxHealth = 1;
             }
             else if (typeOfEnnemy == TypeOfEnnemy.Trooper)
             {
-                maxHealth = 15;
+                maxHealth = 2;
             }
 
             //initialisation des explo

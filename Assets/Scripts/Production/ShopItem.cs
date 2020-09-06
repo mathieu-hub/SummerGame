@@ -80,7 +80,7 @@ public class ShopItem : MonoBehaviour
             PlayerManager.Instance.controller.needToStop = false;
         }
 
-        if (Vector3.Distance(PlayerManager.Instance.transform.position, gameObject.transform.position) < 2.5 && pulled)
+        if (Vector3.Distance(PlayerManager.Instance.transform.position, gameObject.transform.position) < 2 && pulled)
         {
             AButton.SetActive(true);
 
@@ -187,12 +187,12 @@ public class ShopItem : MonoBehaviour
         }
         if (currentIndex == 3)
         {
-            GameManager.Instance.pigsCount -= 1;
+            GameManager.Instance.horsesCount -= 1;
             UpdateWeight();
         }
         if (currentIndex == 2)
         {
-            GameManager.Instance.horsesCount -= 1;
+            GameManager.Instance.pigsCount -= 1;
             UpdateWeight();
 
         }
@@ -310,7 +310,7 @@ public class ShopItem : MonoBehaviour
             SecondEffects();
             
             GameManager.Instance.vegetablesCount -= vegetablesCost;
-            gameObject.SetActive(false);
+            Destroy(gameObject);
 
             SingletonAudioSource.Instance.soundmanager.setValues(audioSource, 23);
             audioSource.Play();
@@ -439,18 +439,23 @@ public class ShopItem : MonoBehaviour
             if (needToChange)
             {
                 needToChange = false;
-                currentIndex += modifierIndex;
 
-                if (currentIndex <= 0)
+                if((currentIndex == 0 && modifierIndex == -1) || (modifierIndex == +1 && currentIndex == 3))
                 {
-                    currentIndex = 0;
+                    modifierIndex = 0;
+                        return;
                 }
-                if (currentIndex >= 4)
+                else
                 {
-                    currentIndex = 4;
+                    currentIndex += modifierIndex;
+                    modifierIndex = 0;
                 }
 
-                modifierIndex = 0;
+                
+
+                
+
+               
             }
         }
 

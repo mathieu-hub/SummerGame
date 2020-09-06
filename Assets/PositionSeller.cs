@@ -24,7 +24,7 @@ public class PositionSeller : MonoBehaviour
         if (placed && storedItem == null)
         {
             
-                sprRenderer.enabled = true;
+          sprRenderer.enabled = true;
             
            
         }

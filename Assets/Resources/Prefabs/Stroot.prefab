@@ -3280,7 +3280,7 @@ MonoBehaviour:
   upgradeFireRate: 0200000004000000
   upgradeHpMax: 010000000200000003000000
   currentHp: 1
-  maxHp: 1
+  maxHp: 3
   canvas: {fileID: 313679602604139190}
   UIturretName: {fileID: 15912345355198955}
   UIRange: {fileID: 8981289192681152635}

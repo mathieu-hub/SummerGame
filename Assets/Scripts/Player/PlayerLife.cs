@@ -120,7 +120,7 @@ namespace Player
             //cooldown.Play();
             PlayerManager.Instance.controller.playerDead = true;
             GameCanvasManager.Instance.blackScreen.startFadingIN();
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(1f);
             PlayerManager.Instance.transform.position = GameManager.Instance.respawnPoint.transform.position;
         }
     }

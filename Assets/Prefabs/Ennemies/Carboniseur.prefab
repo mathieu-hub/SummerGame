@@ -171,6 +171,7 @@ MonoBehaviour:
   turretTarget: {fileID: 0}
   turretTargetL: {fileID: 0}
   turretTargetR: {fileID: 0}
+  attackGO: {fileID: 3793689550007857312}
   droneStation: {fileID: 0}
   droneIsInStation: 0
   audioSource: {fileID: 0}
@@ -566,6 +567,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2447668e055994e44866f994f15a26e7, type: 3}
+--- !u!1 &3793689550007857312 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3329851823327830361, guid: 2447668e055994e44866f994f15a26e7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1915127276852220409}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &9130726889131637674 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7216241761436068435, guid: 2447668e055994e44866f994f15a26e7,

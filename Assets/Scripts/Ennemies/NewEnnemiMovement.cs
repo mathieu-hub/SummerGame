@@ -58,6 +58,8 @@ namespace Ennemies
         public GameObject turretTargetL = null;
         public GameObject turretTargetR = null;
 
+        public GameObject attackGO;
+
         //DroneStation
         public Transform droneStation = null;
         public bool droneIsInStation = false;
@@ -106,6 +108,10 @@ namespace Ennemies
             {
                 projectile = null;
                 targetToShoot = null;
+            }
+            else
+            {
+                attackGO = null;
             }
         }
 
@@ -785,9 +791,11 @@ namespace Ennemies
                 {
                     SingletonAudioSource.Instance.soundmanager.setValues(gameObject.GetComponent<AudioSource>(), 10);
                     gameObject.GetComponent<AudioSource>().Play();
+                    attackGO.SetActive(true);
                 }
                 else if (typeOfEnnemy == TypeOfEnnemy.Démolisseur)
                 {
+                    attackGO.SetActive(true);
                     SingletonAudioSource.Instance.soundmanager.setValues(gameObject.GetComponent<AudioSource>(), 11);
                     gameObject.GetComponent<AudioSource>().Play();
                 }
@@ -798,16 +806,16 @@ namespace Ennemies
                 }
                 else if (typeOfEnnemy == TypeOfEnnemy.Soldonaute)
                 {
+                    attackGO.SetActive(true);
                     SingletonAudioSource.Instance.soundmanager.setValues(gameObject.GetComponent<AudioSource>(), 12);
                     gameObject.GetComponent<AudioSource>().Play();
                 }
-
-
 
                 canMakeDamage = false;
                 doingDamage = true;
                 SiloLife.lives -= ennemyDamage;
                 yield return new WaitForSeconds(0.3f);
+                attackGO.SetActive(false);
                 canMakeDamage = true;
                 doingDamage = false;
             }
@@ -827,19 +835,21 @@ namespace Ennemies
                     SingletonAudioSource.Instance.soundmanager.setValues(audioSource, 10);
                     audioSource.Play();
 
-                   
+                    attackGO.SetActive(true);
                 }
 
                 if (typeOfEnnemy == TypeOfEnnemy.Soldonaute)
                 {
                     SingletonAudioSource.Instance.soundmanager.setValues(audioSource, 12);
                     audioSource.Play();
+                    attackGO.SetActive(true);
                 }
 
                 if (typeOfEnnemy == TypeOfEnnemy.Rover)
                 {
                     SingletonAudioSource.Instance.soundmanager.setValues(audioSource, 12);
                     audioSource.Play();
+                    attackGO.SetActive(true);
                 }
 
 
@@ -851,6 +861,7 @@ namespace Ennemies
                 rempartTarget.GetComponent<RempartTest>().currentHealth -= ennemyDamage;
 
                 yield return new WaitForSeconds(0.3f);
+                attackGO.SetActive(false);
                 doingDamage = false;
                 canMakeDamage = true;
                 shooting = false;
@@ -892,6 +903,13 @@ namespace Ennemies
                 shooting = true;
                 spriteRend.color = startColor;
 
+                if (typeOfEnnemy == TypeOfEnnemy.Rover)
+                {
+                    SingletonAudioSource.Instance.soundmanager.setValues(audioSource, 12);
+                    audioSource.Play();
+                    attackGO.SetActive(true);
+                }
+
                 Debug.Log("A l'attaque");
                 doingDamage = true;
                 turretTarget.GetComponent<TurretParent>().currentHp -= ennemyDamage;
@@ -901,23 +919,9 @@ namespace Ennemies
                 canMakeDamage = true;
                 shooting = false;
 
-                if (typeOfEnnemy == TypeOfEnnemy.Carboniseur)
-                {
-                    SingletonAudioSource.Instance.soundmanager.setValues(audioSource, 10);
-                    audioSource.Play();
-                }
+                
 
-                if (typeOfEnnemy == TypeOfEnnemy.Soldonaute)
-                {
-                    SingletonAudioSource.Instance.soundmanager.setValues(audioSource, 12);
-                    audioSource.Play();
-                }
-
-                if (typeOfEnnemy == TypeOfEnnemy.Rover)
-                {
-                    SingletonAudioSource.Instance.soundmanager.setValues(audioSource, 12);
-                    audioSource.Play();
-                }
+               
 
 
             }

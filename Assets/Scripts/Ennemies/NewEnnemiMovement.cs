@@ -547,7 +547,7 @@ namespace Ennemies
             else if (typeOfEnnemy == TypeOfEnnemy.Soldonaute)
             {
                 initialspeed = 5f;
-                ennemyDamage = 20;
+                ennemyDamage = 2;
                 speedAttack = 5;
                 canAttackTurret = false;
                 canAttackRempart = true;
@@ -556,7 +556,7 @@ namespace Ennemies
             else if (typeOfEnnemy == TypeOfEnnemy.SpaceScoot)
             {
                 initialspeed = 5f;
-                ennemyDamage = 20;
+                ennemyDamage = 1;
                 speedAttack = 5;
                 canAttackTurret = true;
                 canAttackRempart = false;
@@ -565,7 +565,7 @@ namespace Ennemies
             else if (typeOfEnnemy == TypeOfEnnemy.Démolisseur)
             {
                 initialspeed = 3f;
-                ennemyDamage = 20;
+                ennemyDamage = 4;
                 speedAttack = 5;
                 canAttackTurret = false;
                 canAttackRempart = false;
@@ -575,7 +575,7 @@ namespace Ennemies
             else if (typeOfEnnemy == TypeOfEnnemy.Carboniseur)
             {
                 initialspeed = 5f;
-                ennemyDamage = 20;
+                ennemyDamage = 3;
                 speedAttack = 5;
                 canAttackTurret = false;
                 canAttackRempart = true;
@@ -584,7 +584,7 @@ namespace Ennemies
             else if (typeOfEnnemy == TypeOfEnnemy.Rover)
             {
                 initialspeed = 3f;
-                ennemyDamage = 20;
+                ennemyDamage = 7;
                 speedAttack = 5;
                 canAttackTurret = true;
                 canAttackRempart = true;

@@ -122,6 +122,7 @@ namespace Player
             GameCanvasManager.Instance.blackScreen.startFadingIN();
             yield return new WaitForSeconds(1f);
             PlayerManager.Instance.transform.position = GameManager.Instance.respawnPoint.transform.position;
+            animator.SetBool("isDead", false);
         }
     }
 

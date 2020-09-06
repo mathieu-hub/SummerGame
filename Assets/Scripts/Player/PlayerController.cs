@@ -36,7 +36,7 @@ namespace Player
         public Vector2 movementVector = Vector2.zero;
 
         [Header("Animator")]
-        public Transform sprite;
+        public GameObject sprite;
         public Animator animator;
         #endregion
 
@@ -47,12 +47,17 @@ namespace Player
             //anim = gameObject.GetComponent<Animator>();
         }
 
+        private void Update()
+        {
+            ChooseSide();
+        }
+
         // Update is called once per frame
         void FixedUpdate()
         {
             MoveInput();
             Move();
-            ChooseSide();
+       
             animator.SetFloat("Vertical", movementVector.y);
         }
 
@@ -93,13 +98,15 @@ namespace Player
 
         void ChooseSide()
         {
-            if (horizontal > 0)
+            if (horizontal > 0.1)
             {
-                sprite.transform.localScale = new Vector3(-0.2f, sprite.transform.localScale.y, sprite.transform.localScale.z);
+                sprite.GetComponent<SpriteRenderer>().flipX = true;
+                
             }
             else
             {
-                sprite.transform.localScale = new Vector3(0.2f, sprite.transform.localScale.y, sprite.transform.localScale.z);
+                Debug.Log("flip gauche");
+                sprite.GetComponent<SpriteRenderer>().flipX = false;
             }
 
         }

@@ -16972,62 +16972,6 @@ MonoBehaviour:
     maxEnnemy03: 1
     maxEnnemy04: 1
     maxEnnemy05: 1
-  - ennemy:
-    - {fileID: 3479738152389992204, guid: 8494921125d1bb74d8d72d69f83fb474, type: 3}
-    - {fileID: 3479738152389992204, guid: 8494921125d1bb74d8d72d69f83fb474, type: 3}
-    - {fileID: 3479738152389992204, guid: 8494921125d1bb74d8d72d69f83fb474, type: 3}
-    - {fileID: 3479738152389992204, guid: 8494921125d1bb74d8d72d69f83fb474, type: 3}
-    - {fileID: 3479738152389992204, guid: 8494921125d1bb74d8d72d69f83fb474, type: 3}
-    - {fileID: 3479738152389992204, guid: 8494921125d1bb74d8d72d69f83fb474, type: 3}
-    count: 1
-    rate: 1
-    maxEnnemy01: 1
-    maxEnnemy02: 1
-    maxEnnemy03: 1
-    maxEnnemy04: 1
-    maxEnnemy05: 1
-  - ennemy:
-    - {fileID: 3479738152389992204, guid: 8494921125d1bb74d8d72d69f83fb474, type: 3}
-    - {fileID: 3479738152389992204, guid: 8494921125d1bb74d8d72d69f83fb474, type: 3}
-    - {fileID: 3479738152389992204, guid: 8494921125d1bb74d8d72d69f83fb474, type: 3}
-    - {fileID: 3479738152389992204, guid: 8494921125d1bb74d8d72d69f83fb474, type: 3}
-    - {fileID: 3479738152389992204, guid: 8494921125d1bb74d8d72d69f83fb474, type: 3}
-    - {fileID: 3479738152389992204, guid: 8494921125d1bb74d8d72d69f83fb474, type: 3}
-    count: 1
-    rate: 1
-    maxEnnemy01: 1
-    maxEnnemy02: 1
-    maxEnnemy03: 1
-    maxEnnemy04: 1
-    maxEnnemy05: 1
-  - ennemy:
-    - {fileID: 3479738152389992204, guid: 8494921125d1bb74d8d72d69f83fb474, type: 3}
-    - {fileID: 3479738152389992204, guid: 8494921125d1bb74d8d72d69f83fb474, type: 3}
-    - {fileID: 3479738152389992204, guid: 8494921125d1bb74d8d72d69f83fb474, type: 3}
-    - {fileID: 3479738152389992204, guid: 8494921125d1bb74d8d72d69f83fb474, type: 3}
-    - {fileID: 3479738152389992204, guid: 8494921125d1bb74d8d72d69f83fb474, type: 3}
-    - {fileID: 3479738152389992204, guid: 8494921125d1bb74d8d72d69f83fb474, type: 3}
-    count: 1
-    rate: 1
-    maxEnnemy01: 1
-    maxEnnemy02: 1
-    maxEnnemy03: 1
-    maxEnnemy04: 1
-    maxEnnemy05: 1
-  - ennemy:
-    - {fileID: 3479738152389992204, guid: 8494921125d1bb74d8d72d69f83fb474, type: 3}
-    - {fileID: 3479738152389992204, guid: 8494921125d1bb74d8d72d69f83fb474, type: 3}
-    - {fileID: 3479738152389992204, guid: 8494921125d1bb74d8d72d69f83fb474, type: 3}
-    - {fileID: 3479738152389992204, guid: 8494921125d1bb74d8d72d69f83fb474, type: 3}
-    - {fileID: 3479738152389992204, guid: 8494921125d1bb74d8d72d69f83fb474, type: 3}
-    - {fileID: 3479738152389992204, guid: 8494921125d1bb74d8d72d69f83fb474, type: 3}
-    count: 1
-    rate: 1
-    maxEnnemy01: 1
-    maxEnnemy02: 1
-    maxEnnemy03: 1
-    maxEnnemy04: 1
-    maxEnnemy05: 1
   ennemyAliveDisplay: 0
   ennemy01Here: 0
   ennemy02Here: 0

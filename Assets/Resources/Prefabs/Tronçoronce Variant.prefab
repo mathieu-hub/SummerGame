@@ -279,22 +279,22 @@ PrefabInstance:
     - target: {fileID: 7817008582870077476, guid: 7962c5a4611a90344a220cbadcddbdac,
         type: 3}
       propertyPath: purinsCost
-      value: 15
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 7817008582870077476, guid: 7962c5a4611a90344a220cbadcddbdac,
         type: 3}
       propertyPath: planCost
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7817008582870077476, guid: 7962c5a4611a90344a220cbadcddbdac,
         type: 3}
       propertyPath: scrapCost
-      value: 3
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 7817008582870077476, guid: 7962c5a4611a90344a220cbadcddbdac,
         type: 3}
       propertyPath: range
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7817008582870077476, guid: 7962c5a4611a90344a220cbadcddbdac,
         type: 3}

@@ -2157,26 +2157,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turretBehaviour: {fileID: 3740806098214938747}
   turretName: "Tron\xE7oronce"
-  purinsCost: 15
-  planCost: 5
-  scrapCost: 3
-  range: 6
+  purinsCost: 17
+  planCost: 10
+  scrapCost: 12
+  range: 4
   damage: 3
   fireRate: 5
   purinSell: {fileID: 7336764599072920736}
   scrapSell: {fileID: 8858093872394123123}
   purinUpgrade: {fileID: 8194146037472018180}
   scrapUpgrade: {fileID: 7484938913735387109}
-  pCost: 050000000a000000
-  sCost: 0000000000000000
+  pCost: 1300000017000000
+  sCost: 0d00000010000000
   currentLevel: 1
   healCost: 1
   needToHeal: 0
-  upgradeRange: 050000000a000000
-  upgradeDamages: 050000000a000000
+  upgradeRange: 0400000005000000
+  upgradeDamages: 0400000005000000
   upgradeFireRate: 050000000a000000
-  upgradeHpMax: 040000000600000008000000
-  currentHp: 1
+  upgradeHpMax: 040000000400000005000000
+  currentHp: 4
   maxHp: 4
   canvas: {fileID: 3244924146804275877}
   UIturretName: {fileID: 3615645485252241414}

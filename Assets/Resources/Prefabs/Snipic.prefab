@@ -2051,10 +2051,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3d29f30c58d04a46ac2449d3ea0351f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 15
-  damage: 35
+  range: 3
+  damage: 2
   bulletPrefab: {fileID: 0}
-  fireRate: 0.15
+  fireRate: 5
   enemyTag: Enemy
   partToRotate: {fileID: 3638973494703882723}
   turnSpeed: 10
@@ -2074,27 +2074,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turretBehaviour: {fileID: 6297018464142453760}
   turretName: Snipic
-  purinsCost: 15
-  planCost: 5
-  scrapCost: 3
-  range: 6
-  damage: 3
+  purinsCost: 7
+  planCost: 2
+  scrapCost: 4
+  range: 3
+  damage: 2
   fireRate: 5
   purinSell: {fileID: 6637058492857485844}
   scrapSell: {fileID: 7728033348647815246}
   purinUpgrade: {fileID: 8400421001776660113}
   scrapUpgrade: {fileID: 4258372002671031100}
-  pCost: 050000000a000000
-  sCost: 0000000000000000
+  pCost: 0a0000000d000000
+  sCost: 0500000007000000
   currentLevel: 1
   healCost: 1
   needToHeal: 0
   upgradeRange: 050000000a000000
-  upgradeDamages: 050000000a000000
+  upgradeDamages: 0200000003000000
   upgradeFireRate: 050000000a000000
-  upgradeHpMax: 010000000200000003000000
-  currentHp: 1
-  maxHp: 1
+  upgradeHpMax: 020000000300000004000000
+  currentHp: 2
+  maxHp: 2
   canvas: {fileID: 1426757920535811017}
   UIturretName: {fileID: 871949259492591023}
   UIRange: {fileID: 8206343276912736691}

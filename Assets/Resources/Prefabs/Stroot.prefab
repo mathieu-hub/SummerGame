@@ -3264,22 +3264,22 @@ MonoBehaviour:
   planCost: 0
   scrapCost: 0
   range: 2
-  damage: 4
+  damage: 1
   fireRate: 5
   purinSell: {fileID: 6410142251866606911}
   scrapSell: {fileID: 4993244519732437463}
   purinUpgrade: {fileID: 2410160010582360116}
   scrapUpgrade: {fileID: 3838082891824347867}
-  pCost: 050000000a000000
-  sCost: 0000000000000000
+  pCost: 060000000a000000
+  sCost: 0200000006000000
   currentLevel: 1
   healCost: 1
   needToHeal: 0
   upgradeRange: 050000000a000000
-  upgradeDamages: 050000000a000000
+  upgradeDamages: 0200000003000000
   upgradeFireRate: 0200000004000000
-  upgradeHpMax: 010000000200000003000000
-  currentHp: 1
+  upgradeHpMax: 030000000300000004000000
+  currentHp: 3
   maxHp: 3
   canvas: {fileID: 313679602604139190}
   UIturretName: {fileID: 15912345355198955}

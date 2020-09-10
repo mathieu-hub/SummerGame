@@ -4614,11 +4614,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff8cd2051936ecf44aa9a79ad77fcd44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 15
+  range: 2
   damage: 2
   bulletPrefab: {fileID: 3152970004767493502, guid: 54c156616239c5540917483e08d633f3,
     type: 3}
-  fireRate: 1
+  fireRate: 5
   enemyTag: Enemy
   partToRotate: {fileID: 8655896258678152302}
   turnSpeed: 10
@@ -4642,27 +4642,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turretBehaviour: {fileID: 630525793181215313}
   turretName: Invasive
-  purinsCost: 5
-  planCost: 0
-  scrapCost: 0
+  purinsCost: 9
+  planCost: 5
+  scrapCost: 6
   range: 2
-  damage: 4
+  damage: 2
   fireRate: 5
   purinSell: {fileID: 9170518139806725919}
   scrapSell: {fileID: 7132240198965828599}
   purinUpgrade: {fileID: 487448696914639380}
   scrapUpgrade: {fileID: 1365368923674788091}
-  pCost: 050000000a000000
-  sCost: 0000000000000000
+  pCost: 0b0000000e000000
+  sCost: 080000000a000000
   currentLevel: 1
   healCost: 1
   needToHeal: 0
-  upgradeRange: 050000000a000000
-  upgradeDamages: 050000000a000000
-  upgradeFireRate: 0200000004000000
-  upgradeHpMax: 010000000200000003000000
-  currentHp: 1
-  maxHp: 1
+  upgradeRange: 0200000003000000
+  upgradeDamages: 0300000004000000
+  upgradeFireRate: 0500000005000000
+  upgradeHpMax: 030000000300000003000000
+  currentHp: 3
+  maxHp: 3
   canvas: {fileID: 2588221975840069782}
   UIturretName: {fileID: 2849045677281860555}
   UIRange: {fileID: 6562498015173499483}

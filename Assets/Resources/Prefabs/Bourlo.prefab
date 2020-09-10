@@ -200,11 +200,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0366d89f41e91744783872d597b1b034, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 11.1
-  damage: 25
+  range: 5
+  damage: 2
   bulletPrefab: {fileID: 4838266318263727328, guid: 09f88521291248d48878873fafc15956,
     type: 3}
-  fireRate: 0.128
+  fireRate: 3
   enemyTag: Enemy
   partToRotate: {fileID: 22000754881758355}
   turnSpeed: 25
@@ -224,27 +224,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turretBehaviour: {fileID: 22000753941346235}
   turretName: Bourlot
-  purinsCost: 10
-  planCost: 3
-  scrapCost: 2
-  range: 4
-  damage: 3
-  fireRate: 2
+  purinsCost: 15
+  planCost: 7
+  scrapCost: 9
+  range: 5
+  damage: 1
+  fireRate: 3
   purinSell: {fileID: 8946057923488876939}
   scrapSell: {fileID: 2488389181768119098}
   purinUpgrade: {fileID: 4810555142890786548}
   scrapUpgrade: {fileID: 6307234953374190281}
-  pCost: 050000000a000000
-  sCost: 0000000000000000
+  pCost: 1200000014000000
+  sCost: 0c0000000e000000
   currentLevel: 1
   healCost: 1
   needToHeal: 0
   upgradeRange: 050000000a000000
-  upgradeDamages: 050000000a000000
-  upgradeFireRate: 0300000005000000
-  upgradeHpMax: 040000000600000008000000
-  currentHp: 1
-  maxHp: 4
+  upgradeDamages: 0200000004000000
+  upgradeFireRate: 0300000004000000
+  upgradeHpMax: 050000000600000008000000
+  currentHp: 5
+  maxHp: 5
   canvas: {fileID: 7395678775605086356}
   UIturretName: {fileID: 4177019227934529203}
   UIRange: {fileID: 6581086931012162122}

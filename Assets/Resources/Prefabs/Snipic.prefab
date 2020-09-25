@@ -2077,7 +2077,7 @@ MonoBehaviour:
   purinsCost: 7
   planCost: 2
   scrapCost: 4
-  range: 3
+  range: 5
   damage: 2
   fireRate: 5
   purinSell: {fileID: 6637058492857485844}

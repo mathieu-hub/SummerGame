@@ -3263,7 +3263,7 @@ MonoBehaviour:
   purinsCost: 5
   planCost: 0
   scrapCost: 0
-  range: 2
+  range: 5
   damage: 1
   fireRate: 5
   purinSell: {fileID: 6410142251866606911}
@@ -3275,7 +3275,7 @@ MonoBehaviour:
   currentLevel: 1
   healCost: 1
   needToHeal: 0
-  upgradeRange: 050000000a000000
+  upgradeRange: 080000000a000000
   upgradeDamages: 0200000003000000
   upgradeFireRate: 0200000004000000
   upgradeHpMax: 030000000300000004000000
